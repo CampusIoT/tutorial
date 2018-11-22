@@ -1,4 +1,6 @@
-# CampusIoT :: NodeRED :: Tutorial
+# CampusIoT :: NodeRED :: Tutoriel :fr:
+
+[NodeRED](https://nodered.org/) est un canevas de traitement de flots de données. Il permet la programmation visuelle des chaines de traitement de données. Il est très populaire pour le prototypage d'applications IoT.
 
 ## Etape 0: Prérequis
 Installer Docker CE et Docker Compose sur votre machine

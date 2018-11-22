@@ -43,3 +43,22 @@ tail -f $PWD/msg.log
 ```
 ## Etape 2: Journaliser le flot MQTT de messages dans une base time-series InfluxDB avec NodeRed
 TODO
+* https://github.com/CampusIoT/loraserver-docker/blob/master/nodered.yml
+* https://github.com/CampusIoT/loraserver-docker/blob/master/influxdb.yml
+* https://github.com/CampusIoT/payload-codec/tree/master/src/main/javascript
+
+## Etape 3: Visualiser les séries temporelles de la base time-series InfluxDB avec Chronograf
+TODO
+
+## Etape 4: Visualiser les séries temporelles de la base time-series InfluxDB avec Grafana
+TODO
+* https://github.com/CampusIoT/loraserver-docker/blob/master/grafana.yml
+
+## Etape 5: Créer une alerte Mail et SMS avec Kapacitor
+TODO
+
+## Etape 6: Journaliser le flot MQTT de messages dans une base time-series OpenTSDB avec NodeRed
+TODO
+
+## Etape 4: Visualiser les séries temporelles de la base time-series OpenTSDB avec Grafana
+TODO

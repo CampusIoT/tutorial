@@ -51,9 +51,6 @@ Le “`Payload codec`” permet de spécifier (ou non) un codec pour décoder le
 
 Le “`Payload codec`” peut être mis à jour à tout moment. Une erreur dans le code Javascript ou dans l’encodage LPP produit une erreur dans l’onglet “`Live LoRaWAN Frames`”
 
-
-Pour plus d’information https://www.loraserver.io/lora-app-server/use/applications/
-
 > Remarques
 > L’encodage “Cayenne LPP” est spécifié ici https://mydevices.com/cayenne/docs/lora/#lora-cayenne-low-power-payload
 > Les “Custom JavaScript codec functions” ne supportent pas des libraries utiles comme Buffer ...
@@ -66,8 +63,6 @@ Un device OTAA est un endpoint LoRaWAN envoyant le même format de données et p
 
 Créer un device depuis une application créée (`Menu > Applications`) en utilisant les `DevEUI` (64 bits soit 16 caractères hexadécimaux) inscrit sur l’étiquette collée sur le endpoint LoRaWAN ou sur son emballage d’expédition.
 ![Add Device](images/device-add.png)
-
-
 
 Ajouter ensuite l’`AppKey` (AES 128bits soit 32 caractères hexadécimaux) fournie avec le endpoint (étiquette amovible, fichier Excel envoyé par le vendeur, …). Penser à valider l’enregistrement de la clé avec le bouton `Set Device-Keys`.
 ![Set Device Keys](images/device-set-device-keys.png)
@@ -84,6 +79,8 @@ TODO
 
 ### Afficher les messages d’un device
 Afficher (en temps réel) les données envoyées par un device depuis l’onglet “`Live LoRaWAN Frames`” et avec l’onglet “`Live Data Device`” pour les valeurs du payload décodées avec le codec spécifié pour l’application.
+
+![Device Live Frames](images/device-live.png)
 
 > Remarque: le serveur n’archive pas les données. Il faut utiliser l’onglet “Integrations” de l’application.
 
@@ -172,6 +169,10 @@ Créer le “flot” en important le JSON suivant (Menu > Import)
 Editer le noeud mqtt-in en chargant le ca.crt pour la configuration SSL et en configurant le username et password MQTT.
 
 
+![NodeRED](images/nodered.png)
+
+
+
 Afficher le journal des messages avec
 ```
 docker exec -it campusiot-nodered tailf /usr/src/node-red/msg.log
@@ -217,7 +218,7 @@ Le dépôt https://github.com/CampusIoT/loraserver-cli contient des commandes en
 
 ```
 ...
-JWT=$(./get_jwt $USERNAME $PASSWORD)
+JWT=$(./get_jwt.sh $USERNAME $PASSWORD)
 ./add_devices.sh $JWT $APPNAME $PROFILE_NAME devices.csv
 ./add_gateways.sh $JWT $ORGID $NS_NAME $GW_PROFILE_NAME gateways.csv
 ```
@@ -244,6 +245,7 @@ Vous devez déployer un serveur InfluxDB atteignable par le network server pour 
 ### Bonus track : Création d’un groupe multicast
 TODO
 
+![Multicast](images/multicast.png)
 
 
 ### Installation et enregistrement d’une gateway
@@ -261,11 +263,67 @@ La communiquer à xxxx@imag.fr
 Il fournira l’id (gweui), le username et le password de la gateway qui servira à la configuration de 2 composants.
 ### Installation du Semtech lora-pkt-fwd
 #### Sur Kerlink Wirgrid
+TODO
 #### Sur Multitech USB
+TODO
 #### Sur Multitech
+TODO
 #### Sur RPI3 + iC880a
+TODO
+#### Sur RPI3 + Picocell
+TODO
+#### Sur Kerlink Femtocell
+TODO
 
 ### Installation du lora-gateway-bridge
 #### Sur Kerlink Wirgrid
+TODO
 #### Sur Multitech
+TODO
 #### Sur RPI3 + iC880a
+TODO
+#### Sur Kerlink Femtocell
+TODO
+
+### Enregistrement d’une gateway
+https://lora.campusiot.imag.fr/#/organizations/1/gateways/create
+
+Créer une gateway depuis une application créée (Menu > Gateways) en utilisant le GWID (64 bits soit 16 caractères hexadécimaux) fourni. Le GWID est calculé soit à partir de l’adresse MAC de la carte ethernet de la gateway ou à partir de l’identifiant du composant concentrateur SX130x de la gateway. (A noter: une gateway peut avoir plusieurs concentrateurs).
+
+> Remarque: le gain de l’antenne ne peut pas être spécifié via le frontend Web.
+
+### Enregistrement et configuration d’une gateway TDOA.
+TODO
+### Affichage live des frames recus par une gateway
+
+https://lora.campusiot.imag.fr/#/organizations/1/gateways/008000000000ba6a/frames
+
+Une fois enregistrée, les frames reçus par la gateway sont visualisables en temps réel  depuis l’onglet “`Live LoRaWAN Frame`”.
+
+![Gateway Live Frame](images/gateway-live.png)
+
+
+## Administration du service
+### Ajout d’un networkserver
+Cette opération est pour l’administrateur global du service.
+
+![Network server - Add](images/loraserver.png)
+
+Attention à mettre le nom de domaine du container dans la composition `loraserver-docker_loraserver_1:8000`
+
+### Création d’une organization
+Cette opération est pour l’administrateur global du service.
+
+![Organization Create](images/organization-create.png)
+
+
+### Création d’un gateway-profile
+Cette opération est pour l’administrateur d’une organisation
+
+Créer au moins un gateway-profile `DEFAULT` pour l’organisation.
+
+![Gateway Profile](images/gateway-profile-add.png)
+
+
+## Administration du geoserver
+https://www.loraserver.io/lora-geo-server/overview/

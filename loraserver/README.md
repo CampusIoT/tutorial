@@ -23,7 +23,9 @@ Créer (au moins) un device-profile `CLASS_A_OTAA` depuis `Menu > Device-profile
 
 https://lora.campusiot.imag.fr/#/organizations/1/device-profiles
 
-![Device Profile](images/device-profile.png)
+![Device Profile - Create](images/device-profile-create.png)
+
+![Device Profile - Create - OTAA](images/device-profile-create-otaa.png)
 
 [Plus de détails](https://www.loraserver.io/lora-app-server/use/device-profiles/)
 
@@ -32,7 +34,7 @@ Créer un service-profile `DEFAULT` depuis `Menu > Service-profiles > + Create`
 
 https://lora.campusiot.imag.fr/#/organizations/1/service-profiles
 
-![Service Profile](images/service-profile.png)
+![Service Profile](images/service-profile-create.png)
 
 [Plus de détails](https://www.loraserver.io/lora-app-server/use/service-profiles/)
 

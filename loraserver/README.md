@@ -90,7 +90,7 @@ Afficher (en temps réel) les données envoyées par un device depuis l’onglet
 ### Récupérer les flots MQTT de messages
 MQTT est le moyen par défaut pour récupérer les messages envoyés par les devices.
 
-Le flot de messages envoyés par les devices des applications peut récupérer via des clients MQTT comme mosquitto_sub (en ligne de commande), mqtt-spy, mqtt-lens pour Chrome ...
+Le flot de messages envoyés par les devices des applications peut récupérer via des clients MQTT comme mosquitto_sub (en ligne de commande), [mqtt-spy](https://kamilfb.github.io/mqtt-spy/), [mqtt-lens](https://chrome.google.com/webstore/detail/mqttlens/hemojaaeigabkbcookmlgmdigohjobjm) pour Chrome ...
 
 Installer `mosquitto_sub` avec
 ```

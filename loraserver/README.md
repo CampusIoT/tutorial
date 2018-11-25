@@ -146,3 +146,126 @@ Dans l’exemple, le message est “Hello CampusIoT !”
 echo `echo SGVsbG8gQ2FtcHVzSW9UICE= | base64 --decode`
 echo "Hello CampusIoT !" | base64
 ```
+
+
+
+### Journaliser le flot MQTT de messages dans un fichier avec mqtt-logger
+Voir https://github.com/CampusIoT/tutorial/blob/master/mqtt-logger/README.md
+
+
+### Journaliser le flot MQTT de messages dans un fichier avec NodeRed
+Lancer NodeRed avec Docker (sur votre machine)
+```
+docker run -it -p 1880:1880 --name campusiot-nodered nodered/node-red-docker
+```
+
+Ouvrir l’interface de NodeRed dans un navigateur Web
+```
+open http://127.0.0.1:1880
+```
+
+Créer le “flot” en important le JSON suivant (Menu > Import)
+```
+[{"id":"9d6b9737.6ee6a8","type":"mqtt in","z":"b3a2df4.51c83a","name":"campusiot","topic":"#","qos":"2","broker":"61ca344b.cfb484","x":210,"y":180,"wires":[["7fea5047.da2c5","4ece3642.56654"]]},{"id":"7fea5047.da2c5","type":"debug","z":"b3a2df4.51c83a","name":"","active":true,"tosidebar":true,"console":false,"tostatus":false,"complete":"false","x":510,"y":180,"wires":[]},{"id":"4ece3642.56654","type":"file","z":"b3a2df4.51c83a","name":"msg.log","filename":"msg.log","appendNewline":true,"createDir":true,"overwriteFile":"false","x":500,"y":260,"wires":[[]]},{"id":"61ca344b.cfb484","type":"mqtt-broker","z":"","name":"campusiot","broker":"lora.campusiot.imag.fr","port":"8883","tls":"11b0c2f3.c55f2d","clientid":"","usetls":true,"compatmode":true,"keepalive":"60","cleansession":true,"birthTopic":"","birthQos":"0","birthPayload":"","closeTopic":"","closeQos":"0","closePayload":"","willTopic":"","willQos":"0","willPayload":""},{"id":"11b0c2f3.c55f2d","type":"tls-config","z":"","name":"","cert":"","key":"","ca":"","certname":"","keyname":"","caname":"ca.crt","servername":"","verifyservercert":false}]
+```
+
+Editer le noeud mqtt-in en chargant le ca.crt pour la configuration SSL et en configurant le username et password MQTT.
+
+
+Afficher le journal des messages avec
+```
+docker exec -it campusiot-nodered tailf /usr/src/node-red/msg.log
+```
+
+Remarque : Vous pouvez monter un volume local pour rendre persistant le journal dans votre répertoire courant. -v $PWD/msg.log:/usr/src/node-red/msg.log
+
+```
+touch $PWD/msg.log
+docker run -d -p 1880:1880 -v $PWD/msg.log:/usr/src/node-red/msg.log --name campusiot-nodered nodered/node-red-docker
+
+tail -f $PWD/msg.log
+```
+
+### Journaliser le flot MQTT de messages dans une base de données temporelle InfluxDB avec NodeRed et visualiser les séries temporelles avec Grafana.
+TODO
+* https://github.com/CampusIoT/loraserver-docker/blob/master/nodered.yml
+* https://github.com/CampusIoT/loraserver-docker/blob/master/influxdb.yml
+* https://github.com/CampusIoT/loraserver-docker/blob/master/grafana.yml
+
+### Plus de tutoriels
+https://github.com/CampusIoT/tutorial
+
+### API Swagger
+L’API Swagger est https://lora.campusiot.imag.fr/api
+
+Le JWT se recupère via
+```
+curl 'https://lora.campusiot.imag.fr/api/internal/login' --data '{"username":"admin","password":"XXXXXXX"}' --insecure
+```
+retourne
+```
+{"jwt":"XX.YY.ZZ"}
+```
+
+```
+curl -X GET --header 'Accept: application/json' --header 'Grpc-Metadata-Authorization: Bearer XX.YY.ZZ' 'https://lora.campusiot.imag.fr/api/applications?limit=9999'  --insecure
+```
+
+### CLI (for bulk loading)
+
+Le dépôt https://github.com/CampusIoT/loraserver-cli contient des commandes en ligne pour créer des gateways et des devices en masse (bulk) descrits dans un fichier CSV.
+
+```
+...
+JWT=$(./get_jwt $USERNAME $PASSWORD)
+./add_devices.sh $JWT $APPNAME $PROFILE_NAME devices.csv
+./add_gateways.sh $JWT $ORGID $NS_NAME $GW_PROFILE_NAME gateways.csv
+```
+
+### Bonus track : Integration HTTP
+En plus de l’intégration MQTT par défaut, le network server supporte l’intégration vers un endpoint HTTP/HTTPS
+
+Vous devez déployer un serveur HTTP atteignable par le network server pour recevoir le flot de messages relatif aux devices de l’application.
+
+![Application - Integration - HTTP](images/application-integration-http.png)
+
+[Plus de détails](https://www.loraserver.io/lora-app-server/integrate/sending-receiving/http/)
+
+### Bonus track : Integration InfluxDB
+En plus de l’intégration MQTT par défaut, le network server supporte l’intégration vers un SGBD temporel InfluxDB.
+
+Vous devez déployer un serveur InfluxDB atteignable par le network server pour archiver le flot de messages relatifs aux devices de l’application dans une base temporelle.
+
+![Application - Integration - InfluxDB](images/application-integration-influxdb.png)
+
+[Plus de détails](https://www.loraserver.io/lora-app-server/integrate/sending-receiving/influxdb/)
+
+
+### Bonus track : Création d’un groupe multicast
+TODO
+
+
+
+### Installation et enregistrement d’une gateway
+Deux composants doivent être installés sur une nouvelle gateway.
+* Semtech lora-pkt-fwd
+* lora-gateway-bridge
+
+Une fois ces 2 composants installés, la gateway peut être enregistrée via Menu > Gateways
+Prérequis
+
+Récupérer l’adresse MAC de la carte Ethernet de la gateway.
+
+La communiquer à xxxx@imag.fr
+
+Il fournira l’id (gweui), le username et le password de la gateway qui servira à la configuration de 2 composants.
+### Installation du Semtech lora-pkt-fwd
+#### Sur Kerlink Wirgrid
+#### Sur Multitech USB
+#### Sur Multitech
+#### Sur RPI3 + iC880a
+
+### Installation du lora-gateway-bridge
+#### Sur Kerlink Wirgrid
+#### Sur Multitech
+#### Sur RPI3 + iC880a

@@ -81,13 +81,12 @@ TODO
 [Plus de détails](https://www.loraserver.io/lora-app-server/use/devices/)
 
 ### Afficher les messages d’un device
-Afficher (en temps réel) les données envoyées par un device depuis l’onglet “Live LoRaWAN Frames” et avec l’onglet “Live Data Device” pour les valeurs du payload décodées avec le codec spécifié pour l’application.
+Afficher (en temps réel) les données envoyées par un device depuis l’onglet “`Live LoRaWAN Frames`” et avec l’onglet “`Live Data Device`” pour les valeurs du payload décodées avec le codec spécifié pour l’application.
 
 > Remarque: le serveur n’archive pas les données. Il faut utiliser l’onglet “Integrations” de l’application.
 
 ### Récupérer les flots MQTT de messages
-MQTT est le moyen par défaut pour récupérer les messages envoyés par les devices
-https://www.loraserver.io/lora-app-server/integrate/data/
+MQTT est le moyen par défaut pour récupérer les messages envoyés par les devices.
 
 Le flot de messages envoyés par les devices des applications peut récupérer via des clients MQTT comme mosquitto_sub (en ligne de commande), mqtt-spy, mqtt-lens pour Chrome ...
 
@@ -96,7 +95,7 @@ Installer `mosquitto_sub` avec
 sudo apt-get install -y mosquitto-clients
 ```
 
-Il faut installer dans le répertoire courant le certificat ca.crt dec l’autorité de certification du broker MQTT avec la commande suivante
+Il faut installer dans le répertoire courant le certificat `ca.crt` dec l’autorité de certification du broker MQTT avec la commande suivante
 ```
 wget https://raw.githubusercontent.com/CampusIoT/campusiot-certs/master/mqtt/ca.crt
 ```
@@ -117,6 +116,8 @@ mosquitto_sub -h $BROKER -t "gateway/#" -u $MQTTUSER -P $MQTTPASSWORD -v  $TLS
 ```
 
 > Remarque: je mettrai en place dès possible des ACL par topic pour les gateways et les organisations.
+
+[Plus de détails](https://www.loraserver.io/lora-app-server/integrate/data/)
 
 ### Envoyer un downlink à un device
 MQTT est le moyen par défaut pour envoyer un message descendant (down) vers un device https://www.loraserver.io/lora-app-server/integrate/data/

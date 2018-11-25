@@ -23,7 +23,7 @@ Créer (au moins) un device-profile `CLASS_A_OTAA` depuis `Menu > Device-profile
 
 https://lora.campusiot.imag.fr/#/organizations/1/device-profiles
 
-![Device Profile](device-profile.png)
+![Device Profile](images/device-profile.png)
 
 [Plus de détails](https://www.loraserver.io/lora-app-server/use/device-profiles/)
 
@@ -32,7 +32,7 @@ Créer un service-profile `DEFAULT` depuis `Menu > Service-profiles > + Create`
 
 https://lora.campusiot.imag.fr/#/organizations/1/service-profiles
 
-![Service Profile](service-profile.png)
+![Service Profile](images/service-profile.png)
 
 [Plus de détails](https://www.loraserver.io/lora-app-server/use/service-profiles/)
 
@@ -47,7 +47,7 @@ Les valeurs de “`Payload codec`” sont “`None`”, “`Cayenne LPP`”, “
 
 Le “`Payload codec`” permet de spécifier (ou non) un codec pour décoder le payload des frames montantes et encoder les frames descendantes.
 
-Le “`Payload codec`” peut être mis à jour à tout moment. Une errreur dans le code Javascript ou dans l’encodage LPP produit une erreur dans l’onglet “`Live LoRaWAN Frames`”
+Le “`Payload codec`” peut être mis à jour à tout moment. Une erreur dans le code Javascript ou dans l’encodage LPP produit une erreur dans l’onglet “`Live LoRaWAN Frames`”
 
 
 Pour plus d’information https://www.loraserver.io/lora-app-server/use/applications/
@@ -55,7 +55,7 @@ Pour plus d’information https://www.loraserver.io/lora-app-server/use/applicat
 > Remarques
 > L’encodage “Cayenne LPP” est spécifié ici https://mydevices.com/cayenne/docs/lora/#lora-cayenne-low-power-payload
 > Les “Custom JavaScript codec functions” ne supportent pas des libraries utiles comme Buffer ...
->Des codec Javascript pour des devices LoRaWAN sont fournis dans https://github.com/CampusIoT/payload-codec/tree/master/src/main/javascript
+> Des codec Javascript pour des devices LoRaWAN sont fournis dans https://github.com/CampusIoT/payload-codec/tree/master/src/main/javascript
 
 [Plus de détails](https://www.loraserver.io/lora-app-server/use/applications/)
 
@@ -63,12 +63,12 @@ Pour plus d’information https://www.loraserver.io/lora-app-server/use/applicat
 Un device OTAA est un endpoint LoRaWAN envoyant le même format de données et partageant le même service-profile (utiliser `CLASS_A_OTAA` ou un autre plus spécifique que vous aurez créé). Il utilise la procédure par défaut OTAA pour son admission dans le réseau.
 
 Créer un device depuis une application créée (`Menu > Applications`) en utilisant les `DevEUI` (64 bits soit 16 caractères hexadécimaux) inscrit sur l’étiquette collée sur le endpoint LoRaWAN ou sur son emballage d’expédition.
-![Add Device](add-device.png)
+![Add Device](images/device-add.png)
 
 
 
 Ajouter ensuite l’`AppKey` (AES 128bits soit 32 caractères hexadécimaux) fournie avec le endpoint (étiquette amovible, fichier Excel envoyé par le vendeur, …). Penser à valider l’enregistrement de la clé avec le bouton `Set Device-Keys`.
-![Set Device Keys](set-device-keys.png)
+![Set Device Keys](images/device-set-device-keys.png)
 
 
 > A noter : l’`AppKey` par défaut peut être modifié sur la plupart des endpoints via une liaison USB, NFC, BLE via une application mobile (Android, iOS) fournie par le constructeur.

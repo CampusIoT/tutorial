@@ -1,5 +1,5 @@
 # CampusIoT :: MQTT Logger :: Tutorial :us:
-mqtt-logger is an utility for logging several MQTT messages flows for several topics and brokers into a single logfile.
+[mqtt-logger](https://github.com/campusiot/mqtt-logger) is an utility for logging several MQTT messages flows for several topics and brokers into a single logfile.
 
 ## Step 0: Requirements
 Install Docker CE and Docker Compose on your host

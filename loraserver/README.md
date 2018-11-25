@@ -18,15 +18,23 @@ Si vous êtes adminstrateur d'une organisation, vous devez au minimum créer un 
 
 ### Créer un device-profile
 Créer (au moins) un device-profile `CLASS_A_OTAA` depuis `Menu > Device-profiles > + Create`
+
 https://lora.campusiot.imag.fr/#/organizations/1/device-profiles
+
 ![Device Profile](device-profile.png)
+
+[Plus de détails](https://www.loraserver.io/lora-app-server/use/device-profiles/)
 
 ### Créer un service-profile
 Créer un service-profile `DEFAULT` depuis `Menu > Service-profiles > + Create`
+
 https://lora.campusiot.imag.fr/#/organizations/1/service-profiles
+
 ![Service Profile](service-profile.png)
 
-Créer une application
+[Plus de détails](https://www.loraserver.io/lora-app-server/use/service-profiles/)
+
+### Créer une application
 Une application est un ensemble de devices envoyant le même format de données et partageant le même service-profile (utiliser `DEFAULT`).
 
 Créer une application depuis `Menu > Applications > + Create`

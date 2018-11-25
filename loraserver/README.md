@@ -51,15 +51,18 @@ Le “`Payload codec`” permet de spécifier (ou non) un codec pour décoder le
 
 Le “`Payload codec`” peut être mis à jour à tout moment. Une erreur dans le code Javascript ou dans l’encodage LPP produit une erreur dans l’onglet “`Live LoRaWAN Frames`”
 
-> Remarques
+> Remarques:
+
 > L’encodage “Cayenne LPP” est spécifié ici https://mydevices.com/cayenne/docs/lora/#lora-cayenne-low-power-payload
-> Les “Custom JavaScript codec functions” ne supportent pas des libraries utiles comme Buffer ...
+
+> Les “Custom JavaScript codec functions” ne supportent pas les libraries utiles comme Buffer ...
+
 > Des codec Javascript pour des devices LoRaWAN sont fournis dans https://github.com/CampusIoT/payload-codec/tree/master/src/main/javascript
 
 [Plus de détails](https://www.loraserver.io/lora-app-server/use/applications/)
 
 ### Enregistrer un device OTAA
-Un device OTAA est un endpoint LoRaWAN envoyant le même format de données et partageant le même service-profile (utiliser `CLASS_A_OTAA` ou un autre plus spécifique que vous aurez créé). Il utilise la procédure par défaut OTAA pour son admission dans le réseau.
+Un device OTAA est un endpoint LoRaWAN envoyant le même format de données et partageant le même service-profile (utilisez `CLASS_A_OTAA` ou un autre plus spécifique que vous aurez créé). Il utilise la procédure par défaut OTAA pour son admission dans le réseau.
 
 Créer un device depuis une application créée (`Menu > Applications`) en utilisant les `DevEUI` (64 bits soit 16 caractères hexadécimaux) inscrit sur l’étiquette collée sur le endpoint LoRaWAN ou sur son emballage d’expédition.
 ![Add Device](images/device-add.png)
@@ -68,7 +71,7 @@ Ajouter ensuite l’`AppKey` (AES 128bits soit 32 caractères hexadécimaux) fou
 ![Set Device Keys](images/device-set-device-keys.png)
 
 
-> A noter : l’`AppKey` par défaut peut être modifié sur la plupart des endpoints via une liaison USB, NFC, BLE via une application mobile (Android, iOS) fournie par le constructeur.
+> A noter : l’`AppKey` par défaut peut être modifié sur la plupart des endpoints via une liaison USB, NFC, BLE au moyen d' une application mobile (Android, iOS) fournie par le constructeur ou de commandes série (type AT).
 
 [Plus de détails](https://www.loraserver.io/lora-app-server/use/devices/)
 
@@ -87,7 +90,7 @@ Afficher (en temps réel) les données envoyées par un device depuis l’onglet
 ### Récupérer les flots MQTT de messages
 MQTT est le moyen par défaut pour récupérer les messages envoyés par les devices.
 
-Le flot de messages envoyés par les devices des applications peut récupérer via des clients MQTT comme mosquitto_sub (en ligne de commande), [mqtt-spy](https://kamilfb.github.io/mqtt-spy/), [mqtt-lens](https://chrome.google.com/webstore/detail/mqttlens/hemojaaeigabkbcookmlgmdigohjobjm) pour Chrome ...
+Le flot de messages envoyés par les devices des applications peut être récupérer via des clients MQTT comme mosquitto_sub (en ligne de commande), [mqtt-spy](https://kamilfb.github.io/mqtt-spy/), [mqtt-lens](https://chrome.google.com/webstore/detail/mqttlens/hemojaaeigabkbcookmlgmdigohjobjm) pour Chrome, HiveMQ Websocket Client, [myMQTT](https://play.google.com/store/apps/details?id=at.tripwire.mqtt.client) pour Android ...
 
 Installer `mosquitto_sub` avec
 ```
@@ -137,14 +140,12 @@ mosquitto_pub -h $BROKER -u $MQTTUSER -P $MQTTPASSWORD $TLS  -t "application/$ap
 ```
 
 Le champs data contient le message binaire encodé en base64.
-Dans l’exemple, le message est “Hello CampusIoT !”
+Dans l’exemple, le message est “`Hello CampusIoT !`”
 
 ```
 echo `echo SGVsbG8gQ2FtcHVzSW9UICE= | base64 --decode`
 echo "Hello CampusIoT !" | base64
 ```
-
-
 
 ### Journaliser le flot MQTT de messages dans un fichier avec mqtt-logger
 Voir https://github.com/CampusIoT/tutorial/blob/master/mqtt-logger/README.md
@@ -172,7 +173,6 @@ Editer le noeud mqtt-in en chargant le ca.crt pour la configuration SSL et en co
 ![NodeRED](images/nodered.png)
 
 
-
 Afficher le journal des messages avec
 ```
 docker exec -it campusiot-nodered tailf /usr/src/node-red/msg.log
@@ -197,24 +197,25 @@ TODO
 https://github.com/CampusIoT/tutorial
 
 ### API Swagger
-L’API Swagger est https://lora.campusiot.imag.fr/api
+Le lora-app-server expose une API Swagger. Elle peut être affichée depuis https://lora.campusiot.imag.fr/api
 
-Le JWT se recupère via
+Le JWT à utiliser dans l'UI Swagger se recupère via la commande suivante:
 ```
 curl 'https://lora.campusiot.imag.fr/api/internal/login' --data '{"username":"admin","password":"XXXXXXX"}' --insecure
 ```
-retourne
+La commande retourne le token
 ```
 {"jwt":"XX.YY.ZZ"}
 ```
 
+cURL peut être utilisé de la facon suivante pour invoquer des opérations de l'API :
 ```
 curl -X GET --header 'Accept: application/json' --header 'Grpc-Metadata-Authorization: Bearer XX.YY.ZZ' 'https://lora.campusiot.imag.fr/api/applications?limit=9999'  --insecure
 ```
 
 ### CLI (for bulk loading)
 
-Le dépôt https://github.com/CampusIoT/loraserver-cli contient des commandes en ligne pour créer des gateways et des devices en masse (bulk) descrits dans un fichier CSV.
+Le dépôt https://github.com/CampusIoT/loraserver-cli contient des commandes en ligne pour simplifier l'ajout en masse (bulk) de gateways et des devices décrits dans un fichier CSV.
 
 ```
 ...

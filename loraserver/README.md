@@ -16,6 +16,8 @@ Remarque: Le NetID est `0x00`. Une demande de NetID est en cours auprès de LoRa
 ## Gestion d’une organisation
 Si vous êtes adminstrateur d'une organisation, vous devez au minimum créer un device-profile et un service-profile.
 
+[Plus de détails](https://www.loraserver.io/lora-app-server/use/organizations/)
+
 ### Créer un device-profile
 Créer (au moins) un device-profile `CLASS_A_OTAA` depuis `Menu > Device-profiles > + Create`
 
@@ -41,14 +43,11 @@ Créer une application depuis `Menu > Applications > + Create`
 https://lora.campusiot.imag.fr/#/organizations/1/applications
 
 
-
 Les valeurs de “`Payload codec`” sont “`None`”, “`Cayenne LPP`”, “`Custom JavaScript codec functions`”
 
 Le “`Payload codec`” permet de spécifier (ou non) un codec pour décoder le payload des frames montantes et encoder les frames descendantes.
 
 Le “`Payload codec`” peut être mis à jour à tout moment. Une errreur dans le code Javascript ou dans l’encodage LPP produit une erreur dans l’onglet “`Live LoRaWAN Frames`”
-
-
 
 
 Pour plus d’information https://www.loraserver.io/lora-app-server/use/applications/
@@ -58,6 +57,7 @@ Pour plus d’information https://www.loraserver.io/lora-app-server/use/applicat
 > Les “Custom JavaScript codec functions” ne supportent pas des libraries utiles comme Buffer ...
 >Des codec Javascript pour des devices LoRaWAN sont fournis dans https://github.com/CampusIoT/payload-codec/tree/master/src/main/javascript
 
+[Plus de détails](https://www.loraserver.io/lora-app-server/use/applications/)
 
 ### Enregistrer un device OTAA
 Un device OTAA est un endpoint LoRaWAN envoyant le même format de données et partageant le même service-profile (utiliser `CLASS_A_OTAA` ou un autre plus spécifique que vous aurez créé). Il utilise la procédure par défaut OTAA pour son admission dans le réseau.
@@ -73,8 +73,12 @@ Ajouter ensuite l’`AppKey` (AES 128bits soit 32 caractères hexadécimaux) fou
 
 > A noter : l’`AppKey` par défaut peut être modifié sur la plupart des endpoints via une liaison USB, NFC, BLE via une application mobile (Android, iOS) fournie par le constructeur.
 
+[Plus de détails](https://www.loraserver.io/lora-app-server/use/devices/)
+
 ### Enregistrer un device ABP
 TODO
+
+[Plus de détails](https://www.loraserver.io/lora-app-server/use/devices/)
 
 ### Afficher les messages d’un device
 Afficher (en temps réel) les données envoyées par un device depuis l’onglet “Live LoRaWAN Frames” et avec l’onglet “Live Data Device” pour les valeurs du payload décodées avec le codec spécifié pour l’application.

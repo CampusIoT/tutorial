@@ -223,7 +223,7 @@ JWT=$(./get_jwt.sh $USERNAME $PASSWORD)
 ./add_gateways.sh $JWT $ORGID $NS_NAME $GW_PROFILE_NAME gateways.csv
 ```
 
-### Bonus track : Integration HTTP
+### Integration HTTP
 En plus de l’intégration MQTT par défaut, le network server supporte l’intégration vers un endpoint HTTP/HTTPS
 
 Vous devez déployer un serveur HTTP atteignable par le network server pour recevoir le flot de messages relatif aux devices de l’application.
@@ -232,7 +232,7 @@ Vous devez déployer un serveur HTTP atteignable par le network server pour rece
 
 [Plus de détails](https://www.loraserver.io/lora-app-server/integrate/sending-receiving/http/)
 
-### Bonus track : Integration InfluxDB
+### Integration InfluxDB
 En plus de l’intégration MQTT par défaut, le network server supporte l’intégration vers un SGBD temporel InfluxDB.
 
 Vous devez déployer un serveur InfluxDB atteignable par le network server pour archiver le flot de messages relatifs aux devices de l’application dans une base temporelle.
@@ -242,11 +242,12 @@ Vous devez déployer un serveur InfluxDB atteignable par le network server pour 
 [Plus de détails](https://www.loraserver.io/lora-app-server/integrate/sending-receiving/influxdb/)
 
 
-### Bonus track : Création d’un groupe multicast
+### Création d’un groupe multicast
 TODO
 
 ![Multicast](images/multicast.png)
 
+[Plus de détails](https://www.loraserver.io/lora-app-server/use/multicast-groups/)
 
 ### Installation et enregistrement d’une gateway
 Deux composants doivent être installés sur une nouvelle gateway.
@@ -288,12 +289,15 @@ TODO
 ### Enregistrement d’une gateway
 https://lora.campusiot.imag.fr/#/organizations/1/gateways/create
 
-Créer une gateway depuis une application créée (Menu > Gateways) en utilisant le GWID (64 bits soit 16 caractères hexadécimaux) fourni. Le GWID est calculé soit à partir de l’adresse MAC de la carte ethernet de la gateway ou à partir de l’identifiant du composant concentrateur SX130x de la gateway. (A noter: une gateway peut avoir plusieurs concentrateurs).
+Créer une gateway depuis une application créée (`Menu > Gateways`) en utilisant le `GWID` (64 bits soit 16 caractères hexadécimaux) fourni. Le GWID est calculé soit à partir de l’adresse MAC de la carte ethernet (`eth0`) de la gateway ou à partir de l’identifiant du composant concentrateur SX130x de la gateway. (A noter: une gateway peut avoir plusieurs concentrateurs).
+
+![Gateway Add](images/gateway-add.png)
 
 > Remarque: le gain de l’antenne ne peut pas être spécifié via le frontend Web.
 
 ### Enregistrement et configuration d’une gateway TDOA.
 TODO
+
 ### Affichage live des frames recus par une gateway
 
 https://lora.campusiot.imag.fr/#/organizations/1/gateways/008000000000ba6a/frames
@@ -311,11 +315,20 @@ Cette opération est pour l’administrateur global du service.
 
 Attention à mettre le nom de domaine du container dans la composition `loraserver-docker_loraserver_1:8000`
 
+[Plus de détails](https://www.loraserver.io/lora-app-server/use/network-servers/)
+
 ### Création d’une organization
 Cette opération est pour l’administrateur global du service.
 
 ![Organization Create](images/organization-create.png)
 
+[Plus de détails](https://www.loraserver.io/lora-app-server/use/organizations/)
+
+### Ajout des utilisateurs
+
+[Plus de détails](https://www.loraserver.io/lora-app-server/use/users/)
+
+> Remarque: le script add_users.sh du dépôt https://github.com/CampusIoT/loraserver-cli permet de créer en masse (bulk) des utilisateurs  décrits dans un fichier CSV. Un email leurs ai envoyé avec leur identifiant de compte.
 
 ### Création d’un gateway-profile
 Cette opération est pour l’administrateur d’une organisation
@@ -324,6 +337,8 @@ Créer au moins un gateway-profile `DEFAULT` pour l’organisation.
 
 ![Gateway Profile](images/gateway-profile-add.png)
 
+[Plus de détails](https://www.loraserver.io/lora-app-server/use/gateways/)
 
 ## Administration du geoserver
-https://www.loraserver.io/lora-geo-server/overview/
+
+[Plus de détails](https://www.loraserver.io/lora-geo-server/overview/)

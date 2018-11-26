@@ -266,9 +266,12 @@ Il fournira l’id (gweui), le username et le password de la gateway qui servira
 ### Installation du Semtech lora-pkt-fwd
 #### Sur Kerlink Wirgrid
 TODO
-#### Sur Multitech USB
+
+#### Sur Multitech Conduit USB
+Votre gateway Multitech Conduit doit avoir le firmware mLinux et non pas AEP. [Plus de détails](http://www.multitech.net/developer/software/mlinux/using-mlinux/flashing-mlinux-firmware-for-conduit/)
 TODO
 #### Sur Multitech
+Votre gateway Multitech Conduit doit avoir le firmware mLinux et non pas AEP. [Plus de détails](http://www.multitech.net/developer/software/mlinux/using-mlinux/flashing-mlinux-firmware-for-conduit/)
 TODO
 #### Sur RPI3 + iC880a
 TODO
@@ -280,10 +283,14 @@ TODO
 ### Installation du lora-gateway-bridge
 #### Sur Kerlink Wirgrid
 TODO
+
 #### Sur Multitech
+Votre gateway Multitech Conduit doit avoir le firmware mLinux et non pas AEP. [Plus de détails](http://www.multitech.net/developer/software/mlinux/using-mlinux/flashing-mlinux-firmware-for-conduit/)
 TODO
+
 #### Sur RPI3 + iC880a
 TODO
+
 #### Sur Kerlink Femtocell
 TODO
 

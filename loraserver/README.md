@@ -105,9 +105,10 @@ wget https://raw.githubusercontent.com/CampusIoT/campusiot-certs/master/mqtt/ca.
 Actuellement, les commandes à utiliser sont:
 
 ```
+ORGID=1 # l'id de votre ORGANISATION (ce n’est pas le username de votre compte utilisateur)
 BROKER=lora.campusiot.imag.fr
-MQTTUSER=org1 # le username de votre ORGANISATION (ce n’est pas le username de votre compte utilisateur)
-MQTTPASSWORD=__SUPER_SECRET_TO_CHANGE__
+MQTTUSER=org-$ORGID # le username de votre ORGANISATION (ce n’est pas le username de votre compte utilisateur)
+MQTTPASSWORD=__SUPER_SECRET_TO_CHANGE__ # le mot de passe de votre ORGANISATION (ce n’est pas le username de votre compte utilisateur)
 TLS="--cafile ca.crt -p 8883"
 
 # Receive applications messages
@@ -127,9 +128,10 @@ MQTT est le moyen par défaut pour envoyer un message descendant (down) vers un 
 Actuellement, les commandes à utiliser sont:
 
 ```
+ORGID=1 # l'id de votre ORGANISATION (ce n’est pas le username de votre compte utilisateur)
 BROKER=lora.campusiot.imag.fr
-MQTTUSER=org1 # le username de votre ORGANISATION (ce n’est pas le username de votre compte utilisateur)
-MQTTPASSWORD=__SUPER_SECRET_TO_CHANGE__
+MQTTUSER=org-$ORGID # le username de votre ORGANISATION (ce n’est pas le username de votre compte utilisateur)
+MQTTPASSWORD=__SUPER_SECRET_TO_CHANGE__ # le mot de passe de votre ORGANISATION (ce n’est pas le username de votre compte utilisateur)
 TLS="--cafile ca.crt -p 8883"
 
 applicationID=1

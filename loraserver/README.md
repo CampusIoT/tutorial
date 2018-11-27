@@ -14,9 +14,27 @@ Des containers supplémentaires ont été déployés pour le rendre opérationne
 Remarque: Le NetID est `0x00`. Une demande de NetID est en cours auprès de LoRa Alliance.
 
 ## Gestion d’une organisation
-Si vous êtes adminstrateur d'une organisation, vous devez au minimum créer un device-profile et un service-profile.
+Si vous êtes adminstrateur d'une organisation, vous devez au minimum ajouter un utilisateur, créer un device-profile et un service-profile.
 
 [Plus de détails](https://www.loraserver.io/lora-app-server/use/organizations/)
+
+### Ajouter un utilisateur
+
+Créer un nouvel utilisateur avec l'onglet `Create and Assign User` depuis `Menu > Org. Users > + Add`.
+
+![User Create](images/user-create.png)
+
+Créer un utilisateur existant avec l'onglet `Assign Existing User` depuis `Menu > Org. Users > + Add`. 
+
+> Remarque: aucun email n'est envoyé à l'utilisateur
+
+![User Add](images/user-add.png)
+
+> Remarque: aucun email n'est envoyé à l'utilisateur
+
+[Plus de détails](https://www.loraserver.io/lora-app-server/use/users/)
+
+> Remarque: le script add_users.sh du dépôt https://github.com/CampusIoT/loraserver-cli permet de créer en masse (bulk) des utilisateurs  décrits dans un fichier CSV. Un email leurs ai envoyé avec leur identifiant de compte.
 
 ### Créer un service-profile
 Créer un service-profile `DEFAULT` depuis `Menu > Service-profiles > + Create`
@@ -333,12 +351,6 @@ Cette opération est pour l’administrateur global du service.
 ![Organization Create](images/organization-create.png)
 
 [Plus de détails](https://www.loraserver.io/lora-app-server/use/organizations/)
-
-### Ajout des utilisateurs
-
-[Plus de détails](https://www.loraserver.io/lora-app-server/use/users/)
-
-> Remarque: le script add_users.sh du dépôt https://github.com/CampusIoT/loraserver-cli permet de créer en masse (bulk) des utilisateurs  décrits dans un fichier CSV. Un email leurs ai envoyé avec leur identifiant de compte.
 
 ### Création d’un gateway-profile
 Cette opération est pour l’administrateur d’une organisation

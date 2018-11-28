@@ -1,19 +1,25 @@
-CampusIoT :: SODAQ ExpLoRer :: Tutoriel
+# CampusIoT :: SODAQ ExpLoRer :: Tutoriel
 
-TODO
+Ce tutoriel a pour objectif de programmer une carte [SODAQ ExpLoRer](https://support.sodaq.com/sodaq-one/explorer/) et de l'enregistrer sur le réseau LoRaWAN de CampusIoT.
 
+La carte [SODAQ ExpLoRer](https://support.sodaq.com/sodaq-one/explorer/) se présente comme les 2 figures ci-dessous:
 
 ![SODAQ ExpLoRer](http://support.sodaq.com/wp-content/uploads/2018/02/explorer6b.png)
 
 ![SODAQ Pinout](https://support.sodaq.com/wp-content/uploads/2017/10/explorer-pinout.png)
 
+## Installation
 Suivre l'installation du tutoriel du SODAQ ExpLoRer https://support.sodaq.com/sodaq-one/explorer/
 
-Ouvrir un nouveau sketch et copier le programme suivant:
+Le support pour LoRaWAN est décrit ici : https://support.sodaq.com/sodaq-one/lorawan/
 
-Configurer le DevEUI et l'AppKey dans le sketch.
+## Installer le programme sur la carte
+
+Ouvrir un nouveau sketch et copier le sketch suivant:
+
 ```
 // From https://support.sodaq.com/sodaq-one/lorawan/
+
 #include <Sodaq_RN2483.h>
 
 #define debugSerial SerialUSB
@@ -23,6 +29,7 @@ Configurer le DevEUI et l'AppKey dans le sketch.
 #define HIGH_NIBBLE(i) ((i >> 4) & 0x0F)
 #define LOW_NIBBLE(i) (i & 0x0F)
 
+// TODO add #ifdef for OTAA/ABP in order to shrink the firmware
 //Use OTAA, set to false to use ABP
 bool OTAA = true;
 
@@ -138,10 +145,12 @@ void setupLoRaOTAA(){
 
 void loop()
 {
-   String reading = getTemperature();
+  //String reading = getTemperature();
+  float reading = getTemperatureFloat();
    debugSerial.println(reading);
 
-    switch (LoRaBee.send(1, (uint8_t*)reading.c_str(), reading.length()))
+//   switch (LoRaBee.send(1, (uint8_t*)reading.c_str(), reading.length()))
+   switch (LoRaBee.send(1, (float*)reading.c_str(), reading.length()))
     {
     case NoError:
       debugSerial.println("Successful transmission.");
@@ -191,6 +200,29 @@ String getTemperature()
 
   return String(temp);
 }
+// TODO for Cayenne LPP
+// TODO https://github.com/myDevicesIoT/cayenne-docs/blob/master/docs/LORA.md
+// TODO https://github.com/aabadie/cayenne-lpp
+int16_t getTemperatureInt16()
+{
+  //10mV per C, 0C is 500mV
+  float mVolts = (float)analogRead(TEMP_SENSOR) * 3300.0 / 1023.0;
+  int16_t temp = (int16_t) (((mVolts - 500.0) / 10.0) * 100);
+
+  return temp;
+}
+
+float getTemperatureFloat()
+{
+  //10mV per C, 0C is 500mV
+  float mVolts = (float)analogRead(TEMP_SENSOR) * 3300.0 / 1023.0;
+  float temp = ((mVolts - 500.0) / 10.0);
+
+  return temp;
+}
+
+// TODO get ADC grove connector value
+// TODO get GNSS module geolocation value on RX/TX pins. See http://forum.sodaq.com/search?q=GPS
 
 /**
 * Gets and stores the LoRa module's HWEUI/
@@ -202,30 +234,35 @@ static void getHWEUI()
 ```
 Ajouter les 2 bibliothèques SODAQ_wdt et SODAQ_RN2483 au sketch avec "Croquis > Inclure une bibliothèque > Gérer les bibliothèques" (filtrer la liste avec le mot clé "SODAQ").
 
+TODO : Ajouter les 2 fichiers https://github.com/aabadie/cayenne-lpp dans le répertoire du sketch.
+
+Configurer le DevEUI et l'AppKey dans le sketch.
+
 Compiler et charger (ie flash) le sketch sur la carte.
 
-Du coté de la console
+[Plus d'info](https://github.com/Orange-OpenSource/Orange-ExpLoRer-Kit-for-LoRa)
 
-Créer une application SODAQ_EXPLORER
+## Enregistrer le device SODAQ Explorer
+Du coté de la console https://lora.campusiot.imag.fr
 
-Ajouter un device avec + Add en utilisant le DevEUI et l'AppKey (Voir)
+Créer une application `SODAQ_EXPLORER` avec le service-profile `DEFAULT`
 
-Afficher les messages du device depuis l'onglet "Live LoRaWAN Frame"
+Ajouter un device avec `+ Add` en utilisant le `DevEUI` et l'`AppKey` (Voir)
 
-Ajouter la fonction de décodage suivante à l'application SODAQ_EXPLORER
+Afficher les messages du device depuis l'onglet "`Live LoRaWAN Frame`"
+
+En parallèle, afficher les traces du sketch dans le moniteur serie de l'IDE Arduino.
+
+
+## Décoder les frames sur le serveur
+
+Ajouter la fonction de décodage "`Application > SODAQ_EXPLORER > Application Configuration > Payload Coded > Custom Javascript codec functions`" suivante:
 
 ```
 // Decode decodes an array of bytes into an object.
 //  - fPort contains the LoRaWAN fPort number
 //  - bytes is an array of bytes, e.g. [225, 230, 255, 0]
 function Decode(fPort, bytes) {
-  TODO
-  return {};
+  return { temperature: };
 }
 ```
-
-
-
-In the Arduino IDE, add the Sodaq_RN2483 library, using Sketch / Include Library / Manage Libraries… menu, and RN2483 as filtering string.
-
-[Plus d'info](https://github.com/Orange-OpenSource/Orange-ExpLoRer-Kit-for-LoRa)

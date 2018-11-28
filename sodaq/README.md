@@ -1,4 +1,4 @@
-# CampusIoT :: SODAQ ExpLoRer :: Tutoriel
+# CampusIoT :: SODAQ ExpLoRer :: Tutoriel :fr:
 
 Ce tutoriel a pour objectif de programmer une carte [SODAQ ExpLoRer](https://support.sodaq.com/sodaq-one/explorer/) et de l'enregistrer sur le réseau LoRaWAN de CampusIoT.
 
@@ -253,6 +253,7 @@ Afficher les messages du device depuis l'onglet "`Live LoRaWAN Frame`"
 
 En parallèle, afficher les traces du sketch dans le moniteur serie de l'IDE Arduino.
 
+[Plus de détail sur l'enregistrement de devices](../loraserver/README.md#cr%C3%A9er-une-application)
 
 ## Décoder les frames sur le serveur
 

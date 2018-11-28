@@ -266,3 +266,6 @@ function Decode(fPort, bytes) {
   return { temperature: };
 }
 ```
+
+## Pour aller plus loin
+[Tutoriel NodeRED](../nodered/README.md)

@@ -1,5 +1,7 @@
 # CampusIoT :: NodeRED :: Tutoriel :fr:
 
+Si ce tutoriel vous est utile, pensez à donner une étoile :star: en haut à droit.
+
 [NodeRED](https://nodered.org/) est un canevas de traitement de flots de données. Il permet la programmation visuelle des chaines de traitement de données. Il est très populaire pour le prototypage d'applications IoT.
 
 ## Etape 0: Prérequis
@@ -24,10 +26,12 @@ Créer le “flot” en important le JSON suivant (Menu > Import)
 ```
 
 Editer le noeud mqtt-in pour changer le topic, le ca.crt pour la configuration SSL, le username et password MQTT.
-Le certificat se récupère au moyen de 
+Le certificat se récupère au moyen de
 ```bash
 wget https://raw.githubusercontent.com/CampusIoT/campusiot-certs/master/mqtt/ca.crt
 ```
+
+![NodeRED](images/nodered.png)
 
 Afficher le journal des messages avec
 ```bash

@@ -1,4 +1,7 @@
 # CampusIoT :: MQTT Logger :: Tutoriel :fr:
+
+Si ce tutoriel vous est utile, pensez à donner une étoile :star: en haut à droit.
+
 [mqtt-logger](https://github.com/campusiot/mqtt-logger) est un utilitaire qui permet de journaliser simultanément les flux MQTT de plusieurs topics et brokers dans un fichier
 
 ## Etape 0: Prérequis

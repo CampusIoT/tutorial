@@ -168,52 +168,9 @@ Dans l’exemple, le message est “`Hello CampusIoT !`”
 echo `echo SGVsbG8gQ2FtcHVzSW9UICE= | base64 --decode`
 echo "Hello CampusIoT !" | base64
 ```
-
-### Journaliser le flot MQTT de messages dans un fichier avec mqtt-logger
-Voir https://github.com/CampusIoT/tutorial/blob/master/mqtt-logger/README.md
-
-
-### Journaliser le flot MQTT de messages dans un fichier avec NodeRed
-Lancer NodeRed avec Docker (sur votre machine)
-```
-docker run -it -p 1880:1880 --name campusiot-nodered nodered/node-red-docker
-```
-
-Ouvrir l’interface de NodeRed dans un navigateur Web
-```
-open http://127.0.0.1:1880
-```
-
-Créer le “flot” en important le JSON suivant (Menu > Import)
-```
-[{"id":"9d6b9737.6ee6a8","type":"mqtt in","z":"b3a2df4.51c83a","name":"campusiot","topic":"#","qos":"2","broker":"61ca344b.cfb484","x":210,"y":180,"wires":[["7fea5047.da2c5","4ece3642.56654"]]},{"id":"7fea5047.da2c5","type":"debug","z":"b3a2df4.51c83a","name":"","active":true,"tosidebar":true,"console":false,"tostatus":false,"complete":"false","x":510,"y":180,"wires":[]},{"id":"4ece3642.56654","type":"file","z":"b3a2df4.51c83a","name":"msg.log","filename":"msg.log","appendNewline":true,"createDir":true,"overwriteFile":"false","x":500,"y":260,"wires":[[]]},{"id":"61ca344b.cfb484","type":"mqtt-broker","z":"","name":"campusiot","broker":"lora.campusiot.imag.fr","port":"8883","tls":"11b0c2f3.c55f2d","clientid":"","usetls":true,"compatmode":true,"keepalive":"60","cleansession":true,"birthTopic":"","birthQos":"0","birthPayload":"","closeTopic":"","closeQos":"0","closePayload":"","willTopic":"","willQos":"0","willPayload":""},{"id":"11b0c2f3.c55f2d","type":"tls-config","z":"","name":"","cert":"","key":"","ca":"","certname":"","keyname":"","caname":"ca.crt","servername":"","verifyservercert":false}]
-```
-
-Editer le noeud mqtt-in en chargant le ca.crt pour la configuration SSL et en configurant le username et password MQTT.
-
-
-![NodeRED](images/nodered.png)
-
-
-Afficher le journal des messages avec
-```
-docker exec -it campusiot-nodered tailf /usr/src/node-red/msg.log
-```
-
-Remarque : Vous pouvez monter un volume local pour rendre persistant le journal dans votre répertoire courant. -v $PWD/msg.log:/usr/src/node-red/msg.log
-
-```
-touch $PWD/msg.log
-docker run -d -p 1880:1880 -v $PWD/msg.log:/usr/src/node-red/msg.log --name campusiot-nodered nodered/node-red-docker
-
-tail -f $PWD/msg.log
-```
-
-### Journaliser le flot MQTT de messages dans une base de données temporelle InfluxDB avec NodeRed et visualiser les séries temporelles avec Grafana.
-TODO
-* https://github.com/CampusIoT/loraserver-docker/blob/master/nodered.yml
-* https://github.com/CampusIoT/loraserver-docker/blob/master/influxdb.yml
-* https://github.com/CampusIoT/loraserver-docker/blob/master/grafana.yml
+Pour aller plus loin, vous pouvez:
+* [journaliser le flot MQTT de messages dans un fichier avec mqtt-logger](../mqtt-logger/README.md)
+* [journaliser le flot MQTT de messages dans un fichier avec NodeRed](../nodered/README.md)
 
 ### Plus de tutoriels
 https://github.com/CampusIoT/tutorial

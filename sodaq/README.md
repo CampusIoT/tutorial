@@ -33,7 +33,7 @@ Ouvrir un nouveau sketch et copier le sketch suivant:
 
 // Delay between 2 transmissions
 // 60000 = 1 minute
-#define TX_PERIOD 120000
+#define TX_PERIOD 60000
 
 // #define PIR_MOTION_PIN 9
 
@@ -64,10 +64,9 @@ const uint8_t nwkSKey[16] =
 
 // OTAA
 // With using the GetHWEUI() function the HWEUI will be used
-// 0cafcb0000e01234
-const uint8_t DevEUI[8] =
+uint8_t DevEUI[8] =
 {
- 0x0c, 0xaf, 0xcb, 0x00, 0x00, 0xe0, 0x12, 0x34
+  0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
 };
 
 const uint8_t AppEUI[8] =
@@ -155,7 +154,8 @@ void loop()
 {
   //String reading = getTemperature();
   int16_t temp = getTemperatureInt16();
-   debugSerial.println(temp);
+  debugSerial.print("temperature:");
+  debugSerial.println(temp/100.0);
 
 //   switch (LoRaBee.send(1, (uint8_t*)reading.c_str(), reading.length()))
     switch (LoRaBee.send(1, (uint8_t*)&temp, sizeof(temp)))
@@ -243,16 +243,18 @@ float getTemperatureFloat()
 */
 static void getHWEUI()
 {
-  //uint8_t len = LoRaBee.getHWEUI(DevEUI, sizeof(DevEUI));
+  uint8_t len = LoRaBee.getHWEUI(DevEUI, sizeof(DevEUI));
 }
 ```
-Ajouter les 2 bibliothèques SODAQ_wdt et SODAQ_RN2483 au sketch avec "Croquis > Inclure une bibliothèque > Gérer les bibliothèques" (filtrer la liste avec le mot clé "SODAQ").
+Ajouter les 2 bibliothèques `SODAQ_wdt` et `SODAQ_RN2483` au sketch avec "`Croquis > Inclure une bibliothèque > Gérer les bibliothèques`" (filtrer la liste avec le mot clé "SODAQ").
 
 TODO : Ajouter les 2 fichiers https://github.com/aabadie/cayenne-lpp dans le répertoire du sketch.
 
-Configurer le DevEUI et l'AppKey dans le sketch.
+Configurer l'AppKey dans le sketch.
 
 Compiler et charger (ie flash) le sketch sur la carte.
+
+Récupérer le DevEUI dans la console série via la trace `LoRa HWEUI: 0004A30B001234656`. Il s'agit de l'identifiant LoRa du module Microchip RN2483.
 
 [Plus d'info](https://github.com/Orange-OpenSource/Orange-ExpLoRer-Kit-for-LoRa)
 
@@ -261,7 +263,7 @@ Du coté de la console https://lora.campusiot.imag.fr
 
 Créer une application `SODAQ_EXPLORER` avec le service-profile `DEFAULT`
 
-Ajouter un device avec `+ Add` en utilisant le `DevEUI` et l'`AppKey` (Voir)
+Ajouter un device avec `+ Add` en utilisant le `DevEUI` et l'`AppKey`
 
 Afficher les messages du device depuis l'onglet "`Live LoRaWAN Frame`"
 
@@ -274,13 +276,34 @@ En parallèle, afficher les traces du sketch dans le moniteur serie de l'IDE Ard
 Ajouter la fonction de décodage "`Application > SODAQ_EXPLORER > Application Configuration > Payload Coded > Custom Javascript codec functions`" suivante:
 
 ```
+// From https://github.com/feross/buffer/blob/master/index.js
+function readInt16LE (buf, offset) {
+  offset = offset >>> 0
+  var val = buf[offset] | (buf[offset + 1] << 8)
+  return (val & 0x8000) ? val | 0xFFFF0000 : val
+}
+
 // Decode decodes an array of bytes into an object.
 //  - fPort contains the LoRaWAN fPort number
-//  - bytes is an array of bytes, e.g. [225, 230, 255, 0]
+//  - bytes is an array of bytes
+// The function must return an object, e.g. {"temperature": 22.5}
 function Decode(fPort, bytes) {
-  return { temperature: };
+  if(bytes.length === 2) {
+  	return {
+      	temperature: readInt16LE(bytes,0)/100.0
+    };
+  } else {
+     return { badpayload: true };
+  }
 }
 ```
+
+Afficher les messages du device depuis l'onglet "`Live Device Data`". Le payload du message est décodé dans la propriété `object` de l'objet JSON.
+
+## Brancher plus de capteurs sur la carte.
+Le catalogue Groove de SeeedStudio est distribué en France par Farnell, [GoTronic](https://www.gotronic.fr/recherche_0-1|1357|1361_0_0_0_2_0.htm) et par [Lextronic](https://www.lextronic.fr/8369-systeme-grove).
+
+> Attention: il faut utiliser des capteurs avec un VCC de 3.3V 
 
 ## Pour aller plus loin
 [Tutoriel NodeRED](../nodered/README.md)

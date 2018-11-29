@@ -169,11 +169,10 @@ echo `echo SGVsbG8gQ2FtcHVzSW9UICE= | base64 --decode`
 echo "Hello CampusIoT !" | base64
 ```
 Pour aller plus loin, vous pouvez:
+* [journaliser le flot MQTT en Python](../python/README.md)
 * [journaliser le flot MQTT de messages dans un fichier avec mqtt-logger](../mqtt-logger/README.md)
 * [journaliser le flot MQTT de messages dans un fichier avec NodeRed](../nodered/README.md)
-
-### Plus de tutoriels
-https://github.com/CampusIoT/tutorial
+* [afficher les messages avec Cayenne](../cayenne/README.md)
 
 ### API Swagger
 Le lora-app-server expose une API Swagger. Elle peut être affichée depuis https://lora.campusiot.imag.fr/api
@@ -198,6 +197,10 @@ Le dépôt https://github.com/CampusIoT/loraserver-cli contient des commandes en
 
 ```
 ...
+USERNAME=...
+PASSWORD=...
+APPNAME=...
+PROFILE_NAME=
 JWT=$(./get_jwt.sh $USERNAME $PASSWORD)
 ./add_devices.sh $JWT $APPNAME $PROFILE_NAME devices.csv
 ./add_gateways.sh $JWT $ORGID $NS_NAME $GW_PROFILE_NAME gateways.csv

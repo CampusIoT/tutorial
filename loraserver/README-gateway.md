@@ -1,5 +1,7 @@
 # CampusIoT :: LoRaServer > Partie 2: Installer une nouvelle gateway :: Tutoriel :fr:
 
+Si ce tutoriel vous est utile, pensez à donner une étoile :star: en haut à droit.
+
 ## Création d’un gateway-profile
 Cette opération est pour l’administrateur d’une organisation
 

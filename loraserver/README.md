@@ -1,5 +1,7 @@
 # CampusIoT :: LoRaServer > Partie 1 :: Tutoriel :fr:
 
+Si ce tutoriel vous est utile, pensez à donner une étoile :star: en haut à droit.
+
 ## Architecture et composants du LoRaServer
 [Loraserver.io](https://www.loraserver.io/) est un network server LoRaWAN open-source.
 Il est déployé sur une machine de l’IMAG lora.campusiot.imag.fr avec la composition Docker disponible sur https://github.com/CampusIoT/loraserver-docker.

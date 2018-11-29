@@ -1,5 +1,7 @@
 # CampusIoT :: LoRaServer > Partie 3: Administrer le service :: Tutoriel :fr:
 
+Si ce tutoriel vous est utile, pensez à donner une étoile :star: en haut à droit.
+
 ## Ajout d’un networkserver
 Cette opération est pour l’administrateur global du service.
 

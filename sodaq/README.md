@@ -1,5 +1,7 @@
 # CampusIoT :: SODAQ ExpLoRer :: Tutoriel :fr:
 
+Si ce tutoriel vous est utile, pensez à donner une étoile :star: en haut à droit.
+
 Ce tutoriel a pour objectif de programmer une carte [SODAQ ExpLoRer](https://support.sodaq.com/sodaq-one/explorer/) et de l'enregistrer sur le réseau LoRaWAN de CampusIoT.
 
 La carte [SODAQ ExpLoRer](https://support.sodaq.com/sodaq-one/explorer/) se présente comme les 2 figures ci-dessous:
@@ -28,6 +30,12 @@ Ouvrir un nouveau sketch et copier le sketch suivant:
 #define NIBBLE_TO_HEX_CHAR(i) ((i <= 9) ? ('0' + i) : ('A' - 10 + i))
 #define HIGH_NIBBLE(i) ((i >> 4) & 0x0F)
 #define LOW_NIBBLE(i) (i & 0x0F)
+
+// Delay between 2 transmissions
+// 60000 = 1 minute
+#define TX_PERIOD 120000
+
+// #define PIR_MOTION_PIN 9
 
 // TODO add #ifdef for OTAA/ABP in order to shrink the firmware
 //Use OTAA, set to false to use ABP
@@ -97,8 +105,8 @@ void setup()
   // Print the Hardware EUI
   debugSerial.print("LoRa HWEUI: ");
   for (uint8_t i = 0; i < sizeof(DevEUI); i++) {
-	  debugSerial.print((char)NIBBLE_TO_HEX_CHAR(HIGH_NIBBLE(DevEUI[i])));
-	  debugSerial.print((char)NIBBLE_TO_HEX_CHAR(LOW_NIBBLE(DevEUI[i])));
+    debugSerial.print((char)NIBBLE_TO_HEX_CHAR(HIGH_NIBBLE(DevEUI[i])));
+    debugSerial.print((char)NIBBLE_TO_HEX_CHAR(LOW_NIBBLE(DevEUI[i])));
   }
   debugSerial.println();  
 
@@ -146,11 +154,11 @@ void setupLoRaOTAA(){
 void loop()
 {
   //String reading = getTemperature();
-  float reading = getTemperatureFloat();
-   debugSerial.println(reading);
+  int16_t temp = getTemperatureInt16();
+   debugSerial.println(temp);
 
 //   switch (LoRaBee.send(1, (uint8_t*)reading.c_str(), reading.length()))
-   switch (LoRaBee.send(1, (float*)reading.c_str(), reading.length()))
+    switch (LoRaBee.send(1, (uint8_t*)&temp, sizeof(temp)))
     {
     case NoError:
       debugSerial.println("Successful transmission.");
@@ -187,9 +195,8 @@ void loop()
     default:
       break;
     }
-    // Delay between readings
-    // 60 000 = 1 minute
-    delay(10000);
+    // Delay between readings and transmissions
+    delay(TX_PERIOD);
 }
 
 String getTemperature()
@@ -221,15 +228,22 @@ float getTemperatureFloat()
   return temp;
 }
 
-// TODO get ADC grove connector value
+// TODO add battery level in payload
+// TODO send on button push
+// TODO status byte (button flag, presence flag...)
+// TODO get ADC grove connector value (potentiometer for instance)
+// TODO add a PIR motion detector on pin 9 and add a presence counter into the payload
 // TODO get GNSS module geolocation value on RX/TX pins. See http://forum.sodaq.com/search?q=GPS
+// TODO add downlink (for TX_PERIOD configuration, number of readings per transmission, low and high temperature thresholds)
+// TODO enable several readings per transmission
+
 
 /**
 * Gets and stores the LoRa module's HWEUI/
 */
 static void getHWEUI()
 {
-	uint8_t len = LoRaBee.getHWEUI(DevEUI, sizeof(DevEUI));
+  //uint8_t len = LoRaBee.getHWEUI(DevEUI, sizeof(DevEUI));
 }
 ```
 Ajouter les 2 bibliothèques SODAQ_wdt et SODAQ_RN2483 au sketch avec "Croquis > Inclure une bibliothèque > Gérer les bibliothèques" (filtrer la liste avec le mot clé "SODAQ").

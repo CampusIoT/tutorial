@@ -9,3 +9,4 @@
 
 
 * [Enregistrer une carte SODAQ ExpLoRer :fr:](sodaq/README.md)
+* [Enregistrer une modem Microchip RN2483 :fr:](rn2483/README.md)

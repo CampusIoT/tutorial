@@ -28,8 +28,10 @@ Entrer les commandes suivantes dans le terminal série:
 # lecture des informations du modem
 sys get ver
 >> RN2483 0.9.5 Mar 24 2015 14:15:33
+
 sys get vdd
 >> 2950
+
 sys get hweui
 >> 0004A30B001BA7BC
 ```
@@ -44,7 +46,7 @@ mac get appeui
 
 mac set appeui 0004A30B00123456
 >> ok
-mac set appkey 0004A30B001BA7BC0004A30B00123456        
+mac set appkey 0004A30B001BA7BC0004A30B00123456
 >> ok
 mac set pwridx 1
 >> ok
@@ -59,7 +61,7 @@ Tenter la procédure OTAA (alors que le device n'est pas enregistré)
 mac join otaa
 >> ok
 # Et quelques secondes après
->> denied  
+>> denied
 ```
 
 ## Enregistrer le modem dans le serveur
@@ -78,7 +80,7 @@ mac tx cnf 1 01020304
 mac join otaa
 >> ok
 # Et quelques secondes après
->> accepted  
+>> accepted
 
 # Envoyer un message uplink confirmed (au format hexadécimal) sur le port 1
 mac tx cnf 1 01020304
@@ -104,20 +106,20 @@ mac pause
 
 mac reset 868
 
-mac set deveui 0004A30B001BA7BC                    
+mac set deveui 0004A30B001BA7BC
 mac set appeui 0004A30B00123456
-mac set appkey 0004A30B001BA7BC0004A30B00123456        
+mac set appkey 0004A30B001BA7BC0004A30B00123456
 mac set pwridx 1
 
 
 mac set dr 0
-mac set adr on                
-mac set bat 127                
+mac set adr on
+mac set bat 127
 mac set retx 2
-mac set linkchk 100                    
+mac set linkchk 100
 mac set rxdelay1 1000
 mac set ar on
-mac get rx2 868    
+mac get rx2 868
 mac set rx2 3 869525000
 
 
@@ -130,8 +132,8 @@ mac get ch dcycle 2
 
 # set DC to 50%
 mac set ch dcycle 0 1
-mac set ch dcycle 1 1                
-mac set ch dcycle 2 1                
+mac set ch dcycle 1 1
+mac set ch dcycle 2 1
 
 mac save
 

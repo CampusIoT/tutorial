@@ -110,7 +110,7 @@ Afficher (en temps réel) les données envoyées par un device depuis l’onglet
 ### Récupérer les flots MQTT de messages
 MQTT est le moyen par défaut pour récupérer les messages envoyés par les devices.
 
-Le flot de messages envoyés par les devices des applications peut être récupérer via des clients MQTT comme mosquitto_sub (en ligne de commande), [mqtt-spy](https://kamilfb.github.io/mqtt-spy/), [mqtt-lens](https://chrome.google.com/webstore/detail/mqttlens/hemojaaeigabkbcookmlgmdigohjobjm) pour Chrome, HiveMQ Websocket Client, [myMQTT](https://play.google.com/store/apps/details?id=at.tripwire.mqtt.client) pour Android ...
+Le flot de messages envoyés par les devices des applications peut être récupérer via des clients MQTT comme mosquitto_sub (en ligne de commande), [mqtt-spy](https://kamilfb.github.io/mqtt-spy/), , HiveMQ Websocket Client, MQTTBox ([configuration](images/mqttbox-brokerconfig.png), [souscription](images/mqttbox-subscribe.png)) [myMQTT](https://play.google.com/store/apps/details?id=at.tripwire.mqtt.client) pour Android ... Remarque: Des clients (comme [mqtt-lens](https://chrome.google.com/webstore/detail/mqttlens/hemojaaeigabkbcookmlgmdigohjobjm) pour Chrome) ne supportent pas MQTT/TLS.
 
 Installer `mosquitto_sub` avec
 ```
@@ -168,7 +168,7 @@ Dans l’exemple, le message est “`Hello CampusIoT !`”
 echo `echo SGVsbG8gQ2FtcHVzSW9UICE= | base64 --decode`
 echo "Hello CampusIoT !" | base64
 ```
-Pour aller plus loin, vous pouvez:
+Pour aller plus loin avec MQTT, vous pouvez:
 * [journaliser le flot MQTT en Python](../python/README.md)
 * [journaliser le flot MQTT de messages dans un fichier avec mqtt-logger](../mqtt-logger/README.md)
 * [journaliser le flot MQTT de messages dans un fichier avec NodeRed](../nodered/README.md)
@@ -193,10 +193,11 @@ curl -X GET --header 'Accept: application/json' --header 'Grpc-Metadata-Authoriz
 
 ### CLI (for bulk loading)
 
-Le dépôt https://github.com/CampusIoT/loraserver-cli contient des commandes en ligne pour simplifier l'ajout en masse (bulk) de gateways et des devices décrits dans un fichier CSV.
+Le dépôt https://github.com/CampusIoT/loraserver-cli contient des commandes en ligne pour simplifier l'ajout en masse (bulk) de devices décrits dans un fichier CSV.
 
 ```
 ...
+ORGID=...
 USERNAME=...
 PASSWORD=...
 APPNAME=...

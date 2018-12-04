@@ -43,12 +43,7 @@ Les modèles de développement sont équipés d'une prise micro-USB pour permett
 
 Il faut utiliser une application de terminal série (comme CoolTerm, Zterm, Putty, ...) pour se connecter à l'invité de commande (ie prompt). Les paramêtres de connection sont : 9600 baud et terminaison de ligne <CR>.
 
-Copier coller le script suivant:
-```
-TODO
-
-```
-
+Copier coller le [script suivant](https://github.com/CampusIoT/endpoints/blob/master/siconia/MotionHumidityTempPressure.js) dans le terminal série.
 
 ## Changement du script par NFC pour les modèles de production
 Les modèles de production (qui sont étanches) sont dépourvus de prise micro-USB. Le script applicatif que vous avez mis au point précédemment est chargé dans l'équipement par une liaison NFC au moyen d'un [lecteur NFC STM](https://www.st.com/en/evaluation-tools/m24lr-discovery.html)

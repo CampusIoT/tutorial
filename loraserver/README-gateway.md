@@ -68,13 +68,15 @@ Récupérer les MQTT_USERNAME et MQTT_PASSWORD de la gateway auprès du sysadmin
 
 Se logger (admin) sur la gateway et exécuter les commandes suivantes:
 ```
+MQTT_USERNAME=gw-1234567890abcdef
+MQTT_PASSWORD=xXxXxXxXxXxXxXxXxXxXxXxXxXxXxX
 cd /tmp
 REPO=https://raw.githubusercontent.com/CampusIoT/gateway-config/master
 DIST=multitech-mtcdt-usb
 wget $REPO/$DIST/install.sh -O install.sh
 chmod +x install.sh
 ./install.sh
-./install.sh __MQTT_USERNAME__ __MQTT_PASSWORD__
+./install.sh $MQTT_USERNAME $MQTT_PASSWORD
 ```
 
 ### Installation sur Multitech Conduit IP67

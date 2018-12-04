@@ -77,7 +77,7 @@ Le “`Payload codec`” peut être mis à jour à tout moment. Une erreur dans 
 
 > Les “Custom JavaScript codec functions” ne supportent pas les libraries utiles comme Buffer ...
 
-> Des codec Javascript pour des devices LoRaWAN sont fournis dans https://github.com/CampusIoT/payload-codec/tree/master/src/main/javascript
+> Des codec Javascript pour des devices LoRaWAN sont fournis dans https://github.com/CampusIoT/payload-codec/tree/master/src/main/
 
 [Plus de détails](https://www.loraserver.io/lora-app-server/use/applications/)
 

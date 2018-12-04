@@ -85,10 +85,12 @@ mac join otaa
 # Envoyer un message uplink confirmed (au format hexadécimal) sur le port 1
 mac tx cnf 1 01020304
 >> ok
+>> mac_tx_ok
 
 # Envoyer un message uplink unconfirmed (au format hexadécimal) sur le port 2
 mac tx uncnf 2 05060708
 >> ok
+>> mac_tx_ok
 ```
 
 ## Recevoir des messages (downlink)

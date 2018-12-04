@@ -1,4 +1,6 @@
+
 # Tutoriel d'utilisation de la plateforme CampusIoT
+CampusIoT est une plateforme pour l'enseignement par la pratique des technologies et des cas d'usage de l'Internet des Objets.
 
 * [LoRaServer :fr:](loraserver/README.md)
 * [NodeRED :fr:](nodered/README.md)
@@ -9,6 +11,7 @@
 * [Enregistrer un équipement SagemCom Siconia :fr:](siconia/README.md)
 
 # Tutorial for using the CampusIoT platform
+CampusIoT is a learn-by-doing platform for teaching Internet of Things technologies and businesses.
 
 * [LoRaServer :us:](loraserver/README.en.md)
 * [NodeRED :us:](nodered/README.en.md)

@@ -21,6 +21,8 @@ Deux composants doivent être installés sur une nouvelle gateway.
 Une fois ces 2 composants installés, la gateway peut être enregistrée via `Menu > Gateways` de l'organisation.
 
 ### Installation sur Multitech Conduit AP
+Installer la gateway en suivre son [guide](http://www.multitech.net/developer/products/multiconnect-conduit-access-point/).
+
 Votre gateway [Multitech Conduit AP](https://www.multitech.com/brands/multiconnect-conduit-ap) doit avoir le firmware mLinux et non pas AEP. [Plus de détails](http://www.multitech.net/developer/software/mlinux/using-mlinux/flashing-mlinux-firmware-for-conduit/)
 
 Se logger (admin) sur la gateway et exécuter les commandes suivantes pour connaitre le `LoRaNote EUI` de la gateway :

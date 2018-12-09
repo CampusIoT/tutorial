@@ -95,13 +95,28 @@ Ajoutez ensuite l’`AppKey` (AES 128bits soit 32 caractères hexadécimaux) fou
 [Plus de détails](https://www.loraserver.io/lora-app-server/use/devices/)
 
 ### Enregistrer un device ABP
-Un device LoRaWAN peut utiliser la procédure ABP (Activation By Personalization) pour communiquer avec le réseau. Les deux clés de session `AppSKey` et `NwkSKey` sont livrées avec le endpoint. Le device doit être enregistré avec le device-profile `CLASS_A_ABP` préalablement créé.
+Un device LoRaWAN peut utiliser la procédure ABP (Activation By Personalization) pour communiquer avec le réseau. Les deux clés de session `AppSKey` et `NwkSKey` sont livrées avec le endpoint. Le device doit être enregistré avec le device-profile `CLASS_A_ABP` préalablement créé (voir ci-dessous).
 
-TODO
+![Create ABP Device Profile](images/device-profile-create-abp.png)
 
 ![Add ABP Device](images/device-add-abp.png)
 
+Renseignez le champs `Device address` avec une adresse comprise dans le NetId `0x00` soit entre `0x00000000` et `0x01FFFFFF`.
+
+Ajoutez le clé de session `NwkSKey` dans les 3 premiers champs de clé.
+
+Ajoutez le clé de session `AppSKey` dans le quatrième champs de clé.
+
+Initialisez le compteur montant courant et le compteur descendant courant (ie. `frame-counters`) du device si vous les connaissez.
+
+Validez avec le bouton `(Re)Activate Device`.
+
+![Reactivate ABP Device](images/device-reactivate.png)
+
 > Nota Bene : La procédure ABP est évitée du fait d'une moindre sécurité par rapport à la procédure OTAA.
+
+> Nota Bene : Il est parfois nécessaire de cocher `Disable frame counter validation` quand le device ne conserve pas le compteur montant (`fCntUp`) de manière persistante. En cas de changement de batterie ou de reset, le compteur montant est remis à zero.
+
 
 [Plus de détails](https://www.loraserver.io/lora-app-server/use/devices/)
 

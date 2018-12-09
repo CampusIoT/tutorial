@@ -115,10 +115,9 @@ Validez avec le bouton `(Re)Activate Device`.
 
 ![Reactivate ABP Device](images/device-reactivate.png)
 
-> Nota Bene : La procédure ABP est évitée du fait d'une moindre sécurité par rapport à la procédure OTAA.
-
 > Nota Bene : Il est parfois nécessaire de cocher `Disable frame counter validation` quand le device ne conserve pas le compteur montant (`fCntUp`) de manière persistante. En cas de changement de batterie ou de reset, le compteur montant est remis à zero.
 
+> Nota Bene : La procédure ABP est à éviter du fait d'une moindre sécurité par rapport à la procédure OTAA en cas de `Disable frame counter validation`.
 
 [Plus de détails](https://www.loraserver.io/lora-app-server/use/devices/)
 

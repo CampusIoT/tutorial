@@ -99,6 +99,8 @@ Un device LoRaWAN peut utiliser la procédure ABP (Activation By Personalization
 
 ![Create ABP Device Profile](images/device-profile-create-abp.png)
 
+> Nota Bene : La liste des fréquences `868100000`, `868300000`, `868500000`, `867100000, 867300000`, `867500000`, `867700000`, `867900000` correspond à celle définie par la spécification LoRaWAN pour la region `eu868`.
+
 ![Add ABP Device](images/device-add-abp.png)
 
 Renseignez le champs `Device address` avec une adresse comprise dans le NetId `0x00` soit entre `0x00000000` et `0x01FFFFFF`.

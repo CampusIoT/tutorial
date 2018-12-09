@@ -16,17 +16,17 @@ Des containers supplémentaires ont été déployés pour le rendre opérationne
 Remarque: Le NetID est `0x00`. Une demande de NetID est en cours auprès de LoRa Alliance.
 
 ## Gestion d’une organisation
-Si vous êtes adminstrateur d'une organisation, vous devez au minimum ajouter un utilisateur, créer un device-profile et un service-profile.
+Si vous êtes adminstrateur d'une organisation, vous devez au minimum ajouter un utilisateur, Créez un device-profile et un service-profile.
 
 [Plus de détails](https://www.loraserver.io/lora-app-server/use/organizations/)
 
-### Ajouter un utilisateur
+### Ajout d'un utilisateur
 
-Créer un nouvel utilisateur avec l'onglet `Create and Assign User` depuis `Menu > Org. Users > + Add`.
+Créez un nouvel utilisateur avec l'onglet `Create and Assign User` depuis `Menu > Org. Users > + Add`.
 
 ![User Create](images/user-create.png)
 
-Créer un utilisateur existant avec l'onglet `Assign Existing User` depuis `Menu > Org. Users > + Add`.
+Créez un utilisateur existant avec l'onglet `Assign Existing User` depuis `Menu > Org. Users > + Add`.
 
 > Remarque: aucun email n'est envoyé à l'utilisateur
 
@@ -36,10 +36,10 @@ Créer un utilisateur existant avec l'onglet `Assign Existing User` depuis `Menu
 
 [Plus de détails](https://www.loraserver.io/lora-app-server/use/users/)
 
-> Remarque: le script add_users.sh du dépôt https://github.com/CampusIoT/loraserver-cli permet de créer en masse (bulk) des utilisateurs  décrits dans un fichier CSV. Un email leurs ai envoyé avec leur identifiant de compte.
+> Remarque: le script add_users.sh du dépôt https://github.com/CampusIoT/loraserver-cli permet de Créez en masse (bulk) des utilisateurs  décrits dans un fichier CSV. Un email leurs ai envoyé avec leur identifiant de compte.
 
-### Créer un service-profile
-Créer un service-profile `DEFAULT` depuis `Menu > Service-profiles > + Create`
+### Création d'un service-profile
+Créez un service-profile `DEFAULT` depuis `Menu > Service-profiles > + Create`
 
 https://lora.campusiot.imag.fr/#/organizations/1/service-profiles
 
@@ -47,8 +47,8 @@ https://lora.campusiot.imag.fr/#/organizations/1/service-profiles
 
 [Plus de détails](https://www.loraserver.io/lora-app-server/use/service-profiles/)
 
-### Créer un device-profile
-Créer (au moins) un device-profile `CLASS_A_OTAA` depuis `Menu > Device-profiles > + Create`
+### Création d'un device-profile
+Créez (au moins) un device-profile `CLASS_A_OTAA` depuis `Menu > Device-profiles > + Create`
 
 https://lora.campusiot.imag.fr/#/organizations/1/device-profiles
 
@@ -58,10 +58,10 @@ https://lora.campusiot.imag.fr/#/organizations/1/device-profiles
 
 [Plus de détails](https://www.loraserver.io/lora-app-server/use/device-profiles/)
 
-### Créer une application
+### Création d'une application
 Une application est un ensemble de devices envoyant le même format de données et partageant le même service-profile (utiliser `DEFAULT`).
 
-Créer une application depuis `Menu > Applications > + Create`
+Créez une application depuis `Menu > Applications > + Create`
 https://lora.campusiot.imag.fr/#/organizations/1/applications
 
 
@@ -81,7 +81,7 @@ Le “`Payload codec`” peut être mis à jour à tout moment. Une erreur dans 
 
 [Plus de détails](https://www.loraserver.io/lora-app-server/use/applications/)
 
-### Enregistrer un device OTAA
+### Enregistrement d'un device OTAA
 Un device OTAA est un endpoint LoRaWAN envoyant le même format de données et partageant le même service-profile (utilisez `CLASS_A_OTAA` ou un autre plus spécifique que vous aurez créé). Il utilise la procédure par défaut OTAA pour son admission dans le réseau. La plupart des devices que vous utilisez suivent la version 1.0.x de la spécification LoRaWAN.
 
 Créez un device depuis une application créée (`Menu > Applications`) en utilisant les `DevEUI` (64 bits soit 16 caractères hexadécimaux) inscrit sur l’étiquette collée sur le endpoint LoRaWAN ou sur son emballage d’expédition.
@@ -94,7 +94,7 @@ Ajoutez ensuite l’`AppKey` (AES 128bits soit 32 caractères hexadécimaux) fou
 
 [Plus de détails](https://www.loraserver.io/lora-app-server/use/devices/)
 
-### Enregistrer un device ABP
+### Enregistrement d'un device ABP
 Un device LoRaWAN peut utiliser la procédure ABP (Activation By Personalization) pour communiquer avec le réseau. Les deux clés de session `AppSKey` et `NwkSKey` sont livrées avec le endpoint. Le device doit être enregistré avec le device-profile `CLASS_A_ABP` préalablement créé (voir ci-dessous).
 
 ![Create ABP Device Profile](images/device-profile-create-abp.png)
@@ -121,19 +121,19 @@ Validez avec le bouton `(Re)Activate Device`.
 
 [Plus de détails](https://www.loraserver.io/lora-app-server/use/devices/)
 
-### Afficher les messages d’un device
-Afficher (en temps réel) les données envoyées par un device depuis l’onglet “`Live LoRaWAN Frames`” et avec l’onglet “`Live Data Device`” pour les valeurs du payload décodées avec le codec spécifié pour l’application.
+### Affichage des messages d’un device
+Affichez (en temps réel) les données envoyées par un device depuis l’onglet “`Live LoRaWAN Frames`” et avec l’onglet “`Live Data Device`” pour les valeurs du payload décodées avec le codec spécifié pour l’application.
 
 ![Device Live Frames](images/device-live.png)
 
 > Remarque: le serveur n’archive pas les données. Il faut utiliser l’onglet “Integrations” de l’application.
 
-### Récupérer les flots MQTT de messages
+### Récupération du flot MQTT de messages
 MQTT est le moyen par défaut pour récupérer les messages envoyés par les devices.
 
 Le flot de messages envoyés par les devices des applications peut être récupérer via des clients MQTT comme mosquitto_sub (en ligne de commande), [mqtt-spy](https://kamilfb.github.io/mqtt-spy/), , HiveMQ Websocket Client, MQTTBox ([configuration](images/mqttbox-brokerconfig.png), [souscription](images/mqttbox-subscribe.png)) [myMQTT](https://play.google.com/store/apps/details?id=at.tripwire.mqtt.client) pour Android ... Remarque: Des clients (comme [mqtt-lens](https://chrome.google.com/webstore/detail/mqttlens/hemojaaeigabkbcookmlgmdigohjobjm) pour Chrome) ne supportent pas MQTT/TLS.
 
-Installer `mosquitto_sub` avec
+Installez `mosquitto_sub` avec
 ```
 sudo apt-get install -y mosquitto-clients
 ```
@@ -163,7 +163,7 @@ mosquitto_sub -h $BROKER -t "gateway/#" -u $MQTTUSER -P $MQTTPASSWORD -v  $TLS
 
 [Plus de détails](https://www.loraserver.io/lora-app-server/integrate/data/)
 
-### Envoyer un downlink à un device
+### Envoi d'un message downlink à un device
 MQTT est le moyen par défaut pour envoyer un message descendant (down) vers un device https://www.loraserver.io/lora-app-server/integrate/data/
 
 Actuellement, les commandes à utiliser sont:

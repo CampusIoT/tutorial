@@ -82,21 +82,26 @@ Le “`Payload codec`” peut être mis à jour à tout moment. Une erreur dans 
 [Plus de détails](https://www.loraserver.io/lora-app-server/use/applications/)
 
 ### Enregistrer un device OTAA
-Un device OTAA est un endpoint LoRaWAN envoyant le même format de données et partageant le même service-profile (utilisez `CLASS_A_OTAA` ou un autre plus spécifique que vous aurez créé). Il utilise la procédure par défaut OTAA pour son admission dans le réseau.
+Un device OTAA est un endpoint LoRaWAN envoyant le même format de données et partageant le même service-profile (utilisez `CLASS_A_OTAA` ou un autre plus spécifique que vous aurez créé). Il utilise la procédure par défaut OTAA pour son admission dans le réseau. La plupart des devices que vous utilisez suivent la version 1.0.x de la spécification LoRaWAN.
 
-Créer un device depuis une application créée (`Menu > Applications`) en utilisant les `DevEUI` (64 bits soit 16 caractères hexadécimaux) inscrit sur l’étiquette collée sur le endpoint LoRaWAN ou sur son emballage d’expédition.
+Créez un device depuis une application créée (`Menu > Applications`) en utilisant les `DevEUI` (64 bits soit 16 caractères hexadécimaux) inscrit sur l’étiquette collée sur le endpoint LoRaWAN ou sur son emballage d’expédition.
 ![Add Device](images/device-add.png)
 
-Ajouter ensuite l’`AppKey` (AES 128bits soit 32 caractères hexadécimaux) fournie avec le endpoint (étiquette amovible, fichier Excel envoyé par le vendeur, …). Penser à valider l’enregistrement de la clé avec le bouton `Set Device-Keys`.
+Ajoutez ensuite l’`AppKey` (AES 128bits soit 32 caractères hexadécimaux) fournie dans le champs `Network Key`. Penser à valider l’enregistrement de la clé avec le bouton `Set Device-Keys`.
 ![Set Device Keys](images/device-set-device-keys.png)
 
-
-> A noter : l’`AppKey` par défaut peut être modifié sur la plupart des endpoints via une liaison USB, NFC, BLE au moyen d' une application mobile (Android, iOS) fournie par le constructeur ou de commandes série (type AT).
+> Nota Bene : Une clé `AppKey` est livrée avec le endpoint (étiquette amovible, fichier Excel envoyé par le vendeur, …) à l'achat. L’`AppKey` par défaut peut être modifié sur la plupart des endpoints via une liaison USB, NFC, BLE au moyen d' une application mobile (Android, iOS) fournie par le constructeur ou de commandes série (type AT).
 
 [Plus de détails](https://www.loraserver.io/lora-app-server/use/devices/)
 
 ### Enregistrer un device ABP
+Un device LoRaWAN peut utiliser la procédure ABP (Activation By Personalization) pour communiquer avec le réseau. Les deux clés de session `AppSKey` et `NwkSKey` sont livrées avec le endpoint. Le device doit être enregistré avec le device-profile `CLASS_A_ABP` préalablement créé.
+
 TODO
+
+![Add ABP Device](images/device-add-abp.png)
+
+> Nota Bene : La procédure ABP est évitée du fait d'une moindre sécurité par rapport à la procédure OTAA.
 
 [Plus de détails](https://www.loraserver.io/lora-app-server/use/devices/)
 

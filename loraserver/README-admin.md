@@ -18,6 +18,16 @@ Cette opération est pour l’administrateur global du service.
 
 [Plus de détails](https://www.loraserver.io/lora-app-server/use/organizations/)
 
+### Création d'un service-profile dans l'organisation
+Créez un service-profile `DEFAULT` depuis `Menu > Service-profiles > + Create`
+
+https://lora.campusiot.imag.fr/#/organizations/1/service-profiles
+
+![Service Profile](images/service-profile-create.png)
+
+[Plus de détails](https://www.loraserver.io/lora-app-server/use/service-profiles/)
+
+
 ## Administration du geoserver
 
 [Plus de détails](https://www.loraserver.io/lora-geo-server/overview/)

@@ -47,24 +47,55 @@ Afficher le flot de messages écrits dans le journal `msg.log`
 ```bash
 tail -f $PWD/msg.log
 ```
-## Etape 2: Journaliser le flot MQTT de messages dans une base time-series InfluxDB avec NodeRed
-TODO
-* https://github.com/CampusIoT/loraserver-docker/blob/master/nodered.yml
-* https://github.com/CampusIoT/loraserver-docker/blob/master/influxdb.yml
-* https://github.com/CampusIoT/payload-codec/tree/master/src/main/javascript
+## Etape 2: Décoder et afficher les charges utiles des devices dans les tableaux de bord NodeRed
 
-## Etape 3: Visualiser les séries temporelles de la base time-series InfluxDB avec Chronograf
+```bash
+git clone https://github.com/CampusIoT/tutorial.git
+cd nodered/tuto-nodered
+docker-compose up -d
+docker-compose ps
+docker-compose logs -f
+```
+
+Ouvrez les pages suivantes:
+* http://localhost:1880 avec `admin` `MY_SUPER_ADMIN_SECRET`
+* http://localhost:1880/ui avec `user` `MY_SUPER_USER_SECRET`
+* http://localhost:1880/worldmap avec `user` `MY_SUPER_USER_SECRET`
+
+Le flot ([`flow.json`](https://github.com/CampusIoT/tutorial/blob/master/nodered/tuto-nodered/configuration/nodered/flow.json)) par défaut est dans le répertoire `nodered/tuto-nodered/configuration/nodered/`.
+
+Vous pourrez personnaliser ce flot en fonction des devices que vous avez enregistrez dans votre organisation.
+
+Pour changer les 2 mots de passe avec les lignes suivantes:
+```bash
+docker-compose stop nodered
+docker-compose exec nodered /data/set_password.sh MY_SUPER_ADMIN_SECRET MY_SUPER_USER_SECRET
+sleep 10
+docker-compose start nodered
+```
+
+Changez les mots de passe:
+```bash
+docker-compose exec nodered /data/set_password.sh MY_SUPER_ADMIN_SECRET MY_SUPER_USER_SECRET
+docker-compose stop nodered
+docker-compose start nodered
+```
+
+## Etape 3: Journaliser le flot MQTT de messages dans une base time-series InfluxDB avec NodeRed
 TODO
 
-## Etape 4: Visualiser les séries temporelles de la base time-series InfluxDB avec Grafana
+## Etape 4: Visualiser les séries temporelles de la base time-series InfluxDB avec Chronograf
+TODO
+
+## Etape 5: Visualiser les séries temporelles de la base time-series InfluxDB avec Grafana
 TODO
 * https://github.com/CampusIoT/loraserver-docker/blob/master/grafana.yml
 
-## Etape 5: Créer une alerte Mail et SMS avec Kapacitor
+## Etape 6: Créer une alerte Mail et SMS avec Kapacitor
 TODO
 
-## Etape 6: Journaliser le flot MQTT de messages dans une base time-series OpenTSDB avec NodeRed
+## Etape 7: Journaliser le flot MQTT de messages dans une base time-series OpenTSDB avec NodeRed
 TODO
 
-## Etape 4: Visualiser les séries temporelles de la base time-series OpenTSDB avec Grafana
+## Etape 8: Visualiser les séries temporelles de la base time-series OpenTSDB avec Grafana
 TODO

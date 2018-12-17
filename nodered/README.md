@@ -80,6 +80,10 @@ docker-compose exec nodered /data/set_password.sh MY_SUPER_ADMIN_SECRET MY_SUPER
 docker-compose stop nodered
 docker-compose start nodered
 ```
+![NodeRed Flow Editor](images/nodere_2a.png)
+![NodeRed Dashboard](images/nodere_2b.png)
+![NodeRed Worldmap](images/nodere_2c.png)
+
 
 ## Etape 3: Journaliser le flot MQTT de messages dans une base time-series InfluxDB avec NodeRed
 TODO

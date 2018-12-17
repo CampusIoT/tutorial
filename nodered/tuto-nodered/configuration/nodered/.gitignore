@@ -5,4 +5,6 @@ package.json
 .config.json
 .config.json.backup
 .flow.json.backup
+.flow_cred.json.backup
 .sessions.json
+

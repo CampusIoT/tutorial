@@ -57,7 +57,12 @@ docker-compose ps
 docker-compose logs -f
 ```
 
-Entrez le username et mot de passe MQTT pour le broker campusiot.
+Entrez le username et mot de passe MQTT en éditant un des noeuds MQTT In.
+
+![NodeRed Edit MQTT](images/nodered_1a.png)
+
+![NodeRed Edit MQTT](images/nodered_1b.png)
+
 
 Ouvrez les pages suivantes:
 * http://localhost:1880 avec `admin` `MY_SUPER_ADMIN_SECRET`

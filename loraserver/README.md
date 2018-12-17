@@ -38,15 +38,6 @@ Créez un utilisateur existant avec l'onglet `Assign Existing User` depuis `Menu
 
 > Remarque: le script add_users.sh du dépôt https://github.com/CampusIoT/loraserver-cli permet de Créez en masse (bulk) des utilisateurs  décrits dans un fichier CSV. Un email leurs ai envoyé avec leur identifiant de compte.
 
-### Création d'un service-profile
-Créez un service-profile `DEFAULT` depuis `Menu > Service-profiles > + Create`
-
-https://lora.campusiot.imag.fr/#/organizations/1/service-profiles
-
-![Service Profile](images/service-profile-create.png)
-
-[Plus de détails](https://www.loraserver.io/lora-app-server/use/service-profiles/)
-
 ### Création d'un device-profile
 Créez (au moins) un device-profile `CLASS_A_OTAA` depuis `Menu > Device-profiles > + Create`
 

@@ -18,6 +18,17 @@ Cette opération est pour l’administrateur global du service.
 
 [Plus de détails](https://www.loraserver.io/lora-app-server/use/organizations/)
 
+### Création d'un service-profile dans une organisation
+Créez un service-profile `DEFAULT` depuis `Menu > Service-profiles > + Create`
+
+https://lora.campusiot.imag.fr/#/organizations/1/service-profiles
+
+![Service Profile](images/service-profile-create.png)
+
+[Plus de détails](https://www.loraserver.io/lora-app-server/use/service-profiles/)
+
+> Remarque: Le script `add_org.sh` du dépôt https://github.com/CampusIoT/loraserver-cli simplifie le création d'une nouvelle organisation avec un service-profile `DEFAULT`, un device-profile `CLASS_A_OTAA` et un device-profile `CLASS_A_ABP`.
+
 ## Administration du geoserver
 
 [Plus de détails](https://www.loraserver.io/lora-geo-server/overview/)

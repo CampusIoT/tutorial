@@ -1,3 +1,8 @@
 flow_cred.json
 lib
 package.json
+
+.config.json
+.config.json.backup
+.flow.json.backup
+.sessions.json

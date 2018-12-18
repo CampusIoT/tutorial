@@ -95,20 +95,38 @@ docker-compose start nodered
 
 
 ## Etape 3: Journaliser le flot MQTT de messages dans une base time-series InfluxDB avec NodeRed
-TODO
+
+Ajoutez dans la composition `docker-compose.yml` le service `influxdb` qui étend `influxdb.yml` et ajouter un lien vers `influxdb` dans le service `nodered`.
+
+Arrêtez et redémarrez la composition `docker-compose.yml` avec :
+```bash
+docker-compose stop
+docker-compose start
+```
 
 ## Etape 4: Visualiser les séries temporelles de la base time-series InfluxDB avec Chronograf
-TODO
+
+Ajoutez dans la composition `docker-compose.yml` le service `chronograf` qui étend `chronograf.yml`.
+
+Démarrez le service dans la composition `docker-compose.yml` avec :
+```bash
+docker-compose start chronograf
+```
 
 ## Etape 5: Visualiser les séries temporelles de la base time-series InfluxDB avec Grafana
-TODO
-* https://github.com/CampusIoT/loraserver-docker/blob/master/grafana.yml
+
+Ajoutez dans la composition `docker-compose.yml` le service `grafana` qui étend `grafana.yml`.
+
+Démarrez le service dans la composition `docker-compose.yml` avec :
+```bash
+docker-compose start grafana
+```
 
 ## Etape 6: Créer une alerte Mail et SMS avec Kapacitor
-TODO
 
-## Etape 7: Journaliser le flot MQTT de messages dans une base time-series OpenTSDB avec NodeRed
-TODO
+Ajoutez dans la composition `docker-compose.yml` le service `kapacitor` qui étend `kapacitor.yml`.
 
-## Etape 8: Visualiser les séries temporelles de la base time-series OpenTSDB avec Grafana
-TODO
+Démarrez le service dans la composition `docker-compose.yml` avec :
+```bash
+docker-compose start kapacitor
+```

@@ -4,90 +4,44 @@
 version: "2"
 
 services:
+
   nodered:
-    build:
-      context: ./docker/nodered
-    image: campusiot/nodered:latest
-    #image: nodered/node-red-docker
+    extends:
+      file: nodered.yml
+      service: nodered
     links:
       - influxdb:influxdb
-      - opentsdb:opentsdb
-      - mongodb:mongodb
-    environment:
-      NODE_OPTIONS: --max_old_space_size=128
-      FLOWS: flow.json
-    volumes:
-       - ./configuration/nodered/:/data/:rw
-      # - ./configuration/nodered/flow.json:/data/flow.json:rw
-      # - ./configuration/nodered/settings.TMPL.js:/data/settings.TMPL.js:ro
-      # - ./configuration/nodered/set_password.sh:/data/set_password.sh:ro
-      # - ./configuration/nodered/node-red-static:/data/node-red-static:ro
-    ports:
-      - 1880:1880
-    restart: unless-stopped
+#      - opentsdb:opentsdb
+#      - mongodb:mongodb
 
   influxdb:
-    image: influxdb
-    environment:
-      INFLUXDB_ADMIN_USER: admin
-      INFLUXDB_ADMIN_PASSWORD: __SUPER_SECRET_TO_CHANGE__
-      INFLUXDB_USER: campusiot
-      INFLUXDB_USER_PASSWORD: __SUPER_SECRET_TO_CHANGE__
-    ports:
-      - 8086:8086 #8086 HTTP API port
-      - 8083:8083 #8083 Administrator interface port, if it is enabled
-    restart: unless-stopped
+    extends:
+      file: influxdb.yml
+      service: influxdb
 
-  mongodb:
-    image: mongo:latest
-    #  container_name: mongodb
-    environment:
-      - MONGODB_USER="user"
-      - MONGODB_PASS="__SUPER_SECRET_TO_CHANGE__"
-      - MONGO_DATA_DIR=/data/db
-      - MONGO_LOG_DIR=/dev/null
-    volumes:
-      - ./data/db:/data/db
-    ports:
-        - 27017:27017
-    command: mongod --smallfiles --logpath=/dev/null # --quiet
-    restart: unless-stopped
+#  mongodb:
+#    extends:
+#      file: mongodb.yml
+#      service: mongodb
 
-  # https://github.com/PeterGrace/opentsdb-docker/blob/master/docker-compose.yml
-  opentsdb:
-    image: petergrace/opentsdb-docker:latest
-    environment:
-      - WAITSECS=30
-    ports:
-      - 4242:4242
-      - 60030:60030
-    restart: unless-stopped
-    labels:
-      NAME: "opentsdb"
+#  opentsdb:
+#    extends:
+#      file: opentsdb.yml
+#      service: opentsdb
 
 # http://docs.grafana.org/installation/docker/
   grafana:
-    image: grafana/grafana
+    extends:
+      file: grafana.yml
+      service: grafana
     links:
       - influxdb:influxdb
-      - opentsdb:opentsdb
-    environment:
-      GF_SECURITY_ADMIN_PASSWORD: __SUPER_SECRET_TO_CHANGE__
-      #GF_SERVER_ROOT_URL: http://grafana.server.name
-      GF_INSTALL_PLUGINS: grafana-clock-panel,grafana-simple-json-datasource
-    ports:
-      - 3000:3000
-    restart: unless-stopped
+#      - mongodb:mongodb
+#      - opentsdb:opentsdb
 
-  kapacitor:
-    image: kapacitor
-    links:
-      - influxdb:influxdb
-    environment:
-      KAPACITOR_HOSTNAME: kapacitor
-      KAPACITOR_LOGGING_LEVEL: INFO
-      #KAPACITOR_REPORTING_ENABLED: false
-      KAPACITOR_INFLUXDB_0_URLS_0: http://influxdb:8086
-    ports:
-      - 9092:9092
-    restart: unless-stopped
+#  kapacitor:
+#    extends:
+#      file: kapacitor.yml
+#      service: kapacitor
+#    links:
+#      - influxdb:influxdb

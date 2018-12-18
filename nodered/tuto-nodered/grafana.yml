@@ -1,0 +1,17 @@
+# Copyright (C) CampusIoT,  - All Rights Reserved
+# Written by CampusIoT Dev Team, 2016-2018
+
+version: "2"
+
+services:
+
+# http://docs.grafana.org/installation/docker/
+  grafana:
+    image: grafana/grafana
+    environment:
+      GF_SECURITY_ADMIN_PASSWORD: __SUPER_SECRET_TO_CHANGE__
+      #GF_SERVER_ROOT_URL: http://grafana.server.name
+      GF_INSTALL_PLUGINS: grafana-clock-panel,grafana-simple-json-datasource
+    ports:
+      - 3000:3000
+    restart: unless-stopped

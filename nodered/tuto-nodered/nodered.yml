@@ -1,0 +1,24 @@
+# Copyright (C) CampusIoT,  - All Rights Reserved
+# Written by CampusIoT Dev Team, 2016-2018
+
+version: "2"
+
+services:
+
+  nodered:
+    build:
+      context: ./docker/nodered
+    image: campusiot/nodered:latest
+    #image: nodered/node-red-docker
+    environment:
+      NODE_OPTIONS: --max_old_space_size=128
+      FLOWS: flow.json
+    volumes:
+       - ./configuration/nodered/:/data/:rw
+      # - ./configuration/nodered/flow.json:/data/flow.json:rw
+      # - ./configuration/nodered/settings.TMPL.js:/data/settings.TMPL.js:ro
+      # - ./configuration/nodered/set_password.sh:/data/set_password.sh:ro
+      # - ./configuration/nodered/node-red-static:/data/node-red-static:ro
+    ports:
+      - 1880:1880
+    restart: unless-stopped

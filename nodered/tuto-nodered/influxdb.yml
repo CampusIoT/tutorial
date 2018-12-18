@@ -1,0 +1,18 @@
+# Copyright (C) CampusIoT,  - All Rights Reserved
+# Written by CampusIoT Dev Team, 2016-2018
+
+version: "2"
+
+services:
+
+  influxdb:
+    image: influxdb
+    environment:
+      INFLUXDB_ADMIN_USER: admin
+      INFLUXDB_ADMIN_PASSWORD: __SUPER_SECRET_TO_CHANGE__
+      INFLUXDB_USER: campusiot
+      INFLUXDB_USER_PASSWORD: __SUPER_SECRET_TO_CHANGE__
+    ports:
+      - 8086:8086 #8086 HTTP API port
+      - 8083:8083 #8083 Administrator interface port, if it is enabled
+    restart: unless-stopped

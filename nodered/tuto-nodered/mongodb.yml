@@ -1,0 +1,21 @@
+# Copyright (C) CampusIoT,  - All Rights Reserved
+# Written by CampusIoT Dev Team, 2016-2018
+
+version: "2"
+
+services:
+
+  mongodb:
+    image: mongo:latest
+    #  container_name: mongodb
+    environment:
+      - MONGODB_USER="user"
+      - MONGODB_PASS="__SUPER_SECRET_TO_CHANGE__"
+      - MONGO_DATA_DIR=/data/db
+      - MONGO_LOG_DIR=/dev/null
+    volumes:
+      - ./data/db:/data/db
+    ports:
+        - 27017:27017
+    command: mongod --smallfiles --logpath=/dev/null # --quiet
+    restart: unless-stopped

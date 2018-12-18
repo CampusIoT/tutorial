@@ -1,0 +1,17 @@
+# Copyright (C) CampusIoT,  - All Rights Reserved
+# Written by CampusIoT Dev Team, 2016-2018
+
+version: "2"
+
+services:
+
+  kapacitor:
+    image: kapacitor
+    environment:
+      KAPACITOR_HOSTNAME: kapacitor
+      KAPACITOR_LOGGING_LEVEL: INFO
+      #KAPACITOR_REPORTING_ENABLED: false
+      KAPACITOR_INFLUXDB_0_URLS_0: http://influxdb:8086
+    ports:
+      - 9092:9092
+    restart: unless-stopped

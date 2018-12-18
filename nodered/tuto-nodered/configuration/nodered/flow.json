@@ -6336,7 +6336,9 @@
         "type": "link in",
         "z": "bfcfea51.97e7b8",
         "name": "",
-        "links": [],
+        "links": [
+            "5f2c34db.39ab9c"
+        ],
         "x": 75,
         "y": 300,
         "wires": [
@@ -7088,8 +7090,7 @@
         "z": "64fdbe56.f66188",
         "name": "",
         "links": [
-            "fd74568a.6e3c5",
-            "986c65d3.1310a"
+            "5f2c34db.39ab9c"
         ],
         "x": 155,
         "y": 340,
@@ -7229,8 +7230,7 @@
         "z": "cc0906f8.8d61d",
         "name": "",
         "links": [
-            "fd74568a.6e3c5",
-            "986c65d3.1310a"
+            "5f2c34db.39ab9c"
         ],
         "x": 55,
         "y": 380,
@@ -10160,8 +10160,7 @@
         "z": "23078e64.4fe6ca",
         "name": "",
         "links": [
-            "fd74568a.6e3c5",
-            "986c65d3.1310a"
+            "72d84bbb.98f534"
         ],
         "x": 175,
         "y": 440,
@@ -10230,8 +10229,7 @@
         "z": "807dd075.ae85e",
         "name": "",
         "links": [
-            "fd74568a.6e3c5",
-            "986c65d3.1310a"
+            "72d84bbb.98f534"
         ],
         "x": 55,
         "y": 400,
@@ -16418,8 +16416,8 @@
                 "e4d5e141.96b43",
                 "c0ded8fe.c74428",
                 "f3deec7b.08f0a8",
-                "7ba3426c.cf03b4",
-                "257ae3b1.2496d4"
+                "257ae3b1.2496d4",
+                "75bb8655.6c744"
             ]
         ]
     },
@@ -16814,32 +16812,6 @@
         ]
     },
     {
-        "id": "7ba3426c.cf03b4",
-        "type": "function",
-        "z": "b23a6a86.69b218",
-        "name": "Decode Allora",
-        "func": "/*\nFirst we have 2 fixed bytes (length and allora message type). Next we have a\nsequence of Key-Value pairs. Not all Key-Value pairs are always transmitted in\neach message, so be flexible when you parse the payload.\nFixed:\nName # bytes Description\nLength 1 byte Number of bytes in the payload after this length byte\n(length not included in the value)\nMin. 0x00, Max 0xFF (max depends on LoRaWAN\nmaximum payload settings)\nMessage\ntype 1 byte Message type of the payload.\n0x02: report message\n0xFF: error message\n\n*/\nAllora_Pirio_Payload = {\n  'decodeUp': function (port,payload) {\n      \n      \n        const BATTERY_SHUTDOWN_LEVEL = 1900; // mV\n        const BATTERY_MIN_LEVEL = 2000; // mV\n        const BATTERY_MAX_LEVEL = 3300; // mV\n\n        const MSGTYPE_REPORT = 0x02;\n        const MSGTYPE_ERROR = 0xFF;\n      \n        const TYPE_TEMPERATURE = 0x01;\n        const TYPE_HUMIDITY = 0x02;\n        const TYPE_OCCUPANCY = 0x04;\n        const TYPE_NUM_OCCUPIED_BLOCKS = 0x05;\n        const TYPE_NUM_MOTION_EVTS = 0x06;\n        const TYPE_NUM_FREE_BLOCKS = 0x07;\n        const TYPE_RAW_MOTION_EVTS = 0x08;\n        const TYPE_BATTERY_LEVEL = 0xFE;\n        const TYPE_ERROR = 0xFF;\n\n    var value = {}\n    var p = payload;\n    var idx = 0;\n    var len = p.readUInt8(idx);\n    idx += 1;\n    var msgType = p.readUInt8(idx);\n    idx += 1;\n    \n    if(msgType === MSGTYPE_ERROR) {\n        value.error = true;\n        return value;\n    } else if(msgType !== MSGTYPE_REPORT) {\n        value.unknown_msg = true;\n        return value;\n    }\n    \n    var v;\n    while(idx < payload.length)\n    {\n        var dataType = payload[idx++];\n        //console.log(idx, \"-->\", dataType);\n        switch(dataType) {\n            case TYPE_TEMPERATURE:\n                v = payload.readInt16BE(idx) / 100.0;\n                idx += 2;\n                value.temperature = v;\n                break;\n            case TYPE_HUMIDITY:\n                v = (payload.readUInt16BE(idx) / 65536)*125 - 6;\n                idx += 2;\n                value.humidity = v;\n                break;\n            case TYPE_OCCUPANCY:\n                // 0x00 Monitored space is free\n                // 0x01 Monitored space is occupied    \n                v = payload.readUInt8(idx) !== 0 ? true : false;\n                idx += 1;\n                value.occupancy = v;\n                break;\n            case TYPE_NUM_OCCUPIED_BLOCKS:\n                v = payload.readUInt8(idx);\n                idx += 1;\n                value.num_occupied_blocks = v;\n                break;\n            case TYPE_NUM_MOTION_EVTS:\n                v = payload.readUInt16BE(idx);\n                idx += 2;\n                value.num_motion_events = v;\n                break;\n            case TYPE_NUM_FREE_BLOCKS:\n                v = payload.readUInt8(idx);\n                idx += 1;\n                value.num_free_blocks = v;\n                break;\n            case TYPE_RAW_MOTION_EVTS:\n                v = payload.readUInt8(idx);\n                idx += 1;\n                value.num_motion_events = v;\n                break;\n            case TYPE_BATTERY_LEVEL:\n                v = payload.readUInt8(idx);\n                idx += 1;\n                if(v === 0) {\n                    value.battery_level = 0;\n                    value.battery_voltage = BATTERY_SHUTDOWN_LEVEL;\n                } else if(v === 1) {\n                    value.battery_level = 1;\n                    value.battery_voltage = (BATTERY_SHUTDOWN_LEVEL + BATTERY_MIN_LEVEL) / 2;\n                }  else if(v === 254) {\n                    value.battery_level = 100;\n                    value.battery_voltage = BATTERY_MAX_LEVEL;\n                } else if(v === 255) {\n                    value.battery_level = 0;\n                    value.battery_voltage = BATTERY_SHUTDOWN_LEVEL;\n                } else {\n                    value.battery_level = ( ( 253 * ( v - BATTERY_MIN_LEVEL ) ) / ( BATTERY_MAX_LEVEL - BATTERY_MIN_LEVEL ) ) + 1;\n                    value.battery_voltage = value.battery_level * (BATTERY_MAX_LEVEL-BATTERY_MIN_LEVEL) + BATTERY_MIN_LEVEL;\n                }\n                /*\n                Type: uint8\n                Value:\n                0x00 - 0xFF\n                255: battery voltage < BATTERY_SHUTDOWN_LEVEL (1900 mV)\n                254 : battery voltage >= BATTERY_MAX_LEVEL (3300 mV)\n                253 - 2: batteryLevel = ( ( 253 * ( BatteryVoltage - BATTERY_MIN_LEVEL ) ) / ( BATTERY_MAX_LEVEL - BATTERY_MIN_LEVEL ) ) + 1;\n                1 : battery voltage between BATTERY_MIN_LEVEL (2000 mV) and BATTERY_SHUTDOWN_LEVEL (1900 mV).\n                0 : battery voltage < 1.9V\n                */\n                break;\n            default:\n                return value;\n        }\n    }\n    return value;\n  }\n}\n\nvar p = msg.payload;\n\nif(p.applicationName !== \"ALLORA_PIRIO\") {\n    return undefined;\n}\n\nif(! p.frmPayload) {\n    return undefined;\n}\n\nvar o = Allora_Pirio_Payload.decodeUp(p.fPort,p.frmPayload);\n\nmsg.payload.object = o;\n\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 500,
-        "y": 940,
-        "wires": [
-            [
-                "46884c67.a3eb4c"
-            ]
-        ]
-    },
-    {
-        "id": "46884c67.a3eb4c",
-        "type": "link out",
-        "z": "b23a6a86.69b218",
-        "name": "allora_pirio",
-        "links": [],
-        "x": 835,
-        "y": 940,
-        "wires": []
-    },
-    {
         "id": "257ae3b1.2496d4",
         "type": "function",
         "z": "b23a6a86.69b218",
@@ -16848,7 +16820,7 @@
         "outputs": 1,
         "noerr": 0,
         "x": 500,
-        "y": 1000,
+        "y": 940,
         "wires": [
             [
                 "72d84bbb.98f534"
@@ -16859,24 +16831,29 @@
         "id": "72d84bbb.98f534",
         "type": "link out",
         "z": "b23a6a86.69b218",
-        "name": "allora_humidi",
-        "links": [],
+        "name": "allora",
+        "links": [
+            "b3e01824.a23dc",
+            "51bbf179.c15748"
+        ],
         "x": 835,
-        "y": 1000,
+        "y": 940,
         "wires": []
     },
     {
         "id": "75bb8655.6c744",
         "type": "function",
         "z": "b23a6a86.69b218",
-        "name": "Decode Elsys ERS",
-        "func": "\nvar p = msg.payload;\n\nif(p.applicationName !== \"ELSYS_ERS\") {\n    return undefined;\n}\n\nif(! p.frmPayload) {\n    return undefined;\n}\n\nvar o = Allora_Payload.decodeUp(p.fPort,p.frmPayload);\n\nmsg.payload.object = o;\n\nreturn msg;",
+        "name": "Decode Elsys",
+        "func": "//*****************************************************************************\n// Javascript codec functions for Elsys endpoints\n// Authors: Didier Donsez, Vivien Quéma\n// Licence: EPL 1.0\n//*****************************************************************************\n\n/*\nFrom https://www.elsys.se/en/wp-content/uploads/sites/3/2016/09/Elsys-LoRa-payload_v8.pdf\n\n1 0x01 Temperature 2 ‐3276.5°C‐‐>3276.5°C (Value of: 10010.0 °C)\n2 0x02 Humidity 1 0‐100%\n3 0x03 Acceleration/level 3 X,Y,Z ‐127‐127 (63=1G)\n4 0x04 Light 2 0‐65535 Lux\n5 0x05 Motion (PIR) 1 0‐255 (Number of motion)\n6 0x06 Co2 2 0‐10000ppm\n7 0x07 Battery 2 0‐65535mV\n8 0x08 Analog1 2 0‐65535mV\n9 0x09 GPS 6 3 bytes lat, 3 bytes long,binary\n10 0x0A Pulse count 2 0‐65535\n11 0x0B Pulse count ABS 4 Absolute value 0‐4294967295\n12 0x0C External temp1 2 ‐3276.5C‐‐>3276.5C\n13 0x0D External Digital/Button 1 0,1 (on/off, down/upp)\n14 0x0E External distance 2 0‐65535mm\n15 0x0F Motion (acceleration movements) 1 0‐255\n16 0x10 External IR temperature 4 2bytes internal temp 2 bytes external, ‐3276.5C‐‐>3276.5C\n17 0x11 Occupancy 1 0‐255 (0 ‐‐> no body,1‐‐>body,2‐‐> Body)\n18 0x12 External water leak 1 0‐255\n19 0x13 Grideye (room occupancy) 65 1byte ref,64byte pixel temp 8x8 (reserved for future use)\n20 0x14 Pressure 4 Pressure data (hPa)\n21 0x15 Sound 2 Sound data,1 byte peak/ 1byte avg (dB)\n22 0x16 Pulse count 2 2 0‐65535\n23 0x17 Pulse count 2 ABS 4 Absolute value 0‐4294967295\n24 0x18 Analog2 2 0‐65535mV\n25 0x19 External temp2 2 ‐3276.5C‐‐>3276.5 °C (Value of: 10010.0 °C)\n61 0x3D Debug information 4 Data depends on debug information\n62 0x3E Sensor settings n Sensor setting sent to server at startup (first package). Sent on Port+1. See sensor settings for more information.\n\n*/\n\nElsys_Payload = {\n\n  'decodeUp': function (port,payload) {\n\n    const TYPE_TEMPERATURE = 0x01;\n    const TYPE_HUMIDITY = 0x02;\n    const TYPE_ACCELERATION = 0x03;\n    const TYPE_LIGHT = 0x04;\n    const TYPE_MOTION_PIR = 0x05;\n    const TYPE_CO2 = 0x06;\n    const TYPE_BATTERY_MV = 0x07;\n    const TYPE_ANALOG1 = 0x08;\n    const TYPE_GPS = 0x09;\n    const TYPE_PULSE = 0x0A;\n    const TYPE_PULSEABS = 0x0B;\n    const TYPE_TEMPERATURE_EXTERNAL = 0x0C;\n    const TYPE_BUTTON_EXTERNAL = 0x0D;\n    const TYPE_DISTANCE_EXTERNAL = 0x0E;\n    const TYPE_MOTION_ACC = 0x0F;\n    const TYPE_TEMPERATURE_IR_EXTERNAL = 0x10;\n    const TYPE_OCCUPANCY = 0x11;\n    const TYPE_WATER_LEAK_EXTERNAL = 0x12;\n    const TYPE_OCCUPANCY_GRIDEYE = 0x13;\n    const TYPE_PRESSURE = 0x14;\n    const TYPE_SOUND = 0x15;\n    const TYPE_PULSE2 = 0x16;\n    const TYPE_PULSEABS2 = 0x17;\n    const TYPE_ANALOG2 = 0x18;\n    const TYPE_TEMPERATURE_EXTERNAL2 = 0x19;\n    // TBC\n\n\n    var value = {}\n    var p = payload;\n    var idx = 0;\n    var v;\n    while(idx < payload.length)\n    {\n        var dataType = payload[idx++];\n        console.log(idx, \"-->\", dataType);\n        switch(dataType) {\n            case TYPE_TEMPERATURE:\n                v = payload.readInt16BE(idx) / 10.0;\n                idx += 2;\n                if(value.temperature) {\n                    if(value.temperatures === undefined) {\n                        value.temperatures = [];\n                        value.temperatures.push(value.temperature);\n                    }\n                    value.temperatures.push(v);\n                } else {\n                    value.temperature = v;\n                }\n                break;\n            case TYPE_HUMIDITY:\n                v = payload.readUInt8(idx);\n                idx += 1;\n                if(value.humidity) {\n                    if(value.humiditys === undefined) {\n                        value.humiditys = [];\n                        value.humiditys.push(value.humidity);\n                    }\n                    value.humiditys.push(v);\n                } else {\n                    value.humidity = v;\n                }\n                break;\n            case TYPE_LIGHT:\n                v = payload.readUInt16BE(idx);\n                idx += 2;\n                if(value.light) {\n                    if(value.lights === undefined) {\n                        value.lights = [];\n                        value.lights.push(value.light);\n                    }\n                    value.lights.push(v);\n                } else {\n                    value.light = v;\n                }\n                break;\n            case TYPE_MOTION_PIR:\n                v = payload.readUInt8(idx);\n                idx += 1;\n                if(value.motion_pir) {\n                    if(value.motion_pirs === undefined) {\n                        value.motion_pirs = [];\n                        value.motion_pirs.push(value.motion_pir);\n                    }\n                    value.motion_pirs.push(v);\n                } else {\n                    value.motion_pir = v;\n                }\n                break;\n            case TYPE_ACCELERATION:\n                var x = payload.readInt8(idx);\n                var y = payload.readInt8(idx+1);\n                var z = payload.readInt8(idx+2);\n                v = [x,y,z];\n                idx += 3;\n                if(value.acceleration) {\n                    if(value.accelerations === undefined) {\n                        value.accelerations = [];\n                        value.accelerations.push(value.acceleration);\n                    }\n                    value.accelerations.push(v);\n                } else {\n                    value.acceleration = v;\n                }\n                break;\n            case TYPE_BATTERY_MV:\n                v = payload.readInt16BE(idx);\n                idx += 2;\n                if(value.batteryVoltage) {\n                    if(value.batteryVoltages === undefined) {\n                        value.batteryVoltages = [];\n                        value.batteryVoltages.push(value.batteryVoltage);\n                    }\n                    value.batteryVoltages.push(v);\n                } else {\n                    value.batteryVoltage = v;\n                }\n                break;\n            case TYPE_PRESSURE:\n                v = payload.readInt32BE(idx);\n                idx += 4;\n                 if(value.pressure) {\n                    if(value.pressures === undefined) {\n                        value.pressures = [];\n                        value.pressures.push(value.pressure);\n                    }\n                    value.pressures.push(v);\n                } else {\n                    value.pressure = v;\n                }\n                break;\n            case TYPE_TEMPERATURE_EXTERNAL:\n                v = payload.readInt16BE(idx) / 10.0;\n                idx += 2;\n                if(value.temperature_external) {\n                    if(value.temperature_externals === undefined) {\n                        value.temperature_externals = [];\n                        value.temperature_externals.push(value.temperature_external);\n                    }\n                    value.temperature_externals.push(v);\n                } else {\n                    value.temperature_external = v;\n                }\n                break;\n            default:\n                return value;\n        }\n    }\n    return value;\n\n  },\n\n  'encodeDn': function (port,value) {\n    // TO BE IMPLEMENTED\n    return null;\n  }\n}\n\n\nvar p = msg.payload;\n\nif(p.applicationName.indexOf(\"ELSYS\") !== 0) {\n    return undefined;\n}\n\nif(! p.frmPayload) {\n    return undefined;\n}\n\nvar o = Elsys_Payload.decodeUp(p.fPort,p.frmPayload);\n\nmsg.payload.object = o;\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 510,
-        "y": 1060,
+        "x": 500,
+        "y": 1000,
         "wires": [
-            []
+            [
+                "5f2c34db.39ab9c"
+            ]
         ]
     },
     {
@@ -17126,5 +17103,19 @@
                 "76492093.adb17"
             ]
         ]
+    },
+    {
+        "id": "5f2c34db.39ab9c",
+        "type": "link out",
+        "z": "b23a6a86.69b218",
+        "name": "elsys",
+        "links": [
+            "e8c6dd21.934018",
+            "117a1db.8f34b62",
+            "73c08187.a498e"
+        ],
+        "x": 835,
+        "y": 1000,
+        "wires": []
     }
 ]

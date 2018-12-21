@@ -1,0 +1,14 @@
+# Copyright (C) CampusIoT,  - All Rights Reserved
+# Written by CampusIoT Dev Team, 2016-2018
+
+version: "2"
+
+services:
+
+  chronograf:
+    image: chronograf
+    ports:
+      - 8888:8888
+    restart: unless-stopped
+    labels:
+      NAME: "chronograf"

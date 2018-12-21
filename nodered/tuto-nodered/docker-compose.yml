@@ -45,3 +45,10 @@ services:
 #      service: kapacitor
 #    links:
 #      - influxdb:influxdb
+
+  chronograf:
+    extends:
+      file: chronograf.yml
+      service: chronograf
+    links:
+      - influxdb:influxdb

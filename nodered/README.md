@@ -47,6 +47,12 @@ Afficher le flot de messages écrits dans le journal `msg.log`
 ```bash
 tail -f $PWD/msg.log
 ```
+
+En fin d'expérimentation, vous pouvez utiliser la commande suivante pour arrêter et supprimer le container `campusiot-nodered` :
+```bash
+docker rm -f campusiot-nodered
+```
+
 ## Etape 2: Décoder et afficher les charges utiles des devices dans les tableaux de bord NodeRed
 
 ```bash
@@ -113,6 +119,10 @@ Démarrez le service dans la composition `docker-compose.yml` avec :
 docker-compose start chronograf
 ```
 
+Ouvrez la page suivante http://localhost:8888
+
+Ajoutez la connection `http://influxdb:8086` dans `Configuration > Connection > + Add Connection`.
+
 ## Etape 5: Visualiser les séries temporelles de la base time-series InfluxDB avec Grafana
 
 Ajoutez dans la composition `docker-compose.yml` le service `grafana` qui étend `grafana.yml`.
@@ -121,6 +131,11 @@ Démarrez le service dans la composition `docker-compose.yml` avec :
 ```bash
 docker-compose start grafana
 ```
+Ouvrez la page suivante http://localhost:3000
+
+Ajoutez la source de données (url=`http://influxdb:8086`, database=`lorawan`) dans `Configuration > Data Sources > InfluxDB > Settings` en suivant la page http://localhost:3000/datasources/edit/1?gettingstarted
+
+Ajoutez un nouveau tableau de bord avec `Create > New Dashboard` en suivant la page http://localhost:3000/dashboard/new
 
 ## Etape 6: Créer une alerte Mail et SMS avec Kapacitor
 

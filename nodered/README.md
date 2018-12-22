@@ -123,7 +123,7 @@ Ouvrez la page suivante http://localhost:8888
 
 Ajoutez la connection `http://influxdb:8086` dans `Configuration > Connection > + Add Connection`.
 
-Explorez la base de données `lorawan` en ajoutant une requête suivante pour afficher le graphe du nombre de messages recus et émis par les stations de base :
+Explorez la base de données `lorawan` en ajoutant une requête suivante pour afficher le graphe du nombre de messages LoRa reçus et émis par les stations de base :
 
 ```sql
 SELECT sum("rxPacketsReceived") AS "sum_rxPacketsReceived", sum("txPacketsReceived") AS "sum_txPacketsReceived", sum("rxPacketsReceivedOK") AS "sum_rxPacketsReceivedOK", sum("txPacketsEmitted") AS "sum_txPacketsEmitted" FROM "lorawan"."three_days"."stat" WHERE time > :dashboardTime: GROUP BY time(1m) FILL(null)
@@ -147,7 +147,7 @@ Ajoutez la source de données (url=`http://influxdb:8086`, database=`lorawan`) d
 
 Ajoutez un nouveau tableau de bord avec `Create > New Dashboard` en suivant la page http://localhost:3000/dashboard/new
 
-Ajoutez un panel de type `Graph` et ajoutez les requêtes suivantes pour afficher le graphe du nombre de messages recus et émis par les stations de base via l'aide d'édition des requêtes :
+Ajoutez un panel de type `Graph` et ajoutez les requêtes suivantes pour afficher le graphe du nombre de messages LoRa reçus et émis par les stations de base via l'aide d'édition des requêtes :
 
 ```sql
 SELECT sum("rxPacketsReceived") FROM "stat" WHERE $timeFilter GROUP BY time($__interval) fill(null)

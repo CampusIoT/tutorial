@@ -131,6 +131,7 @@ SELECT sum("rxPacketsReceived") AS "sum_rxPacketsReceived", sum("txPacketsReceiv
 
 ![Chronograf Explore](images/chronograf_1.png)
 
+Ajoutez d'autres graphes.
 
 ## Etape 5: Visualiser les séries temporelles de la base time-series InfluxDB avec Grafana
 
@@ -145,6 +146,23 @@ Ouvrez la page suivante http://localhost:3000
 Ajoutez la source de données (url=`http://influxdb:8086`, database=`lorawan`) dans `Configuration > Data Sources > InfluxDB > Settings` en suivant la page http://localhost:3000/datasources/edit/1?gettingstarted
 
 Ajoutez un nouveau tableau de bord avec `Create > New Dashboard` en suivant la page http://localhost:3000/dashboard/new
+
+Ajoutez un panel de type `Graph` et ajoutez les requêtes suivantes pour afficher le graphe du nombre de messages recus et émis par les stations de base via l'aide d'édition des requêtes :
+
+```sql
+SELECT sum("rxPacketsReceived") FROM "stat" WHERE $timeFilter GROUP BY time($__interval) fill(null)
+
+SELECT sum("rxPacketsReceivedOK") FROM "stat" WHERE $timeFilter GROUP BY time($__interval) fill(null)
+
+SELECT sum("txPacketsEmitted") FROM "stat" WHERE $timeFilter GROUP BY time($__interval) fill(null)
+
+SELECT sum("txPacketsReceived") FROM "stat" WHERE $timeFilter GROUP BY time($__interval) fill(null)
+```
+
+![Grafana Panel](images/grafana_1.png)
+
+Sauvegardez le tableau de bord et ajoutez d'autres panneaux.
+
 
 ## Etape 6: Créer une alerte Mail et SMS avec Kapacitor
 

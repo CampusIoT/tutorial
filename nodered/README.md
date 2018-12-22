@@ -163,6 +163,17 @@ SELECT sum("txPacketsReceived") FROM "stat" WHERE $timeFilter GROUP BY time($__i
 
 Sauvegardez le tableau de bord et ajoutez d'autres panneaux.
 
+Ajoutez un panel de type `Graph` et ajoutez la requête suivante pour afficher le graphe des nombres de messages LoRa reçus, groupés par la propriété `mac` des stations de base via l'aide d'édition des requêtes :
+
+```sql
+SELECT sum("rxPacketsReceivedOK") FROM "stat" WHERE $timeFilter GROUP BY time($__interval), "mac" fill(null)
+```
+
+Modifiez les valeurs de l'onglet `Display` pour obtenir le graphe suivant.
+
+![Grafana Panel](images/grafana_2.png)
+
+
 
 ## Etape 6: Créer une alerte Mail et SMS avec Kapacitor
 

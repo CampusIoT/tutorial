@@ -123,6 +123,15 @@ Ouvrez la page suivante http://localhost:8888
 
 Ajoutez la connection `http://influxdb:8086` dans `Configuration > Connection > + Add Connection`.
 
+Explorez la base de données `lorawan` en ajoutant une requête suivante pour afficher le graphe du nombre de messages recus et émis par les stations de base :
+
+```sql
+SELECT sum("rxPacketsReceived") AS "sum_rxPacketsReceived", sum("txPacketsReceived") AS "sum_txPacketsReceived", sum("rxPacketsReceivedOK") AS "sum_rxPacketsReceivedOK", sum("txPacketsEmitted") AS "sum_txPacketsEmitted" FROM "lorawan"."three_days"."stat" WHERE time > :dashboardTime: GROUP BY time(1m) FILL(null)
+```
+
+![Chronograf Explore](images/chronograf_1.png)
+
+
 ## Etape 5: Visualiser les séries temporelles de la base time-series InfluxDB avec Grafana
 
 Ajoutez dans la composition `docker-compose.yml` le service `grafana` qui étend `grafana.yml`.

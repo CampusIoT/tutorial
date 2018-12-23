@@ -4627,14 +4627,14 @@
         "console": "false",
         "complete": "payload",
         "x": 950,
-        "y": 340,
+        "y": 324,
         "wires": []
     },
     {
         "id": "df40f84.4bd5288",
         "type": "inject",
         "z": "8ef8462d.3e5728",
-        "name": "DROP radio",
+        "name": "DROP all",
         "topic": "",
         "payload": "",
         "payloadType": "date",
@@ -4642,14 +4642,15 @@
         "crontab": "",
         "once": false,
         "onceDelay": "",
-        "x": 230,
-        "y": 380,
+        "x": 220,
+        "y": 364,
         "wires": [
             [
                 "b55d68bc.514e7",
                 "306f3794.34742",
                 "de6ceda5.ce4768",
-                "e75b1a57.d9b12"
+                "e75b1a57.d9b12",
+                "36809190.0fa4a6"
             ]
         ]
     },
@@ -4674,7 +4675,7 @@
         "precision": "",
         "retentionPolicy": "",
         "x": 510,
-        "y": 320,
+        "y": 304,
         "wires": [
             [
                 "c394074f.57539"
@@ -4692,7 +4693,7 @@
         "precision": "",
         "retentionPolicy": "",
         "x": 510,
-        "y": 360,
+        "y": 344,
         "wires": [
             [
                 "c394074f.57539"
@@ -4704,13 +4705,13 @@
         "type": "influxdb in",
         "z": "8ef8462d.3e5728",
         "influxdb": "70b21447.a18194",
-        "name": "DROP rawdata",
-        "query": "DROP MEASUREMENT rawdata",
+        "name": "DROP data",
+        "query": "DROP MEASUREMENT data",
         "rawOutput": false,
         "precision": "",
         "retentionPolicy": "",
-        "x": 520,
-        "y": 400,
+        "x": 510,
+        "y": 384,
         "wires": [
             [
                 "c394074f.57539"
@@ -4722,13 +4723,13 @@
         "type": "influxdb in",
         "z": "8ef8462d.3e5728",
         "influxdb": "70b21447.a18194",
-        "name": "DROP data",
-        "query": "DROP MEASUREMENT data",
+        "name": "DROP rx",
+        "query": "DROP MEASUREMENT rx",
         "rawOutput": false,
         "precision": "",
         "retentionPolicy": "",
-        "x": 510,
-        "y": 440,
+        "x": 500,
+        "y": 424,
         "wires": [
             [
                 "c394074f.57539"
@@ -4771,7 +4772,7 @@
         "precision": "",
         "retentionPolicy": "",
         "x": 700,
-        "y": 680,
+        "y": 880,
         "wires": []
     },
     {
@@ -4779,38 +4780,45 @@
         "type": "influxdb out",
         "z": "8ef8462d.3e5728",
         "influxdb": "70b21447.a18194",
-        "name": "data",
-        "measurement": "data",
+        "name": "rx",
+        "measurement": "rx",
         "precision": "",
         "retentionPolicy": "",
         "x": 690,
-        "y": 740,
+        "y": 680,
         "wires": []
     },
     {
         "id": "5e7f86a1.457188",
         "type": "link in",
         "z": "8ef8462d.3e5728",
-        "name": "",
+        "name": "gatewayrx2point",
         "links": [
-            "16cc577e.d91489"
+            "46436c8c.a31834"
         ],
         "x": 175,
         "y": 680,
         "wires": [
-            []
+            [
+                "5f8ee0a3.885e28"
+            ]
         ]
     },
     {
         "id": "833669c2.795cb8",
         "type": "link in",
         "z": "8ef8462d.3e5728",
-        "name": "",
-        "links": [],
+        "name": "object2point",
+        "links": [
+            "16cc577e.d91489"
+        ],
         "x": 175,
-        "y": 800,
+        "y": 802,
         "wires": [
-            []
+            [
+                "d3f5d430.bbe4b",
+                "ac55a2d4.829ab"
+            ]
         ]
     },
     {
@@ -5631,8 +5639,8 @@
         "appendNewline": true,
         "createDir": false,
         "overwriteFile": "false",
-        "x": 740,
-        "y": 800,
+        "x": 700,
+        "y": 960,
         "wires": [
             []
         ]
@@ -5641,7 +5649,7 @@
         "id": "b0589b6f.dd86a8",
         "type": "link in",
         "z": "8ef8462d.3e5728",
-        "name": "",
+        "name": "stat2point",
         "links": [
             "ad6b127f.b7f52"
         ],
@@ -7208,7 +7216,7 @@
         "type": "function",
         "z": "cc0906f8.8d61d",
         "name": "Select device",
-        "func": "var DEVEUI = \"a81758fffe03027a\";\nvar p = msg.payload;\n\nif(p.devEUI === DEVEUI) {\n    node.status({text:p.time});\n    return msg;\n} else {\n    return undefined;\n}\n\nnode.status({text:p.time});\n\nreturn msg;",
+        "func": "//var DEVEUI = \"a81758fffe03027a\";\nvar DEVEUI = \"a81758fffe03926d\";\nvar p = msg.payload;\n\nif(p.devEUI === DEVEUI) {\n    node.status({text:p.time});\n    return msg;\n} else {\n    return undefined;\n}\n\nnode.status({text:p.time});\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "x": 260,
@@ -7220,7 +7228,8 @@
                 "60d4671c.e43308",
                 "8dda42d8.0c7bc8",
                 "5da79d2b.a5c42c",
-                "c052ea43.0e5fe"
+                "c052ea43.0e5fe",
+                "6081309.995f6d"
             ]
         ]
     },
@@ -8233,7 +8242,7 @@
         "id": "69db27cf.f9d1d8",
         "type": "link in",
         "z": "8ef8462d.3e5728",
-        "name": "radio",
+        "name": "radio2point",
         "links": [
             "16cc577e.d91489"
         ],
@@ -13300,51 +13309,6 @@
         ]
     },
     {
-        "id": "d88619fe.a54508",
-        "type": "influxdb out",
-        "z": "8ef8462d.3e5728",
-        "influxdb": "70b21447.a18194",
-        "name": "tx_ack",
-        "measurement": "tx_ack",
-        "precision": "",
-        "retentionPolicy": "",
-        "x": 690,
-        "y": 500,
-        "wires": []
-    },
-    {
-        "id": "c442bdbe.592168",
-        "type": "function",
-        "z": "8ef8462d.3e5728",
-        "name": "Convert txpk_ack in point",
-        "func": "\nvar topic = msg.topic;\n\nvar object_owner = parseInt(topic.split(\"/\",2)[1]);\n\nvar error = msg.payload.error;\n\nif(error === undefined) {\n    return undefined;\n}\n\nvar lapeui = msg.payload.lapeui;\n\nvar points = [];\n\n    var point = [{\n        fake: 1\n    },\n    {\n        lapeui: lapeui,\n        error:   error\n    }];\n\n    points.push(point);\n    \nmsg.payload = points;\n\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 450,
-        "y": 500,
-        "wires": [
-            [
-                "d88619fe.a54508"
-            ]
-        ]
-    },
-    {
-        "id": "ecdb4b14.4d37f",
-        "type": "link in",
-        "z": "8ef8462d.3e5728",
-        "name": "",
-        "links": [
-            "c13506fa.1576d8"
-        ],
-        "x": 175,
-        "y": 500,
-        "wires": [
-            [
-                "c442bdbe.592168"
-            ]
-        ]
-    },
-    {
         "id": "87080696.c87eb",
         "type": "inject",
         "z": "8ef8462d.3e5728",
@@ -16326,7 +16290,7 @@
         "y": 280,
         "wires": [
             [
-                "1f84f91a.933f9f"
+                "a3a92b0e.ff567"
             ]
         ]
     },
@@ -16341,7 +16305,9 @@
         "x": 410,
         "y": 360,
         "wires": [
-            []
+            [
+                "6c95f96.4a11988"
+            ]
         ]
     },
     {
@@ -16429,8 +16395,8 @@
         "links": [
             "27a7d2a5.b405a6",
             "590961be.974788",
-            "5e7f86a1.457188",
-            "69db27cf.f9d1d8"
+            "69db27cf.f9d1d8",
+            "833669c2.795cb8"
         ],
         "x": 1055,
         "y": 100,
@@ -16868,7 +16834,8 @@
         "y": 420,
         "wires": [
             [
-                "417cae3e.de019"
+                "417cae3e.de019",
+                "51338ce4.a5d4e4"
             ]
         ]
     },
@@ -16904,7 +16871,8 @@
         "wires": [
             [
                 "417cae3e.de019",
-                "72a4eeff.0fc1d8"
+                "72a4eeff.0fc1d8",
+                "be876590.88246"
             ]
         ]
     },
@@ -16994,22 +16962,8 @@
         "console": false,
         "tostatus": false,
         "complete": "payload",
-        "x": 950,
-        "y": 200,
-        "wires": []
-    },
-    {
-        "id": "1f84f91a.933f9f",
-        "type": "debug",
-        "z": "74429ff4.4ff848",
-        "name": "",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "x": 770,
-        "y": 280,
+        "x": 1110,
+        "y": 140,
         "wires": []
     },
     {
@@ -17022,7 +16976,7 @@
         "console": false,
         "tostatus": false,
         "complete": "payload",
-        "x": 770,
+        "x": 1110,
         "y": 40,
         "wires": []
     },
@@ -17034,7 +16988,7 @@
         "func": "function getSubBandsEU868(frequency) {\n    if(frequency>=863000000 && frequency<868000000) {\n        return \"g\";\n    } else if(frequency>=868000000 && frequency<868600000) {\n        return \"g1\";\n    } else if(frequency>=868700000 && frequency<869200000) {\n        return \"g2\";\n    } else if(frequency>=869400000 && frequency<869650000) {\n        return \"g3\";\n    } else if(frequency>=869700000 && frequency<870000000) {\n        return \"g4\";\n    } else {\n        return undefined;\n    }\n    /* Duty Cycle */\n    /*\n    g (863.0 – 868.0 MHz): 1%\n    g1 (868.0 – 868.6 MHz): 1%\n    g2 (868.7 – 869.2 MHz): 0.1%\n    g3 (869.4 – 869.65 MHz): 10%\n    g4 (869.7 – 870.0 MHz): 1%\n    */\n}\n\nvar p = msg.payload;\n\nvar rxInfo = p.rxInfo;\n\nvar ri = undefined;\n\nrxInfo.forEach(function(e) {\n  if(ri === undefined) {\n      ri = e;\n  } else if(e.rssi > ri.rssi) {\n      ri = e;\n  }\n});\n\nri.date = Date.now();\nri.dr = p.txInfo.dr;\nri.frequency = p.txInfo.frequency;\nri.subband = getSubBandsEU868(p.txInfo.frequency);\n// TODO ri.toa = getTOA(dr,size);\n\nri.redundancy = rxInfo.length;\n\nmsg.payload.radio = ri;\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 760,
+        "x": 840,
         "y": 100,
         "wires": [
             [
@@ -17047,11 +17001,11 @@
         "id": "52d5f4c7.0c232c",
         "type": "function",
         "z": "74429ff4.4ff848",
-        "name": "convert data",
+        "name": "convert frame payload",
         "func": "if(msg.payload.data){\n    msg.payload.frmPayload = Buffer.from(msg.payload.data, 'base64');\n    msg.payload.size = msg.payload.frmPayload.length;\n} else {\n    msg.payload.size = 0;\n}\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 590,
+        "x": 620,
         "y": 100,
         "wires": [
             [
@@ -17116,6 +17070,339 @@
         ],
         "x": 835,
         "y": 1000,
+        "wires": []
+    },
+    {
+        "id": "6081309.995f6d",
+        "type": "debug",
+        "z": "cc0906f8.8d61d",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 540,
+        "y": 880,
+        "wires": []
+    },
+    {
+        "id": "a3a92b0e.ff567",
+        "type": "function",
+        "z": "74429ff4.4ff848",
+        "name": "convert frame payload",
+        "func": "if(msg.payload.phyPayload){\n    msg.payload.phyPayloadBuffer = Buffer.from(msg.payload.phyPayload, 'base64');\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 680,
+        "y": 280,
+        "wires": [
+            [
+                "3287a358.8fd414"
+            ]
+        ]
+    },
+    {
+        "id": "3287a358.8fd414",
+        "type": "function",
+        "z": "74429ff4.4ff848",
+        "name": "decode lorawan up frame",
+        "func": "// =======================================\n// Operator\n// =======================================\n\n// https://www.thethingsnetwork.org/wiki/LoRaWAN/Address-Space#address-space-in-lorawan_devices_prefix-assignments\n\nlet items = [\n    [0, 'Local', 'Experimental'],\n    [1, 'Local', 'Experimental2'],\n    [2, 'World', 'Actility'],\n    [3, 'Europe', 'Proximus'],\n    [4, 'Europe', 'Swisscom'],\n    [5, 'Singapore, Indonesia , Australia, Africa , India', 'SingTel'],\n    [6, 'Europe', 'La Poste'],\n    [7, 'Europe', 'Bouygues Telecom'],\n    [8, 'World', 'Orbiwise'],\n    [9, 'U.S', 'SENET'],\n    [10, 'Europe', 'KPN'],\n    [11, 'Russia', 'EveryNet'],\n    [12, 'Africa', 'FastNet'],\n    [13, 'World', 'SK Telecom'],\n    [14, 'World', 'SagemCom'],\n    [15, 'Europe', 'Orange France'],\n    [16, 'Italy', 'A2A Smart City'],\n    [17, 'India, Sri Lanka, Nepal, Bangladesh and the Maldives Islands', 'TATA Communication'],\n    [18, 'World', 'Kerlink'],\n    [19, 'World', 'The Things Network'],\n    [20, 'Germany, Switzerland, China', 'DIGIMONDO GmbH'],\n    [21, 'World', 'Cisco Systems'],\n    [22, 'China', 'Computer Network Information Center & Chinese of Sciences Guangzhou Sub-center (CNIC)'],\n    [23, 'World', 'MultiTech Systems'],\n    [24, 'World', 'Loriot'],\n    [25, 'World', 'NNNCo'],\n    [26, 'World', 'Flashnet'],\n    [27, 'World', 'TrackNet'],\n    [28, 'World', 'Lar.Tech'],\n    [29, 'World', 'Swiss Led'],\n    [30, 'CIS, Europe', 'Net868'],\n    [31, 'Italy', 'Axatel'],\n    [32, 'Germany', 'Telent (Netzikon)'],\n    [33, 'World', 'Patavina Technologies'],\n    [34, 'North America', 'Comcast'],\n    [35, 'Australia, New Zealand', 'Ventia'],\n    [36, 'World', 'Gimasi'],\n    [37, 'World', 'Talkpool'],\n    [38, 'Italy', 'Telemar'],\n    [39, 'World', 'MCF88 SRL'],\n    [40, 'Malaysia', 'VADSLYFE'],\n    [41, 'World', 'GIoT'],\n    [42, 'World', 'M2B Communications'],\n    [43, 'China', 'ZTE'],\n    [44, 'Australia', 'Airlora'],\n    [45, 'World', 'Rai Way'],\n    [46, 'World', 'Levikom'],\n    [47, 'South Africa', 'Comsol Networks'],\n    [48, 'World', 'SoftBank'],\n    [49, 'World', 'Inmarsat'],\n    [50, 'World', 'Gemalto'],\n    [51, 'China', 'Alibaba Iot BU'],\n    [52, 'Russian Federation', 'ER-Telecom Holding'],\n    [0xe0, 'World', 'Class e0'],\n    [0xfc, 'World', 'Class fc']\n];\n\n\n// ===================================\n\nlet devAddrMap = {};\nlet operatorMap = {};\nlet objectOperatorMap = {};\nlet devEuiMap = {};\nlet appEuiMap = {};\nlet manufacturerMap = {};\nlet appManufacturerMap = {};\n\n\n// ===================================\nfunction getManufacturer(eui) {\n  //console.log(eui.toString(\"hex\"))\n  var buf = Buffer.from(eui, \"hex\");\n  buf.swap64();\n  //console.log(buf.toString(\"hex\"))\n  var h = buf.toString(\"hex\");\n  var o = oui(h);\n  if(!o) return \"Unknown\";\n  var idx = o.indexOf(\"\\n\");\n  return h + \"-->\" +o.substring(0,idx);\n}\n\n// ===================================\n\nfunction hex(val, len=2) {\n  return ('0'.repeat(len) + val.toString(16)).substr(-len);\n}\n\nfunction display(){\n  console.info('> _NetID, DevAddr MSB, location(s): name_');\n  console.info('>');\n  for (let [netId, location, name] of items) {\n      // nwkId = 7 LSB of NetID:\n      let nwkId = netId & 0b01111111;\n      // ...and nwkId = 7 MSB of DevAddr (32b):\n      let devAddr =  (nwkId << 25);\n      let devAddrMax =  ((nwkId+1) << 25) - 1;\n      console.info(`> - \\`0x${nwkId.toString(16)}\\`, \\`0x${devAddr.toString(16)}/${devAddrMax.toString(16)}\\`, ${location}: ${name}`);\n  }\n}\n\nlet NwkIdToOperator = null;\n\nfunction initNwkIdToOperator(){\n  if(NwkIdToOperator === null) {\n    NwkIdToOperator = [];\n    for (let [netId, location, name] of items) {\n        let nwkId = netId & 0b01111111;\n        NwkIdToOperator[nwkId] = name;\n    }\n  }\n}\n\nfunction getOperator(devAddr) {\n  initNwkIdToOperator();\n  let nwkId =  (devAddr >> 25);\n  var operator = NwkIdToOperator[nwkId];\n  if(operator === undefined) {\n      operator = nwkId;\n  }\n  return operator;\n}\n\nvar MHDR_JREQ = 0x00;\nvar MHDR_DTUP = 0x40;\nvar MHDR_DCUP = 0x80;\n\nvar phyPayloadBuffer = msg.payload.phyPayloadBuffer;\n\nif(phyPayloadBuffer){\n    var frametype = phyPayloadBuffer[0];\n    if(frametype === MHDR_JREQ) {\n        msg.payload.frametype = \"jreq\";\n        msg.payload.appeui = phyPayloadBuffer.slice(1,9).swap64().toString(\"hex\");\n        msg.payload.deveui = phyPayloadBuffer.slice(9,17).swap64().toString(\"hex\");\n    } else if (frametype === MHDR_DTUP || frametype === MHDR_DCUP) {\n        msg.payload.frametype = \"jreq\";\n        var devaddr = phyPayloadBuffer.readUInt32LE(1);\n        msg.payload.devaddr = phyPayloadBuffer.slice(1,5).swap32().toString(\"hex\");\n        msg.payload.operator = getOperator(devaddr);\n        msg.payload.confirmed = (frametype === MHDR_DCUP);\n\n    }\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 930,
+        "y": 280,
+        "wires": [
+            [
+                "46436c8c.a31834",
+                "313085aa.61a552"
+            ]
+        ]
+    },
+    {
+        "id": "46436c8c.a31834",
+        "type": "link out",
+        "z": "74429ff4.4ff848",
+        "name": "gateway_rx",
+        "links": [
+            "5e7f86a1.457188"
+        ],
+        "x": 1115,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "5f8ee0a3.885e28",
+        "type": "function",
+        "z": "8ef8462d.3e5728",
+        "name": "Convert rx in point",
+        "func": "var p = msg.payload;\n\nvar phyPayloadBuffer = p.phyPayloadBuffer;\n\nvar rxInfo = p.rxInfo;\nif (p.devaddr) {\n    var point = [{\n        size: phyPayloadBuffer.length,\n        rssi: rxInfo.rssi,\n        lsnr: rxInfo.loRaSNR\n    },\n    {\n        mac: rxInfo.mac,\n        devaddr: p.devaddr,\n        operator: p.operator,\n        frequency: rxInfo.frequency,\n        sf: rxInfo.dataRate.spreadFactor,\n        bw: rxInfo.dataRate.bandwidth\n    }];\n    \n    msg.payload = point;\n    return msg;\n    \n} else if (p.deveui) {\n    var point = [{\n        size: phyPayloadBuffer.length,\n        rssi: rxInfo.rssi,\n        lsnr: rxInfo.loRaSNR\n    },\n    {\n        mac: rxInfo.mac,\n        deveui: p.deveui,\n        appeui: p.appeui,\n        frequency: rxInfo.frequency,\n        sf: rxInfo.dataRate.spreadFactor,\n        bw: rxInfo.dataRate.bandwidth\n    }];\n    \n    msg.payload = point;\n    return msg;\n\n} else {\n    return undefined;\n}\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 430,
+        "y": 680,
+        "wires": [
+            [
+                "2a85e3e5.706ea4",
+                "332fc1a7.e06e1e"
+            ]
+        ]
+    },
+    {
+        "id": "a519db65.4d21b8",
+        "type": "influxdb out",
+        "z": "8ef8462d.3e5728",
+        "influxdb": "70b21447.a18194",
+        "name": "data",
+        "measurement": "data",
+        "precision": "",
+        "retentionPolicy": "",
+        "x": 690,
+        "y": 802,
+        "wires": []
+    },
+    {
+        "id": "d09ab6fd.e31638",
+        "type": "function",
+        "z": "74429ff4.4ff848",
+        "name": "decode lorawan dn frame",
+        "func": "\nvar MHDR_DTDN = 0x60;\nvar MHDR_DCDN = 0xA0;\n\nvar phyPayloadBuffer = msg.payload.phyPayloadBuffer;\n\nif(phyPayloadBuffer){\n    var frametype = phyPayloadBuffer[0];\n    if (frametype === MHDR_DCDN || frametype === MHDR_DTDN) {\n        msg.payload.frametype = \"dtdn\";\n        msg.payload.confirmed = (frametype === MHDR_DCDN);\n    }\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 930,
+        "y": 360,
+        "wires": [
+            [
+                "b8435984.1c1a1",
+                "5e460351.d952f4"
+            ]
+        ]
+    },
+    {
+        "id": "6c95f96.4a11988",
+        "type": "function",
+        "z": "74429ff4.4ff848",
+        "name": "convert frame payload",
+        "func": "if(msg.payload.phyPayload){\n    msg.payload.phyPayloadBuffer = Buffer.from(msg.payload.phyPayload, 'base64');\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 680,
+        "y": 360,
+        "wires": [
+            [
+                "d09ab6fd.e31638"
+            ]
+        ]
+    },
+    {
+        "id": "b8435984.1c1a1",
+        "type": "link out",
+        "z": "74429ff4.4ff848",
+        "name": "gateway_tx",
+        "links": [
+            "9407cfb0.3e17b8"
+        ],
+        "x": 1115,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "7ee603e8.d44f24",
+        "type": "influxdb out",
+        "z": "8ef8462d.3e5728",
+        "influxdb": "70b21447.a18194",
+        "name": "tx",
+        "measurement": "tx",
+        "precision": "",
+        "retentionPolicy": "",
+        "x": 690,
+        "y": 740,
+        "wires": []
+    },
+    {
+        "id": "f821fb9e.713c38",
+        "type": "function",
+        "z": "8ef8462d.3e5728",
+        "name": "Convert tx in point",
+        "func": "var p = msg.payload;\n\nvar phyPayloadBuffer = p.phyPayloadBuffer;\n\nvar txInfo = p.txInfo;\nvar point = [{\n    size: phyPayloadBuffer.length,\n    power: txInfo.power\n},\n{\n    mac: txInfo.mac,\n    frequency: txInfo.frequency,\n    sf: txInfo.dataRate.spreadFactor,\n    bw: txInfo.dataRate.bandwidth\n}];\n\nmsg.payload = point;\nreturn msg;\n    \n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 430,
+        "y": 740,
+        "wires": [
+            [
+                "7ee603e8.d44f24",
+                "55964523.ab106c"
+            ]
+        ]
+    },
+    {
+        "id": "9407cfb0.3e17b8",
+        "type": "link in",
+        "z": "8ef8462d.3e5728",
+        "name": "gatewaytx2point",
+        "links": [
+            "b8435984.1c1a1"
+        ],
+        "x": 175,
+        "y": 740,
+        "wires": [
+            [
+                "f821fb9e.713c38"
+            ]
+        ]
+    },
+    {
+        "id": "36809190.0fa4a6",
+        "type": "influxdb in",
+        "z": "8ef8462d.3e5728",
+        "influxdb": "70b21447.a18194",
+        "name": "DROP tx",
+        "query": "DROP MEASUREMENT tx",
+        "rawOutput": false,
+        "precision": "",
+        "retentionPolicy": "",
+        "x": 500,
+        "y": 463,
+        "wires": [
+            [
+                "c394074f.57539"
+            ]
+        ]
+    },
+    {
+        "id": "c1c687c9.d2682",
+        "type": "inject",
+        "z": "8ef8462d.3e5728",
+        "name": "DROP radio",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "",
+        "x": 230,
+        "y": 440,
+        "wires": [
+            [
+                "de6ceda5.ce4768"
+            ]
+        ]
+    },
+    {
+        "id": "55964523.ab106c",
+        "type": "debug",
+        "z": "8ef8462d.3e5728",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 850,
+        "y": 760,
+        "wires": []
+    },
+    {
+        "id": "332fc1a7.e06e1e",
+        "type": "debug",
+        "z": "8ef8462d.3e5728",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 850,
+        "y": 700,
+        "wires": []
+    },
+    {
+        "id": "313085aa.61a552",
+        "type": "debug",
+        "z": "74429ff4.4ff848",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "x": 1170,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "5e460351.d952f4",
+        "type": "debug",
+        "z": "74429ff4.4ff848",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "x": 1170,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "be876590.88246",
+        "type": "debug",
+        "z": "b13bf992.7c4dc8",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 950,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "51338ce4.a5d4e4",
+        "type": "debug",
+        "z": "b13bf992.7c4dc8",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 950,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "d3f5d430.bbe4b",
+        "type": "function",
+        "z": "8ef8462d.3e5728",
+        "name": "Convert object in point",
+        "func": "var p = msg.payload;\n\nvar o = p.object;\nif(o) {\n    var point = [\n        o,\n        {\n            devEUI: p.devEUI,\n            applicationID: p.applicationID,\n            deviceName: p.deviceName,\n            applicationName: p.applicationName\n        }\n    ];\n    \n    msg.payload = point;\n    return msg;\n} else {\n    return undefined;\n}",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 440,
+        "y": 802,
+        "wires": [
+            [
+                "a519db65.4d21b8",
+                "ac55a2d4.829ab"
+            ]
+        ]
+    },
+    {
+        "id": "ac55a2d4.829ab",
+        "type": "debug",
+        "z": "8ef8462d.3e5728",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 850,
+        "y": 822,
         "wires": []
     }
 ]

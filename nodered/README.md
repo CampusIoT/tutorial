@@ -173,7 +173,13 @@ Modifiez les valeurs de l'onglet `Display` pour obtenir le graphe suivant.
 
 ![Grafana Panel](images/grafana_2.png)
 
+Ajoutez un panel de type `Graph` et ajoutez la requête suivante pour afficher le graphe des nombres de messages LoRaWAN reçus, groupés par operateur LoRaWAN via l'aide d'édition des requêtes :
 
+```sql
+SELECT count("size") FROM "rx" WHERE ("devaddr" != 'undefined') AND $timeFilter GROUP BY time($__interval), "operator" fill(null)
+```
+
+![Grafana Panel](images/grafana_3.png)
 
 ## Etape 6: Créer une alerte Mail et SMS avec Kapacitor
 

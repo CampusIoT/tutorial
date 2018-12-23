@@ -175,20 +175,6 @@
         "info": ""
     },
     {
-        "id": "9c151da8.0e3928",
-        "type": "tab",
-        "label": "Bonus",
-        "disabled": false,
-        "info": ""
-    },
-    {
-        "id": "c482a093.f466e8",
-        "type": "tab",
-        "label": "Flow 2",
-        "disabled": true,
-        "info": ""
-    },
-    {
         "id": "b13bf992.7c4dc8",
         "type": "tab",
         "label": "Worldmap",
@@ -8949,90 +8935,6 @@
         ]
     },
     {
-        "id": "a5b5106c.ba9de",
-        "type": "inject",
-        "z": "9c151da8.0e3928",
-        "name": "",
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "x": 140,
-        "y": 240,
-        "wires": [
-            [
-                "11284bed.09572c"
-            ]
-        ]
-    },
-    {
-        "id": "f62411ee.fcd388",
-        "type": "http request",
-        "z": "9c151da8.0e3928",
-        "name": "",
-        "method": "GET",
-        "ret": "txt",
-        "url": "",
-        "tls": "",
-        "x": 730,
-        "y": 400,
-        "wires": [
-            [
-                "a6703ac7.71ca6"
-            ]
-        ]
-    },
-    {
-        "id": "87a8ff9b.011a",
-        "type": "function",
-        "z": "9c151da8.0e3928",
-        "name": "Build urls",
-        "func": "var free_sms_accounts2 = [\n    {\n      \"phonenumber\": \"+33645266498\",\n      \"accountid\": \"10474052\",\n      \"smskey\": \"SrBdusMbrKxB79\",\n      \"description\": \"Vivien QUEMA\"\n    },\n    {\n      \"phonenumber\": \"+33650974219\",\n      \"accountid\": \"28765143\",\n      \"smskey\": \"eDbZ2G6EoPpJyH\",\n      \"description\": \"Didier DONSEZ\"\n    }\n  ];\n\nvar free_sms_accounts = [\n    {\n      \"phonenumber\": \"+33650974219\",\n      \"accountid\": \"28765143\",\n      \"smskey\": \"eDbZ2G6EoPpJyH\",\n      \"description\": \"Didier DONSEZ\"\n    }\n  ];\n\nvar text = msg.payload;\n\nvar urls = [];\nfree_sms_accounts.forEach(function(free_sms_account){\n\n      var TO=free_sms_account.phonenumber;\n      var FREEACCOUNTID=free_sms_account.accountid;\n      var FREESMSKEY=free_sms_account.smskey;\n\n      console.log(\"sendSmsWithFree\", \"Trying to send SMS to\", free_sms_account.description);\n\n      var url=\"https://smsapi.free-mobile.fr/sendmsg?user={{FREEACCOUNTID}}&pass={{FREESMSKEY}}&msg={{TEXT}}\";\n      //url=url.replace(\"{{TEXT}}\", querystring.escape(text));\n      url=url.replace(\"{{TEXT}}\", text);\n      url=url.replace(\"{{FREEACCOUNTID}}\", FREEACCOUNTID);\n      url=url.replace(\"{{FREESMSKEY}}\", FREESMSKEY);\n\n        urls.push(url);\n});\n\nmsg.url = urls[0];\n\nreturn msg;\n\n    ",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 520,
-        "y": 400,
-        "wires": [
-            [
-                "f62411ee.fcd388"
-            ]
-        ]
-    },
-    {
-        "id": "a6703ac7.71ca6",
-        "type": "debug",
-        "z": "9c151da8.0e3928",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "x": 970,
-        "y": 400,
-        "wires": []
-    },
-    {
-        "id": "11284bed.09572c",
-        "type": "function",
-        "z": "9c151da8.0e3928",
-        "name": "Set text",
-        "func": "// var context = this.context().global;\n//var context = this.context();\nvar count = global.get('count')||0;\ncount += 1;\nglobal.set('count',count);\n\nmsg.payload = \"TEST \"+ count + \" - \" + new Date();\n\nnode.status({text:msg.payload});\n\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 320,
-        "y": 320,
-        "wires": [
-            [
-                "87a8ff9b.011a",
-                "a6703ac7.71ca6"
-            ]
-        ]
-    },
-    {
         "id": "dec099e0.4cb568",
         "type": "debug",
         "z": "4bad987a.b66138",
@@ -13168,105 +13070,6 @@
         ]
     },
     {
-        "id": "c68d2c2a.ee1a8",
-        "type": "http request",
-        "z": "c482a093.f466e8",
-        "name": "get from Opensky Network",
-        "method": "GET",
-        "ret": "obj",
-        "url": "https://opensky-network.org/api/states/all",
-        "tls": "",
-        "x": 540,
-        "y": 260,
-        "wires": [
-            [
-                "20ea96d3.e769ba"
-            ]
-        ]
-    },
-    {
-        "id": "f25ec65a.de755",
-        "type": "inject",
-        "z": "c482a093.f466e8",
-        "name": "interval 30 secs",
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "repeat": "30",
-        "crontab": "",
-        "once": false,
-        "x": 294,
-        "y": 260,
-        "wires": [
-            [
-                "c68d2c2a.ee1a8"
-            ]
-        ]
-    },
-    {
-        "id": "20ea96d3.e769ba",
-        "type": "function",
-        "z": "c482a093.f466e8",
-        "name": "flights filter func",
-        "func": "var allFlights=msg.payload.states;\nvar filteredFlights = [];\n\nfor (var i = 0, len = allFlights.length; i < len; i++) {\n  // get longitude not null flights only\n  if (allFlights[i][5]){\n    filteredFlights.push(allFlights[i]);\n  }\n}\n\nmsg.payload=filteredFlights;\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 600,
-        "y": 200,
-        "wires": [
-            [
-                "3715ea8f.4efbde"
-            ]
-        ]
-    },
-    {
-        "id": "c0925678.9baf58",
-        "type": "worldmap",
-        "z": "c482a093.f466e8",
-        "name": "",
-        "lat": "",
-        "lon": "",
-        "zoom": "",
-        "layer": "",
-        "cluster": "",
-        "maxage": "",
-        "usermenu": "show",
-        "panit": "false",
-        "x": 1030,
-        "y": 260,
-        "wires": []
-    },
-    {
-        "id": "3715ea8f.4efbde",
-        "type": "split",
-        "z": "c482a093.f466e8",
-        "name": "split flights",
-        "splt": "\\n",
-        "x": 810,
-        "y": 200,
-        "wires": [
-            [
-                "bd7519dd.161248"
-            ]
-        ]
-    },
-    {
-        "id": "bd7519dd.161248",
-        "type": "function",
-        "z": "c482a093.f466e8",
-        "name": "add flight to map",
-        "func": "var flight = {\n    name: msg.payload[1], \n    lat:msg.payload[6], \n    lon:msg.payload[5],\n    bearing:msg.payload[10],\n    speed:msg.payload[9],\n    layer:\"flights track\",\n    icon:\"plane\",\n    iconColor:\"red\",\n    extrainfo:msg.payload[0]\n};\n\nmsg.payload = flight;\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 820,
-        "y": 260,
-        "wires": [
-            [
-                "c0925678.9baf58"
-            ]
-        ]
-    },
-    {
         "id": "adaaf485.abbe68",
         "type": "worldmap-tracks",
         "z": "cdf4410b.01b4f",
@@ -17365,7 +17168,7 @@
         "type": "debug",
         "z": "b13bf992.7c4dc8",
         "name": "",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,

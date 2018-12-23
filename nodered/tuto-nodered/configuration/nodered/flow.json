@@ -14,16 +14,23 @@
         "info": ""
     },
     {
-        "id": "4714a580.22c37c",
+        "id": "8ef8462d.3e5728",
         "type": "tab",
-        "label": "Dashboard",
+        "label": "Save Data",
         "disabled": false,
         "info": ""
     },
     {
-        "id": "8ef8462d.3e5728",
+        "id": "b13bf992.7c4dc8",
         "type": "tab",
-        "label": "Save Data",
+        "label": "Worldmap",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "4714a580.22c37c",
+        "type": "tab",
+        "label": "Dashboard",
         "disabled": false,
         "info": ""
     },
@@ -164,13 +171,6 @@
         "id": "807dd075.ae85e",
         "type": "tab",
         "label": "Allora Factory Humidi Office",
-        "disabled": false,
-        "info": ""
-    },
-    {
-        "id": "b13bf992.7c4dc8",
-        "type": "tab",
-        "label": "Worldmap",
         "disabled": false,
         "info": ""
     },
@@ -2688,7 +2688,7 @@
         "id": "416a3c8c.01b154",
         "type": "worldmap",
         "z": "68a12ba2.6967c4",
-        "name": "XNet Worldmap",
+        "name": "Worldmap",
         "lat": "45.19053",
         "lon": "5.76691",
         "zoom": "14",
@@ -2698,7 +2698,8 @@
         "usermenu": "show",
         "layers": "show",
         "panit": "false",
-        "x": 820,
+        "path": "",
+        "x": 810,
         "y": 760,
         "wires": []
     },
@@ -3390,7 +3391,7 @@
         "id": "3f142141.54590e",
         "type": "worldmap",
         "z": "cdf4410b.01b4f",
-        "name": "XNet Worldmap",
+        "name": "Worldmap",
         "lat": "45.19053",
         "lon": "5.76691",
         "zoom": "14",
@@ -3400,7 +3401,8 @@
         "usermenu": "show",
         "layers": "show",
         "panit": "false",
-        "x": 920,
+        "path": "",
+        "x": 910,
         "y": 700,
         "wires": []
     },
@@ -4844,7 +4846,7 @@
         "id": "dd2fb67.64ceb48",
         "type": "worldmap",
         "z": "8f04341b.bdaa8",
-        "name": "XNet Worldmap",
+        "name": "Worldmap",
         "lat": "45.19053",
         "lon": "5.76691",
         "zoom": "14",
@@ -4854,7 +4856,8 @@
         "usermenu": "show",
         "layers": "show",
         "panit": "false",
-        "x": 960,
+        "path": "",
+        "x": 950,
         "y": 960,
         "wires": []
     },
@@ -15170,7 +15173,7 @@
         "id": "c76ce0a0.479a68",
         "type": "worldmap",
         "z": "10710120.486f97",
-        "name": "XNet Worldmap",
+        "name": "Worldmap",
         "lat": "45.19053",
         "lon": "5.76691",
         "zoom": "14",
@@ -15180,7 +15183,8 @@
         "usermenu": "show",
         "layers": "show",
         "panit": "false",
-        "x": 900,
+        "path": "",
+        "x": 890,
         "y": 800,
         "wires": []
     },
@@ -16108,7 +16112,7 @@
             "69db27cf.f9d1d8",
             "833669c2.795cb8"
         ],
-        "x": 1055,
+        "x": 1115,
         "y": 100,
         "wires": []
     },
@@ -16658,7 +16662,7 @@
             "e63b5a13.bffd8",
             "b0589b6f.dd86a8"
         ],
-        "x": 715,
+        "x": 1115,
         "y": 200,
         "wires": []
     },
@@ -16817,7 +16821,7 @@
         "type": "function",
         "z": "74429ff4.4ff848",
         "name": "decode lorawan up frame",
-        "func": "// =======================================\n// Operator\n// =======================================\n\n// https://www.thethingsnetwork.org/wiki/LoRaWAN/Address-Space#address-space-in-lorawan_devices_prefix-assignments\n\nlet items = [\n    [0, 'Local', 'Experimental'],\n    [1, 'Local', 'Experimental2'],\n    [2, 'World', 'Actility'],\n    [3, 'Europe', 'Proximus'],\n    [4, 'Europe', 'Swisscom'],\n    [5, 'Singapore, Indonesia , Australia, Africa , India', 'SingTel'],\n    [6, 'Europe', 'La Poste'],\n    [7, 'Europe', 'Bouygues Telecom'],\n    [8, 'World', 'Orbiwise'],\n    [9, 'U.S', 'SENET'],\n    [10, 'Europe', 'KPN'],\n    [11, 'Russia', 'EveryNet'],\n    [12, 'Africa', 'FastNet'],\n    [13, 'World', 'SK Telecom'],\n    [14, 'World', 'SagemCom'],\n    [15, 'Europe', 'Orange France'],\n    [16, 'Italy', 'A2A Smart City'],\n    [17, 'India, Sri Lanka, Nepal, Bangladesh and the Maldives Islands', 'TATA Communication'],\n    [18, 'World', 'Kerlink'],\n    [19, 'World', 'The Things Network'],\n    [20, 'Germany, Switzerland, China', 'DIGIMONDO GmbH'],\n    [21, 'World', 'Cisco Systems'],\n    [22, 'China', 'Computer Network Information Center & Chinese of Sciences Guangzhou Sub-center (CNIC)'],\n    [23, 'World', 'MultiTech Systems'],\n    [24, 'World', 'Loriot'],\n    [25, 'World', 'NNNCo'],\n    [26, 'World', 'Flashnet'],\n    [27, 'World', 'TrackNet'],\n    [28, 'World', 'Lar.Tech'],\n    [29, 'World', 'Swiss Led'],\n    [30, 'CIS, Europe', 'Net868'],\n    [31, 'Italy', 'Axatel'],\n    [32, 'Germany', 'Telent (Netzikon)'],\n    [33, 'World', 'Patavina Technologies'],\n    [34, 'North America', 'Comcast'],\n    [35, 'Australia, New Zealand', 'Ventia'],\n    [36, 'World', 'Gimasi'],\n    [37, 'World', 'Talkpool'],\n    [38, 'Italy', 'Telemar'],\n    [39, 'World', 'MCF88 SRL'],\n    [40, 'Malaysia', 'VADSLYFE'],\n    [41, 'World', 'GIoT'],\n    [42, 'World', 'M2B Communications'],\n    [43, 'China', 'ZTE'],\n    [44, 'Australia', 'Airlora'],\n    [45, 'World', 'Rai Way'],\n    [46, 'World', 'Levikom'],\n    [47, 'South Africa', 'Comsol Networks'],\n    [48, 'World', 'SoftBank'],\n    [49, 'World', 'Inmarsat'],\n    [50, 'World', 'Gemalto'],\n    [51, 'China', 'Alibaba Iot BU'],\n    [52, 'Russian Federation', 'ER-Telecom Holding'],\n    [0xe0, 'World', 'Class e0'],\n    [0xfc, 'World', 'Class fc']\n];\n\n\n// ===================================\n\nlet devAddrMap = {};\nlet operatorMap = {};\nlet objectOperatorMap = {};\nlet devEuiMap = {};\nlet appEuiMap = {};\nlet manufacturerMap = {};\nlet appManufacturerMap = {};\n\n\n// ===================================\nfunction getManufacturer(eui) {\n  //console.log(eui.toString(\"hex\"))\n  var buf = Buffer.from(eui, \"hex\");\n  buf.swap64();\n  //console.log(buf.toString(\"hex\"))\n  var h = buf.toString(\"hex\");\n  var o = oui(h);\n  if(!o) return \"Unknown\";\n  var idx = o.indexOf(\"\\n\");\n  return h + \"-->\" +o.substring(0,idx);\n}\n\n// ===================================\n\nfunction hex(val, len=2) {\n  return ('0'.repeat(len) + val.toString(16)).substr(-len);\n}\n\nfunction display(){\n  console.info('> _NetID, DevAddr MSB, location(s): name_');\n  console.info('>');\n  for (let [netId, location, name] of items) {\n      // nwkId = 7 LSB of NetID:\n      let nwkId = netId & 0b01111111;\n      // ...and nwkId = 7 MSB of DevAddr (32b):\n      let devAddr =  (nwkId << 25);\n      let devAddrMax =  ((nwkId+1) << 25) - 1;\n      console.info(`> - \\`0x${nwkId.toString(16)}\\`, \\`0x${devAddr.toString(16)}/${devAddrMax.toString(16)}\\`, ${location}: ${name}`);\n  }\n}\n\nlet NwkIdToOperator = null;\n\nfunction initNwkIdToOperator(){\n  if(NwkIdToOperator === null) {\n    NwkIdToOperator = [];\n    for (let [netId, location, name] of items) {\n        let nwkId = netId & 0b01111111;\n        NwkIdToOperator[nwkId] = name;\n    }\n  }\n}\n\nfunction getOperator(devAddr) {\n  initNwkIdToOperator();\n  let nwkId =  (devAddr >> 25);\n  var operator = NwkIdToOperator[nwkId];\n  if(operator === undefined) {\n      operator = nwkId;\n  }\n  return operator;\n}\n\nvar MHDR_JREQ = 0x00;\nvar MHDR_DTUP = 0x40;\nvar MHDR_DCUP = 0x80;\n\nvar phyPayloadBuffer = msg.payload.phyPayloadBuffer;\n\nif(phyPayloadBuffer){\n    var frametype = phyPayloadBuffer[0];\n    if(frametype === MHDR_JREQ) {\n        msg.payload.frametype = \"jreq\";\n        msg.payload.appeui = phyPayloadBuffer.slice(1,9).swap64().toString(\"hex\");\n        msg.payload.deveui = phyPayloadBuffer.slice(9,17).swap64().toString(\"hex\");\n    } else if (frametype === MHDR_DTUP || frametype === MHDR_DCUP) {\n        msg.payload.frametype = \"jreq\";\n        var devaddr = phyPayloadBuffer.readUInt32LE(1);\n        msg.payload.devaddr = phyPayloadBuffer.slice(1,5).swap32().toString(\"hex\");\n        msg.payload.operator = getOperator(devaddr);\n        msg.payload.confirmed = (frametype === MHDR_DCUP);\n\n    }\n}\nreturn msg;",
+        "func": "// =======================================\n// Operator\n// =======================================\n\n// https://www.thethingsnetwork.org/wiki/LoRaWAN/Address-Space#address-space-in-lorawan_devices_prefix-assignments\nconst operators_0 = {\n  0:['Local','Experimental'],\n  2:['Local','Experimental2'],\n  4:['World','Actility'],\n  6:['Europe','Proximus'],\n  8:['Europe','Swisscom'],\n  10:['Singapore, Indonesia , Australia, Africa , India','SingTel'],\n  12:['Europe','La Poste'],\n  14:['Europe','Bouygues Telecom'],\n  16:['World','Orbiwise'],\n  18:['U.S','SENET'],\n  20:['Europe','KPN'],\n  22:['Russia','EveryNet'],\n  24:['Africa','FastNet'],\n  26:['World','SK Telecom'],\n  28:['World','SagemCom'],\n  30:['Europe','Orange France'],\n  32:['Italy','A2A Smart City'],\n  34:['India, Sri Lanka, Nepal, Bangladesh and the Maldives Islands','TATA Communication'],\n  36:['World','Kerlink'],\n  38:['World','The Things Network'],\n  40:['Germany, Switzerland, China','DIGIMONDO GmbH'],\n  42:['World','Cisco Systems'],\n  44:['China','Computer Network Information Center & Chinese of Sciences Guangzhou Sub-center (CNIC)'],\n  46:['World','MultiTech Systems'],\n  48:['World','Loriot'],\n  50:['World','NNNCo'],\n  52:['World','Flashnet'],\n  54:['World','TrackNet'],\n  56:['World','Lar.Tech'],\n  58:['World','Swiss Led'],\n  60:['CIS, Europe','Net868'],\n  62:['Italy','Axatel'],\n  64:['Germany','Telent (Netzikon)'],\n  66:['World','Patavina Technologies'],\n  68:['North America','Comcast'],\n  70:['Australia, New Zealand','Ventia'],\n  72:['World','Gimasi'],\n  74:['World','Talkpool'],\n  76:['Italy','Telemar'],\n  78:['World','MCF88 SRL'],\n  80:['Malaysia','VADSLYFE'],\n  82:['World','GIoT'],\n  84:['World','M2B Communications'],\n  86:['China','ZTE'],\n  88:['Australia','Airlora'],\n  90:['World','Rai Way'],\n  92:['World','Levikom'],\n  94:['South Africa','Comsol Networks'],\n  96:['World','SoftBank'],\n  98:['World','Inmarsat'],\n  100:['World','Gemalto'],\n  102:['China','Alibaba Iot BU'],\n  104:['Russian Federation','ER-Telecom Holding']\n};\n\n\nconst operators_e0 = {\n    0xe000:[\"RESERVED\",\"RESERVED\"],\n    0xe002:[\"Finland\",\"Digita\"],\n    0xe004:[\"Sweden, Norway\",\"Blink\"],\n    0xe008:[\"North and South America\",\"eleven-x\"],\n    0xe00a:[\"World\",\"IoT Network AS\"],\n    0xe00c:[\"Asia, Middle East\",\"Senra Tech\"],\n    0xe00e:[\"World\",\"EDF\"],\n    0xe010:[\"Italy\",\"Unidata\"],\n    0xe012:[\"Scandinavia\",\"SEAS-NVE\"],\n    0xe014:[\"Scandinavia\",\"Öresundskraft\"],\n    0xe016:[\"Romania\",\"Ad Net Market Media\"],\n    0xe018:[\"World\",\"SenSys\"],\n    0xe01a:[\"Thailand\",\"CAT Telecom\"],\n    0xe01c:[\"World\",\"Spark\"],\n    0xe01e:[\"China\",\"ThingPark China\"],\n    0xe020:[\"World\",\"Senet\"],\n    0xe022:[\"Japan\",\"SenseWay\"],\n    0xe024:[\"Philippines\",\"Packetworx\"],\n    0xe026:[\"World\",\"Actility\"],\n    0xe028:[\"China\",\"Alibaba IoT BU\"],\n    0xe02a:[\"World\",\"Kerlink\"],\n    0xe02c:[\"World\",\"Cisco\"],\n    0xe02e:[\"World\",\"Schneider Electric\"]\n\n}\n\nconst operators_fc00 = {\n    0xfc0000:[\"RESERVED\",\"RESERVED\"],\n    0xfc0004:[\"World\",\"Nordic Automation Systems\"],\n    0xfc0008:[\"World\",\"ResIOT\"],\n    0xfc000c:[\"World\",\"SYSDEV\"],\n    0xfc0010:[\"China,Canada\",\"Appropolis\"],\n    0xfc0014:[\"Japan\",\"Macnica\"],\n    0xfc0018:[\"Sweden, Finland, Norway, Denmark\",\"IP-Only\"],\n    0xfc001c:[\"Russia Federation\",\"Thingenix LLC\"],\n    0xfc0020:[\"World\",\"Definium Technologies\"],\n    0xfc0024:[\"Germany ,only Darmstadt Region)\",\"ENTEGA AG\"],\n    0xfc0028:[\"Japan\",\"SenseWay\"],\n    0xfc002c:[\"Tunisia\",\"3S\"],\n    0xfc0030:[\"World\",\"nFore Technology\"],\n    0xfc0034:[\"Philippines\",\"Packetworx\"],\n    0xfc0038:[\"Sultanate Oman, Omani\",\"Qatari Telecommunications (Ooredoo)\"],\n    0xfc003c:[\"Hungary\",\"Antenna Hungaria Co\"],\n    0xfc0040:[\"Europe\",\"Trinity College, Dublin\"],\n    0xfc0044:[\"World\",\"Digital Nordix AB (DNX)\"],\n    0xfc0048:[\"Sweden, Norway\",\"Blink Services\"],\n    0xfc004c:[\"Norway\",\"Lyse AS\"],\n    0xfc0050:[\"Vietnam\",\"VTC Digicom\"],\n    0xfc0054:[\"Saudi Arabia\",\"Machines Talk\"],\n    0xfc0058:[\"World\",\"Schneider Electric\"],\n    0xfc0062:[\"UK\",\"Connexin\"]\n};\n\n// ===================================\n\nfunction getOperator(devAddr) {\n    let entry;\n    let idx;\n    let operator;\n\n    if(((devAddr >> 16) & 0xffff) === 0xfc00) {\n        idx = (((devAddr >> 10) << 2) & 0xffffff);\n        entry = operators_fc00[idx];\n        if(entry) {\n            operator = entry[1];\n        }\n    } else if(((devAddr >> 24) & 0xff) === 0xe0) {\n        idx = (((devAddr >> 17) << 1) & 0xffff);\n        entry = operators_e0[idx];\n        if(entry) {\n          operator = entry[1];\n        }\n    } else {\n        idx = (((devAddr >> 25) << 1) & 0xff);\n        entry = operators_0[idx];\n        if(entry) {\n          operator = entry[1];\n        }\n    }\n\n    if(operator === undefined) {\n      operator = \"Unknown \" + Number(idx).toString(16);\n    }\n    return operator;\n}\n\nvar MHDR_JREQ = 0x00;\nvar MHDR_DTUP = 0x40;\nvar MHDR_DCUP = 0x80;\n\nvar phyPayloadBuffer = msg.payload.phyPayloadBuffer;\n\nif(phyPayloadBuffer){\n    var frametype = phyPayloadBuffer[0];\n    if(frametype === MHDR_JREQ) {\n        msg.payload.frametype = \"jreq\";\n        msg.payload.appeui = phyPayloadBuffer.slice(1,9).swap64().toString(\"hex\");\n        msg.payload.deveui = phyPayloadBuffer.slice(9,17).swap64().toString(\"hex\");\n    } else if (frametype === MHDR_DTUP || frametype === MHDR_DCUP) {\n        msg.payload.frametype = \"dtup\";\n        var devaddr = phyPayloadBuffer.readUInt32LE(1);\n        msg.payload.devaddr = phyPayloadBuffer.slice(1,5).swap32().toString(\"hex\");\n        msg.payload.operator = getOperator(devaddr);\n        msg.payload.confirmed = (frametype === MHDR_DCUP);\n    }\n}\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "x": 930,
@@ -16846,7 +16850,7 @@
         "type": "function",
         "z": "8ef8462d.3e5728",
         "name": "Convert rx in point",
-        "func": "var p = msg.payload;\n\nvar phyPayloadBuffer = p.phyPayloadBuffer;\n\nvar rxInfo = p.rxInfo;\nif (p.devaddr) {\n    var point = [{\n        size: phyPayloadBuffer.length,\n        rssi: rxInfo.rssi,\n        lsnr: rxInfo.loRaSNR\n    },\n    {\n        mac: rxInfo.mac,\n        devaddr: p.devaddr,\n        operator: p.operator,\n        frequency: rxInfo.frequency,\n        sf: rxInfo.dataRate.spreadFactor,\n        bw: rxInfo.dataRate.bandwidth\n    }];\n    \n    msg.payload = point;\n    return msg;\n    \n} else if (p.deveui) {\n    var point = [{\n        size: phyPayloadBuffer.length,\n        rssi: rxInfo.rssi,\n        lsnr: rxInfo.loRaSNR\n    },\n    {\n        mac: rxInfo.mac,\n        deveui: p.deveui,\n        appeui: p.appeui,\n        frequency: rxInfo.frequency,\n        sf: rxInfo.dataRate.spreadFactor,\n        bw: rxInfo.dataRate.bandwidth\n    }];\n    \n    msg.payload = point;\n    return msg;\n\n} else {\n    return undefined;\n}\n",
+        "func": "var p = msg.payload;\n\nvar phyPayloadBuffer = p.phyPayloadBuffer;\n\nvar rxInfo = p.rxInfo;\nif (p.devaddr) {\n    var point = [{\n        size: phyPayloadBuffer.length,\n        rssi: rxInfo.rssi,\n        lsnr: rxInfo.loRaSNR\n    },\n    {\n        mac: rxInfo.mac,\n        frametype: p.frametype,\n        devaddr: p.devaddr,\n        operator: p.operator,\n        frequency: rxInfo.frequency,\n        sf: rxInfo.dataRate.spreadFactor,\n        bw: rxInfo.dataRate.bandwidth\n    }];\n    \n    msg.payload = point;\n    return msg;\n    \n} else if (p.deveui) {\n    var point = [{\n        size: phyPayloadBuffer.length,\n        rssi: rxInfo.rssi,\n        lsnr: rxInfo.loRaSNR\n    },\n    {\n        mac: rxInfo.mac,\n        frametype: p.frametype,\n        deveui: p.deveui,\n        appeui: p.appeui,\n        frequency: rxInfo.frequency,\n        sf: rxInfo.dataRate.spreadFactor,\n        bw: rxInfo.dataRate.bandwidth\n    }];\n    \n    msg.payload = point;\n    return msg;\n\n} else {\n    return undefined;\n}\n",
         "outputs": 1,
         "noerr": 0,
         "x": 430,
@@ -16977,26 +16981,6 @@
         "wires": [
             [
                 "c394074f.57539"
-            ]
-        ]
-    },
-    {
-        "id": "c1c687c9.d2682",
-        "type": "inject",
-        "z": "8ef8462d.3e5728",
-        "name": "DROP radio",
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": "",
-        "x": 230,
-        "y": 440,
-        "wires": [
-            [
-                "de6ceda5.ce4768"
             ]
         ]
     },

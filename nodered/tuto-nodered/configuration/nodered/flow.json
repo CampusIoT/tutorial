@@ -28,13 +28,6 @@
         "info": ""
     },
     {
-        "id": "93b931c0.116c78",
-        "type": "tab",
-        "label": "Cloud Services",
-        "disabled": true,
-        "info": ""
-    },
-    {
         "id": "c36b3dd9.b63f4",
         "type": "tab",
         "label": "FTD 1AD8",
@@ -5644,92 +5637,6 @@
         "wires": [
             [
                 "d4727297.fac578"
-            ]
-        ]
-    },
-    {
-        "id": "329cf61a.704bf2",
-        "type": "debug",
-        "z": "93b931c0.116c78",
-        "name": "",
-        "active": true,
-        "console": "false",
-        "complete": "false",
-        "x": 1070,
-        "y": 440,
-        "wires": []
-    },
-    {
-        "id": "d98381db.6e3318",
-        "type": "pubnub out",
-        "z": "93b931c0.116c78",
-        "keys": "a207a5aa.0a2aa8",
-        "channel": "lorawan",
-        "auth_token": "",
-        "cipher_key": "",
-        "ssl": true,
-        "verbose_logging": false,
-        "x": 480,
-        "y": 440,
-        "wires": []
-    },
-    {
-        "id": "9756b1da.f9a208",
-        "type": "pubnub in",
-        "z": "93b931c0.116c78",
-        "keys": "a207a5aa.0a2aa8",
-        "channel": "lorawan",
-        "auth_token": "",
-        "cipher_key": "",
-        "ssl": true,
-        "verbose_logging": false,
-        "x": 850,
-        "y": 440,
-        "wires": [
-            [
-                "329cf61a.704bf2"
-            ]
-        ]
-    },
-    {
-        "id": "ad0af841.e8ed6",
-        "type": "ifttt out",
-        "z": "93b931c0.116c78",
-        "eventName": "new_value",
-        "key": "cdfb8264.d4b73",
-        "x": 1070,
-        "y": 340,
-        "wires": []
-    },
-    {
-        "id": "e37bf6b2.ebb02",
-        "type": "function",
-        "z": "93b931c0.116c78",
-        "name": "Format for IFTTT Webhook",
-        "func": "var msg_out = {};\n\nmsg_out.payload = {};\n\nmsg_out.payload.Value1 = msg.payload[1].deveui;\nmsg_out.payload.Value2 = msg.payload[0].sensor_type;\nmsg_out.payload.Value3 = msg.payload[0].sensor_pulse1;\n//msg_out.payload.value4 = msg.payload[1].appeui;\n//msg_out.payload.value5 = msg.payload[1].object_owner;\n\nreturn msg_out;",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 220,
-        "y": 340,
-        "wires": [
-            [
-                "ad0af841.e8ed6"
-            ]
-        ]
-    },
-    {
-        "id": "da789881.9fcaf",
-        "type": "link in",
-        "z": "93b931c0.116c78",
-        "name": "",
-        "links": [
-            "1239755a.ded0d3"
-        ],
-        "x": 115,
-        "y": 440,
-        "wires": [
-            [
-                "d98381db.6e3318"
             ]
         ]
     },

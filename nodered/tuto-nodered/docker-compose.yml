@@ -39,6 +39,13 @@ services:
 #      - mongodb:mongodb
 #      - opentsdb:opentsdb
 
+  chronograf:
+    extends:
+      file: chronograf.yml
+      service: chronograf
+    links:
+      - influxdb:influxdb
+
 #  kapacitor:
 #    extends:
 #      file: kapacitor.yml
@@ -46,9 +53,14 @@ services:
 #    links:
 #      - influxdb:influxdb
 
-  chronograf:
-    extends:
-      file: chronograf.yml
-      service: chronograf
-    links:
-      - influxdb:influxdb
+#  alerta:
+#    extends:
+#      file: alerta.yml
+#      service: alerta
+#    links:
+#      - postgresdb:postgresdb
+
+#  postgresdb:
+#    extends:
+#      file: postgresdb.yml
+#      service: postgresdb

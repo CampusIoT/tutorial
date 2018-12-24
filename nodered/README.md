@@ -181,11 +181,15 @@ SELECT count("size") FROM "rx" WHERE ("operator" != 'undefined' AND "frametype" 
 
 ![Grafana Panel](images/grafana_3.png)
 
-## Etape 6: Créer une alerte Mail et SMS avec Kapacitor
+## Etape 6: Créer une alerte Alerta avec Kapacitor
 
-Ajoutez dans la composition `docker-compose.yml` le service `kapacitor` qui étend `kapacitor.yml`.
+Ajoutez dans la composition `docker-compose.yml` le service `kapacitor` qui étend `kapacitor.yml` et les service `alerta` et `postgresdb` qui étendent `alerta.yml`.
 
 Démarrez le service dans la composition `docker-compose.yml` avec :
 ```bash
+docker-compose start postgresdb
+docker-compose start alerta
 docker-compose start kapacitor
 ```
+
+Ouvrez la page suivante http://localhost:8080

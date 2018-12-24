@@ -1,0 +1,46 @@
+# Copyright (C) CampusIoT,  - All Rights Reserved
+# Written by CampusIoT Dev Team, 2016-2018
+
+version: "2"
+
+services:
+
+  alerta:
+    image: alerta/alerta-web
+    # https://github.com/alerta/docker-alerta/tree/master/examples
+    # volumes:
+      # - $PWD/configuration/alertad.conf.example:/app/alertad.conf
+      # - $PWD/configuration/alerta.conf.example:/app/alerta.conf
+      # - $PWD/configuration/config.js.example:/web/config.js
+    ports:
+      - 8080:8080
+    depends_on:
+      - postgresdb
+    environment:
+      - DATABASE_URL=postgres://postgresdb:postgres@db:5432/monitoring
+      - DEBUG=1  # remove this line to turn DEBUG off
+      # - BASE_URL=/alerta/api  # NOTE: must end in '/api' then web URL will be '/alerta'
+      - AUTH_REQUIRED=True
+      - ADMIN_USERS=admin@lora.campusiot.imag.fr,devops@lora.campusiot.imag.fr
+      # - ADMIN_PASSWORD=password
+      - ADMIN_KEY=demo-admin-key
+      - "COLORS={'severity': {'fatal': '#303030'}, 'text': 'white'}"
+      - "SEVERITY={'fatal': 0}"
+      - TRACKING_ID=UA-44644195-6
+      - PLUGINS=reject,blackout,normalise,enhance
+      - INSTALL_PLUGINS=normalise,enhance
+    restart: unless-stopped
+    labels:
+      NAME: "alerta"
+
+  postgresdb:
+    image: postgres
+    volumes:
+      - $PWD/data/postgresdb/:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: monitoring
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    restart: unless-stopped
+    labels:
+      NAME: "postgresdb"

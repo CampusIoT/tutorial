@@ -16096,7 +16096,8 @@
                 "c0ded8fe.c74428",
                 "f3deec7b.08f0a8",
                 "257ae3b1.2496d4",
-                "75bb8655.6c744"
+                "75bb8655.6c744",
+                "b7a128b1.2adae"
             ]
         ]
     },
@@ -16604,22 +16605,6 @@
         ]
     },
     {
-        "id": "4c2d33ce.95c32c",
-        "type": "function",
-        "z": "b13bf992.7c4dc8",
-        "name": "extract object",
-        "func": "var p = msg.payload;\nif(p.object) {\n    msg.payload = p.object;\n    return msg;\n} else {\n   return undefined; \n}\n",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 380,
-        "y": 220,
-        "wires": [
-            [
-                "afd0d52a.44ef18"
-            ]
-        ]
-    },
-    {
         "id": "590961be.974788",
         "type": "link in",
         "z": "b13bf992.7c4dc8",
@@ -16632,7 +16617,7 @@
         "y": 220,
         "wires": [
             [
-                "4c2d33ce.95c32c"
+                "afd0d52a.44ef18"
             ]
         ]
     },
@@ -17030,7 +17015,7 @@
         "type": "debug",
         "z": "b13bf992.7c4dc8",
         "name": "",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -17094,8 +17079,24 @@
         "console": false,
         "tostatus": false,
         "complete": "false",
-        "x": 410,
-        "y": 140,
+        "x": 290,
+        "y": 80,
         "wires": []
+    },
+    {
+        "id": "b7a128b1.2adae",
+        "type": "function",
+        "z": "b23a6a86.69b218",
+        "name": "filter message with position",
+        "func": "var p = msg.payload;\nvar o = p.object;\nif(o){\n    if(o.latitude && o.longitude) {\n        return msg;\n    } else if(o.lat && o.lng) {\n        return msg;\n    }\n}\nreturn undefined;    \n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 540,
+        "y": 80,
+        "wires": [
+            [
+                "975ef738.66ae08"
+            ]
+        ]
     }
 ]

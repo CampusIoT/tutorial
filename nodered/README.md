@@ -181,6 +181,11 @@ SELECT count("size") FROM "rx" WHERE ("operator" != 'undefined' AND "frametype" 
 
 ![Grafana Panel](images/grafana_3.png)
 
+
+Ajoutez un panel de type `Heatmap` et ajoutez la requête précédente pour afficher la heatmap des nombres de messages LoRaWAN reçus, groupés par operateur LoRaWAN.
+
+![Grafana Panel](images/grafana_4.png)
+
 ## Etape 6: Créer une alerte Alerta avec Kapacitor
 
 Ajoutez dans la composition `docker-compose.yml` le service `kapacitor` qui étend `kapacitor.yml` et les service `alerta` et `postgresdb` qui étendent `alerta.yml`.

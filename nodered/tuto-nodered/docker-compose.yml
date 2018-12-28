@@ -62,5 +62,5 @@ services:
 
 #  postgresdb:
 #    extends:
-#      file: postgresdb.yml
+#      file: alerta.yml
 #      service: postgresdb

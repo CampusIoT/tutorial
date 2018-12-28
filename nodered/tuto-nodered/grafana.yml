@@ -8,10 +8,19 @@ services:
 # http://docs.grafana.org/installation/docker/
   grafana:
     image: grafana/grafana
+#    build:
+#      context: ./docker/grafana
+#    image: campusiot/grafana:latest
     environment:
       GF_SECURITY_ADMIN_PASSWORD: __SUPER_SECRET_TO_CHANGE__
       #GF_SERVER_ROOT_URL: http://grafana.server.name
-      GF_INSTALL_PLUGINS: grafana-clock-panel,grafana-simple-json-datasource
+      GF_INSTALL_PLUGINS: grafana-clock-panel,grafana-simple-json-datasource,grafana-worldmap-panel,grafana-piechart-panel,mtanda-heatmap-epoch-panel,briangann-gauge-panel,jdbranham-diagram-panel
+    volumes:
+       - ./configuration/grafana/grafana.ini:/etc/grafana/grafana.ini
+       - ./configuration/grafana/dashboards/:/var/lib/grafana/dashboards/
+       - ./configuration/grafana/dashboards.yaml:/etc/grafana/provisioning/dashboards/dashboards.yaml
+       - ./configuration/grafana/datasources/:/etc/grafana/provisioning/datasources/
+       - ./configuration/grafana/logo.svg:/usr/share/grafana/public/img/grafana_icon.svg
     ports:
       - 3000:3000
     restart: unless-stopped

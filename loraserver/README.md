@@ -124,15 +124,17 @@ MQTT est le moyen par défaut pour récupérer les messages envoyés par les dev
 
 Le flot de messages envoyés par les devices des applications peut être récupérer via des clients MQTT comme mosquitto_sub (en ligne de commande), [mqtt-spy](https://kamilfb.github.io/mqtt-spy/), , HiveMQ Websocket Client, MQTTBox ([configuration](images/mqttbox-brokerconfig.png), [souscription](images/mqttbox-subscribe.png)) [myMQTT](https://play.google.com/store/apps/details?id=at.tripwire.mqtt.client) pour Android ... Remarque: Des clients (comme [mqtt-lens](https://chrome.google.com/webstore/detail/mqttlens/hemojaaeigabkbcookmlgmdigohjobjm) pour Chrome) ne supportent pas MQTT/TLS.
 
-Installez `mosquitto_sub` avec
+Installez le client MQTT `mosquitto_sub` avec
 ```
 sudo apt-get install -y mosquitto-clients
 ```
+> Remarque: Une alternative à mosquitto-clients est la commande `mqtt` qui s'installe avec `sudo npm install mqtt -g; mqtt help subscribe; mqtt help publish`.
 
-Il faut installer dans le répertoire courant le certificat `ca.crt` dec l’autorité de certification du broker MQTT avec la commande suivante
+Il faut installer dans le répertoire courant le certificat `ca.crt` dec l’autorité de certification du broker MQTT avec la commande suivante:
 ```
 wget https://raw.githubusercontent.com/CampusIoT/campusiot-certs/master/mqtt/ca.crt
 ```
+> Remarque: l'option `--insecure` des commandes `mqtt` et `mosquitto_sub` permet de se passer du certificat du broker MQTT.
 
 Actuellement, les commandes à utiliser sont:
 
@@ -187,20 +189,21 @@ Pour aller plus loin avec MQTT, vous pouvez:
 * [afficher les messages avec Cayenne](../cayenne/README.md)
 
 ### API Swagger
-Le lora-app-server expose une API Swagger. Elle peut être affichée depuis https://lora.campusiot.imag.fr/api
+Le lora-app-server expose une API suivant la spécification OpenAPI 2.0 (ie Swagger). Elle peut être affichée depuis https://lora.campusiot.imag.fr/api
 
-Le JWT à utiliser dans l'UI Swagger se recupère via la commande suivante:
+Le JWT à utiliser dans l'UI Swagger se récupère via la commande suivante:
 ```
 curl 'https://lora.campusiot.imag.fr/api/internal/login' --data '{"username":"admin","password":"XXXXXXX"}' --insecure
 ```
-La commande retourne le token
+La commande retourne le token de la forme suivante:
 ```
 {"jwt":"XX.YY.ZZ"}
 ```
 
 cURL peut être utilisé de la facon suivante pour invoquer des opérations de l'API :
 ```
-curl -X GET --header 'Accept: application/json' --header 'Grpc-Metadata-Authorization: Bearer XX.YY.ZZ' 'https://lora.campusiot.imag.fr/api/applications?limit=9999'  --insecure
+AUTH='Grpc-Metadata-Authorization: Bearer XX.YY.ZZ'
+curl -X GET --header 'Accept: application/json' --header "$AUTH" 'https://lora.campusiot.imag.fr/api/applications?limit=9999'  --insecure
 ```
 
 ### CLI (for bulk loading)

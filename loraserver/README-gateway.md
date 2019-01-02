@@ -72,13 +72,14 @@ Se logger (admin) sur la gateway et exécuter les commandes suivantes:
 ```
 MQTT_USERNAME=gw-1234567890abcdef
 MQTT_PASSWORD=xXxXxXxXxXxXxXxXxXxXxXxXxXxXxX
+ANTENNA_GAIN_DBI=3
 cd /tmp
 REPO=https://raw.githubusercontent.com/CampusIoT/gateway-config/master
 DIST=multitech-mtcdt-usb
 wget $REPO/$DIST/install.sh -O install.sh
 chmod +x install.sh
 ./install.sh
-./install.sh $MQTT_USERNAME $MQTT_PASSWORD
+./install.sh $MQTT_USERNAME $MQTT_PASSWORD $ANTENNA_GAIN_DBI
 ```
 
 ### Installation sur Multitech Conduit IP67

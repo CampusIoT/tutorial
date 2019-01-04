@@ -99,18 +99,47 @@ TODO
 
 ### Installation sur RPI3 + iC880a
 TODO
+
 ### Installation sur RPI3 + Picocell
 TODO
+
 ### Installation sur Kerlink Wirgrid
 TODO
+
+> Remarque: le gain de l'antenne livrée par défaut est 4.5 dBi.
+
 ### Installation sur Kerlink Femtocell
 TODO
+
+> Remarque: le gain de l'antenne livrée par défaut est 2-3dBi
+
 ### Installation sur Kerlink iBTS Compact
 TODO
+
 ### Installation sur Kerlink iBTS
 TODO
+
+### Installation sur Intel NUC + Picocell
+TODO
+
 ### Installation sur Intel NUC + NFuse Mini-PCIe
 TODO
+
+### Installation d'une nano-gateway Pycom LoPy/FiPy
+TODO
+Récupérez le programme `lopy-nano-gateway`.
+```
+git clone https://github.com/CampusIoT/lopy-nano-gateway.git
+cd lopy-nano-gateway
+```
+
+Mettez à jour le firmware de votre carte Pycom LoPy/FiPy.
+
+Récupérez les informations de votre carte Pycom LoPy/FiPy.
+
+Modifiez les propriétés WIFI_SSID et WIFI_PASS dans le fichier `config.py` du répertoire `lopy-nano-gateway`.
+
+Chargez les fichiers du répertoire `lopy-nano-gateway` sur la carte (via le plugin Pycom d'Atom).
 
 ## Enregistrement d’une gateway
 

@@ -20,8 +20,19 @@ Deux composants doivent être installés sur une nouvelle gateway.
 
 Une fois ces 2 composants installés, la gateway peut être enregistrée via `Menu > Gateways` de l'organisation.
 
+
+### Réglementation ETSI et gain de l'antenne de la gateway
+
+La [réglementation ETSI](https://www.etsi.org/technologies-clusters/technologies/radio) impose que la puissance d'émission d'un équipement ne dépasse pas une limite donnée dans les bandes ISM utilisées : 14 dBm (soit 25 mW) pour les bandes `g` et `g1`, et 27 dBm (soit  500 mW) pour la bande `g3` de la bande ISM `eu868`. La limite de puissance d'émission inclut le gain de l'antenne et la perte du cable et des connecteurs. A titre d'exemple, si la gateway est équipée d'une antenne 12 dBi et que les pertes sont de 0.5 dBm, la puissance en sortie du concentrateur ne peut exéder 2 dBm pour les 2 bandes `g` et `g1`.
+
+Ce travail de limitation est réalisé par le packer forwarder au moyen de la propriété de configuration `SX1301_conf.antenna_gain`.
+
+Afin de respecter la réglementation, il est important que le gain de l'antenne soit déterminé afin qu'il soit configuré (par les scripts d'installation) dans les fichiers `local_conf.json` ou `global_conf.json`. Il faut vous référer à la documentation technique de la gateway ou de l'antenne (on-board or indépendante).
+
 ### Installation sur Multitech Conduit AP
 Installez la gateway en suivre son [guide](http://www.multitech.net/developer/products/multiconnect-conduit-access-point/).
+
+> Remarque: le gain de l'antenne PCB on-board de la Multitech Conduit AP est 2 dBi.
 
 Votre gateway [Multitech Conduit AP](https://www.multitech.com/brands/multiconnect-conduit-ap) doit avoir le firmware mLinux et non pas AEP. [Plus de détails](http://www.multitech.net/developer/software/mlinux/using-mlinux/flashing-mlinux-firmware-for-conduit/)
 

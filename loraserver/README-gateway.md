@@ -133,9 +133,9 @@ git clone https://github.com/CampusIoT/lopy-nano-gateway.git
 cd lopy-nano-gateway
 ```
 
-Mettez à jour le firmware de votre carte Pycom LoPy/FiPy.
+Mettez à jour le firmware de votre carte Pycom LoPy/FiPy en utilisant l'application [Pycom Firmware Update](https://docs.pycom.io/gettingstarted/installation/firmwaretool.html).
 
-Récupérez les informations de votre carte Pycom LoPy/FiPy.
+Récupérez les informations de votre carte Pycom LoPy/FiPy via via le plugin Pycom d'Atom.
 
 Modifiez les propriétés WIFI_SSID et WIFI_PASS dans le fichier `config.py` du répertoire `lopy-nano-gateway`.
 

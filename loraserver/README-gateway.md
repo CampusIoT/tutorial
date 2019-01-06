@@ -1,4 +1,4 @@
-# CampusIoT :: LoRaServer > Partie 2: Installer une nouvelle gateway :: Tutoriel :fr:
+# CampusIoT :: LoRaServer > Installer une nouvelle gateway :: Tutoriel :fr:
 
 Si ce tutoriel vous est utile, pensez à donner une étoile :star: en haut à droit.
 
@@ -182,6 +182,8 @@ Une fois la gateway enregistrée, les frames reçues par la gateway sont visuali
 
 ![Gateway Live Frame](images/gateway-live.png)
 
-## La suite
-* [Partie 1 : Débuter](./README.md)
-* [Partie 3 : Administrer du service](./README-admin.md)
+### A voir
+* [Introduction à LoRaServer](./README.md)
+* [Ajouter une application et des équipements](./README-app.md)
+* [Administrer une organisation](./README-org.md)
+* [Administrer du service](./README-admin.md)

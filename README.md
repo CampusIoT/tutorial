@@ -2,9 +2,13 @@
 # Tutoriel d'utilisation de la plateforme CampusIoT
 CampusIoT est une plateforme pour l'enseignement par la pratique des technologies et des cas d'usage de l'Internet des Objets.
 
-* [LoRaServer :fr:](loraserver/README.md)
-* [NodeRED :fr:](nodered/README.md)
-* [MQTT Logger :fr:](mqtt-logger/README.md)
+* [Ajouter un nouvel équipement LoRaWAN :fr:](loraserver/README-app.md)
+* [Ajouter une nouvelle passerelle LoRaWAN :fr:](loraserver/README-gateway.md)
+* [Administrer une organisation :fr:](loraserver/README-org.md)
+* [Administrer le service :fr:](loraserver/README-admin.md)
+
+* [Traiter le flot de messages des équipements avec NodeRED :fr:](nodered/README.md)
+* [Journaliser le flot de messages des équipements avec MQTT Logger :fr:](mqtt-logger/README.md)
 
 * [Enregistrer une carte SODAQ ExpLoRer :fr:](sodaq/README.md)
 * [Enregistrer un modem Microchip RN2483 :fr:](rn2483/README.md)

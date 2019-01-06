@@ -1,4 +1,4 @@
-# CampusIoT :: LoRaServer > Partie 3: Administrer le service :: Tutoriel :fr:
+# CampusIoT :: LoRaServer > Administrer le service :: Tutoriel :fr:
 
 Si ce tutoriel vous est utile, pensez à donner une étoile :star: en haut à droit.
 

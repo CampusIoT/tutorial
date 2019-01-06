@@ -2,7 +2,7 @@
 
 Le module RN2483 est un module LoRa/LoRaWAN certifié qui sert de modem de communication à une machine hôte (PC, Mac, Smartphone) via un dongle USB serial (FTDI, ...), ou avec un micro-controleur (cartes Libelium, cartes SODAQ ...).
 
-Le module existe sous la référence RN2483 pour l'Europe avec les bandes ISM 868 MHz et 433 MHz, et sous la référence RN2903 pour les USA, Canada, Australie et New Zealand. Il contient un composant Semtech SX1276.
+Le module existe sous la référence RN2483 pour l'Europe avec les bandes ISM 868 MHz et 433 MHz, et sous la référence RN2903 pour les USA, Canada, Australie et New Zealand. Il contient un composant Semtech SX1276 (capable de communiquer sur les bandes eu433 et eu868).
 
 Les commandes du modem sont documentées ici: http://ww1.microchip.com/downloads/en/DeviceDoc/40001784B.pdf
 
@@ -144,3 +144,6 @@ mac join otaa
 mac tx cnf 1 01020304
 mac tx uncnf 1 0102034
 ```
+
+## Remarque:
+Le modem RN2483 est utilisé pour le [Field Tester](https://github.com/CampusIoT/lora-field-tester) de CampusIoT.

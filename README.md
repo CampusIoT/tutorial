@@ -7,7 +7,7 @@ CampusIoT est une plateforme pour l'enseignement par la pratique des technologie
 * [Administrer une organisation :fr:](loraserver/README-org.md)
 * [Administrer le service :fr:](loraserver/README-admin.md)
 
-* [Traiter le flot de messages des équipements avec NodeRED :fr:](nodered/README.md)
+* [Traiter le flot de messages des équipements avec NodeRED, InfluxDB et Grafana :fr:](nodered/README.md)
 * [Journaliser le flot de messages des équipements avec MQTT Logger :fr:](mqtt-logger/README.md)
 
 * [Enregistrer une carte SODAQ ExpLoRer :fr:](sodaq/README.md)

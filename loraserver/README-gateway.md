@@ -99,6 +99,8 @@ TODO
 
 ### Installation sur RPI3 + iC880a
 
+Il faut préalablement activer le SPI via l'option `"5 Interface Options"` avec `sudo /usr/bin/raspi-config`. Il faut ensuite redémarrer la carte pour que le changement soit pris en compte avec `sudo reboot`.
+
 Logger-vous (PI) sur la gateway et exécuter les commandes suivantes:
 ```
 cd /tmp

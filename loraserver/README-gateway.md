@@ -98,7 +98,31 @@ Votre gateway [Multitech Conduit IP67](https://www.multitech.com/brands/multicon
 TODO
 
 ### Installation sur RPI3 + iC880a
-TODO
+
+Logger-vous (PI) sur la gateway et exécuter les commandes suivantes:
+```
+cd /tmp
+REPO=https://raw.githubusercontent.com/CampusIoT/gateway-config/master
+DIST=rpi3-ic880a
+wget $REPO/$DIST/getinfo.sh -O getinfo.sh
+chmod +x getinfo.sh
+./getinfo.sh
+```
+Récupérez les MQTT_USERNAME et MQTT_PASSWORD de la gateway auprès du sysadmin du serveur CampusIoT (Didier DONSEZ pour le moment).
+
+Se logger (admin) sur la gateway et exécuter les commandes suivantes:
+```
+MQTT_USERNAME=gw-1234567890abcdef
+MQTT_PASSWORD=xXxXxXxXxXxXxXxXxXxXxXxXxXxXxX
+ANTENNA_GAIN_DBI=2
+cd /tmp
+REPO=https://raw.githubusercontent.com/CampusIoT/gateway-config/master
+DIST=rpi3-ic880a
+wget $REPO/$DIST/install.sh -O install.sh
+chmod +x install.sh
+./install.sh
+./install.sh $MQTT_USERNAME $MQTT_PASSWORD $ANTENNA_GAIN_DBI
+```
 
 ### Installation sur RPI3 + Picocell
 TODO

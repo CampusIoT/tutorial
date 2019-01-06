@@ -99,7 +99,7 @@ TODO
 
 ### Installation sur RPI3 + iC880a
 
-Il faut préalablement activer le SPI via l'option `"5 Interface Options"` avec `sudo /usr/bin/raspi-config`. Il faut ensuite redémarrer la carte pour que le changement soit pris en compte avec `sudo reboot`.
+IMPORTANT: Il faut préalablement activer le SPI via l'option `"5 Interface Options"` avec `sudo /usr/bin/raspi-config`. Il faut ensuite redémarrer la carte pour que le changement soit pris en compte avec `sudo reboot`.
 
 Logger-vous (PI) sur la gateway et exécuter les commandes suivantes:
 ```
@@ -127,7 +127,30 @@ chmod +x install.sh
 ```
 
 ### Installation sur RPI3 + Picocell
-TODO
+Logger-vous (PI) sur la gateway et exécuter les commandes suivantes:
+```
+cd /tmp
+REPO=https://raw.githubusercontent.com/CampusIoT/gateway-config/master
+DIST=rpi3-picocell
+wget $REPO/$DIST/getinfo.sh -O getinfo.sh
+chmod +x getinfo.sh
+./getinfo.sh
+```
+Récupérez les MQTT_USERNAME et MQTT_PASSWORD de la gateway auprès du sysadmin du serveur CampusIoT (Didier DONSEZ pour le moment).
+
+Se logger (admin) sur la gateway et exécuter les commandes suivantes:
+```
+MQTT_USERNAME=gw-1234567890abcdef
+MQTT_PASSWORD=xXxXxXxXxXxXxXxXxXxXxXxXxXxXxX
+ANTENNA_GAIN_DBI=2
+cd /tmp
+REPO=https://raw.githubusercontent.com/CampusIoT/gateway-config/master
+DIST=rpi3-picocell
+wget $REPO/$DIST/install.sh -O install.sh
+chmod +x install.sh
+./install.sh
+./install.sh $MQTT_USERNAME $MQTT_PASSWORD $ANTENNA_GAIN_DBI
+```
 
 ### Installation sur Kerlink Wirgrid
 TODO

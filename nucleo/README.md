@@ -89,7 +89,7 @@ Maintainer: Miguel Luis and Gregory Cristian
 ```
 
 ## Chargement du firmware
-Sélectionnez le modèle de la carte Nucleo (F411RE par exemple) puis lancez la compilation avec le bouton Compile.
+Sélectionnez le modèle de la carte Nucleo (L073RZ, F411RE ...) puis lancez la compilation avec le bouton Compile.
 
 Téléchargez et sauvez le fichier binaire produit puis copiez celui-ci dans le "disque" émulé sur votre machine par la carte Nucleo.
 

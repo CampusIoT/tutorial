@@ -100,7 +100,9 @@ Connectez vous à la console du programme embarqué via le port série de la car
 
 Rafraichissez l'interface en appuyant sur la touche `R` de la console.
 
-## Enregistrement de l'équipement
-Créer une nouvelle application `NUCLEO`.
+## Enregistrement de l'équipement dans LoRaServer
+Créez une nouvelle application `NUCLEO`.
 
-Ajouter un device (device profile `CLASS_A_OTAA`) avec le `DevEUI` qui est la valeur de la macro `LORAWAN_DEVICE_EUI` et l'`AppKey` qui est la valeur de la macro `LORAWAN_APPLICATION_EUI`.
+Ajoutez un device (device profile `CLASS_A_OTAA`) avec le `DevEUI` qui est la valeur de la macro `LORAWAN_DEVICE_EUI` et l'`AppKey` qui est la valeur de la macro `LORAWAN_APPLICATION_EUI`.
+
+[Plus de détails](../loraserver/README-app.md#enregistrement-dun-device-otaa)

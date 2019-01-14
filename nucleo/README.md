@@ -105,4 +105,4 @@ Créez une nouvelle application `NUCLEO`.
 
 Ajoutez un device (device profile `CLASS_A_OTAA`) avec le `DevEUI` qui est la valeur de la macro `LORAWAN_DEVICE_EUI` et l'`AppKey` qui est la valeur de la macro `LORAWAN_APPLICATION_EUI`.
 
-[Plus de détails](../loraserver/README-app.md#enregistrement-dun-device-otaa)
+[Plus de détails](../loraserver/README-app.md#enregistrement-dun-device-otaa).

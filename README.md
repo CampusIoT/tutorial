@@ -13,6 +13,8 @@ CampusIoT est une plateforme pour l'enseignement par la pratique des technologie
 * [Enregistrer une carte SODAQ ExpLoRer :fr:](sodaq/README.md)
 * [Enregistrer un modem Microchip RN2483 :fr:](rn2483/README.md)
 * [Enregistrer un équipement SagemCom Siconia :fr:](siconia/README.md)
+* [Enregistrer une carte Nucleo LRWAN1 :fr:](nucleo/README.md)
+
 
 # Tutorial for using the CampusIoT platform
 CampusIoT is a learn-by-doing platform for teaching Internet of Things technologies and businesses.

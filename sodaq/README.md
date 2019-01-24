@@ -278,6 +278,18 @@ Afficher les messages du device depuis l'onglet "`Live LoRaWAN Frame`"
 
 En parallèle, afficher les traces du sketch dans le moniteur serie de l'IDE Arduino.
 
+```
+Start
+LoRa HWEUI: 0004A30B001234656
+Network connection failed!
+temperature:24.51
+The device is not connected to the network. The program will reset the RN module.
+Network connection failed!
+temperature:24.51
+The device is not connected to the network. The program will reset the RN module.
+Network connection successful.
+```
+
 
 
 [Plus de détail sur l'enregistrement de devices](../loraserver/README.md#cr%C3%A9er-une-application)

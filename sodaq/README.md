@@ -256,6 +256,15 @@ Compiler et charger (ie flash) le sketch sur la carte.
 
 Récupérer le DevEUI dans la console série via la trace `LoRa HWEUI: 0004A30B001234656`. Il s'agit de l'identifiant LoRa du module Microchip RN2483.
 
+```
+Start
+LoRa HWEUI: 0004A30B001234656
+Network connection failed!
+temperature:23.22
+The device is not connected to the network. The program will reset the RN module.
+Network connection failed!
+```
+
 [Plus d'info](https://github.com/Orange-OpenSource/Orange-ExpLoRer-Kit-for-LoRa)
 
 ## Enregistrer le device SODAQ Explorer
@@ -268,6 +277,8 @@ Ajouter un device avec `+ Add` en utilisant le `DevEUI` et l'`AppKey`
 Afficher les messages du device depuis l'onglet "`Live LoRaWAN Frame`"
 
 En parallèle, afficher les traces du sketch dans le moniteur serie de l'IDE Arduino.
+
+
 
 [Plus de détail sur l'enregistrement de devices](../loraserver/README.md#cr%C3%A9er-une-application)
 

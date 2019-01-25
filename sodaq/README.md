@@ -17,7 +17,7 @@ Le support pour LoRaWAN est décrit ici : https://support.sodaq.com/sodaq-one/lo
 
 ## Installer le programme sur la carte
 
-Ouvrir un nouveau sketch et copier le sketch suivant:
+Ouvrir un nouveau sketch et copier le [sketch suivant](sodaq_otaa_temp.ino):
 
 ```
 // From https://support.sodaq.com/sodaq-one/lorawan/

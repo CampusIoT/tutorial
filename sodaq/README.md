@@ -254,7 +254,7 @@ Configurer l'AppKey dans le sketch.
 
 Compiler et charger (ie flash) le sketch sur la carte.
 
-Récupérer le DevEUI dans la console série via la trace `LoRa HWEUI: 0004A30B001234656`. Il s'agit de l'identifiant LoRa du module Microchip RN2483.
+Récupérer le DevEUI dans la console série (9600 bps) via la trace `LoRa HWEUI: 0004A30B001234656`. Il s'agit de l'identifiant LoRa du module Microchip RN2483.
 
 ```
 Start
@@ -276,7 +276,7 @@ Ajouter un device avec `+ Add` en utilisant le `DevEUI` et l'`AppKey`
 
 Afficher les messages du device depuis l'onglet "`Live LoRaWAN Frame`"
 
-En parallèle, afficher les traces du sketch dans le moniteur serie de l'IDE Arduino.
+En parallèle, afficher les traces du sketch dans le moniteur serie (9600 bps) de l'IDE Arduino.
 
 ```
 Start
@@ -288,8 +288,11 @@ Network connection failed!
 temperature:24.51
 The device is not connected to the network. The program will reset the RN module.
 Network connection successful.
+temperature:24.83
+Successful transmission.
+temperature:24.27
+Successful transmission.
 ```
-
 
 
 [Plus de détail sur l'enregistrement de devices](../loraserver/README.md#cr%C3%A9er-une-application)
@@ -324,9 +327,11 @@ function Decode(fPort, bytes) {
 Afficher les messages du device depuis l'onglet "`Live Device Data`". Le payload du message est décodé dans la propriété `object` de l'objet JSON.
 
 ## Brancher plus de capteurs sur la carte.
-Le catalogue Groove de SeeedStudio est distribué en France par Farnell, [GoTronic](https://www.gotronic.fr/recherche_0-1|1357|1361_0_0_0_2_0.htm) et par [Lextronic](https://www.lextronic.fr/8369-systeme-grove).
+Vous pouvez brancher des capteurs et des actionneurs sur les 2 connecteurs [Grove](http://wiki.seeedstudio.com/Grove_System/) de la carte et sur les 2 rangées de broche.
 
 > Attention: il faut utiliser des capteurs avec un VCC de 3.3V 
+
+Le catalogue Groove de SeeedStudio est distribué en France par Farnell, [GoTronic](https://www.gotronic.fr/recherche_0-1|1357|1361_0_0_0_2_0.htm) et par [Lextronic](https://www.lextronic.fr/8369-systeme-grove).
 
 ## Pour aller plus loin
 [Tutoriel NodeRED](../nodered/README.md)

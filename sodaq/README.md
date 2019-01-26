@@ -336,7 +336,7 @@ Le catalogue Groove de SeeedStudio est distribué en France par Farnell, [GoTron
 
 Par exemple:
 * [Grove GPS](http://wiki.seeedstudio.com/Grove-GPS/) avec [Sodaq_TinyGPS.ino](./https://raw.githubusercontent.com/CampusIoT/endpoints/master/sodaq/Sodaq_TinyGPS.ino)
-* [Grove DS18B20](https://www.gotronic.fr/art-capteur-de-temperature-grove-101990019-23842.htm)
+* [Grove DS18B20](https://www.gotronic.fr/art-capteur-de-temperature-grove-101990019-23842.htm) avec [Sodaq_OTAA_DS18B20.ino](https://github.com/CampusIoT/endpoints/blob/master/sodaq/Sodaq_OTAA_DS18B20.ino)
 * [Grove Dust Sensor](http://wiki.seeedstudio.com/Grove-Dust_Sensor/)
 
 

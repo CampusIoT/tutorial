@@ -17,7 +17,7 @@ Le support pour LoRaWAN est décrit ici : https://support.sodaq.com/sodaq-one/lo
 
 ## Installer le programme sur la carte
 
-Ouvrir un nouveau sketch et copier le [sketch suivant](sodaq_otaa_temp.ino):
+Ouvrir un nouveau sketch et copier le [sketch suivant](https://raw.githubusercontent.com/CampusIoT/endpoints/master/sodaq/Sodaq_OTAA_temp.ino):
 
 ```
 // From https://support.sodaq.com/sodaq-one/lorawan/
@@ -329,9 +329,14 @@ Afficher les messages du device depuis l'onglet "`Live Device Data`". Le payload
 ## Brancher plus de capteurs sur la carte.
 Vous pouvez brancher des capteurs et des actionneurs sur les 2 connecteurs [Grove](http://wiki.seeedstudio.com/Grove_System/) de la carte et sur les 2 rangées de broche.
 
-> Attention: il faut utiliser des capteurs avec un VCC de 3.3V 
+> Attention: il faut utiliser des capteurs avec un VCC de 3.3V
 
 Le catalogue Groove de SeeedStudio est distribué en France par Farnell, [GoTronic](https://www.gotronic.fr/recherche_0-1|1357|1361_0_0_0_2_0.htm) et par [Lextronic](https://www.lextronic.fr/8369-systeme-grove).
+
+
+Par exemple:
+* [Grove GPS](http://wiki.seeedstudio.com/Grove-GPS/) avec [Sodaq_TinyGPS.ino](./https://raw.githubusercontent.com/CampusIoT/endpoints/master/sodaq/Sodaq_TinyGPS.ino)
+
 
 ## Pour aller plus loin
 [Tutoriel NodeRED](../nodered/README.md)

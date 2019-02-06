@@ -141,7 +141,8 @@ Démarrez le service dans la composition `docker-compose.yml` avec :
 ```bash
 docker-compose start grafana
 ```
-Ouvrez la page suivante http://localhost:3000
+
+Ouvrez la page suivante http://localhost:3000 et loggez vous avec `admin` `__SUPER_SECRET_TO_CHANGE__`
 
 Ajoutez la source de données (url=`http://influxdb:8086`, database=`lorawan`) dans `Configuration > Data Sources > InfluxDB > Settings` en suivant la page http://localhost:3000/datasources/edit/1?gettingstarted
 

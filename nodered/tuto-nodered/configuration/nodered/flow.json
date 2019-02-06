@@ -37,7 +37,7 @@
     {
         "id": "c36b3dd9.b63f4",
         "type": "tab",
-        "label": "FTD 1AD8",
+        "label": "FTD 20CBA",
         "disabled": false,
         "info": ""
     },
@@ -479,9 +479,11 @@
         "id": "215c037c.3ca334",
         "type": "ui_tab",
         "z": "",
-        "name": "Adeunis FTD 1AD8",
+        "name": "Adeunis FTD 20CBA",
         "icon": "fa-map-pin",
-        "order": 5
+        "order": 5,
+        "disabled": false,
+        "hidden": false
     },
     {
         "id": "365b1692.b82cb2",
@@ -700,7 +702,7 @@
         "id": "14a0d2e4.bafd55",
         "type": "ui_group",
         "z": "",
-        "name": "FTD 1AD8",
+        "name": "FTD 20CBA",
         "tab": "eeff4a06.3811c",
         "order": 1,
         "disp": true,
@@ -2471,7 +2473,7 @@
         "type": "function",
         "z": "c36b3dd9.b63f4",
         "name": "select device",
-        "func": "var DEVEUI = \"0018b20000001ad8\";\nvar p = msg.payload;\n\nif(p.devEUI === DEVEUI) {\n    node.status({text:p.time});\n    return msg;\n} else {\n    return undefined;\n}\n\nnode.status({text:p.time});\n\nreturn msg;",
+        "func": "var DEVEUI = \"0018b20000020cba\";\nvar p = msg.payload;\n\nif(p.devEUI === DEVEUI) {\n    node.status({text:p.time});\n    return msg;\n} else {\n    return undefined;\n}\n\nnode.status({text:p.time});\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "x": 250,
@@ -2489,7 +2491,8 @@
                 "7740d96a.b16b78",
                 "ba9c5e86.8942b",
                 "a1325852.116e9",
-                "12753af7.2dea65"
+                "12753af7.2dea65",
+                "4f7ec384.7b8c4c"
             ]
         ]
     },
@@ -4604,7 +4607,7 @@
         "type": "debug",
         "z": "8ef8462d.3e5728",
         "name": "",
-        "active": true,
+        "active": false,
         "console": "false",
         "complete": "payload",
         "x": 950,
@@ -8674,11 +8677,11 @@
         "id": "dc289926.a4fba",
         "type": "function",
         "z": "c36b3dd9.b63f4",
-        "name": "Go Adeunis FTD 1AD8",
-        "func": "msg.payload ={tab:\"Adeunis FTD 1AD8\"};\nreturn msg;",
+        "name": "Go Adeunis FTD 20CBA",
+        "func": "msg.payload ={tab:\"Adeunis FTD 20CBA\"};\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 800,
+        "x": 810,
         "y": 40,
         "wires": [
             [
@@ -13054,7 +13057,7 @@
         "z": "8ef8462d.3e5728",
         "influxdb": "70b21447.a18194",
         "name": "CREATE DATABASE lorawan",
-        "query": "CREATE DATABASE \"lorawan\" WITH DURATION 14d REPLICATION 1 SHARD DURATION 1h NAME \"three_days\"",
+        "query": "CREATE DATABASE \"lorawan\" WITH DURATION 60d REPLICATION 1 SHARD DURATION 1h NAME \"sixty_days\"",
         "rawOutput": false,
         "precision": "",
         "retentionPolicy": "",
@@ -16062,12 +16065,12 @@
         "links": [
             "16cc577e.d91489"
         ],
-        "x": 120,
+        "x": 35,
         "y": 220,
         "wires": [
             [
                 "70a5a5f2.183e34",
-                "6e2c69a3.e56ea8"
+                "cf4442ba.bf396"
             ]
         ]
     },
@@ -16138,7 +16141,7 @@
         "type": "function",
         "z": "b23a6a86.69b218",
         "name": "Decode FTD",
-        "func": "// https://www.adeunis.com/wp-content/uploads/2017/08/ARF8123AA_ADEUNIS_LORAWAN_FTD_UG_V1.2.0_FR_GB.pdf\nAdeunisRF_ARF8123AA_FieldTester_Payload = {\n  'decodeUp': function (port,payload) {\n\n      var value = {}\n      var p = payload;\n\n      /*\n      Bit 7 : Présence de l’information de température\n      Bit 6 : Déclenchement de l’émission par l’accéléromètre\n      Bit 5 : Déclenchement de l’émission par appui sur le bouton poussoir 1\n      Bit 4 : Présence de l’information GPS\n      Bit 3 : Présence du compteur de trame d’Uplink\n      Bit 2 : Présence du compteur de trame de Downlink\n      Bit 1 : Présence de l’information du niveau de batterie\n      Bit 0 : Présence de l’informaiotn RSSI et SNR\n      */\n        \n    var flags = p[0];\n\n    var accelerometerTrigger=((flags&0x40) !== 0);\n    value[\"accelerometerTrigger\"]=accelerometerTrigger;\n\n    var button1Trigger=((flags&0x20) !== 0);\n    value[\"button1Trigger\"]=button1Trigger;\n\n    var index = 1;\n\n    // decode Adeunis payload\n\n    if(flags & 0x80 !== 0) {\n          var temperature = p.readInt8(index++); // in °C\n          value[\"temperature\"]=temperature;\n        }\n\n    if((flags & 0x10) !== 0) {\n          var latdegrees=(((p[index]&0xF0) >> 4) * 10) + (p[index++]&0x0F);\n          var latminutes=    (((p[index]&0xF0) >> 4) * 10)\n                          + (p[index++]&0x0F)\n                          + (((p[index]&0xF0) >> 4) /10)\n                          + ((p[index++]&0x0F) / 100)\n                          + (((p[index]&0xF0) >> 4) /1000)\n                          ;\n          var latitude = (latdegrees + (latminutes / 60));\n          if((p[index++]&0x01)==1) latitude=-latitude;\n          value[\"latitude\"]=latitude;\n\n          var londegrees=(((p[index]&0xF0) >> 4) * 100) + ((p[index++]&0x0F)* 10) + ((p[index]&0xF0) >> 4);\n          var lonminutes= ((p[index++]&0x0F) * 10)\n                          + ((p[index]&0xF0) >> 4)\n                          + ((p[index++]&0x0F) / 10)\n                          + (((p[index]&0xF0) >> 4) /100)\n                          ;\n          var longitude = (londegrees + (lonminutes / 60));\n          if((p[index++]&0x01)==1) longitude=-longitude;\n          value[\"longitude\"]=longitude;\n\n          var gpsquality = p.readUInt8(index++);\n          value[\"satellites\"]=gpsquality&0x0F;\n          value[\"quality\"]=gpsquality >> 4;\n\n      }\n\n    if(flags & 0x08 !== 0) {\n          var uplinkCounter=p.readUInt8(index++);\n          value[\"uplinkCounter\"]=uplinkCounter;\n      }\n\n    if(flags & 0x04 !== 0) {\n          var downlinkCounter=p.readUInt8(index++);\n          value[\"downlinkCounter\"]=downlinkCounter;\n      }\n\n    if(flags & 0x02 !== 0) {\n          var batteryVoltage = p.readInt16BE(index); // in mV\n          index = index + 2;\n          value[\"batteryVoltage\"]=batteryVoltage;\n    }\n\n    if(flags & 0x01 !== 0) {\n          var rssi = p.readUInt8(index++); // in dB absolute value\n          var snr = p.readUInt8(index++); // in dB, signed\n          value[\"rssi\"]= - rssi;\n          value[\"snr\"]=snr;\n    }\n\n    return value;\n  }\n}\n\nvar p = msg.payload;\n\nif(p.applicationName !== \"FTD\") {\n    return undefined;\n}\n\nif(! p.frmPayload) {\n    return undefined;\n}\n\nvar o = AdeunisRF_ARF8123AA_FieldTester_Payload.decodeUp(p.fPort,p.frmPayload);\n\nmsg.payload.object = o;\n\nreturn msg;",
+        "func": "// https://www.adeunis.com/wp-content/uploads/2017/08/ARF8123AA_ADEUNIS_LORAWAN_FTD_UG_V1.2.0_FR_GB.pdf\nAdeunisRF_ARF8123AA_FieldTester_Payload = {\n  'decodeUp': function (port,payload) {\n\n      var value = {}\n      var p = payload;\n\n      /*\n      Bit 7 : Présence de l’information de température\n      Bit 6 : Déclenchement de l’émission par l’accéléromètre\n      Bit 5 : Déclenchement de l’émission par appui sur le bouton poussoir 1\n      Bit 4 : Présence de l’information GPS\n      Bit 3 : Présence du compteur de trame d’Uplink\n      Bit 2 : Présence du compteur de trame de Downlink\n      Bit 1 : Présence de l’information du niveau de batterie\n      Bit 0 : Présence de l’informaiotn RSSI et SNR\n      */\n        \n    var flags = p[0];\n\n    var accelerometerTrigger=((flags&0x40) !== 0);\n    value[\"accelerometerTrigger\"]=accelerometerTrigger;\n\n    var button1Trigger=((flags&0x20) !== 0);\n    value[\"button1Trigger\"]=button1Trigger;\n\n    var index = 1;\n\n    // decode Adeunis payload\n\n    if(flags & 0x80 !== 0) {\n          var temperature = p.readInt8(index++); // in °C\n          value[\"temperature\"]=temperature;\n        }\n\n    if((flags & 0x10) !== 0) {\n          var latdegrees=(((p[index]&0xF0) >> 4) * 10) + (p[index++]&0x0F);\n          var latminutes=    (((p[index]&0xF0) >> 4) * 10)\n                          + (p[index++]&0x0F)\n                          + (((p[index]&0xF0) >> 4) /10)\n                          + ((p[index++]&0x0F) / 100)\n                          + (((p[index]&0xF0) >> 4) /1000)\n                          ;\n          var latitude = (latdegrees + (latminutes / 60));\n          if((p[index++]&0x01)==1) latitude=-latitude;\n          value[\"latitude\"]=latitude;\n\n          var londegrees=(((p[index]&0xF0) >> 4) * 100) + ((p[index++]&0x0F)* 10) + ((p[index]&0xF0) >> 4);\n          var lonminutes= ((p[index++]&0x0F) * 10)\n                          + ((p[index]&0xF0) >> 4)\n                          + ((p[index++]&0x0F) / 10)\n                          + (((p[index]&0xF0) >> 4) /100)\n                          ;\n          var longitude = (londegrees + (lonminutes / 60));\n          if((p[index++]&0x01)==1) longitude=-longitude;\n          value[\"longitude\"]=longitude;\n\n          var gpsquality = p.readUInt8(index++);\n          value[\"satellites\"]=gpsquality&0x0F;\n          value[\"quality\"]=gpsquality >> 4;\n\n      }\n\n    if(flags & 0x08 !== 0) {\n          var uplinkCounter=p.readUInt8(index++);\n          value[\"uplinkCounter\"]=uplinkCounter;\n      }\n\n    if(flags & 0x04 !== 0) {\n          var downlinkCounter=p.readUInt8(index++);\n          value[\"downlinkCounter\"]=downlinkCounter;\n      }\n\n    if(flags & 0x02 !== 0) {\n          var batteryVoltage = p.readInt16BE(index); // in mV\n          index = index + 2;\n          value[\"batteryVoltage\"]=batteryVoltage;\n    }\n\n    if(flags & 0x01 !== 0) {\n          var rssi = p.readUInt8(index++); // in dB absolute value\n          var snr = p.readUInt8(index++); // in dB, signed\n          value[\"rssi\"]= - rssi;\n          value[\"snr\"]=snr;\n    }\n\n    return value;\n  }\n}\n\nvar p = msg.payload;\n\nif(p.applicationName.indexOf(\"FTD\") !== 0) {\n    return undefined;\n}\n\nif(! p.frmPayload) {\n    return undefined;\n}\n\nvar o = AdeunisRF_ARF8123AA_FieldTester_Payload.decodeUp(p.fPort,p.frmPayload);\n\nmsg.payload.object = o;\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "x": 490,
@@ -17070,20 +17073,6 @@
         "wires": []
     },
     {
-        "id": "6e2c69a3.e56ea8",
-        "type": "debug",
-        "z": "b23a6a86.69b218",
-        "name": "",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "x": 290,
-        "y": 80,
-        "wires": []
-    },
-    {
         "id": "b7a128b1.2adae",
         "type": "function",
         "z": "b23a6a86.69b218",
@@ -17098,5 +17087,33 @@
                 "975ef738.66ae08"
             ]
         ]
+    },
+    {
+        "id": "cf4442ba.bf396",
+        "type": "debug",
+        "z": "b23a6a86.69b218",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 230,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "4f7ec384.7b8c4c",
+        "type": "debug",
+        "z": "c36b3dd9.b63f4",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 340,
+        "y": 760,
+        "wires": []
     }
 ]

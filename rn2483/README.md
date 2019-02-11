@@ -17,7 +17,7 @@ Il y a 3 types de commandes pour accéder aux différentes fonctions du module:
 Installer Coolterm pour Mac
 
 ## Connecter le modem
-Configurer la fin de ligne à la valeur `<CR><LF>`.
+Configurer la fin de ligne à la valeur `<CR><LF>`. Attention, `ENTER` est interprété `<CR>` ou `<LF>` dans la configuration par défaut des applications de terminal série.
 
 Connecter le modem avec le débit de 57600 bps, 8 bits, no parity, 1 Stop bit, no flow control.
 
@@ -75,6 +75,10 @@ Ajouter un device (device profile CLASS_A_OTAA) avec le DevEUI récupéré et l'
 ```
 mac tx cnf 1 01020304
 >> not_joined
+
+# Configurer le datarate initial (de 0 à 5).
+mac set dr 0
+>> ok
 
 # Tenter de nouveau la procédure OTAA
 mac join otaa

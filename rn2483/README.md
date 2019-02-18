@@ -36,6 +36,8 @@ sys get hweui
 >> 0004A30B001BA7BC
 ```
 
+> Remarque : il peut être nécessaire de mettre à jour le firmware du module (via l'USB) pour que l'OTAA fonctionne (A lire https://www.microchip.com/forums/m1060340.aspx)
+
 ## Configurer la clé AppKey et l'AppEUI
 
 ```

@@ -146,6 +146,8 @@ Ouvrez la page suivante http://localhost:3000 et loggez vous avec `admin` `__SUP
 
 Ajoutez la source de données (url=`http://influxdb:8086`, database=`lorawan`) dans `Configuration > Data Sources > InfluxDB > Settings` en suivant la page http://localhost:3000/datasources/edit/1?gettingstarted
 
+> Pour la source InfluxDB, le username est `campusiot` et le mot de passe est `__SUPER_SECRET_TO_CHANGE__`
+
 Ajoutez un nouveau tableau de bord avec `Create > New Dashboard` en suivant la page http://localhost:3000/dashboard/new
 
 Ajoutez un panel de type `Graph` et ajoutez les requêtes suivantes pour afficher le graphe du nombre de messages LoRa reçus et émis par les stations de base via l'aide d'édition des requêtes :

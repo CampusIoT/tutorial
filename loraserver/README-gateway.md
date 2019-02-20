@@ -62,6 +62,8 @@ chmod +x install.sh
 ./install.sh __MQTT_USERNAME__ __MQTT_PASSWORD__
 ```
 
+> Il peut être nécessaire de rebooter la passerelle pour que le forwarder fonctionne.
+
 ### Installation sur Multitech Conduit USB
 Votre gateway [Multitech Conduit](https://www.multitech.com/brands/multiconnect-conduit) doit avoir le firmware mLinux et non pas AEP. [Plus de détails](http://www.multitech.net/developer/software/mlinux/using-mlinux/flashing-mlinux-firmware-for-conduit/)
 

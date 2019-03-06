@@ -134,6 +134,7 @@ SELECT sum("rxPacketsReceived") AS "sum_rxPacketsReceived", sum("txPacketsReceiv
 Ajoutez d'autres graphes.
 
 ## Etape 5: Visualiser les séries temporelles de la base time-series InfluxDB avec Grafana
+Grafana est un outil très populaires pour la visualisation de séries temporelles.
 
 Ajoutez dans la composition `docker-compose.yml` le service `grafana` qui étend `grafana.yml`.
 
@@ -189,7 +190,22 @@ Ajoutez un panel de type `Heatmap` et ajoutez la requête précédente pour affi
 
 ![Grafana Panel](images/grafana_4.png)
 
-## Etape 6: Créer une alerte Alerta avec Kapacitor
+
+## Etape 6: Installer des plugins complémentaires dans Grafana
+La communauté Grafana propose de nombreux plugins (greffons en français) dont la liste complete est https://grafana.com/plugins .
+
+Pour ajouter un plugin au serveur Grafana (par exemple https://grafana.com/plugins/citilogics-geoloop-panel), il faut exécuter dans le conteneur des commandes en ligne de `grafana-cli` puis rédémarrer le conteneur.
+
+```bash
+docker exec -it tuto-nodered_grafana_1 grafana-cli plugins list-remote
+docker exec -it tuto-nodered_grafana_1 grafana-cli plugins list-remote | grep geoloop
+docker exec -it tuto-nodered_grafana_1 grafana-cli plugins install citilogics-geoloop-panel
+docker-compose stop grafana
+docker-compose start grafana
+```
+
+
+## Etape 7: Créer une alerte Alerta avec Kapacitor
 
 Ajoutez dans la composition `docker-compose.yml` le service `kapacitor` qui étend `kapacitor.yml` et les service `alerta` et `postgresdb` qui étendent `alerta.yml`.
 

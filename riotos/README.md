@@ -6,7 +6,7 @@
 * https://github.com/fjmolinas/RIOT/tree/im880b_loramac
 
 
-==Build==
+## Build
 ```bash
 cd RIOT/
 git branch --set-upstream-to=origin/im880b_loramac im880b_loramac
@@ -22,4 +22,8 @@ cat ~/RIOT/tests/pkg_semtech-loramac/main.c
 make BOARD=im880b LORA_DRIVER=sx1272 -C tests/pkg_semtech-loramac/ PORT=/dev/ttyACM0 flash
 ll ~/RIOT/tests/pkg_semtech-loramac/bin/im880b/tests_pkg_semtech-loramac.*
 ```
-==Run==
+## Run
+
+```bash
+TODO
+```

@@ -72,7 +72,10 @@ ATO
 ```
 
 ## Enregistrement du FTD
-(Voir le lien)[../loraserver/README-app.md].
+
+Créez une application FTD dans votre organisation en suivant les [instructions suivantes](../loraserver/README-app.md).
+
+Ajoutez le Codec [adeunisrf_ftd_codec.js](https://github.com/CampusIoT/payload-codec/blob/master/src/main/ttn_loraappserver/adeunisrf/adeunisrf_ftd_codec.js) à l'application FTD.
 
 ## Envoi de messages (downlink) vers le FTD
 

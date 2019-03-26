@@ -115,8 +115,29 @@ Ajoutez un device (device profile `CLASS_A_OTAA`) avec le `DevEUI` qui est la va
 
 ## Envoi de messages Downlink vers la carte
 
-```bash
+MQTT est le moyen par défaut pour envoyer un message descendant (down) vers un device https://www.loraserver.io/lora-app-server/integrate/data/
 
-TODO
+Actuellement, les commandes à utiliser sont:
 
+```
+ORGID=1 # l'id de votre ORGANISATION (ce n’est pas le username de votre compte utilisateur)
+BROKER=lora.campusiot.imag.fr
+MQTTUSER=org-$ORGID # le username de votre ORGANISATION (ce n’est pas le username de votre compte utilisateur)
+MQTTPASSWORD=__SUPER_SECRET_TO_CHANGE__ # le mot de passe de votre ORGANISATION (ce n’est pas le username de votre compte utilisateur)
+TLS="--cafile ca.crt -p 8883"
+
+applicationID=1
+devEUI=1234567890abcdef
+
+# Send Downlink Messages (dn)
+mosquitto_pub -h $BROKER -u $MQTTUSER -P $MQTTPASSWORD $TLS  -t "application/$applicationID/device/$devEUI/tx" -m '{"reference": "abcd1234","confirmed": true, "fPort": 10,"data":"SGVsbG8gQ2FtcHVzSW9UICE="}'
+```
+
+Le champs data contient le message binaire encodé en base64.
+Dans l’exemple, le message “`Hello CampusIoT !`” en hexadécimale est affiché dans le terminal serie. 
+
+La commande shell `base64` permet de décoder et encoder des textes vers/depuis base64.
+```
+echo `echo SGVsbG8gQ2FtcHVzSW9UICE= | base64 --decode`
+echo "Hello CampusIoT !" | base64
 ```

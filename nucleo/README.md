@@ -11,9 +11,13 @@ Créez un compte sur MBed https://ide.mbed.com/compiler/
 Importez la version `7:5077515` du démonstrateur [LoRaWAN-demo-72](https://os.mbed.com/teams/Semtech/code/LoRaWAN-demo-72/
 ) dans votre IDE MBed au moyen du bouton `Import into Compiler`.
 
+![MBed SX1272](./mbed-sx1272.jpg) { width: 400px; }
+
 ## Import du démonstrateur LoRaWAN-demo-76 (si vous avez une carte avec un SX1276)
 Importez la version `9:ee9dcbb` du démonstrateur [LoRaWAN-demo-76](https://os.mbed.com/teams/Semtech/code/LoRaWAN-demo-76/
 ) dans votre IDE MBed au moyen du bouton `Import into Compiler`.
+
+![MBed SX1276](./mbed-SX1276.jpg) { width: 400px; }
 
 ## Changement de DevEUI et de l'AppKey
 Modifiez le fichier Commissioning.h en changeant la valeur de `ENDPOINT_ID`.
@@ -134,7 +138,7 @@ mosquitto_pub -h $BROKER -u $MQTTUSER -P $MQTTPASSWORD $TLS  -t "application/$ap
 ```
 
 Le champs data contient le message binaire encodé en base64.
-Dans l’exemple, le message “`Hello CampusIoT !`” en hexadécimale est affiché dans le terminal serie. 
+Dans l’exemple, le message “`Hello CampusIoT !`” en hexadécimale est affiché dans le terminal serie.
 
 La commande shell `base64` permet de décoder et encoder des textes vers/depuis base64.
 ```

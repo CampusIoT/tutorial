@@ -11,14 +11,14 @@ Créez un compte sur MBed https://ide.mbed.com/compiler/
 Importez la version `7:5077515` du démonstrateur [LoRaWAN-demo-72](https://os.mbed.com/teams/Semtech/code/LoRaWAN-demo-72/
 ) dans votre IDE MBed au moyen du bouton `Import into Compiler`.
 
-<img src="mbed-sx1272.jpg" alt="MBed SX1272" width="200">
+<img src="mbed-sx1272.jpg" alt="MBed SX1272" width="500">
 
 
 ## Import du démonstrateur LoRaWAN-demo-76 (si vous avez une carte avec un SX1276)
 Importez la version `9:ee9dcbb` du démonstrateur [LoRaWAN-demo-76](https://os.mbed.com/teams/Semtech/code/LoRaWAN-demo-76/
 ) dans votre IDE MBed au moyen du bouton `Import into Compiler`.
 
-<img src="mbed-sx1276.jpg" alt="MBed SX1276" width="200">
+<img src="mbed-sx1276.jpg" alt="MBed SX1276" width="500">
 
 
 ## Changement de DevEUI et de l'AppKey

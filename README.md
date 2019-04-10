@@ -22,3 +22,8 @@ CampusIoT is a learn-by-doing platform for teaching Internet of Things technolog
 * [LoRaServer :us:](loraserver/README.en.md)
 * [NodeRED :us:](nodered/README.en.md)
 * [MQTT Logger :us:](mqtt-logger/README.en.md)
+
+
+# Lectures
+## LoRa et LoRaWAN
+* [Orange LoRaWAN Developer Guide](https://lora.multitech.com/documents/publications/marketing-guides/lora_device_dev_guide_orange.pdf)

@@ -18,6 +18,8 @@ Il y a 3 types de commandes pour accéder aux différentes fonctions du module:
 * Pour Android, [Serial USB Terminal](https://play.google.com/store/apps/details?id=de.kai_morich.serial_usb_terminal)
 https://play.google.com/store/apps/details?id=de.kai_morich.serial_usb_terminal
 
+![RN2483 Android Serial Term](./RN2483_Android_Serial_Term.png)
+
 ## Connecter le modem
 Configurer la fin de ligne à la valeur `<CR><LF>`. Attention, `ENTER` est interprété `<CR>` ou `<LF>` dans la configuration par défaut des applications de terminal série.
 

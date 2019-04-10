@@ -14,7 +14,9 @@ Il y a 3 types de commandes pour accéder aux différentes fonctions du module:
 > Remarque: Il existe des breakouts comme celui de [RN2483 breakout de Azzy's Electronics](https://www.tindie.com/products/DrAzzy/rn2483-breakout-bare-board/) à 3 USD pour y souder votre module et votre interface USB serial (FTDI) alimentée en 3.3V DC.
 
 ## Installer un client série
-Installer Coolterm pour Mac
+* Pour MacOS X, Linux ou Windows: [Coolterm](http://freeware.the-meiers.org/) [Tutoriel](https://learn.sparkfun.com/tutorials/terminal-basics/coolterm-windows-mac-linux)
+* Pour Android, [Serial USB Terminal](https://play.google.com/store/apps/details?id=de.kai_morich.serial_usb_terminal)
+https://play.google.com/store/apps/details?id=de.kai_morich.serial_usb_terminal
 
 ## Connecter le modem
 Configurer la fin de ligne à la valeur `<CR><LF>`. Attention, `ENTER` est interprété `<CR>` ou `<LF>` dans la configuration par défaut des applications de terminal série.

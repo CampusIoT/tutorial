@@ -15,7 +15,6 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 0,
-  "id": 2,
   "links": [],
   "panels": [
     {
@@ -166,6 +165,7 @@
         "y": 0
       },
       "heatmap": {},
+      "hideZeroBuckets": false,
       "highlightCards": true,
       "id": 6,
       "interval": "1m",
@@ -173,6 +173,7 @@
         "show": false
       },
       "links": [],
+      "reverseYBuckets": false,
       "targets": [
         {
           "groupBy": [
@@ -197,7 +198,7 @@
           ],
           "measurement": "rx",
           "orderByTime": "ASC",
-          "policy": "three_days",
+          "policy": "sixty_days",
           "refId": "A",
           "resultFormat": "time_series",
           "select": [
@@ -249,14 +250,14 @@
     }
   ],
   "refresh": "1m",
-  "schemaVersion": 16,
+  "schemaVersion": 18,
   "style": "dark",
   "tags": [],
   "templating": {
     "list": []
   },
   "time": {
-    "from": "now-15m",
+    "from": "now-1h",
     "to": "now"
   },
   "timepicker": {
@@ -287,5 +288,5 @@
   "timezone": "",
   "title": "Operators",
   "uid": "gpFyzhiz",
-  "version": 2
+  "version": 1
 }

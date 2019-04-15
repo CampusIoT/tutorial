@@ -51,7 +51,7 @@ chmod +x packages.sh
 
 Communiquez les informations `LoRaNode EUI` et `MQTT_USERNAME` retournées par le script `getinfo.sh` au sysadmin du serveur CampusIoT (Didier DONSEZ pour le moment).
 
-Récupérez les MQTT_USERNAME et MQTT_PASSWORD de la gateway auprès du sysadmin du serveur CampusIoT (Didier DONSEZ pour le moment) en lui communiquant le `LoRaNote EUI`.
+Récupérez les `MQTT_USERNAME` et `MQTT_PASSWORD` de la gateway auprès du sysadmin du serveur CampusIoT (Didier DONSEZ pour le moment) en lui communiquant le `LoRaNote EUI`.
 
 Loggez-vous (admin) sur la gateway et exécuter les commandes suivantes:
 ```
@@ -85,7 +85,7 @@ chmod +x packages.sh
 ```
 Communiquez les informations `LoRaNode EUI` et `MQTT_USERNAME` retournées par le script `getinfo.sh` au sysadmin du serveur CampusIoT (Didier DONSEZ pour le moment).
 
-Récupérez les MQTT_USERNAME et MQTT_PASSWORD de la gateway auprès du sysadmin du serveur CampusIoT (Didier DONSEZ pour le moment).
+Récupérez les `MQTT_USERNAME` et `MQTT_PASSWORD` de la gateway auprès du sysadmin du serveur CampusIoT (Didier DONSEZ pour le moment).
 
 Se logger (admin) sur la gateway et exécuter les commandes suivantes:
 ```
@@ -122,7 +122,7 @@ chmod +x getinfo.sh
 
 Communiquez les informations `LoRaNode EUI` et `MQTT_USERNAME` retournées par le script `getinfo.sh` au sysadmin du serveur CampusIoT (Didier DONSEZ pour le moment).
 
-Récupérez les MQTT_USERNAME et MQTT_PASSWORD de la gateway auprès du sysadmin du serveur CampusIoT (Didier DONSEZ pour le moment).
+Récupérez les `MQTT_USERNAME` et `MQTT_PASSWORD` de la gateway auprès du sysadmin du serveur CampusIoT (Didier DONSEZ pour le moment).
 
 Loggez-vous (admin) sur la gateway et exécuter les commandes suivantes:
 ```
@@ -154,7 +154,7 @@ chmod +x getinfo.sh
 
 Communiquez les informations `LoRaNode EUI` et `MQTT_USERNAME` retournées par le script `getinfo.sh` au sysadmin du serveur CampusIoT (Didier DONSEZ pour le moment).
 
-Récupérez les MQTT_USERNAME et MQTT_PASSWORD de la gateway auprès du sysadmin du serveur CampusIoT (Didier DONSEZ pour le moment).
+Récupérez les `MQTT_USERNAME` et `MQTT_PASSWORD` de la gateway auprès du sysadmin du serveur CampusIoT (Didier DONSEZ pour le moment).
 
 Loggez-vous (admin) sur la gateway et exécuter les commandes suivantes:
 ```
@@ -208,13 +208,13 @@ Mettez à jour le firmware de votre carte Pycom LoPy/FiPy en utilisant l'applica
 
 Récupérez les informations de votre carte Pycom LoPy/FiPy via via le plugin Pycom d'Atom.
 
-Modifiez les propriétés WIFI_SSID et WIFI_PASS dans le fichier `config.py` du répertoire `lopy-nano-gateway`.
+Modifiez les propriétés `WIFI_SSID` et `WIFI_PASS` dans le fichier `config.py` du répertoire `lopy-nano-gateway`.
 
 Chargez les fichiers du répertoire `lopy-nano-gateway` sur la carte (via le plugin Pycom d'Atom).
 
 ## Enregistrement d’une gateway
 
-Créez une gateway depuis une application créée (`Menu > Gateways`) en utilisant le `GWID` (64 bits soit 16 caractères hexadécimaux) fourni. Le GWID est calculé soit à partir de l’adresse MAC de la carte ethernet (`eth0`) de la gateway ou à partir de l’identifiant du composant concentrateur SX130x de la gateway (ie le `LoRaNote EUI`). (A noter: une gateway comme la Kerlink iBTS peut avoir plusieurs concentrateurs donc plusieurs `LoRaNote EUI`s).
+Créez une gateway depuis une application créée (`Menu > Gateways`) en utilisant le `GWID` (64 bits soit 16 caractères hexadécimaux) fourni. Le `GWID` est calculé soit à partir de l’adresse MAC de la carte ethernet (`eth0`) de la gateway ou à partir de l’identifiant du composant concentrateur SX130x de la gateway (ie le `LoRaNote EUI`). (A noter: une gateway comme la Kerlink iBTS peut avoir plusieurs concentrateurs donc plusieurs `LoRaNote EUI`s).
 
 ![Gateway Add](images/gateway-add.png)
 

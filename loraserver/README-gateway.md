@@ -64,6 +64,8 @@ chmod +x install.sh
 
 > Il peut être nécessaire de rebooter la passerelle pour que le forwarder fonctionne.
 
+> Remarque : Les scripts d'installation sont dans le dépôt https://github.com/CampusIoT/gateway-config/tree/master/multitech-mtcap
+
 ### Installation sur Multitech Conduit USB
 Votre gateway [Multitech Conduit](https://www.multitech.com/brands/multiconnect-conduit) doit avoir le firmware mLinux et non pas AEP. [Plus de détails](http://www.multitech.net/developer/software/mlinux/using-mlinux/flashing-mlinux-firmware-for-conduit/)
 
@@ -94,6 +96,7 @@ chmod +x install.sh
 ./install.sh
 ./install.sh $MQTT_USERNAME $MQTT_PASSWORD $ANTENNA_GAIN_DBI
 ```
+> Remarque : Les scripts d'installation sont dans le dépôt https://github.com/CampusIoT/gateway-config/tree/master/multitech-mtcdt-usb
 
 ### Installation sur Multitech Conduit IP67
 Votre gateway [Multitech Conduit IP67](https://www.multitech.com/brands/multiconnect-conduit-ip67) doit avoir le firmware mLinux et non pas AEP. [Plus de détails](http://www.multitech.net/developer/software/mlinux/using-mlinux/flashing-mlinux-firmware-for-conduit/)
@@ -128,7 +131,10 @@ chmod +x install.sh
 ./install.sh $MQTT_USERNAME $MQTT_PASSWORD $ANTENNA_GAIN_DBI
 ```
 
+> Remarque : Les scripts d'installation sont dans le dépôt https://github.com/CampusIoT/gateway-config/tree/master/rpi3-ic880a
+
 ### Installation sur RPI3 + Picocell
+
 Logger-vous (PI) sur la gateway et exécuter les commandes suivantes:
 ```
 cd /tmp
@@ -154,6 +160,8 @@ chmod +x install.sh
 ./install.sh $MQTT_USERNAME $MQTT_PASSWORD $ANTENNA_GAIN_DBI
 ```
 
+Remarque : Les scripts d'installation sont dans le dépôt https://github.com/CampusIoT/gateway-config/tree/master/rpi3-picocell
+
 ### Installation sur Kerlink Wirgrid
 TODO
 
@@ -163,6 +171,8 @@ TODO
 TODO
 
 > Remarque: le gain de l'antenne livrée par défaut est 2-3dBi
+
+> Remarque : Les scripts d'installation sont dans le dépôt https://github.com/CampusIoT/gateway-config/tree/master/kerlink-ifemtocell
 
 ### Installation sur Kerlink iBTS Compact
 TODO

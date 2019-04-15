@@ -49,9 +49,11 @@ chmod +x packages.sh
 ./packages.sh
 ```
 
+Communiquez les informations `LoRaNode EUI` et `MQTT_USERNAME` retournées par le script `getinfo.sh` au sysadmin du serveur CampusIoT (Didier DONSEZ pour le moment).
+
 Récupérez les MQTT_USERNAME et MQTT_PASSWORD de la gateway auprès du sysadmin du serveur CampusIoT (Didier DONSEZ pour le moment) en lui communiquant le `LoRaNote EUI`.
 
-Logger-vous (admin) sur la gateway et exécuter les commandes suivantes:
+Loggez-vous (admin) sur la gateway et exécuter les commandes suivantes:
 ```
 cd /tmp
 REPO=https://raw.githubusercontent.com/CampusIoT/gateway-config/master
@@ -69,7 +71,7 @@ chmod +x install.sh
 ### Installation sur Multitech Conduit USB
 Votre gateway [Multitech Conduit](https://www.multitech.com/brands/multiconnect-conduit) doit avoir le firmware mLinux et non pas AEP. [Plus de détails](http://www.multitech.net/developer/software/mlinux/using-mlinux/flashing-mlinux-firmware-for-conduit/)
 
-Logger-vous (admin) sur la gateway et exécuter les commandes suivantes:
+Loggez-vous (admin) sur la gateway et exécuter les commandes suivantes:
 ```
 cd /tmp
 REPO=https://raw.githubusercontent.com/CampusIoT/gateway-config/master
@@ -81,6 +83,8 @@ wget $REPO/$DIST/packages.sh -O packages.sh
 chmod +x packages.sh
 ./packages.sh
 ```
+Communiquez les informations `LoRaNode EUI` et `MQTT_USERNAME` retournées par le script `getinfo.sh` au sysadmin du serveur CampusIoT (Didier DONSEZ pour le moment).
+
 Récupérez les MQTT_USERNAME et MQTT_PASSWORD de la gateway auprès du sysadmin du serveur CampusIoT (Didier DONSEZ pour le moment).
 
 Se logger (admin) sur la gateway et exécuter les commandes suivantes:
@@ -106,7 +110,7 @@ TODO
 
 IMPORTANT: Il faut préalablement activer le SPI via l'option `"5 Interface Options"` avec `sudo /usr/bin/raspi-config`. Il faut ensuite redémarrer la carte pour que le changement soit pris en compte avec `sudo reboot`.
 
-Logger-vous (PI) sur la gateway et exécuter les commandes suivantes:
+Loggez-vous (PI) sur la gateway et exécuter les commandes suivantes:
 ```
 cd /tmp
 REPO=https://raw.githubusercontent.com/CampusIoT/gateway-config/master
@@ -115,9 +119,12 @@ wget $REPO/$DIST/getinfo.sh -O getinfo.sh
 chmod +x getinfo.sh
 ./getinfo.sh
 ```
+
+Communiquez les informations `LoRaNode EUI` et `MQTT_USERNAME` retournées par le script `getinfo.sh` au sysadmin du serveur CampusIoT (Didier DONSEZ pour le moment).
+
 Récupérez les MQTT_USERNAME et MQTT_PASSWORD de la gateway auprès du sysadmin du serveur CampusIoT (Didier DONSEZ pour le moment).
 
-Se logger (admin) sur la gateway et exécuter les commandes suivantes:
+Loggez-vous (admin) sur la gateway et exécuter les commandes suivantes:
 ```
 MQTT_USERNAME=gw-1234567890abcdef
 MQTT_PASSWORD=xXxXxXxXxXxXxXxXxXxXxXxXxXxXxX
@@ -135,7 +142,7 @@ chmod +x install.sh
 
 ### Installation sur RPI3 + Picocell
 
-Logger-vous (PI) sur la gateway et exécuter les commandes suivantes:
+Loggez-vous (PI) sur la gateway et exécuter les commandes suivantes:
 ```
 cd /tmp
 REPO=https://raw.githubusercontent.com/CampusIoT/gateway-config/master
@@ -144,9 +151,12 @@ wget $REPO/$DIST/getinfo.sh -O getinfo.sh
 chmod +x getinfo.sh
 ./getinfo.sh
 ```
+
+Communiquez les informations `LoRaNode EUI` et `MQTT_USERNAME` retournées par le script `getinfo.sh` au sysadmin du serveur CampusIoT (Didier DONSEZ pour le moment).
+
 Récupérez les MQTT_USERNAME et MQTT_PASSWORD de la gateway auprès du sysadmin du serveur CampusIoT (Didier DONSEZ pour le moment).
 
-Se logger (admin) sur la gateway et exécuter les commandes suivantes:
+Loggez-vous (admin) sur la gateway et exécuter les commandes suivantes:
 ```
 MQTT_USERNAME=gw-1234567890abcdef
 MQTT_PASSWORD=xXxXxXxXxXxXxXxXxXxXxXxXxXxXxX

@@ -228,6 +228,7 @@ float getTemperatureFloat()
   return temp;
 }
 
+// TODO add Led for state and error notifications (https://support.sodaq.com/sodaq-one/led/)
 // TODO add battery level in payload
 // TODO send on button push
 // TODO status byte (button flag, presence flag...)
@@ -244,6 +245,57 @@ float getTemperatureFloat()
 static void getHWEUI()
 {
   uint8_t len = LoRaBee.getHWEUI(DevEUI, sizeof(DevEUI));
+}
+
+/**
+* set RGB led to red
+*/
+void RED() {
+  digitalWrite(LED_RED, LOW);
+  digitalWrite(LED_GREEN, HIGH);
+  digitalWrite(LED_BLUE, HIGH);
+}
+
+/**
+* set RGB led to green
+*/
+void GREEN() {
+  digitalWrite(LED_RED, HIGH);
+  digitalWrite(LED_GREEN, LOW);
+  digitalWrite(LED_BLUE, HIGH);
+}
+
+/**
+* set RGB led to blue
+*/
+void BLUE() {
+  digitalWrite(LED_RED, HIGH);
+  digitalWrite(LED_GREEN, HIGH);
+  digitalWrite(LED_BLUE, LOW);
+}
+
+/**
+* set RGB led to white
+*/
+void WHITE() {
+  digitalWrite(LED_RED, LOW);
+  digitalWrite(LED_GREEN, LOW);
+  digitalWrite(LED_BLUE, LOW);
+}
+
+/**
+* set RGB led to off
+*/
+void OFF() {
+  digitalWrite(LED_RED, HIGH);
+  digitalWrite(LED_GREEN, HIGH);
+  digitalWrite(LED_BLUE, HIGH);
+}
+
+void setupRGBLED() {
+  pinMode(LED_RED, OUTPUT);
+  pinMode(LED_GREEN, OUTPUT);
+  pinMode(LED_BLUE, OUTPUT);
 }
 ```
 Ajouter les 2 bibliothèques `SODAQ_wdt` et `SODAQ_RN2483` au sketch avec "`Croquis > Inclure une bibliothèque > Gérer les bibliothèques`" (filtrer la liste avec le mot clé "SODAQ").

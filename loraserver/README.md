@@ -16,7 +16,7 @@ Des containers supplémentaires ont été déployés pour le rendre opérationne
 ## NetID de CampusIoT
 Le NetID officiel de l'Université Grenoble Alpes auprès de la LoRa Alliance pour CampusIoT est `0xC0002B` (NetID de Ttype 6).
 
-### Rubriques
+## Rubriques
 * [Ajouter une application et des équipements](./README-app.md)
 * [Installer une nouvelle gateway](./README-gateway.md)
 * [Administrer une organisation](./README-org.md)

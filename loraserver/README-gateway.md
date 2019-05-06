@@ -263,7 +263,18 @@ mosquitto_sub -h $BROKER -t "gateway/$GWEUI/rx" -u $MQTTUSER -P $MQTTPASSWORD -v
 Remarque: les 2 commandes `wget` et `mosquitto_sub` peuvent être lancées depuis un container léger `alpine`:
 ```bash
 docker run -i -t alpine /bin/sh
-/ # apk update && apk add mosquitto-clients
+/ # apk update && apk add mosquitto-clients && apk add jq
+```
+
+La commande suivante affiche la value hexadécimale du `phyPayload` du message:
+```bash
+...
+mosquitto_sub -h $BROKER -t "gateway/$GWEUI/rx" -u $MQTTUSER -P $MQTTPASSWORD   $TLS | \
+while read LINE; do
+  TIMESTAMP=$(date +%s)
+  PAYLOADHEX=$(echo $LINE | jq -M '.phyPayload' | base64 -d | xxd -p)
+  echo "$TIMESTAMP;$LINE;$PAYLOADHEX"
+done
 ```
 
 [Plus de détails](https://www.loraserver.io/lora-app-server/integrate/data/)

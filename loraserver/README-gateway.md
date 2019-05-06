@@ -248,7 +248,7 @@ wget https://raw.githubusercontent.com/CampusIoT/campusiot-certs/master/mqtt/ca.
 
 Actuellement, les commandes à utiliser sont:
 
-```
+```bash
 ORGID=1 # l'id de votre ORGANISATION (ce n’est pas le username de votre compte utilisateur)
 BROKER=lora.campusiot.imag.fr
 MQTTUSER=org-$ORGID # le username de votre ORGANISATION (ce n’est pas le username de votre compte utilisateur)
@@ -258,6 +258,12 @@ TLS="--cafile ca.crt -p 8883"
 GWEUI=__LE_LoRaNode_EUI_de_la_Gateway__
 # Receive Gateway rx
 mosquitto_sub -h $BROKER -t "gateway/$GWEUI/rx" -u $MQTTUSER -P $MQTTPASSWORD -v  $TLS
+```
+
+Remarque: les 2 commandes `wget` et `mosquitto_sub` peuvent être lancées depuis un container léger `alpine`:
+```bash
+docker run -i -t alpine /bin/sh
+/ # apk update && apk add mosquitto-clients
 ```
 
 [Plus de détails](https://www.loraserver.io/lora-app-server/integrate/data/)

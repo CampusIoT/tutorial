@@ -14,7 +14,7 @@ Dans le déploiement sur lora.campusiot.imag.fr, le service Mosquitto est sécur
 Des containers supplémentaires ont été déployés pour le rendre opérationnel (dump des bases de données, log des messages MQTT, démo NodeRed, console Grafana …).
 
 ## NetID de CampusIoT
-Le NetID officiel de l'Université Grenoble Alpes auprès de la LoRa Alliance pour CampusIoT est `0xC0002B` (NetID de Ttype 6).
+Le NetID officiel de l'Université Grenoble Alpes auprès de la LoRa Alliance pour CampusIoT est `0xC0002B` ([NetID de type 6](https://lora-alliance.org/sites/default/files/2018-11/20181114_NetID_FAQ.pdf)).
 
 ## Rubriques
 * [Ajouter une application et des équipements](./README-app.md)

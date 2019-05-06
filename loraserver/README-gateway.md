@@ -229,6 +229,39 @@ Une fois la gateway enregistrée, les frames reçues par la gateway sont visuali
 
 ![Gateway Live Frame](images/gateway-live.png)
 
+### Récupération du flot MQTT des messages par la gateway
+MQTT est le moyen par défaut pour récupérer les messages recus par les gateways.
+
+Le flot de messages envoyés par les devices des applications peut être récupérer via des clients MQTT comme mosquitto_sub (en ligne de commande), [mqtt-spy](https://kamilfb.github.io/mqtt-spy/), , HiveMQ Websocket Client, MQTTBox ([configuration](images/mqttbox-brokerconfig.png), [souscription](images/mqttbox-subscribe.png)) [myMQTT](https://play.google.com/store/apps/details?id=at.tripwire.mqtt.client) pour Android ... Remarque: Des clients (comme [mqtt-lens](https://chrome.google.com/webstore/detail/mqttlens/hemojaaeigabkbcookmlgmdigohjobjm) pour Chrome) ne supportent pas MQTT/TLS.
+
+Installez le client MQTT `mosquitto_sub` avec
+```
+sudo apt-get install -y mosquitto-clients
+```
+> Remarque: Une alternative à mosquitto-clients est la commande `mqtt` qui s'installe avec `sudo npm install mqtt -g; mqtt help subscribe; mqtt help publish`.
+
+Il faut installer dans le répertoire courant le certificat `ca.crt` dec l’autorité de certification du broker MQTT avec la commande suivante:
+```
+wget https://raw.githubusercontent.com/CampusIoT/campusiot-certs/master/mqtt/ca.crt
+```
+> Remarque: l'option `--insecure` des commandes `mqtt` et `mosquitto_sub` permet de se passer du certificat du broker MQTT.
+
+Actuellement, les commandes à utiliser sont:
+
+```
+ORGID=1 # l'id de votre ORGANISATION (ce n’est pas le username de votre compte utilisateur)
+BROKER=lora.campusiot.imag.fr
+MQTTUSER=org-$ORGID # le username de votre ORGANISATION (ce n’est pas le username de votre compte utilisateur)
+MQTTPASSWORD=__SUPER_SECRET_TO_CHANGE__ # le mot de passe de votre ORGANISATION (ce n’est pas le username de votre compte utilisateur)
+TLS="--cafile ca.crt -p 8883"
+
+GWEUI=__LE_LoRaNode_EUI_de_la_Gateway__
+# Receive Gateway rx
+mosquitto_sub -h $BROKER -t "gateway/$GWEUI/rx" -u $MQTTUSER -P $MQTTPASSWORD -v  $TLS
+```
+
+[Plus de détails](https://www.loraserver.io/lora-app-server/integrate/data/)
+
 ### A voir
 * [Introduction à LoRaServer](./README.md)
 * [Ajouter une application et des équipements](./README-app.md)

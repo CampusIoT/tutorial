@@ -115,6 +115,24 @@ mosquitto_sub -h $BROKER -t "application/#" -u $MQTTUSER -P $MQTTPASSWORD -v  $T
 mosquitto_sub -h $BROKER -t "gateway/#" -u $MQTTUSER -P $MQTTPASSWORD -v  $TLS
 ```
 
+Remarque: les 2 commandes `wget` et `mosquitto_sub` peuvent être lancées depuis un container léger `alpine`:
+```bash
+docker run -i -t alpine /bin/sh
+/ # apk update && apk add mosquitto-clients
+```
+
+La commande suivante affiche la value hexadécimale du champ `data` qui correspond au champ frmPayload de la frame LoRaWAN déchiffré avec la clé de session AppSKey.
+```bash
+apk add jq
+...
+mosquitto_sub -h $BROKER -t "application/#" -u $MQTTUSER -P $MQTTPASSWORD   $TLS | \
+while read LINE; do
+  TIMESTAMP=$(date +%s)
+  DATAHEX=$(echo $LINE | jq -M '.data' | base64 -d | xxd -p)
+  echo "$TIMESTAMP;$LINE;$DATAHEX"
+done
+```
+
 > Remarque: je mettrai en place dès possible des ACL par topic pour les gateways et les organisations.
 
 [Plus de détails](https://www.loraserver.io/lora-app-server/integrate/data/)

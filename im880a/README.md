@@ -1,6 +1,6 @@
 # iM880a : LoraMAC + RIOT-OS + TTN/LoraServer
 
-Excepté quelques outils spécifique à OSX, ce tutoriel est valable pour les autres systèmes d'exploitation. 
+Exceptés quelques outils spécifiques à OSX, ce tutoriel est valable pour les autres systèmes d'exploitation. 
 
 ## Environnement de développement sous OSX pour IM880a
 
@@ -9,10 +9,10 @@ et de flashage (openocd ou stlink).
 
 Plus de détails à <https://github.com/Lora-net/LoRaMac-node/wiki/Development-environment#prerequisites> et <https://github.com/texane/stlink>
 
-    brew install cmake  
-    brew tap ARMmbed/homebrew-formulae && brew install arm-none-eabi-gcc
+    brew install cmake # génère les Makefile
+    brew tap ARMmbed/homebrew-formulae && brew install arm-none-eabi-gcc #cross-compile
     brew install openocd
-    brew install stlink`
+    brew install stlink
 
 Le flashage peut se faire : 
 
@@ -26,7 +26,7 @@ Le flashage peut se faire :
 
 Pour commencer la LoRaMote est plus simple car
 
-- elle a longtemps été la plateforme par défaut du [dépot LoRaMac](https://github.com/Lora-net/LoRaMac-node) utilisé pour la certification des noeuds par semtech
+- elle a longtemps été la plateforme par défaut du [dépot LoRaMac](https://github.com/Lora-net/LoRaMac-node) utilisée pour la certification des noeuds par semtech
 - on peut directement connecter le jtag pour la flasher
 - les paquets sont directement visibles dans TTN pour tester
 - par contre, comment accéder au lien série ? 
@@ -56,7 +56,7 @@ Les étapes sont :
 	- Connectez le JTAG
 	- `st-flash --format ihex write LoRaMote-LoRaMac-classA.hex` ([LoRaMote-LoRaMac-classA.hex](./firmware/LoRaMote-LoRaMac-classA.hex)) 
 
-Si tout fonctionne bien, vous devriez voir les 3 leds clignotés une fois le noeud flashé et à chaque envoi de paquet. 
+Si tout fonctionne bien, vous devriez voir les 3 leds clignoter une fois le noeud flashé et à chaque envoi de paquet. 
 Vous pouvez également voir les paquets dans TTN (<https://console.thethingsnetwork.org/>) si une GW à proximité les reçoit (cf figure 2).  
   
 ![le paquet envoyé par la loRaMote](./figs/LoRaMoteTTN.png)  
@@ -80,14 +80,14 @@ Les instructions ci-dessous se veulent le plus générique possible.
 Imaginons une carte nécessitant pour la flasher de : 
 
 - l'alimenter par USB.
-	- Nous utiliserons l'adaptateur [USB-Serial CH340G](https://robotdyn.com/usb-serial-adapter-ch340g-5v-3-3v.html) de RobotDyn avec son [driver](https://kig.re/2014/12/31/how-to-use-arduino-nano-mini-pro-with-CH340G-on-mac-osx-yosemite.html) car le module n est pas reconnu par défaut sous OSX
-	- il fournira aussi un lien série via `/dev/tty.wchusbserial1410`
+	- Nous utiliserons l'adaptateur [USB-Serial CH340G](https://robotdyn.com/usb-serial-adapter-ch340g-5v-3-3v.html) de RobotDyn avec son [driver](https://kig.re/2014/12/31/how-to-use-arduino-nano-mini-pro-with-CH340G-on-mac-osx-yosemite.html) car il n'est pas reconnu par défaut sous OSX
+	- Le lien série sera accessible via `/dev/tty.wchusbserial1410`
 - connecter les bonnes PIN du st-linkv2 à la carte 
 
-Cela nécessitera bien évidemment d'avoir accès au schéma du circuit électronique. 
+Cette dernière étape nécessitera bien évidemment d'avoir accès au schéma du circuit électronique. 
 Imaginons que la carte dispose des 2 ports GPIO X1 et X2 suivants.
 
-Vous trouverez ci-dessous un exemple le schéma pour relier l'adaptateur usb et le st-link v2 à la carte.  
+Vous trouverez ci-dessous un exemple le schéma pour relier l'adaptateur usb (cf fig. 3) et le st-link v2 à la carte (cf fig. 4).  
 ![usb-X2](./figs/CH340G-to-X2.png)  
 **Fig. 3: connexion X2 - adaptateur usb serial**
 
@@ -120,7 +120,7 @@ Les 2 applications existantes pour LoRa dans RIOT sont :
 - [$(RIOT-BASE)/tests/driver_sx127x](https://github.com/fjmolinas/RIOT/blob/im880b_loramac/tests/driver_sx127x) qui permet de tester le driver radio lora 127x
 - [$(RIOT-BASE)/tests/pkg_semtech-loramac](https://github.com/fjmolinas/RIOT/blob/im880b_loramac/tests/pkg_semtech-loramac/README.md) qui permet de tester le réseau LoRaWAN
 
-Le module réseau iM880a n'étant pas supporté par défaut dans le dépôt officiel, on se base sur un dépôt annexe et sur la [plateforme iM880b](https://cdn.sos.sk/productdata/29/eb/a68245ed/im880b-l-lorawan.pdf) qui est quasi similaire.  
+Le module réseau iM880a n'étant pas supporté par défaut dans le dépôt officiel, on se base sur un dépôt annexe et sur la [plateforme iM880b](https://wireless-solutions.de/products/starterkits/sk-im880b.html) qui est quasi similaire.  
 Pour compiler et flasher, on suit les étapes suivantes :  
 
     git clone https://github.com/fjmolinas/RIOT
@@ -164,7 +164,7 @@ Pour permettre à un noeud de se connecter à TTN selon la procédure OTAA, il f
 
 1. Enregistrer le noeud sur TTN :  <https://www.thethingsnetwork.org/docs/devices/registration.html> 
 2. Programmer Device EUI, App Key et App EUI sur le noeud : <https://github.com/RIOT-OS/RIOT/tree/master/tests/pkg_semtech-loramac#using-the-shell>
-3. Observer les messages de join dans l'interface de TTN accessible via le menu Applications > Application\_Name > Devices > Device\_Name > Data
+3. Observer les messages de join dans l'interface de TTN accessible via le menu `Applications > Application\_Name > Devices > Device\_Name > Data`
 4. Générer des messages coté noeud
 	- `riot$ loramac set dr 0` (cf. [tableau datarate Europe](https://lora-alliance.org/sites/default/files/2018-04/lorawantm_regional_parameters_v1.1rb_-_final.pdf#page=16)) pour toucher les GW les plus éloignées
 	- `riot$ loramac tx hello`
@@ -211,6 +211,6 @@ D'autres scénarios sont envisageables :
 
 ## TODO
 
-- [] instructions LoraServer
-- [] suivi de l'intégration d'iM880b dans le dépot officel de RIOT <https://github.com/RIOT-OS/RIOT/pull/11315>
-- [] ajout du support du st-linkv2-1 : https://gitlab.ensimag.fr/lorawan-bm/riot-im880b + googledocs
+- [ ] instructions LoraServer
+- [ ] suivi de l'intégration d'iM880b dans le dépot officel de RIOT <https://github.com/RIOT-OS/RIOT/pull/11315>
+- [ ] ajout du support du st-linkv2-1 : https://gitlab.ensimag.fr/lorawan-bm/riot-im880b + googledocs

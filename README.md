@@ -2,18 +2,18 @@
 # Tutoriel d'utilisation de la plateforme CampusIoT
 CampusIoT est une plateforme pour l'enseignement par la pratique des technologies et des cas d'usage de l'Internet des Objets.
 
-* [Ajouter un nouvel équipement LoRaWAN :fr:](loraserver/README-app.md)
-* [Ajouter une nouvelle passerelle LoRaWAN :fr:](loraserver/README-gateway.md)
-* [Administrer une organisation :fr:](loraserver/README-org.md)
-* [Administrer le service :fr:](loraserver/README-admin.md)
+* [Ajouter un nouvel équipement LoRaWAN au LoRaServer :fr:](loraserver/README-app.md)
+* [Ajouter une nouvelle passerelle LoRaWAN  au LoRaServer :fr:](loraserver/README-gateway.md)
+* [Administrer une organisation dans le LoRaServer:fr:](loraserver/README-org.md)
+* [Administrer le service LoRaServer :fr:](loraserver/README-admin.md)
 
-* [Traiter le flot de messages des équipements avec NodeRED, InfluxDB et Grafana :fr:](nodered/README.md)
-* [Journaliser le flot de messages des équipements avec MQTT Logger :fr:](mqtt-logger/README.md)
+* [Traiter le flot de messages des équipements provenant du LoRaServer avec NodeRED, InfluxDB et Grafana :fr:](nodered/README.md)
+* [Journaliser le flot de messages des équipements provenant du LoRaServer avec MQTT Logger :fr:](mqtt-logger/README.md)
 
-* [Enregistrer une carte SODAQ ExpLoRer :fr:](sodaq/README.md)
-* [Enregistrer un modem Microchip RN2483 :fr:](rn2483/README.md)
-* [Enregistrer un équipement SagemCom Siconia :fr:](siconia/README.md)
-* [Enregistrer une carte Nucleo LRWAN1 :fr:](nucleo/README.md)
+* [Enregistrer une carte SODAQ ExpLoRer dans le LoRaServer :fr:](sodaq/README.md)
+* [Enregistrer un modem Microchip RN2483 dans le LoRaServer :fr:](rn2483/README.md)
+* [Enregistrer un équipement SagemCom Siconia dans le LoRaServer :fr:](siconia/README.md)
+* [Enregistrer une carte Nucleo LRWAN1 dans le LoRaServer :fr:](nucleo/README.md)
 
 
 # Tutorial for using the CampusIoT platform

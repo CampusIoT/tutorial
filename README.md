@@ -27,4 +27,4 @@ CampusIoT is a learn-by-doing platform for teaching Internet of Things technolog
 # Lectures
 ## LoRa et LoRaWAN
 * [Orange LoRaWAN Developer Guide](https://lora.multitech.com/documents/publications/marketing-guides/lora_device_dev_guide_orange.pdf)
-* [LoRa/LoRaWAN Videos](https://www.youtube.com/watch?v=cUhAyyzlv2o&list=PLmL13yqb6OxdeOi97EvI8QeO8o-PqeQ0g)
+* [LoRa/LoRaWAN Videos (mobilefish.com)](https://www.youtube.com/watch?v=cUhAyyzlv2o&list=PLmL13yqb6OxdeOi97EvI8QeO8o-PqeQ0g)

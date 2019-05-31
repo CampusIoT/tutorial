@@ -51,8 +51,22 @@ Il faut utiliser une application de terminal série (comme CoolTerm, Zterm, Putt
 Copier coller le [script suivant](https://github.com/CampusIoT/endpoints/blob/master/siconia/MotionHumidityTempPressure.js) dans le terminal série.
 
 ## Changement du script par NFC pour les modèles de production
-Les modèles de production (qui sont étanches) sont dépourvus de prise micro-USB. Le script applicatif que vous avez mis au point précédemment est chargé dans l'équipement par une liaison NFC au moyen d'un [lecteur NFC STM](https://www.st.com/en/evaluation-tools/m24lr-discovery.html)
+Les modèles de production (qui sont étanches) sont dépourvus de prise micro-USB. Le script applicatif que vous avez mis au point précédemment est chargé dans l'équipement par une liaison NFC au moyen d'un [lecteur NFC STM](https://www.st.com/en/evaluation-tools/m24lr-discovery.html) qui est fourni avec le kit de développement Siconia.
 
+Le programme de chargement du script dans les Siconia de production ne peut s'exécuter sur une machine sous Windows ou depuis une machine virtuelle VirtualBox Windows sur MacOS ou Linux.
+
+Les fichiers de configuration pour le flashage d'un device ou d'un lot de devices sont les suivants :
+* `Endpoints\\config\\config.js` contient les filtres sur le lot de devices à charger ainsi que la clé `authKey` du possesseur des devices. [Exemple](./config.js)
+* `Endpoints\\authkeys\\keys.txt` contient les `DEV_KEY`s des devices du lot à charger : Attention, la `DEV_KEY` d'un device n'est pas ses clés LNS (`APP_KEY`, `APP_SKEY` ou `NWK_SKEY`). [Exemple](./keys.txt)
+* `Endpoints\\jsCode\\script.js` est le programme à charger dans les devices du lot. Il sera minifié avant le chargement. [Exemple](./script.js)
+
+TODO la suite
+
+```
+les traces
+```
+
+Une fois le chargement accompli, le programme laisse dans le répertoire `Endpoints\\output` une document de diagnostique au format JSON pour chaque device chargé. [Exemple](./4883C7DF30051234.json)
 
 ## Bibliothéques de scripts
 Plusieurs scripts applicatifs sont disponibles ici : https://github.com/CampusIoT/endpoints/tree/master/siconia

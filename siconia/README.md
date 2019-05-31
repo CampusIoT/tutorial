@@ -71,6 +71,7 @@ Une fois le chargement accompli, le programme laisse dans le répertoire `Endpoi
 ## Bibliothéques de scripts
 Plusieurs scripts applicatifs sont disponibles ici : https://github.com/CampusIoT/endpoints/tree/master/siconia
 
+> Remarque: le répertoire `Endpoints\\jsCode\\MultiCasesAPP*` contient une quinzaine de scripts avec un document PDF d'explication. 
 ## Annexe
 
 ### Galerie

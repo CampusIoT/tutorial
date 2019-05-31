@@ -72,6 +72,12 @@ Une fois le chargement accompli, le programme laisse dans le répertoire `Endpoi
 Plusieurs scripts applicatifs sont disponibles ici : https://github.com/CampusIoT/endpoints/tree/master/siconia
 
 > Remarque: le répertoire `Endpoints\\jsCode\\MultiCasesAPP*` contient une quinzaine de scripts avec un document PDF d'explication. 
+
+## Recyclage et personnalisation 
+La batterie du Siconia est soudée sur le PCB. Il est possible de désouder celle-ci pour la remplacement pour une batterie à l'identique ou par un support batterie externe pour des batteries amovibles de plus grande capacité. (voir photo ci-dessous)
+
+La carte comporte un emplacement pour un connecteur UFL qui peut être ajouté pour raccorder le Siconia à des antennes de meilleur gain. (voir photo ci-dessous)
+
 ## Annexe
 
 ### Galerie

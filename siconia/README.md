@@ -57,13 +57,31 @@ Le programme de chargement du script dans les Siconia de production ne peut s'ex
 
 Les fichiers de configuration pour le chargement d'un équipement ou d'un lot de devices sont les suivants :
 * `Endpoints\\config\\config.js` contient les filtres sur le lot de équipements à charger ainsi que la clé `authKey` du propriétaire des équipements. [Exemple](./config.js)
-* `Endpoints\\authkeys\\keys.txt` contient les `DEV_KEY`s des équipements du lot à charger : Attention, la `DEV_KEY` d'un équipement n'est pas ses clés LNS (`APP_KEY`, `APP_SKEY` ou `NWK_SKEY`). [Exemple](./keys.txt)
+* `Endpoints\\authkeys\\keys.txt` contient les pairs `DEVEUI` `DEV_KEY` des équipements du lot à charger : Attention, la `DEV_KEY` d'un équipement n'est pas ses clés LNS (`APP_KEY`, `APP_SKEY` ou `NWK_SKEY`). Le séparateur `DEVEUI` `DEV_KEY` doit être le caractère virgule `,` en non pas le point virgule `;` [Exemple](./keys.txt)
 * `Endpoints\\jsCode\\script.js` est le programme à charger dans les équipements du lot. Remarque: Le programme Javascript est minifié avant le chargement. [Exemple](./script.js)
 
 TODO la suite
 
 ```
-les traces
+1) Check if a board is connected
+A board has been detected UID=E0024DCDBF041234
+==> Waiting for device
+A board with devEui (4883C7DF30051234) detected
+DEV_ADDR = A46B1234
+==> A board with devEui (4883C7DF30051234) detected
+==> Searching for the board configuration
+==> Checking for device compatibility
+==> Transferring application code
+java -jar compiler.jar -O EMBEDDED   Endpoints/jsCode/script.js
+var scriptVersion="1.1",started=!1;function startup(){L.dutycycle(!1);L.airplane
+....
+******OK
+==> Resetting the device
+FINAL_DEV_ADDR = A46B1234
+==> Creating log information
+==> Done. Device personnalized
+OK
+Took 20282 ms
 ```
 
 Une fois le chargement accompli, le programme laisse dans le répertoire `Endpoints\\output` une document de diagnostique au format JSON pour chaque équipement chargé. [Exemple](./4883C7DF30051234.json)
@@ -72,6 +90,29 @@ Une fois le chargement accompli, le programme laisse dans le répertoire `Endpoi
 Plusieurs scripts applicatifs sont disponibles ici : https://github.com/CampusIoT/endpoints/tree/master/siconia
 
 > Remarque: le répertoire `Endpoints\\jsCode\\MultiCasesAPP*` contient une quinzaine de scripts avec un document PDF d'explication. 
+
+```
+{
+  "usedConfigPath": "Endpoints\\config\\4883C7DF30051234.js",
+  "DEV_EUI": "4883C7DF30051234",
+  "JSCODE": "NA",
+  "NFC_UID": "E0024DCDBF041234",
+  "TIME": "20282",
+  "DEV_ADDR": "A46B1234",
+  "AUTH_CHALLENGE": "SUCCESS",
+  "JSHASH": "0F1234C7",
+  "USING_AUTH_CHALLENGE": "TRUE",
+  "HW_VERSION": "0203",
+  "FWREV": "0378",
+  "DATE": "Tue Jun 11 17:38:42 CEST 2019",
+  "STATUS": "DONE",
+  "AUTHENTICATION": "SUCCESS",
+  "AUTHENTICATOR_TRIED": "FolderCipheredAuthenticator",
+  "FINAL_DEV_ADDR": "A46B1234",
+  "SW_VERSION": "0111"
+}
+```
+
 
 ## Recyclage et personnalisation 
 La batterie du Siconia est soudée sur le PCB. Il est possible de désouder celle-ci pour la remplacement pour une batterie à l'identique (CR2 CR15H270 3V 850mAh Lithium) ou par un support batterie déporté pour des batteries amovibles de plus grande capacité (Lithium 3V AA) ou moins chères (2 x1.5V Alcaline AA ou AAA). (voir photo ci-dessous)

@@ -86,11 +86,6 @@ Took 20282 ms
 
 Une fois le chargement accompli, le programme laisse dans le répertoire `Endpoints\\output` une document de diagnostique au format JSON pour chaque équipement chargé. [Exemple](./4883C7DF30051234.json)
 
-## Bibliothéques de scripts
-Plusieurs scripts applicatifs sont disponibles ici : https://github.com/CampusIoT/endpoints/tree/master/siconia
-
-> Remarque: le répertoire `Endpoints\\jsCode\\MultiCasesAPP*` contient une quinzaine de scripts avec un document PDF d'explication. 
-
 ```
 {
   "usedConfigPath": "Endpoints\\config\\4883C7DF30051234.js",
@@ -113,6 +108,10 @@ Plusieurs scripts applicatifs sont disponibles ici : https://github.com/CampusIo
 }
 ```
 
+## Bibliothéques de scripts
+Plusieurs scripts applicatifs sont disponibles ici : https://github.com/CampusIoT/endpoints/tree/master/siconia
+
+> Remarque: le répertoire `Endpoints\\jsCode\\MultiCasesAPP*` contient une quinzaine de scripts avec un document PDF d'explication. 
 
 ## Recyclage et personnalisation 
 La batterie du Siconia est soudée sur le PCB. Il est possible de désouder celle-ci pour la remplacement pour une batterie à l'identique (CR2 CR15H270 3V 850mAh Lithium) ou par un support batterie déporté pour des batteries amovibles de plus grande capacité (Lithium 3V AA) ou moins chères (2 x1.5V Alcaline AA ou AAA). (voir photo ci-dessous)

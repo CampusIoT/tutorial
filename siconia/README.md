@@ -12,9 +12,9 @@ En mode OTAA, l'équipement est livré avec sa clé propre `AppKey`, et d’un i
 
 
 ## Enregistrement de l'équipement
-Créer une nouvelle application `SICONIA`.
+Créez une nouvelle application `SICONIA`.
 
-Ajouter un device (device profile `CLASS_A_OTAA`) avec le `DevEUI` récupéré (étiquette sur le dos du boitier) et l'`AppKey` communiquée par le vendeur.
+Ajoutez un device (device profile `CLASS_A_OTAA`) avec le `DevEUI` récupéré (étiquette sur le dos du boitier) et l'`AppKey` communiquée par le vendeur.
 
 
 ## Utilisation du script applicatif par défaut des devices
@@ -48,7 +48,7 @@ Les modèles de développement sont équipés d'une prise micro-USB pour permett
 
 Il faut utiliser une application de terminal série (comme CoolTerm, Zterm, Putty, ...) pour se connecter à l'invité de commande (ie prompt). Les paramêtres de connection sont : 9600 baud et terminaison de ligne <CR>.
 
-Copier coller le [script suivant](https://github.com/CampusIoT/endpoints/blob/master/siconia/MotionHumidityTempPressure.js) dans le terminal série.
+Copiez collez le [script suivant](https://github.com/CampusIoT/endpoints/blob/master/siconia/MotionHumidityTempPressure.js) dans le terminal série.
 
 ## Changement du script par NFC pour les modèles de production
 Les modèles de production (qui sont étanches) sont dépourvus de prise micro-USB. Le script applicatif que vous avez mis au point précédemment est chargé dans l'équipement par une liaison NFC au moyen d'un [lecteur NFC STM](https://www.st.com/en/evaluation-tools/m24lr-discovery.html) qui est fourni avec le kit de développement Siconia.
@@ -60,7 +60,9 @@ Les fichiers de configuration pour le chargement d'un équipement ou d'un lot de
 * `Endpoints\\authkeys\\keys.txt` contient les pairs `DEVEUI` `DEV_KEY` des équipements du lot à charger : Attention, la `DEV_KEY` d'un équipement n'est pas ses clés LNS (`APP_KEY`, `APP_SKEY` ou `NWK_SKEY`). Le séparateur `DEVEUI` `DEV_KEY` doit être le caractère virgule `,` en non pas le point virgule `;` [Exemple](./keys.txt)
 * `Endpoints\\jsCode\\script.js` est le programme à charger dans les équipements du lot. Remarque: Le programme Javascript est minifié avant le chargement. [Exemple](./script.js)
 
-TODO la suite
+Lancez le script `nfc_java.bat` puis placez l'équipement sur l'emplacement de l'antenne du [lecteur NFC STM](https://www.st.com/en/evaluation-tools/m24lr-discovery.html).
+
+La trace suivante est produite par le script :
 
 ```
 1) Check if a board is connected

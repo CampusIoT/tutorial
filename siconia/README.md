@@ -58,7 +58,7 @@ Le programme de chargement du script dans les Siconia de production ne peut s'ex
 Les fichiers de configuration pour le chargement d'un équipement ou d'un lot de devices sont les suivants :
 * `Endpoints\\config\\config.js` contient les filtres sur le lot de équipements à charger ainsi que la clé `authKey` du propriétaire des équipements. [Exemple](./config.js)
 * `Endpoints\\authkeys\\keys.txt` contient les pairs `DEVEUI` `DEV_KEY` des équipements du lot à charger : Attention, la `DEV_KEY` d'un équipement n'est pas ses clés LNS (`APP_KEY`, `APP_SKEY` ou `NWK_SKEY`). Le séparateur `DEVEUI` `DEV_KEY` doit être le caractère virgule `,` en non pas le point virgule `;` [Exemple](./keys.txt)
-* `Endpoints\\jsCode\\script.js` est le programme à charger dans les équipements du lot. Remarque: Le programme Javascript est minifié avant le chargement. [Exemple](./script.js)
+* `Endpoints\\jsCode\\motion_temp\\script.js` est le programme à charger dans les équipements du lot. Remarque: Le programme Javascript est minifié avant le chargement. [Exemple](./script.js)
 
 Lancez le script `nfc_java.bat` puis placez l'équipement sur l'emplacement de l'antenne du [lecteur NFC STM](https://www.st.com/en/evaluation-tools/m24lr-discovery.html).
 
@@ -74,7 +74,7 @@ DEV_ADDR = A46B1234
 ==> Searching for the board configuration
 ==> Checking for device compatibility
 ==> Transferring application code
-java -jar compiler.jar -O EMBEDDED   Endpoints/jsCode/script.js
+java -jar compiler.jar -O EMBEDDED   Endpoints/jsCode/motion_temp/script.js
 var scriptVersion="1.1",started=!1;function startup(){L.dutycycle(!1);L.airplane
 ....
 ******OK
@@ -86,7 +86,7 @@ OK
 Took 20282 ms
 ```
 
-Une fois le chargement accompli, le programme laisse dans le répertoire `Endpoints\\output` une document de diagnostique au format JSON pour chaque équipement chargé. [Exemple](./4883C7DF30051234.json)
+Une fois le chargement accompli, le programme laisse dans le répertoire `Endpoints\\output` une document de diagnostique au format JSON pour chaque équipement chargé.
 
 ```
 {

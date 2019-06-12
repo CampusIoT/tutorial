@@ -115,6 +115,14 @@ Plusieurs scripts applicatifs sont disponibles ici : https://github.com/CampusIo
 
 > Remarque: le répertoire `Endpoints\\jsCode\\MultiCasesAPP*` contient une quinzaine de scripts avec un document PDF d'explication. 
 
+Le script suivant `parking.js` permet de ''parquer'' l'équipement : il n'émet plus de messages jusqu'au prochain chargement pour éviter l'épuisement de la batterie.
+
+```
+TODO
+```
+
+> Remarque: c'est une bonne pratique de prévoir un état `parking` dans les scripts que vous développez. L'entrée et la sortie de cet état peuvent être déclenché par un appui très long du bouton (par exemple > 10 secondes).
+
 ## Recyclage et personnalisation 
 La batterie du Siconia est soudée sur le PCB. Il est possible de désouder celle-ci pour la remplacement pour une batterie à l'identique (CR2 CR15H270 3V 850mAh Lithium) ou par un support batterie déporté pour des batteries amovibles de plus grande capacité (Lithium 3V AA) ou moins chères (2 x1.5V Alcaline AA ou AAA). (voir photo ci-dessous)
 

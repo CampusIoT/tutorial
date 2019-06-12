@@ -8,8 +8,8 @@
 		"vSoftwareMin": "0103",
 		},
 	"authTokens": ["4883C7DF300500004883C7DF300500004883C7DF300500004883C7DF30050000"],
-	"customer": "script",
-	"jsCode": ["MotionHumidityTempPressure.js"],
+	"customer": "motion_temp",
+	"jsCode": ["script.js"],
 	"authenticatorPath": ".",
 	"authenticatorClass": "FolderCipheredAuthenticator",
 	"authenticatorParams" : [ ".\\EndPoints\\authkeys\\" ]

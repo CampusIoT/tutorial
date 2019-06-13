@@ -113,7 +113,19 @@ Une fois le chargement accompli, le programme laisse dans le répertoire `Endpoi
 ## Bibliothéques de scripts
 Plusieurs scripts applicatifs sont disponibles ici : https://github.com/CampusIoT/endpoints/tree/master/siconia
 
-> Remarque: le répertoire `Endpoints\\jsCode\\MultiCasesAPP*` contient une quinzaine de scripts avec un document PDF d'explication. 
+> Remarque: le répertoire `Endpoints\\jsCode\\MultiCasesAPP*` contient une quinzaine de scripts avec un document PDF d'explication. Le script bash suivant permet de minifier un ensemble de scripts à charger : 
+
+```bash
+DIR=Endpoints/jsCode/script
+FILE=$DIR/app.js
+mkdir -p $DIR
+rm $FILE
+for script in cu1.js cu2.js cu3.js cu4.js cu5.js cu6.js cu7.js cu9.js cu11.js cu13.js calc.js leds.js keepalive.js linkcheck.js lpp.js utils.js resetfactory.js
+do
+java -jar compiler.jar -O EMBEDDED   Endpoints/jsCode/MultiCasesAPP_1-2-200/$script >> $FILE
+done
+```
+
 
 Le script suivant `parking.js` permet de ''parquer'' l'équipement : il n'émet plus de messages jusqu'au prochain chargement pour éviter l'épuisement de la batterie.
 

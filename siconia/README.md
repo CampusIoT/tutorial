@@ -1,6 +1,6 @@
 # CampusIoT :: Tutoriel :: SagemCom Siconia :fr:
 
-L'équipement Siconia de SagemCom est un endpoint LoRaWAN Class A doté d'un capteur de température, d'humidité et de pression atmosphérique, d'un accéleromêtre, d'un gyroscope et d'un magnétomêtre ainsi que d'un bouton poussoir et d'une LED (verte, orange et rouge). Il pèse 24 grammes et ses dimensions sont 40x25x23 mm. Le MCU hôte est un [STM32L433CCT6](https://www.st.com/en/microcontrollers-microprocessors/stm32l433cc.html). Il est programmable au moyen d'un script Javascript applicatif en utilisant la bibliothèque Espruino https://www.espruino.com/Reference#software
+L'équipement Siconia Multi App ATGHMP EndPoint de SagemCom est un endpoint LoRaWAN Class A (OTAA oy ABP). Il est doté d'un capteur de température, d'humidité et de pression atmosphérique, d'un accéleromêtre, d'un gyroscope et d'un magnétomêtre ainsi que d'un bouton poussoir et d'une LED (verte, orange et rouge). Il pèse 24 grammes et ses dimensions sont 40x25x23 mm. Le MCU hôte est un [STM32L433CCT6](https://www.st.com/en/microcontrollers-microprocessors/stm32l433cc.html). Il est programmable au moyen d'un script Javascript applicatif en utilisant la bibliothèque Espruino https://www.espruino.com/Reference#software
 
 > Remarque: Sa batterie (CR2 CR15H270 3V 850mAh Lithium) étant soudée sur le PCB, il convient d'écrire un script qui limite l'éveil des capteurs et les transmissions uplink.
 

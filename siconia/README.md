@@ -129,6 +129,29 @@ La carte comporte un emplacement pour un connecteur UFL qui peut être ajouté p
 
 ## Annexe
 
+### Caractéristiques techniques
+
+* Utilisation Extérieure ou Intérieure
+* Installation Fixe et/ou Transportable (Le produit n’est pas destiné à être porté continuellement à proximité d’une personne (moins de 2.5 cm de distance de la peau)
+* Condition d’utilisation Continue
+* Source d’alimentation Pile interne 850mAh, protégée par fusible.
+* Plage de température de fonctionnement -20°C à +70 °C
+* Plage de température de stockage -20°C à +45 °C
+* Altitude maximale d’installation +2000 mètres
+* Poids 23 grammes
+* Dimensions mécaniques avec fixations (en mm) L 56 x l 25 x H 23.2
+* Fixation 2 trous pour vis Ø <3.4mm
+* Indice de protection IP65
+* Humidité relative Inférieure à 95% d’humidité sans condensation
+* Modulation radio LORA WAN ™ - Classe A Bande de fréquence 863 – 870 MHz
+* Puissance d’émission radio LORA Jusqu’à 17dBm (au pied de l’antenne)
+* Sensibilité LORA -120dBm en SF7 et -133 dBm en SF12
+* Mesure de l’accéleration : Echelle configurable :±2/±4/±8/±16 g Résolution : 1mg
+* Mesure de température Précision : +/- 1,5 °C Résolution min: 0,0625°C
+* Mesure de pression Précision : +/- 2 hPa max. , +/- 1hPa/an Résolution min.: 0.18 Pa
+* Mesure d’humidité Précision : +/- 3 %RH +/- 0,5 %RH/an Résolution min.: 0.01%
+
+
 ### Galerie
 
 ![Siconia](images/siconia-board-1.jpg)

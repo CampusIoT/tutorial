@@ -167,8 +167,8 @@ La carte comporte un emplacement pour un connecteur UFL qui peut être ajouté p
 
 ### Galerie
 
+![Siconia on bike saddle](images/siconia-saddle.jpg)
+![Siconia on door](images/siconia-door.jpg)
 ![Siconia](images/siconia-board-1.jpg)
 ![Siconia](images/siconia-board-2.jpg)
 ![Siconia](images/siconia-inside.jpg)
-![Siconia on bike saddle](images/siconia-saddle.jpg)
-![Siconia on door](images/siconia-door.jpg)

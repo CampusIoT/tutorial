@@ -6,9 +6,11 @@ Ce tutoriel a pour objectif de programmer une carte [SODAQ ExpLoRer](https://sup
 
 La carte [SODAQ ExpLoRer](https://support.sodaq.com/sodaq-one/explorer/) se présente comme les 2 figures ci-dessous:
 
-![SODAQ ExpLoRer](http://support.sodaq.com/wp-content/uploads/2018/02/explorer6b.png)
+![SODAQ ExpLoRer](images/sodaq_board.jpg)
 
-![SODAQ Pinout](https://support.sodaq.com/wp-content/uploads/2017/10/explorer-pinout.png)
+![SODAQ ExpLoRer](images/sodaq_board_real.jpg)
+
+![SODAQ Pinout](images/sodaq_pinout.jpg)
 
 ## Installation
 Suivre l'installation du tutoriel du SODAQ ExpLoRer https://support.sodaq.com/sodaq-one/explorer/

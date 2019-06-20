@@ -1,6 +1,7 @@
 # CampusIoT :: Tutoriel :: SagemCom Siconia :fr:
 
-L'équipement Siconia Multi App ATGHMP EndPoint de SagemCom est un endpoint LoRaWAN Class A (OTAA oy ABP). Il est doté de plusieurs capteurs (thermomètre, baromètre, hygromètre, accéléromètre, magnétomètre), ainsi que d'un bouton poussoir et d'une LED (verte, orange et rouge). Il pèse 24 grammes et ses dimensions sont 40x25x23 mm. Le MCU hôte est un [STM32L433CCT6](https://www.st.com/en/microcontrollers-microprocessors/stm32l433cc.html). Il est programmable au moyen d'un script Javascript applicatif en utilisant la bibliothèque Espruino https://www.espruino.com/Reference#software
+L'équipement Siconia Multi App ATGHMP EndPoint de SagemCom est un endpoint LoRaWAN Class A (OTAA oy ABP). Il est doté de plusieurs capteurs (thermomètre, baromètre, hygromètre, accéléromètre, magnétomètre), ainsi que d'un bouton poussoir et d'une LED (verte, orange et rouge). Il pèse 24 grammes et ses dimensions sont 40x25x23 mm. Le MCU hôte est un [STM32L433CCT6](https://www.st.com/en/microcontrollers-microprocessors/stm32l433cc.html). Il est programmable au moyen d'un script Javascript applicatif en utilisant la bibliothèque Espruino https://www.espruino.com/Reference#software . La documentation en ligne est http://iot.siconia.sagemcom.com:8080/loradevice-doc .
+
 
 > Remarque: Sa batterie (CR2 CR15H270 3V 850mAh Lithium) étant soudée sur le PCB, il convient d'écrire un script qui limite l'éveil des capteurs et les transmissions uplink.
 
@@ -112,7 +113,19 @@ Une fois le chargement accompli, le programme laisse dans le répertoire `Endpoi
 ## Bibliothéques de scripts
 Plusieurs scripts applicatifs sont disponibles ici : https://github.com/CampusIoT/endpoints/tree/master/siconia
 
-> Remarque: le répertoire `Endpoints\\jsCode\\MultiCasesAPP*` contient une quinzaine de scripts avec un document PDF d'explication. 
+> Remarque: le répertoire `Endpoints\\jsCode\\MultiCasesAPP*` contient une quinzaine de scripts avec un document PDF d'explication. Le script bash suivant permet de minifier un ensemble de scripts à charger : 
+
+```bash
+DIR=Endpoints/jsCode/script
+FILE=$DIR/app.js
+mkdir -p $DIR
+rm $FILE
+for script in cu1.js cu2.js cu3.js cu4.js cu5.js cu6.js cu7.js cu9.js cu11.js cu13.js calc.js leds.js keepalive.js linkcheck.js lpp.js utils.js resetfactory.js
+do
+java -jar compiler.jar -O EMBEDDED   Endpoints/jsCode/MultiCasesAPP_1-2-200/$script >> $FILE
+done
+```
+
 
 Le script suivant `parking.js` permet de ''parquer'' l'équipement : il n'émet plus de messages jusqu'au prochain chargement pour éviter l'épuisement de la batterie.
 
@@ -154,7 +167,8 @@ La carte comporte un emplacement pour un connecteur UFL qui peut être ajouté p
 
 ### Galerie
 
+![Siconia on bike saddle](images/siconia-saddle.jpg)
+![Siconia on door](images/siconia-door.jpg)
 ![Siconia](images/siconia-board-1.jpg)
 ![Siconia](images/siconia-board-2.jpg)
 ![Siconia](images/siconia-inside.jpg)
-![Siconia on bike saddle](images/siconia-saddle.jpg)

@@ -1,8 +1,11 @@
 # CampusIoT :: NodeRED :: Tutoriel :fr:
 
-Si ce tutoriel vous est utile, pensez à donner une étoile :star: en haut à droit.
+## Objectif
+L'objectif de ce tutoriel est de récupérer les mesures des capteurs gérés par la plateforme CampusIoT afin de les archiver et de les visualiser en temps réel au moyen de la stack [NodeRED](https://nodered.org/), InfluxDB, Grafana.
 
 [NodeRED](https://nodered.org/) est un canevas de traitement de flots de données. Il permet la programmation visuelle des chaines de traitement de données. Il est très populaire pour le prototypage d'applications IoT.
+
+Si ce tutoriel vous est utile, pensez à donner une étoile :star: en haut à droit.
 
 ## Etape 0: Prérequis
 Installez Docker CE et Docker Compose sur votre machine

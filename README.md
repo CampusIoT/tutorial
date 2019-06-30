@@ -26,6 +26,7 @@ CampusIoT is a learn-by-doing platform for teaching Internet of Things technolog
 
 # Lectures
 ## LoRa et LoRaWAN
+* [LoRa, LoRaWAN, and the challenges of long-range networking in shared spectrum](https://docplayer.net/37494983-Lora-lorawan-and-the-challenges-of-long-range-networking-in-shared-spectrum-cogni-ve-radio-pla-orm-nl-december-2015.html) December 2015.
 * [Orange LoRaWAN Developer Guide](https://lora.multitech.com/documents/publications/marketing-guides/lora_device_dev_guide_orange.pdf)
 * [LoRa/LoRaWAN Videos (mobilefish.com)](https://www.youtube.com/watch?v=cUhAyyzlv2o&list=PLmL13yqb6OxdeOi97EvI8QeO8o-PqeQ0g)
 * [Network level performances of aLoRa system](http://tesi.cab.unipd.it/53740/1/dissertation.pdf)

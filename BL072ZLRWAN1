@@ -1,0 +1,219 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{minted}
+\usepackage{hyperref}
+\usepackage{graphicx}
+
+\title{STM32 LoRa and Sigfox Discovery kit}
+\author{cmonaton }
+\date{July 2019}
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+Le but de ce tuto est d'envoyer les coordonnées GPS de la carte sur le réseau LoRaWAN.
+carte : B-L072Z-LRWAN1
+\section{logiciels à installer}
+
+%\subsection{stm32 workbench}
+%\subsubsection{installation}
+%Se créer un compte sur OPEN STM32 community.
+%Télécharger l'installeur pour linux, l'exécuter
+
+
+
+\subsection{STM32 cube IDE }
+Télécharger le logiciel sur le site de ST
+
+
+\subsection{Installation de STM32 cube programmer : flasher de code}
+
+Installer java JRE 1.8 pour l'utiliser
+
+\subsection{Application demo}
+
+Demo : https://www.st.com/en/embedded-software/i-cube-lrwan.html
+
+
+\subsection{Générer un fichier .bin pour la carte depuis le PC}
+Avec STM32 Cube IDE. Voir détail au 4 avec l'exmple du programme End Node.
+
+
+
+\subsection{Flasher le FW avec STM32 cube programmer}
+
+\begin{enumerate}
+
+
+      \item Connecter la carte : Parfois la carte ne peut plus se connecter au PC pour flasher le code.
+    Explication : le FW bloque le port de STLINK
+    Solution : Maintenir appuyé le bouton reset de la carte au moment de la connection avec STM32Cube Programmer
+
+    \item 
+    A côté de "device memory" dans un onglet selon l'image, ajouter un fichier et "Download" un fichier .elf ou .bin
+    
+    
+    \begin{figure}[H]
+\begin{center}
+\advance\leftskip-3cm
+\advance\rightskip-3cm
+\includegraphics[keepaspectratio=true,scale=0.4]{st_cube_programmer_2.png}
+\label{visina8}
+\end{center}\end{figure}
+    
+    
+    \item upgrader le firmware pour STlink quand on flash sur une carte différente.
+    Télécharger la dernière version sur le site de ST, Version : 2.34.25  : \url{https://www.st.com/content/st_com/en/products/development-tools/software-development-tools/stm32-software-development-tools/stm32-programmers/stsw-link007.html} \\
+    Pour linux : lire les readme : 
+    \begin{minted}{bash}
+    java -jar STLinkUpgrade.jar dans le bon dossier
+    et :
+    sudo cp *.* /etc/udev/rules.d dans stsw-link007/AllPlatforms/StlinkRulesFilesForLinux
+    \end{minted}
+   
+\end{enumerate}
+
+
+
+\section{Utiliser un terminal série pour communiquer avec la carte}
+
+
+Sur Ubuntu :
+Localiser le port USB sur lequel la carte est branchée : 
+\begin{enumerate}
+\item avec tkdiff
+\begin{minted}{bash}
+sudo apt-get install tkdiff
+
+cd ~
+touch log.txt log2.txt
+ls /dev > log.txt
+#débrancher la carte
+ls /dev > log2.txt
+tkdiff log.txt log2.txt
+\end{minted}
+
+
+\item Avec dmesg :
+Connecter puis déconnecter la carte puis
+demsg
+Regarder dans les dernières lignes
+dans mon cas : ttyACM0: USB ACM device
+
+\end{enumerate}
+
+\subsection{Liaison série avec la carte :}
+
+\begin{enumerate}
+\item
+Avec Minicom : sudo apt-get install minicom
+Configurer la liason : sudo minicom -s
+
+Désactiver les contrôles de flux logiciels et matériels
+Baudrate : 115200
+
+%Penser à sauvegarde la configuration pour ne pas avoir à la re-entrer à chaque fois
+
+Pour quitter minicom : ctrl + A puis q
+
+
+\item PuTTy : ubuntu : 
+\begin{minted}{bash}
+sudo apt-get install putty
+\end{minted}
+Choisir le mode série, mettre le port de la carte, baudrate 115200
+
+\end{enumerate}
+
+%Envoyer des commandes AT à la carte :
+
+
+
+\section{Lire les messages envoyés sur LoRa server}
+
+Obtenir des identifiants LoRa server, contacter : didier.donsez@univ-grenoble-alpes.fr
+
+
+
+\subsection{Avec l'exemple End Node  du software demo -cube-lrwan (URL plus haut)}
+
+\subsubsection{Etape 1 : Flasher le programme sur la carte}
+
+\begin{enumerate}
+    
+
+
+\item Ouvrir le projet avec STM32Cube IDE : chemin :  /home/username/Documents/STM32CubeExpansion\_LRWAN\_V1.2.1/Projects/B-L072Z-LRWAN1/Applications/LoRa \\
+en utilisant : File, Open project from filesystem
+Puis bouton build all \\
+\item Trouver l'emplacement du fichier .bin généré : 
+\begin{minted}{bash}
+find /home | grep .bin$
+\end{minted}.elf, le fichier .bin est dans le même dossier que le .elf
+
+\item Ouvrir STM32Cube Programmer :
+Connecter la carte cf Flasher le FW avec STM32 cube programmer
+Flasher le .bin
+Déconnecter la carte avec le bouton disconnect
+Ouvrir PuTTy et connecter la carte cf  Utiliser  un  terminal  série  pour  commandes
+AT et communiquer avec la carte
+Appuyer sur le bouton reset de la carte 
+
+Le DevUI de la carte et l'App Key devraient s'afficher.
+
+\end{enumerate}
+
+
+\subsubsection{Etape 2 : Enregitrer la carte sur LoRa server et établir la connexion entre le serveur et la carte}
+
+\begin{enumerate}
+    
+
+ \item Enregistrer la carte sur le réseau LoRaWAN :
+tuto https://github.com/CampusIoT/tutorial/blob/master/loraserver/README-app.md
+
+\item Créer une application bouton Applications à gauche
+Champs Nom, description : pas d'importance.
+Service profile :choisir DEFAULT
+
+\item Créer un device dans l'application
+Entrer le DEVUI de la carte
+Device profile : CLASS\_A\_OTAA
+
+\item Entrer l'app key dans la clé KEY(OTAA)
+
+\item Appuyer sur Reset de la carte
+
+\item La carte va se connecter et les trames sont visibles depuis l'onglet Live LoRaWan Frames
+
+info envoyées : Coordonnées GPS
+\end{enumerate}
+
+%Dans le fichier Commissioning.h :
+
+%Renseigner le champ LORAWAN\_NETWORK\_ID, i'ID s'obtient sur le site loraserver
+
+%Bien penser à rebuilder l'appli puis re-télécharger le FW sur la carte.
+
+%Activer la carte
+
+
+%\subsection{Obtenir une appkey et un Deveui : cas du STM32 LoRa and Sigfox discovery kit}
+%D'après le feuillet :
+
+
+
+
+
+%\section{Mettre en plce une gateway pycom LoPy 4}
+
+%Suivre le tuto : https://github.com/CampusIoT/tutorial/blob/master/loraserver/README-gateway.md
+
+
+
+
+
+
+\end{document}

@@ -13,8 +13,9 @@ CampusIoT est une plateforme pour l'enseignement par la pratique des technologie
 * [Enregistrer une carte SODAQ ExpLoRer dans le LoRaServer :fr:](sodaq/README.md)
 * [Enregistrer un modem Microchip RN2483 dans le LoRaServer :fr:](rn2483/README.md)
 * [Enregistrer un équipement SagemCom Siconia dans le LoRaServer :fr:](siconia/README.md)
-* [Enregistrer une carte Nucleo LRWAN1 dans le LoRaServer :fr:](nucleo/README.md)
+* [Enregistrer une carte Nucleo LRWAN1 dans le LoRaServer :fr:](nucleo/README.md)  
 
+* [Enregistrer une carte à base d'iM880a (LoRaMote, ...) sur TTN/LoRaServer avec RIOT-OS :fr:](im880a/README.md)
 
 # Tutorial for using the CampusIoT platform
 CampusIoT is a learn-by-doing platform for teaching Internet of Things technologies and businesses.

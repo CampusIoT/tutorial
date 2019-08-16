@@ -1,7 +1,7 @@
 # Tutoriel :: Flogo
 
 ## Contexte
-Flogo est un intergiciel ultra-léger pour construire des applications événementielles. Il permet de construire des applications pour l'Internet des Objets.
+[Flogo](http://www.flogo.io) est un intergiciel ultra-léger pour construire des applications événementielles. Il permet de construire des applications pour l'Internet des Objets.
 
 ## Démarrage
 

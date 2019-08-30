@@ -11,7 +11,7 @@ services:
     image: campusiot/nodered:latest
     #image: nodered/node-red-docker
     environment:
-      NODE_OPTIONS: --max_old_space_size=128
+      NODE_OPTIONS: --max_old_space_size=512
       FLOWS: flow.json
     volumes:
        - ./configuration/nodered/:/data/:rw

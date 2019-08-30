@@ -39,12 +39,12 @@ services:
 #      - mongodb:mongodb
 #      - opentsdb:opentsdb
 
-  chronograf:
-    extends:
-      file: chronograf.yml
-      service: chronograf
-    links:
-      - influxdb:influxdb
+#  chronograf:
+#    extends:
+#      file: chronograf.yml
+#      service: chronograf
+#    links:
+#      - influxdb:influxdb
 
 #  kapacitor:
 #    extends:

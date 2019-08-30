@@ -105,3 +105,7 @@ La commande shell `base64` permet de décoder et encoder des textes vers/depuis 
 echo `echo SGVsbG8gQ2FtcHVzSW9UICE= | base64 --decode`
 echo "Hello CampusIoT !" | base64
 ```
+
+## Affichage de la qualité des liens réseau
+
+TODO : afficher la qualité des liens (RSSI,SNR) entre un FTD (field test device) géolocalisé et les gateways qui sont géolocalisées (label sur les lignes) sur la carte Worldmap de NodeRED.

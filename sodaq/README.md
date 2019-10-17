@@ -403,7 +403,7 @@ Par exemple:
 
 ## Annexes
 
-[Documentation du fabricant (schématiques, documentations techniques ...)])(./docs)
+[Documentation du fabricant : schématiques, documentations techniques ...](./docs)
 
 ![SODAQ ExpLoRer Pinout](images/sodaq_explorer_pinout.png)
 

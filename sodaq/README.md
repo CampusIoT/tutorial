@@ -2,27 +2,29 @@
 
 Si ce tutoriel vous est utile, pensez à donner une étoile :star: en haut à droit.
 
-Ce tutoriel a pour objectif de programmer une carte [SODAQ ExpLoRer](https://support.sodaq.com/sodaq-one/explorer/) et de l'enregistrer sur le réseau LoRaWAN de CampusIoT.
+Ce tutoriel a pour objectif de programmer une carte [SODAQ ExpLoRer](https://support.sodaq.com/Boards/ExpLoRer/) et de l'enregistrer sur le réseau LoRaWAN de CampusIoT.
 
-La carte [SODAQ ExpLoRer](https://support.sodaq.com/sodaq-one/explorer/) se présente comme les 2 figures ci-dessous:
+La carte [SODAQ ExpLoRer](https://support.sodaq.com/Boards/ExpLoRer/) se présente comme les 2 figures ci-dessous:
 
 ![SODAQ ExpLoRer](images/sodaq_board.jpg)
 
 ![SODAQ ExpLoRer](images/sodaq_board_real.jpg)
 
-![SODAQ Pinout](images/sodaq_pinout.jpg)
+![SODAQ ExpLoRer Pinout](images/sodaq_explorer_pinout.png)
 
 ## Installation
-Suivre l'installation du tutoriel du SODAQ ExpLoRer https://support.sodaq.com/sodaq-one/explorer/
+Suivre l'installation du tutoriel du SODAQ ExpLoRer https://support.sodaq.com/Boards/ExpLoRer/
 
-Le support pour LoRaWAN est décrit ici : https://support.sodaq.com/sodaq-one/lorawan/
+Le support pour LoRaWAN est décrit ici : https://support.sodaq.com/Boards/ExpLoRer/Examples/lorawan/
 
-## Installer le programme sur la carte
+Le support pour LoRa en P2P (peer-to-peer) est décrit ici : https://support.sodaq.com/Boards/ExpLoRer/Examples/lora_p2p/
+
+## Installer le programme de thermomètre LoRaWAN sur la carte Explorer
 
 Ouvrir un nouveau sketch et copier le [sketch suivant](https://raw.githubusercontent.com/CampusIoT/endpoints/master/sodaq/Sodaq_OTAA_temp.ino):
 
 ```
-// From https://support.sodaq.com/sodaq-one/lorawan/
+// https://support.sodaq.com/Boards/ExpLoRer/Examples/lorawan/
 
 #include <Sodaq_RN2483.h>
 
@@ -397,3 +399,17 @@ Par exemple:
 
 ## Pour aller plus loin
 [Tutoriel NodeRED](../nodered/README.md)
+
+
+## Annexes
+
+[Documentation du fabricant (schématiques, documentations techniques ...)])(./docs)
+
+![SODAQ ExpLoRer Pinout](images/sodaq_explorer_pinout.png)
+
+![SODAQ Pinout Tag Connect Headers](images/sodaq_explorer_tag_connect_headers.png)
+
+Pinout Tag Connect Headers
+* Blue : Bluetooth
+* Red  : LoRa
+* Pink : MCU 

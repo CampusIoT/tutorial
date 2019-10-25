@@ -15,7 +15,7 @@
 \maketitle
 
 \section{Introduction}
-Installer l'os riot sur le détecteur d'ouverture de porte idosens. Cela permet entre autres d'utiliser la fonction radio du produit.
+Installer l'os riot sur le détecteur d'ouverture de porte idosens. Cela permet entre autres d'utiliser la fonction radio du produit. Ensuite utiliser un exemple poour envoyer une trame LoRa d'une carte à une autre.
 
 \section{Matériel}
 
@@ -35,7 +35,7 @@ Installer l'os riot sur le détecteur d'ouverture de porte idosens. Cela permet 
 \end{itemize}
 
 \subsection{ST-LINK}
-Ce débugueur/flasheur ST-LINK a été prélevé d'une carte nucleo :
+Ce débugueur/flasheur ST-LINK a été prélevé sur une carte nucleo :
 
 \begin{figure}[H]
 \begin{center}
@@ -51,9 +51,18 @@ Ce débugueur/flasheur ST-LINK a été prélevé d'une carte nucleo :
 \begin{center}
 \advance\leftskip-3cm
 \advance\rightskip-3cm
-\includegraphics[keepaspectratio=true,scale=0.5]{power_dos_fleches.png}
+\includegraphics[keepaspectratio=true,scale=0.1]{base_power.jpg}
 \label{visina8}
 \end{center}\end{figure}
+
+\begin{figure}[H]
+\begin{center}
+\advance\leftskip-3cm
+\advance\rightskip-3cm
+\includegraphics[keepaspectratio=true,scale=0.1]{branchement_basepower2.jpg}
+\label{visina8}
+\end{center}\end{figure}
+
 
 
 \subsection {Connexion ST-LINK-Tag-connect}
@@ -64,7 +73,7 @@ Connectez le Tag-connect au nucleo selon ce tableau et selon les schémas des co
 \begin{center}
 \advance\leftskip-3cm
 \advance\rightskip-3cm
-\includegraphics[keepaspectratio=true,scale=0.5]{tag_connectpinout.png}
+\includegraphics[keepaspectratio=true,scale=0.8]{tag_connectpinout.png}
 \label{visina8}
 \end{center}\end{figure}
 
@@ -81,25 +90,25 @@ Connectez le Tag-connect au nucleo selon ce tableau et selon les schémas des co
  \hline
  Pin Nucleo  & Pin Tag-Connect \\ [0.8ex] 
  \hline\hline
-  6 VDD TARGET   &  1 Vcc \\ 
+   1 Vcc  & 6 VDD TARGET  \\ 
  \hline
-   3 SWDIO & 2 SWDIO \\
+    2 SWDIO & 3 SWDIO \\
  \hline
-  4 GND  & 3 Gnd\\
+   3 Gnd & 4 GND \\
  \hline
-  5 SWCLK  &  4 SWCLK\\
- \hline
-  X  & X \\ [1ex] 
- \hline
-  1 SWO  & 6 SWO \\ [1ex]
- \hline
-  7 Rx  & 7 Tx \\ [1ex] 
+   4 SWCLK &   5 SWCLK\\
  \hline
   X  & X \\ [1ex] 
  \hline
- 8 Tx & 9 Rx \\ [1ex] 
+  6 SWO   &  1 SWO\\ [1ex]
  \hline
- 2 NRST & 10 NRST\\ [1ex] 
+  7 Tx    & 7 Rx \\ [1ex] 
+ \hline
+  X  & X \\ [1ex] 
+ \hline
+  9 Rx &  8 Tx \\ [1ex] 
+ \hline
+ 10 NRST  & 2 NRST\\ [1ex] 
  \hline
 \end{tabular}
 \end{center}
@@ -107,7 +116,7 @@ Connectez le Tag-connect au nucleo selon ce tableau et selon les schémas des co
 
 
 \section{installation logiciels et configuration du PC}
-J'utilise ubuntu 16.04
+L'exemple est fait avec ubuntu 16.04
 \subsection{Déverouiller ports USB}
 
 
@@ -134,13 +143,6 @@ lsusb
 
 \end{minted}
 Redémarrez le PC.
-\subsection{Installer le compilateur arm-none-eabi-gcc pour générer du code pour la carte}
-
-\begin{minted}{bash}
-sudo apt-get install gcc-arm-none-eabi
-
-\end{minted}
-
 
 \subsection{Installer pyserial pour communiquer avec la carte}
 
@@ -149,7 +151,27 @@ sudo apt-get install python3-pip
 python3 -m pip install pyserial
 \end{minted}
 
+\subsection{Installer openocd pour flasher la carte}
+
+\begin{minted}{bash}
+sudo apt-get install openocd
+
+\end{minted}
+
+
 \section{Compiler et utiliser riot}
+
+\subsection{Installer le compilateur gcc-arm-embedded pour générer du code pour la carte}
+
+\begin{minted}{bash}
+sudo add-apt-repository ppa:team-gcc-arm-embedded/ppa
+sudo apt-get update
+sudo apt-get install gcc-arm-embedded
+
+\end{minted}
+
+
+
 
 
 Téléchargez le code à : \url{https://github.com/CampusIoT/RIOT}\\
@@ -166,6 +188,30 @@ Pour lancer la compilation et flasher la carte :
 make BOARD=idosens_base flash term
 \end{minted}
 
+\section{Ping-Pong idosens}
+
+Avec l'exemple flashé ci-dessus, on peut faire communiquer 2 idosens. Pour cela, le mieux est de connecter un idosens par PC. Une fois l'os flashé, entrez les commandes suivantes :
+
+\begin{itemize}
+    \item idosens émetteur
+    \begin{figure}[H]
+    \begin{center}
+    \advance\leftskip-3cm
+    \advance\rightskip-3cm
+    \includegraphics[keepaspectratio=true,scale=0.5]{ping_pong_idosens_sending.png}
+    \label{visina8}
+    \end{center}\end{figure}
+    
+    \item idosens récepteur
+    \begin{figure}[H]
+    \begin{center}
+    \advance\leftskip-3cm
+    \advance\rightskip-3cm
+    \includegraphics[keepaspectratio=true,scale=0.5]{ping_pong_idosens_receiving.png}
+    \label{visina8}
+    \end{center}\end{figure}
+    
+\end{itemize}
 
 
 \end{document}

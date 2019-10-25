@@ -6,7 +6,7 @@
 \usepackage[dvipsnames]{xcolor}
 
 
-\title{tuto uart idosens}
+\title{tuto boutons leds idosens}
 \author{cmonaton }
 \date{September 2019}
 
@@ -157,11 +157,18 @@ Sauvez le projet puis choissez de générer du code.
 Le code d'initialisation des GPIOs est généré dans main.c
 
 
-\subsection{Correspondance Leds/GPIOs}
+\subsection{Correspondance Leds-Boutons/GPIOs}
 
+Leds\\
 Rouge : PA11, PD12 \\
 Vert : PA8, PD14 \\
 Bleu : PA9, PD13 \\
+
+
+Boutons \\
+PD 5,6 : Volume +, Volume - \\
+PD 8 : Mode \\
+PD 15 : Bouton façade \\
 
 \subsection{Branchement boutons}
 
@@ -174,12 +181,39 @@ Bleu : PA9, PD13 \\
 \label{visina8}
 \end{center}\end{figure}
 
-dans la boucle while(1) du main ajoutez la fonction suivante pour envoyer "hello" sur l'UART :
-\begin{minted}{c}
 
-HAL_UART_Transmit(&huart4, (unsigned char *)"Hello\n\r", 15 , HAL_MAX_DELAY);
+
+Dans la boucle while(1) du main ajoutez ce code :
+\begin{minted}{c}
+//J'éteins toutes les leds
+	  HAL_GPIO_WritePin(GPIOD,GPIO_PIN_12,1);
+	  HAL_GPIO_WritePin(GPIOD,GPIO_PIN_13,1);
+	  HAL_GPIO_WritePin(GPIOD,GPIO_PIN_14,1);
+
+	  HAL_GPIO_WritePin(GPIOA,GPIO_PIN_8,1);
+	  HAL_GPIO_WritePin(GPIOA,GPIO_PIN_9,1);
+	  HAL_GPIO_WritePin(GPIOA,GPIO_PIN_11,1);
+
+// If button on PD6 : voulme - pressed (button circuit is active low)
+	          if (!(HAL_GPIO_ReadPin(GPIOD, GPIO_PIN_6)))
+	          {
+	              // Turn on LED
+
+	              HAL_GPIO_WritePin(GPIOD,GPIO_PIN_12,0);
+	              HAL_GPIO_WritePin(GPIOA,GPIO_PIN_8,0);
+	          }
+	          else
+	          {
+	              // Turn off LED
+
+	              HAL_GPIO_WritePin(GPIOD,GPIO_PIN_12,1);
+	              HAL_GPIO_WritePin(GPIOA,GPIO_PIN_8,1);
+	          }
 
 \end{minted}
+
+Il permet d'allmuer les leds en appuyant sur le bouton Volume -
+%Branchez les boutons au microcontrolleur.
 
 \subsection{Générer le .elf ou .bin}
 
@@ -369,6 +403,13 @@ Connectez le Tag-Connect au Nucleo et alimentez le produit par le module "Power"
 \label{visina8}
 \end{center}\end{figure}
 
+\begin{figure}[H]
+\begin{center}
+\advance\leftskip-3cm
+\advance\rightskip-3cm
+\includegraphics[keepaspectratio=true,scale=0.1]{branchement_basepower2.jpg}
+\end{center}\end{figure}
+
 Photo du montage :
 
 \begin{figure}[H]
@@ -438,39 +479,6 @@ Pour prendre en compte le nouveau firmware, il faut "reseter" le produit en bran
 
 
 
-\section{Résultat}
-
-Débranchez puis rebranchez la carte pour réinintialiser le microcontrôleur.\\
-Ouvrez un terminal série comme Putty ou minicom.
-Sélectionnez le bon port, dans mon cas sur Ubuntu 16.04 ttyACM0.
-Sur Linux, pour connaître le port sur lequel est branché le produit :
-
-\begin{minted}{bash}
-ls /dev
-
-\end{minted}
-
-Choisir un baudrate de 115200.
-
-
-\begin{figure}[H]
-\begin{center}
-\advance\leftskip-3cm
-\advance\rightskip-3cm
-\includegraphics[keepaspectratio=true,scale=0.5]{putty.png}
-
-\label{visina8}
-\end{center}\end{figure}
-
-
-\begin{figure}[H]
-\begin{center}
-\advance\leftskip-3cm
-\advance\rightskip-3cm
-\includegraphics[keepaspectratio=true,scale=0.5]{resultat.png}
-
-\label{visina8}
-\end{center}\end{figure}
 
 
 

@@ -18,7 +18,7 @@
 L'objectif est d'utiliser l'UART pour faire communiquer le produit idosens avec le PC.
 
 \subsection{Matériel}
-Détéecteur d'ouverture de porte idosens :
+Détécteur d'ouverture de porte idosens :
 
 
 Pièces détachées :
@@ -161,12 +161,8 @@ Sauvez le projet puis choissez de générer du code avec la boîte de dialogue s
 
 Le code d'initialisation de l'UART est généré dans main.c
 
-dans la boucle while(1) du main ajoutez la fonction suivante pour envoyer "hello" sur l'UART :
-\begin{minted}{c}
+Copiez le main.c disponible à \url{https://github.com/GitClementtest/what_is_your_name_idosens} :
 
-HAL_UART_Transmit(&huart4, (unsigned char *)"Hello\n\r", 15 , HAL_MAX_DELAY);
-
-\end{minted}
 
 \subsection{Générer le .elf ou .bin}
 
@@ -356,6 +352,16 @@ Connectez le Tag-Connect au Nucleo et alimentez le produit par le module "Power"
 \label{visina8}
 \end{center}\end{figure}
 
+\begin{figure}[H]
+\begin{center}
+\advance\leftskip-3cm
+\advance\rightskip-3cm
+\includegraphics[keepaspectratio=true,scale=0.1]{branchement_basepower2.jpg}
+
+\label{visina8}
+\end{center}\end{figure}
+
+
 Photo du montage :
 
 \begin{figure}[H]
@@ -420,6 +426,8 @@ Une fois le produit connecté et le firmware sélectionné, appuyé sur le bouto
 \label{visina8}
 \end{center}\end{figure}
 
+\subsection{Reset du produit}
+Pour prendre en compte le nouveau firmware, il faut "reseter" le produit en branchant/débranchant l'alimentation du bloc "BasePower".
 
 
 \section{Résultat}
@@ -451,7 +459,7 @@ Choisir un baudrate de 115200.
 \begin{center}
 \advance\leftskip-3cm
 \advance\rightskip-3cm
-\includegraphics[keepaspectratio=true,scale=0.5]{resultat.png}
+\includegraphics[keepaspectratio=true,scale=0.5]{whatisyourname.png}
 
 \label{visina8}
 \end{center}\end{figure}

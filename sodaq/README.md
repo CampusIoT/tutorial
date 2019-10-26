@@ -17,14 +17,14 @@ Pour programmer la carte Sodaq Explorer, vous devez installer la dernière versi
 
 Vous pouvez le tutoriel d'installation du SODAQ ExpLoRer https://support.sodaq.com/Boards/ExpLoRer/
 
-Une fois l'installation terminée, lancez l'environnement de développement Arduino IDE et configurez dans l'onglet Paramètres Preférences ...  l'URL 
-http://downloads.sodaq.net/package_sodaq_samd_index.json dans le champs "URL de gestionnaire de cartes supplémentaires". Validez en cliquant sur "OK".
+Une fois l'installation terminée, lancez l'environnement de développement Arduino IDE et configurez dans l'onglet "`Paramètres Preférences ...`"  l'URL 
+http://downloads.sodaq.net/package_sodaq_samd_index.json dans le champs "`URL de gestionnaire de cartes supplémentaires`". Validez en cliquant sur "`OK`".
 
-Allez ensuite dans "Outils > Type de Carte > Gestionnaire de Carte". Tapez "Sodaq" dans la barre de recherche. Installez la dernière version du paquet "SODAQ SAMD Boards by SODAQ".
+Allez ensuite dans "`Outils > Type de Carte > Gestionnaire de Carte`". Tapez "Sodaq" dans la barre de recherche. Installez la dernière version du paquet "`SODAQ SAMD Boards by SODAQ`".
 
-Une fois, le paquet installé, sélectionnez la carte "Sodaq Explorer" dans le menu "Outils > Type de Cartes", puis sélectionnez le "bon" port dans le menu "Outils > Type de Carte > Port".
+Une fois, le paquet installé, sélectionnez la carte "`Sodaq Explorer`" dans le menu "`Outils > Type de Cartes`", puis sélectionnez le "bon" port dans le menu "`Outils > Type de Carte > Port`".
 
-Vous pouvez ouvrir le croquis "Blink" ("Fichier > Exemples > 01.Basic") et lancer son téléversement ("Croquis > Téléverser") pour vérifier la chaine de compilation et de téléversement.
+Vous pouvez ouvrir le croquis "`Blink`" ("`Fichier > Exemples > 01.Basic`") et lancer son téléversement ("Croquis > Téléverser") pour vérifier la chaine de compilation et de téléversement.
 
 ## Support de LoRa/LoRaWAN de la carte
 
@@ -396,7 +396,7 @@ function Decode(fPort, bytes) {
 Affichez les messages du device depuis l'onglet "`Live Device Data`". Le payload du message est décodé dans la propriété `object` de l'objet JSON.
 
 ## Brancher plus de capteurs sur la carte.
-Vous pouvez brancher des capteurs et des actionneurs sur les 2 connecteurs [Grove](http://wiki.seeedstudio.com/Grove_System/) de la carte et sur les 2 rangées de broche.
+Vous pouvez brancher des capteurs, des actionneurs ou des afficheurs sur les 2 connecteurs [Grove](http://wiki.seeedstudio.com/Grove_System/) de la carte (1 I2C et 1 Analogique/Digitale) et sur les 2 rangées de broche au format Arduino.
 
 > Attention: il faut utiliser des capteurs avec un VCC de 3.3V
 
@@ -408,6 +408,7 @@ Par exemple:
 * [SodaqOne-UniversalTracker](https://github.com/brocaar/SodaqOne-UniversalTracker)
 * [Grove DS18B20](https://www.gotronic.fr/art-capteur-de-temperature-grove-101990019-23842.htm) avec [Sodaq_OTAA_DS18B20.ino](https://github.com/CampusIoT/endpoints/blob/master/sodaq/Sodaq_OTAA_DS18B20.ino)
 * [Grove Dust Sensor](http://wiki.seeedstudio.com/Grove-Dust_Sensor/)
+* [Grove LCD Display](http://wiki.seeedstudio.com/Grove-16x2_LCD_Series/)
 
 
 ## Pour aller plus loin

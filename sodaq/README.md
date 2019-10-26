@@ -12,8 +12,21 @@ La carte [SODAQ ExpLoRer](https://support.sodaq.com/Boards/ExpLoRer/) se présen
 
 ![SODAQ ExpLoRer Pinout](images/sodaq_explorer_pinout.png)
 
-## Installation
-Suivre l'installation du tutoriel du SODAQ ExpLoRer https://support.sodaq.com/Boards/ExpLoRer/
+## Installation de l'IDE Arduino
+Pour programmer la carte Sodaq Explorer, vous devez installer la dernière version de l'environnement de développement Arduino IDE pour votre machine https://www.arduino.cc/en/Main/Software
+
+Vous pouvez le tutoriel d'installation du SODAQ ExpLoRer https://support.sodaq.com/Boards/ExpLoRer/
+
+Une fois l'installation terminée, lancez l'environnement de développement Arduino IDE et configurez dans l'onglet Paramètres Preférences ...  l'URL 
+http://downloads.sodaq.net/package_sodaq_samd_index.json dans le champs "URL de gestionnaire de cartes supplémentaires". Validez en cliquant sur "OK".
+
+Allez ensuite dans "Outils > Type de Carte > Gestionnaire de Carte". Tapez "Sodaq" dans la barre de recherche. Installez la dernière version du paquet "SODAQ SAMD Boards by SODAQ".
+
+Une fois, le paquet installé, sélectionnez la carte "Sodaq Explorer" dans le menu "Outils > Type de Cartes", puis sélectionnez le "bon" port dans le menu "Outils > Type de Carte > Port".
+
+Vous pouvez ouvrir le croquis "Blink" ("Fichier > Exemples > 01.Basic") et lancer son téléversement ("Croquis > Téléverser") pour vérifier la chaine de compilation et de téléversement.
+
+## Support de LoRa/LoRaWAN de la carte
 
 Le support pour LoRaWAN est décrit ici : https://support.sodaq.com/Boards/ExpLoRer/Examples/lorawan/
 
@@ -21,7 +34,7 @@ Le support pour LoRa en P2P (peer-to-peer) est décrit ici : https://support.sod
 
 ## Installer le programme de thermomètre LoRaWAN sur la carte Explorer
 
-Ouvrir un nouveau sketch et copier le [sketch suivant](https://raw.githubusercontent.com/CampusIoT/endpoints/master/sodaq/Sodaq_OTAA_temp.ino):
+Ouvrez un nouveau sketch et copier le [sketch suivant](https://raw.githubusercontent.com/CampusIoT/endpoints/master/sodaq/Sodaq_OTAA_temp.ino):
 
 ```
 // https://support.sodaq.com/Boards/ExpLoRer/Examples/lorawan/
@@ -326,13 +339,13 @@ Network connection failed!
 ## Enregistrer le device SODAQ Explorer
 Du coté de la console https://lora.campusiot.imag.fr
 
-Créer une application `SODAQ_EXPLORER` avec le service-profile `DEFAULT`
+Créez une application `SODAQ_EXPLORER` avec le service-profile `DEFAULT`
 
-Ajouter un device avec `+ Add` en utilisant le `DevEUI` et l'`AppKey`
+Ajoutez un device avec `+ Add` en utilisant le `DevEUI` et l'`AppKey`
 
-Afficher les messages du device depuis l'onglet "`Live LoRaWAN Frame`"
+Affichez les messages du device depuis l'onglet "`Live LoRaWAN Frame`"
 
-En parallèle, afficher les traces du sketch dans le moniteur serie (9600 bps) de l'IDE Arduino.
+En parallèle, affichez les traces du sketch dans le moniteur serie (9600 bps) de l'IDE Arduino.
 
 ```
 Start
@@ -355,7 +368,7 @@ Successful transmission.
 
 ## Décoder les frames sur le serveur
 
-Ajouter la fonction de décodage "`Application > SODAQ_EXPLORER > Application Configuration > Payload Coded > Custom Javascript codec functions`" suivante:
+Ajoutez la fonction de décodage "`Application > SODAQ_EXPLORER > Application Configuration > Payload Coded > Custom Javascript codec functions`" suivante:
 
 ```
 // From https://github.com/feross/buffer/blob/master/index.js
@@ -380,7 +393,7 @@ function Decode(fPort, bytes) {
 }
 ```
 
-Afficher les messages du device depuis l'onglet "`Live Device Data`". Le payload du message est décodé dans la propriété `object` de l'objet JSON.
+Affichez les messages du device depuis l'onglet "`Live Device Data`". Le payload du message est décodé dans la propriété `object` de l'objet JSON.
 
 ## Brancher plus de capteurs sur la carte.
 Vous pouvez brancher des capteurs et des actionneurs sur les 2 connecteurs [Grove](http://wiki.seeedstudio.com/Grove_System/) de la carte et sur les 2 rangées de broche.

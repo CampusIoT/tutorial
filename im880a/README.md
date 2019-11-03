@@ -117,23 +117,24 @@ On s'intéresse à RIOT-OS car il offre:
 
 Les 2 applications existantes pour LoRa dans RIOT sont : 
 
-- [$(RIOT-BASE)/tests/driver_sx127x](https://github.com/fjmolinas/RIOT/blob/im880b_loramac/tests/driver_sx127x) qui permet de tester le driver radio lora 127x
-- [$(RIOT-BASE)/tests/pkg_semtech-loramac](https://github.com/fjmolinas/RIOT/blob/im880b_loramac/tests/pkg_semtech-loramac/README.md) qui permet de tester le réseau LoRaWAN
+- [```${RIOT_BASE}/tests/driver_sx127x```](https://github.com/fjmolinas/RIOT/blob/im880b_loramac/tests/driver_sx127x) qui permet de tester le driver radio lora 127x
+- [```${RIOT_BASE}/tests/pkg_semtech-loramac```](https://github.com/fjmolinas/RIOT/blob/im880b_loramac/tests/pkg_semtech-loramac/README.md) qui permet de tester le réseau LoRaWAN
 
 Le module réseau iM880a n'étant pas supporté par défaut dans le dépôt officiel, on se base sur un dépôt annexe et sur la [plateforme iM880b](https://wireless-solutions.de/products/starterkits/sk-im880b.html) qui est quasi similaire.  
 Pour compiler et flasher, on suit les étapes suivantes :  
 
     git clone https://github.com/fjmolinas/RIOT
     cd RIOT
+    RIOT_BASE=$(pwd)
     git checkout im880b_loramac
     make BOARD=im880b DRIVER=sx1272 -C tests/driver_sx127x # pour l'exemple LoRa de base
-    arm-none-eabi-objcopy -O binary $(RIOT-BASE)/tests/driver_sx127x/bin/im880b/tests_driver_sx127x.elf tests_driver_sx127x.bin # conversion format .elf au format .bin
+    arm-none-eabi-objcopy -O binary ${RIOT_BASE}/tests/driver_sx127x/bin/im880b/tests_driver_sx127x.elf tests_driver_sx127x.bin # conversion format .elf au format .bin
     st-flash write tests_driver_sx127x.bin 0x8000000 
     
     make BOARD=im880b LORA_DRIVER=sx1272 -C tests/pkg_semtech-loramac # pour l'exemple LoRaWAN
     st-flash write pkg_semtech-loramac.bin 0x8000000 
 
-Pour un accès direct aux firmwares : ([tests\_driver\_sx127x.bin](firmware/tests_driver_sx127x.bin)), ([pkg\_semtech-loramac.bin](firmware/tests_pkg_semtech-loramac.bin))
+Pour un accès direct aux firmwares : ([```tests_driver_sx127x.bin```](firmware/tests_driver_sx127x.bin)), ([```pkg_semtech-loramac.bin```](firmware/tests_pkg_semtech-loramac.bin))
 
 Pour vérifier le bon fonctionnement, connectons nous sur le lien série afin d'accéder au shell RIOT.  
 Sous OSX, plusieurs [solutions](https://pbxbook.com/other/mac-tty.html) sont possibles. On a retenu la suivante :   
@@ -153,12 +154,12 @@ Sous OSX, plusieurs [solutions](https://pbxbook.com/other/mac-tty.html) sont pos
 
 `minicom` nous donne accès au lien série et au shell de RIOT.  
 
-Pour expérimenter, il ne reste plus qu'à suivre les instructions de l'exemple LoRa ([readme driver_sx127x](https://github.com/fjmolinas/RIOT/blob/im880b_loramac/tests/driver_sx127x)) ou LoRaWAN ([readme pkg\_semtech-loramac](https://github.com/fjmolinas/RIOT/blob/im880b_loramac/tests/driver_sx127x)).  
+Pour expérimenter, il ne reste plus qu'à suivre les instructions de l'exemple LoRa ([```readme driver_sx127x```](https://github.com/fjmolinas/RIOT/blob/im880b_loramac/tests/driver_sx127x)) ou LoRaWAN ([```readme pkg_semtech-loramac```](https://github.com/fjmolinas/RIOT/blob/im880b_loramac/tests/driver_sx127x)).  
 Nous testons la procédure OTAA sur TTN dans la section suivante. 
 
 ### RIOT + LoRaWAN (OTAA on TTN)
 
-Les notes ci-dessous viennent compléter les instructions du [readme pkg\_semtech-loramac](https://github.com/fjmolinas/RIOT/blob/im880b_loramac/tests/driver_sx127x)
+Les notes ci-dessous viennent compléter les instructions du [```readme pkg_semtech-loramac```](https://github.com/fjmolinas/RIOT/blob/im880b_loramac/tests/driver_sx127x)
 
 Pour permettre à un noeud de se connecter à TTN selon la procédure OTAA, il faut suivre les étapes suivantes : 
 

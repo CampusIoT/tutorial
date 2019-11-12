@@ -134,12 +134,18 @@ Pour compiler et flasher, on suit les étapes suivantes :
     cd RIOT
     RIOT_BASE=$(pwd)
     git checkout im880b_loramac
+
+Pour le test LoRa de base
+
     make BOARD=im880b DRIVER=sx1272 -C tests/driver_sx127x # pour l'exemple LoRa de base
     arm-none-eabi-objcopy -O binary ${RIOT_BASE}/tests/driver_sx127x/bin/im880b/tests_driver_sx127x.elf tests_driver_sx127x.bin # conversion format .elf au format .bin
     st-flash write tests_driver_sx127x.bin 0x8000000 
-    
+
+Pour le test LoRaWAN
+   
     make BOARD=im880b LORA_DRIVER=sx1272 -C tests/pkg_semtech-loramac # pour l'exemple LoRaWAN
-    st-flash write pkg_semtech-loramac.bin 0x8000000 
+    arm-none-eabi-objcopy -O binary ${RIOT_BASE}/tests/pkg_semtech-loramac/bin/im880b/tests_pkg_semtech-loramac.elf tests_pkg_semtech-loramac.bin # conversion format .elf au format .bin
+    st-flash write tests_pkg_semtech-loramac.bin 0x8000000
 
 Pour un accès direct aux firmwares : ([```tests_driver_sx127x.bin```](firmware/tests_driver_sx127x.bin)), ([```pkg_semtech-loramac.bin```](firmware/tests_pkg_semtech-loramac.bin))
 

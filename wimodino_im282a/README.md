@@ -63,7 +63,7 @@ TBC
 
 ### LR-Base API
 
-```
+```c
 // LR-BASE API 
 Ping( )
 Reset( )
@@ -89,10 +89,70 @@ TBC
 ![IDE Gestionnaire de cartes](images/ide_gestionnaire_cartes.png)
 
 * https://www.wireless-solutions.de/download/Evaluation-Tools/WiMODino/WiMOD-ArduinoLib-V1_5_0.zip
-## Flashage du sketch Ping-Pong
+
+
+## Exploration des exemples
+
+```bash
+> cd ~/Documents/Arduino/libraries/WiMOD/examples
+> tree *
+LR-BASE
+├── LrBaseAES
+│   └── LrBaseAES.ino
+├── LrBaseFwInfos
+│   └── LrBaseFwInfos.ino
+├── LrBasePing
+│   └── LrBasePing.ino
+├── LrBaseRTC
+│   └── LrBaseRTC.ino
+├── LrBaseSetRadioConfig
+│   └── LrBaseSetRadioConfig.ino
+└── LrBaseSimpleChat
+    └── LrBaseSimpleChat.ino
+LR-BASE-PLUS
+├── LrBasePlusFwInfos
+│   └── LrBasePlusFwInfos.ino
+└── LrBasePlusSimpleChat
+    └── LrBasePlusSimpleChat.ino
+LoRaWAN
+├── LoRaWanEndNode_ABP
+│   └── LoRaWanEndNode_ABP.ino
+├── LoRaWanEndNode_CDATA
+│   └── LoRaWanEndNode_CDATA.ino
+├── LoRaWanEndNode_CDATA2
+│   └── LoRaWanEndNode_CDATA2.ino
+├── LoRaWanEndNode_EU_TxPwrLimits
+│   └── LoRaWanEndNode_EU_TxPwrLimits.ino
+├── LoRaWanEndNode_FwInfos
+│   └── LoRaWanEndNode_FwInfos.ino
+├── LoRaWanEndNode_OTAA
+│   └── LoRaWanEndNode_OTAA.ino
+├── LoRaWanEndNode_SimpleOTAA
+│   └── LoRaWanEndNode_SimpleOTAA.ino
+├── LoRaWan_CayenneBME280
+│   └── LoRaWan_CayenneBME280.ino
+├── LoRaWan_CayenneDemo
+│   └── LoRaWan_CayenneDemo.ino
+└── LoRaWan_CayenneTCS34726
+    └── LoRaWan_CayenneTCS34726.ino
+PC_Bridge
+├── DUE_BtlBridge
+│   └── DUE_BtlBridge.ino
+├── DUE_UartBridge
+│   └── DUE_UartBridge.ino
+├── M0_UartBridge
+│   └── M0_UartBridge.ino
+├── UNO_BtlBridge
+│   └── UNO_BtlBridge.ino
+└── Uno_Wimod2PcBridge
+    └── Uno_Wimod2PcBridge.ino
+```
+
+
+## Flashage du sketch LrBaseSimpleChat
 TBC
 
-```
+```c
 // TBC
 ```
 

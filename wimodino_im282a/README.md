@@ -36,9 +36,9 @@ https://www.wireless-solutions.de/products/radiomodules/im282a.html
     * 34 mA (Tx @ 3.0 V/ +12 dBm, MCU sleep)
     * 25 mA (Tx @ 3.0 V/ +8 dBm, MCU sleep)
 
-### Carte compatible-Arduino WimoDino iM980a
+### Carte compatible-Arduino WimoDino iM282A-L
 
-![WimoDino](images/wimodino.png)
+![WimoDino](images/wimodino_pinout.png)
 
 
 TBC

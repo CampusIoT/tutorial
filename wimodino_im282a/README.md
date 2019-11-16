@@ -63,6 +63,14 @@ TBC
 
 ### LR-Base API
 
+Le module iM282A-L de la carte WimoDino est flashé par défaut avec un firmware d'un modem USB utilisant une API appelée LR-Base.
+
+La documentation de l'API LRBase est dans ~/Documents/Arduino/libraries/WiMOD/documentation/html/index.html
+
+```bash
+open ~/Documents/Arduino/libraries/WiMOD/documentation/html/index.html
+```
+
 ```c
 // LR-BASE API 
 Ping( )

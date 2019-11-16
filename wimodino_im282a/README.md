@@ -63,7 +63,11 @@ TBC
 
 ### LR-Base API
 
-Le module iM282A-L de la carte WimoDino est flashé par défaut avec un firmware d'un modem USB utilisant une API appelée LR-Base.
+Le module iM282A-L de la carte WimoDino est flashé par défaut avec un firmware d'un modem USB utilisant deux APIs propriétaires appelées WiMOD LR-Base et LR-Base+.
+
+* The WiMOD LR Base firmware is a collection of functionalities and applications like Radio Link Test, Sensor App., Data Link Service, etc. embedded in our powerful WiMOD OS operating system. It does not include any LoRaWAN functionalities, but it allows direct P2P connections between end nodes.
+
+* The WiMOD LR Base Plus firmware is a collection of functionalities and applications like Radio Link Test, Sensor App., Data Link Service, etc. embedded in our powerful WiMOD OS operating system. It is targeted for 2.4 GHz operation.
 
 La documentation de l'API LRBase est dans ~/Documents/Arduino/libraries/WiMOD/documentation/html/index.html
 
@@ -115,7 +119,7 @@ LR-BASE
 │   └── LrBaseRTC.ino
 ├── LrBaseSetRadioConfig
 │   └── LrBaseSetRadioConfig.ino
-└── LrBaseSimpleChat
+└── LrBaseSimpleChat    
     └── LrBaseSimpleChat.ino
 LR-BASE-PLUS
 ├── LrBasePlusFwInfos

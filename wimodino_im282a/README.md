@@ -165,8 +165,11 @@ wimod.StartRadioLinkTest(&params);
 ...
 ```
 
+## Journalisation des messages reçus sur une carte microSD
 
+Voir l'exemple Arduino > Fichier > Exemples > SD > DataLogger
 
+Les messages journalisés sont du type TWiMODLR_RadioLink_Msg
 
 ## Annexes
 

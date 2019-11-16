@@ -61,38 +61,20 @@ TBC
     * Debug support by non ArduinoTM IDEs
 
 
-### LR-Base API
+### LR-Base Plus API
 
-Le module iM282A-L de la carte WimoDino est flashé par défaut avec un firmware d'un modem USB utilisant deux APIs propriétaires appelées WiMOD LR-Base et LR-Base+.
+Le module iM282A-L de la carte WimoDino est flashé par défaut avec un firmware d'un modem USB utilisant une API propriétaire appelées WiMOD LR-Base+.
 
-* The WiMOD LR Base firmware is a collection of functionalities and applications like Radio Link Test, Sensor App., Data Link Service, etc. embedded in our powerful WiMOD OS operating system. It does not include any LoRaWAN functionalities, but it allows direct P2P connections between end nodes.
+The WiMOD LR Base Plus firmware is a collection of functionalities and applications like Radio Link Test, Sensor App., Data Link Service, etc. embedded in our powerful WiMOD OS operating system. It is targeted for 2.4 GHz operation.
 
-* The WiMOD LR Base Plus firmware is a collection of functionalities and applications like Radio Link Test, Sensor App., Data Link Service, etc. embedded in our powerful WiMOD OS operating system. It is targeted for 2.4 GHz operation.
+La documentation de l'API LR Base+ est dans ~/Documents/Arduino/libraries/WiMOD/documentation/html/index.html
 
-La documentation de l'API LRBase est dans ~/Documents/Arduino/libraries/WiMOD/documentation/html/index.html
+> Attention: les API LoRaWAN et LR Base ne concernent que les modules sub-GHz.
 
 ```bash
 open ~/Documents/Arduino/libraries/WiMOD/documentation/html/index.html
+open ~/Documents/Arduino/libraries/WiMOD/documentation/html/class_wi_m_o_d_l_r_b_a_s_e___p_l_u_s.html
 ```
-
-```c
-// LR-BASE API 
-Ping( )
-Reset( )
-GetDeviceInfo( )
-GetFirmwareInfo( )
-GetSystemStatus( )
-GetRtc( )
-SetRtc( )
-GetRadioConfig( )
-SetRadioConfig( )
-SetAesKey( )
-GetAesKey( )
-SendUData( )
-SendCData( )
-SetAckData( )
-```
-
 
 
 ## Installation de l'IDE Arduino
@@ -103,70 +85,91 @@ TBC
 * https://www.wireless-solutions.de/download/Evaluation-Tools/WiMODino/WiMOD-ArduinoLib-V1_5_0.zip
 
 
-## Exploration des exemples
+## Exploration des exemples LR-BASE-PLUS
 
-```bash
-> cd ~/Documents/Arduino/libraries/WiMOD/examples
-> tree *
-LR-BASE
-├── LrBaseAES
-│   └── LrBaseAES.ino
-├── LrBaseFwInfos
-│   └── LrBaseFwInfos.ino
-├── LrBasePing
-│   └── LrBasePing.ino
-├── LrBaseRTC
-│   └── LrBaseRTC.ino
-├── LrBaseSetRadioConfig
-│   └── LrBaseSetRadioConfig.ino
-└── LrBaseSimpleChat    
-    └── LrBaseSimpleChat.ino
-LR-BASE-PLUS
-├── LrBasePlusFwInfos
-│   └── LrBasePlusFwInfos.ino
-└── LrBasePlusSimpleChat
-    └── LrBasePlusSimpleChat.ino
-LoRaWAN
-├── LoRaWanEndNode_ABP
-│   └── LoRaWanEndNode_ABP.ino
-├── LoRaWanEndNode_CDATA
-│   └── LoRaWanEndNode_CDATA.ino
-├── LoRaWanEndNode_CDATA2
-│   └── LoRaWanEndNode_CDATA2.ino
-├── LoRaWanEndNode_EU_TxPwrLimits
-│   └── LoRaWanEndNode_EU_TxPwrLimits.ino
-├── LoRaWanEndNode_FwInfos
-│   └── LoRaWanEndNode_FwInfos.ino
-├── LoRaWanEndNode_OTAA
-│   └── LoRaWanEndNode_OTAA.ino
-├── LoRaWanEndNode_SimpleOTAA
-│   └── LoRaWanEndNode_SimpleOTAA.ino
-├── LoRaWan_CayenneBME280
-│   └── LoRaWan_CayenneBME280.ino
-├── LoRaWan_CayenneDemo
-│   └── LoRaWan_CayenneDemo.ino
-└── LoRaWan_CayenneTCS34726
-    └── LoRaWan_CayenneTCS34726.ino
-PC_Bridge
-├── DUE_BtlBridge
-│   └── DUE_BtlBridge.ino
-├── DUE_UartBridge
-│   └── DUE_UartBridge.ino
-├── M0_UartBridge
-│   └── M0_UartBridge.ino
-├── UNO_BtlBridge
-│   └── UNO_BtlBridge.ino
-└── Uno_Wimod2PcBridge
-    └── Uno_Wimod2PcBridge.ino
-```
+Examples for the WiMOD LR-BASE-PLUS firmware: 
+* LrBasePlusFwInfos: Sketch demonstrating how to get basic information from WiMOD firmware
+* LrBasePlusSimpleChat:Sketch that implements a simple TX/RX application using the WiMOD radio services
 
 
 ## Flashage du sketch LrBaseSimpleChat
 TBC
 
+
+
+## Changement de la configuration radio du sketch LrBaseSimpleChat
+
+
+```c
+#include <WiMODLR_BASE_PLUS.h>
+// TBC
+
+
+// create a local variable
+TWiMODLR_DevMgmt_RadioConfigPlus radioCfg;
+// setup new radio config
+radioCfg.RadioMode    = RadioMode_Standard;
+radioCfg.StoreNwmFlag = 0x01; // store new config permanently
+radioCfg.Modulation   = LRBASE_PLUS_Modulation_LoRa;
+radioCfg.PowerLevel   = LRBASE_PLUS_TxPowerLevel_p10_dBm;
+...
+FreqCalc_calcFreqToRegister(2458300000,
+                            &radioCfg.RfFreq_MSB,
+                            &radioCfg.RfFreq_MID,
+                            &radioCfg.RfFreq_LSB);
+...
+// set information from WiMOD
+if (wimod.SetRadioConfig(&radioCfg)) {
+        //ok new config has been setup
+}
+...
+
+```
+
+## Ajout d'une clé AES 128bit du sketch LrBaseSimpleChat
+
+Sets the security 128bit AES key to use for RF communication. 
+
+TBC
+```c
+const uint8_t AesKey[] = {0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08, 0x09, 0x0A, 0x0B, 0x0C, 0x0C, 0x0D, 0x0E, 0x0F};
+// write new AES key to WiMOD (LR-Base (PLUS) mode ONLY!)
+if (wimod.SetAesKey(AesKey)) {
+        //ok;
+}
+...
+```
+
+
+## Sketch Radio Link Test
+
+The firmware has got a feature called "Radio Link Test". This feauture can be used to test the radio link between two devices.
+
 ```c
 // TBC
+...
+// local variable
+TWiMODLR_RadioLink_Msg params;
+// setup RLT
+params.DestinationGroupAddress   = 0x10;
+params.DestDevAddress            = 0x1234;
+params.PacketSize                = 10;
+params.NumPackets                = 20;
+params.TestMode                  = RLT_TestMode_Single;
+// register status update client in order to get statistic data
+wimod.RegisterRltStatusClient(rltClient);
+// start the test
+wimod.StartRadioLinkTest(&params);
+...
+// update the RLT results in the client callback and do analysis with it
+...
 ```
 
 
 
+
+## Annexes
+
+![API LRBasePlus](images/classDiagram_LRBasePlus.png)
+
+ 

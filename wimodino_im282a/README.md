@@ -68,7 +68,7 @@ Le module iM282A-L de la carte WimoDino est flashé par défaut avec un firmware
 
 > The WiMOD LR Base Plus firmware is a collection of functionalities and applications like Radio Link Test, Sensor App., Data Link Service, etc. embedded in our powerful WiMOD OS operating system. It is targeted for 2.4 GHz operation.
 
-La documentation de l'API LR Base+ est dans ~/Documents/Arduino/libraries/WiMOD/documentation/html/index.html
+La documentation de l'API LR Base+ est dans `~/Documents/Arduino/libraries/WiMOD/documentation/html/index.html`
 
 > Attention: les API LoRaWAN et LR Base ne concernent que les modules sub-GHz.
 
@@ -81,10 +81,10 @@ open ~/Documents/Arduino/libraries/WiMOD/documentation/html/class_wi_m_o_d_l_r_b
 Installez l'environnement [Arduino IDE](https://www.arduino.cc/en/Main/Software) sur votre machine.
 
 ### Ajout des cartes WiMODino
-Ajoutez la description des cartes WiMODino dans Arduino > Préférences... > Paramètres > URL de gestionnaire de cartes supplémentaires avec le lien suivant: 
+Ajoutez la description des cartes WiMODino dans `Arduino > Préférences... > Paramètres > URL de gestionnaire de cartes` supplémentaires avec le lien suivant: 
 https://wireless-solutions.de/downloads/boards-manager/WiMODino/package_imst_de_index.json
 
-Ajoutez Outils > Type de Cartes > Gestionnaire de Cartes en recherchant les cartes "wimodino" dans la barre de recherche.
+Ajoutez `Outils > Type de Cartes > Gestionnaire de Cartes` en recherchant les cartes "`wimodino`" dans la barre de recherche.
 
 ### Installation de la library WiMODino
 
@@ -145,7 +145,7 @@ LBT Threshold: -70  dBm
 
 ## Flashage du sketch LrBasePlusSimpleChat
 
-Ouvrez l'exemple LrBasePlusSimpleChat dans la liste des exemples `WiMODino > LR-BASE-PLUS > LrBasePlusSimpleChat`
+Ouvrez l'exemple `LrBasePlusSimpleChat` dans la liste des exemples `WiMODino > LR-BASE-PLUS > LrBasePlusSimpleChat`
 
 Modifiez les deux lignes suivantes:
 

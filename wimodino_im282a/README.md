@@ -187,6 +187,46 @@ Enter Tx-Message: Rx-Message: [13]: 48 65 6C 6C 6F 20 57 6F 72 6C 64 20 21
 ...
 ```
 
+
+
+## Envoi périodique d'un message
+
+Sauvegardez l'exemple `LrBasePlusSimpleChat` dans un nouveau sketch `LrBasePlusPeriodicPing`
+et modifiez la fonction `debugReadData` avec les lignes suivantes:
+
+```c
+/*****************************************************************************
+ * send a counter every 30 seconds
+ ****************************************************************************/
+
+#define TX_PERIOD 30000
+long nextTxTimestamp = 0;
+long fCnt = 0;
+
+void periodicPing()
+{
+  unsigned long time = millis();
+  
+  if(time > nextTxTimestamp) {
+    debugMsg(F("Sending fCnt="));
+    debugMsg(fCnt);
+    debugMsg(F(" at "));
+    debugMsg(time/1000);
+    debugMsg(F(" sec. ...\n"));
+    sendRadioMessage((char*)&fCnt, sizeof(fCnt));
+    fCnt++;
+    nextTxTimestamp = time + TX_PERIOD;
+  }
+}
+
+void debugReadData() {
+  periodicPing();
+}
+```
+Compilez et flashez sur la carte 1.
+
+Eloignez vous avec l'autre carte branchée sur votre PC portable pour constater les pertes de messages.
+
 ## Changement de la configuration radio du sketch LrBasePlusSimpleChat
 
 

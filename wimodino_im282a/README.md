@@ -263,7 +263,7 @@ Les messages journalisés sont du type `TWiMODLR_RadioLink_Msg`
 Vous pouvez utiliser un module GNSS GPS pour récupérer la position courante et journaliser celle-ci avec le message reçu.
 
 ## Annexes
-
+* [Vidéos](https://www.youtube.com/channel/UCQYAj7hYbkZZIRJgE2akBHg)
 * [iM282A Range Test](https://wireless-solutions.de/downloads/Radio-Modules/iM282A/General_Information/iM282A_AN023_RangeTest_V1_0.pdf)
 
 ![API LRBasePlus](images/classDiagram_LRBasePlus.png)

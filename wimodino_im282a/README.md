@@ -1,7 +1,7 @@
-# CampusIoT :: WimoDino iM282A-L :: Tutoriel :fr:
+# CampusIoT :: WiMODino iM282A-L :: Tutoriel :fr:
 
 ## Objectif
-L'objectif de ce tutoriel est de mettre en oeuvre un réseau de 2 cartes (ou plus) WimoDino iM282A-L communiquant en pair-à-pair au moyen de communication LoRa sur la bande 2.4GHz.
+L'objectif de ce tutoriel est de mettre en oeuvre un réseau de 2 cartes (ou plus) WiMODino iM282A-L communiquant en pair-à-pair au moyen de communication LoRa sur la bande 2.4GHz.
 
 Si ce tutoriel vous est utile, pensez à donner une étoile :star: en haut à droit.
 
@@ -38,8 +38,8 @@ Les caractéristiques de ce module sont :
     * 34 mA (Tx @ 3.0 V/ +12 dBm, MCU sleep)
     * 25 mA (Tx @ 3.0 V/ +8 dBm, MCU sleep)
 
-### Carte compatible-Arduino WimoDino iM282A-L
-La société IMST commercialise une carte d'évaluation compatible Arduino WimoDino comportant le module iM282A-L flashé avec un firmware modem d'API LR-Base Plus.
+### Carte compatible-Arduino WiMODino iM282A-L
+La société IMST commercialise une carte d'évaluation compatible Arduino WiMODino comportant le module iM282A-L flashé avec un firmware modem d'API LR-Base Plus.
 
 ![WimoDino](images/wimodino_pinout.png)
 
@@ -66,7 +66,7 @@ Documentation:
 
 Le module iM282A-L de la carte WimoDino est flashé par défaut avec un firmware d'un modem USB utilisant une API propriétaire appelées WiMOD LR-Base+.
 
-The WiMOD LR Base Plus firmware is a collection of functionalities and applications like Radio Link Test, Sensor App., Data Link Service, etc. embedded in our powerful WiMOD OS operating system. It is targeted for 2.4 GHz operation.
+> The WiMOD LR Base Plus firmware is a collection of functionalities and applications like Radio Link Test, Sensor App., Data Link Service, etc. embedded in our powerful WiMOD OS operating system. It is targeted for 2.4 GHz operation.
 
 La documentation de l'API LR Base+ est dans ~/Documents/Arduino/libraries/WiMOD/documentation/html/index.html
 
@@ -84,7 +84,7 @@ Installez l'environnement [Arduino IDE](https://www.arduino.cc/en/Main/Software)
 Ajoutez la description des cartes WiMODino dans Arduino > Préférences... > Paramètres > URL de gestionnaire de cartes supplémentaires avec le lien suivant: 
 https://wireless-solutions.de/downloads/boards-manager/WiMODino/package_imst_de_index.json
 
-Ajoutez Outils > Type de Cartes > Grestionnaire de Cartes en recherchant les cartes "wimodino" dans la barre de recherche.
+Ajoutez Outils > Type de Cartes > Gestionnaire de Cartes en recherchant les cartes "wimodino" dans la barre de recherche.
 
 ### Installation de la library WiMODino
 
@@ -92,13 +92,13 @@ Installez la library WiMODino (requière l'authentification avec un compte) : ht
 
 ## Exploration des exemples LR-BASE-PLUS
 
-Examples for the WiMOD LR-BASE-PLUS firmware: 
-* LrBasePlusFwInfos: Sketch demonstrating how to get basic information from WiMOD firmware
-* LrBasePlusSimpleChat:Sketch that implements a simple TX/RX application using the WiMOD radio services
+Les seuls exemples pour le firmware WiMOD LR-BASE-PLUS : 
+* `LrBasePlusFwInfos`: Sketch demonstrating how to get basic information from WiMOD firmware
+* `LrBasePlusSimpleChat` :Sketch that implements a simple TX/RX application using the WiMOD radio services
 
 ## Flashage du sketch LrBasePlusFwInfos
 
-Ouvrez l'exemple LrBasePlusFwInfos dans la liste des exemples `WiMODino > LR-BASE-PLUS > LrBasePlusFwInfos`
+Ouvrez l'exemple `LrBasePlusFwInfos` dans la liste des exemples `WiMODino > LR-BASE-PLUS > LrBasePlusFwInfos`
 
 Sélectionnez le type de carte `IMST WiMODino (Native USB Port)`
 
@@ -111,7 +111,7 @@ Modifiez les deux lignes suivantes:
 
 Compilez et chargez le sketch sur la carte branchée
 
-et ouvrez la console configurée en 115200 8N1
+et ouvrez la console configurée en `115200 8N1`
 
 La trace suivante est envoyée périodiquement : 
 
@@ -156,7 +156,7 @@ Modifiez les deux lignes suivantes:
 
 Compilez et chargez le sketch sur deux cartes branchées sur deux hôtes différents
 
-et ouvrez la console configurée en 115200 8N1 (ou minicom) sur les hôtes
+et ouvrez la console configurée en `115200 8N1` (ou `minicom`) sur les hôtes
 
 Entrez les messages `Hello World !` dans le texte de dialogue et envoyez.
 

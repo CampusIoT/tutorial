@@ -6,16 +6,18 @@ L'objectif de ce tutoriel est de mettre en oeuvre un réseau de 2 cartes (ou plu
 Si ce tutoriel vous est utile, pensez à donner une étoile :star: en haut à droit.
 
 ## LoRa 2.4GHz
-TBC
+LoRa (Long Range) est une modulation radio basse consommation d'énergie et très longue portée. Elle est bien adaptée aux applications "Internet des Objets" pour lesquelles les objets sont répartis sur des grands espaces ou pour lesquelles l'attenuation du signal est très fort (béton, ...).
 
-TBC Semtech SX1280
+Brévétée par la société Semtech, LoRa est modulée/démodulée par les composants SX127x pour les bandes de fréquence SubGHz.
+
+Le composant Semtech SX1280 module/demodule sur la bande SRD 2.4 GHz. 
 
 ## Carte d'évaluation IMST WimoDino iM282A-L
 
 ### Module IMST iM282A-L
+La société IMST commercialise le module de communication [iM282A-L](https://www.wireless-solutions.de/products/radiomodules/im282a.html) comportant le composant Semtech SX1280.
 
-https://www.wireless-solutions.de/products/radiomodules/im282a.html
-
+Les caractéristiques de ce module sont : 
 * Frequency range: 	SRD Band 2.4 GHz
 * Modulation: 	LoRa®, FLRC, (G) FSK
 * RF output power: 	up to +12 dBm (50Ω pad)
@@ -37,15 +39,11 @@ https://www.wireless-solutions.de/products/radiomodules/im282a.html
     * 25 mA (Tx @ 3.0 V/ +8 dBm, MCU sleep)
 
 ### Carte compatible-Arduino WimoDino iM282A-L
+La société IMST commercialise une carte d'évaluation compatible Arduino WimoDino comportant le module iM282A-L flashé avec un firmware modem d'API LR-Base Plus.
 
 ![WimoDino](images/wimodino_pinout.png)
 
-
-TBC
-* https://www.wireless-solutions.de/downloads/Evaluation-Tools/WiMODino/WiMODino_Datasheet_V1-0.pdf
-* https://www.wireless-solutions.de/downloads/Evaluation-Tools/WiMODino/WiMODino_Flyer_V1-0.pdf
-
-
+Les caractéristiques de cette carte sont : 
 * Assembled with RED
 * pre-certified LoRa®radio modules iM880B, iM282A, iM881A or iM980A
 * Supports certified LoRaWAN® protocol stack
@@ -60,6 +58,9 @@ TBC
     * Timer Counters (8/16/32 bit), RTC, Watchdog Timer
     * Debug support by non ArduinoTM IDEs
 
+Documentation:
+* https://www.wireless-solutions.de/downloads/Evaluation-Tools/WiMODino/WiMODino_Datasheet_V1-0.pdf
+* https://www.wireless-solutions.de/downloads/Evaluation-Tools/WiMODino/WiMODino_Flyer_V1-0.pdf
 
 ### LR-Base Plus API
 
@@ -76,14 +77,18 @@ open ~/Documents/Arduino/libraries/WiMOD/documentation/html/index.html
 open ~/Documents/Arduino/libraries/WiMOD/documentation/html/class_wi_m_o_d_l_r_b_a_s_e___p_l_u_s.html
 ```
 
-
 ## Installation de l'IDE Arduino
-TBC
+Installez l'environnement [Arduino IDE](https://www.arduino.cc/en/Main/Software) sur votre machine.
 
-![IDE Gestionnaire de cartes](images/ide_gestionnaire_cartes.png)
+### Ajout des cartes WiMODino
+Ajoutez la description des cartes WiMODino dans Arduino > Préférences... > Paramètres > URL de gestionnaire de cartes supplémentaires avec le lien suivant: 
+https://wireless-solutions.de/downloads/boards-manager/WiMODino/package_imst_de_index.json
 
-* https://www.wireless-solutions.de/download/Evaluation-Tools/WiMODino/WiMOD-ArduinoLib-V1_5_0.zip
+Ajoutez Outils > Type de Cartes > Grestionnaire de Cartes en recherchant les cartes "wimodino" dans la barre de recherche.
 
+### Installation de la library WiMODino
+
+Installez la library WiMODino (requière l'authentification avec un compte) : https://www.wireless-solutions.de/download/Evaluation-Tools/WiMODino/WiMOD-ArduinoLib-V1_5_0.zip
 
 ## Exploration des exemples LR-BASE-PLUS
 
@@ -91,19 +96,103 @@ Examples for the WiMOD LR-BASE-PLUS firmware:
 * LrBasePlusFwInfos: Sketch demonstrating how to get basic information from WiMOD firmware
 * LrBasePlusSimpleChat:Sketch that implements a simple TX/RX application using the WiMOD radio services
 
+## Flashage du sketch LrBasePlusFwInfos
 
-## Flashage du sketch LrBaseSimpleChat
-TBC
+Ouvrez l'exemple LrBasePlusFwInfos dans la liste des exemples `WiMODino > LR-BASE-PLUS > LrBasePlusFwInfos`
 
+Sélectionnez le type de carte `IMST WiMODino (Native USB Port)`
 
-
-## Changement de la configuration radio du sketch LrBaseSimpleChat
-
+Modifiez les deux lignes suivantes:
 
 ```c
+#define WIMOD_IF    SerialWiMOD
+#define PC_IF		SerialUSB
+```
+
+Compilez et chargez le sketch sur la carte branchée
+
+et ouvrez la console configurée en 115200 8N1
+
+La trace suivante est envoyée périodiquement : 
+
+```
+ FirmwareInfos:
+FW-Name:  WiMOD_LR_Base+
+FW-Date:  06.02.2019
+FW-Ver:   2.0
+BuildCnt: 50
+
+
+ RadioConfig:
+GroupAdr:      16 (0x10)
+TxGroupAdr:    16 (0x10)
+DeviceAdr:     4660 (0x1234)
+TxDeviceAdr:   4660 (0x1234)
+Frequency:     (BC|76|27) -> 2449999923 Hz
+Modulation:    0 -> (LoRa)
+LoRa-BW ID:    2 -> (200 kHz)
+LoRa-SF ID:    11 -> (SF11)
+LoRa-EC ID:    1 -> (4/5)
+TxPwrLevel ID: 8 -> (8 dBm)
+TxControl:     0x00 -> (LBT check Off)
+RxControl:     0x01 -> (Receiver Always On)
+RxWindow:      4000 ms 
+LED Control:   0x07  
+Misc-Options:  0x07  
+PwrSave Mode:  0 -> (PwrSaving is Off)  
+LBT Threshold: -70  dBm
+```
+
+## Flashage du sketch LrBasePlusSimpleChat
+
+Ouvrez l'exemple LrBasePlusSimpleChat dans la liste des exemples `WiMODino > LR-BASE-PLUS > LrBasePlusSimpleChat`
+
+Modifiez les deux lignes suivantes:
+
+```c
+#define WIMOD_IF    SerialWiMOD
+#define PC_IF		SerialUSB
+```
+
+Compilez et chargez le sketch sur deux cartes branchées sur deux hôtes différents
+
+et ouvrez la console configurée en 115200 8N1 (ou minicom) sur les hôtes
+
+Entrez les messages `Hello World !` dans le texte de dialogue et envoyez.
+
+```
+==================================================
+This is FileName: LrBasePlusSimpleChat/LrBasePlusSimpleChat.ino
+Starting...
+This simple demo will show 
+how to use the TX and RX features of a WiMOD module
+running a LR-Base Plus Firmware.
+==================================================
+Enter Tx-Message: Starting transmission... 
+RF-Message has been send
+Enter Tx-Message:
+...
+```
+
+La console de la seconde carte recoit le message suivant:
+```
+==================================================
+This is FileName: LrBasePlusSimpleChat/LrBasePlusSimpleChat.ino
+Starting...
+This simple demo will show 
+how to use the TX and RX features of a WiMOD module
+running a LR-Base Plus Firmware.
+==================================================
+Enter Tx-Message: Rx-Message: [13]: 48 65 6C 6C 6F 20 57 6F 72 6C 64 20 21 
+...
+```
+
+## Changement de la configuration radio du sketch LrBasePlusSimpleChat
+
+
+```
 #include <WiMODLR_BASE_PLUS.h>
 // TBC
-
 
 // create a local variable
 TWiMODLR_DevMgmt_RadioConfigPlus radioCfg;
@@ -167,9 +256,9 @@ wimod.StartRadioLinkTest(&params);
 
 ## Journalisation des messages reçus sur une carte microSD
 
-Voir l'exemple Arduino > Fichier > Exemples > SD > DataLogger
+Voir l'exemple `Arduino > Fichier > Exemples > SD > DataLogger`
 
-Les messages journalisés sont du type TWiMODLR_RadioLink_Msg
+Les messages journalisés sont du type `TWiMODLR_RadioLink_Msg`
 
 Vous pouvez utiliser un module GNSS GPS pour récupérer la position courante et journaliser celle-ci avec le message reçu.
 

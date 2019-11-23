@@ -10,7 +10,7 @@ LoRa (Long Range) est une modulation radio basse consommation d'énergie et trè
 
 Brévétée par la société Semtech, LoRa est modulée/démodulée par les composants SX127x pour les bandes de fréquence SubGHz.
 
-Le composant Semtech SX1280 module/demodule sur la bande SRD 2.4 GHz. 
+Le composant [Semtech SX1280](https://www.semtech.com/products/wireless-rf/24-ghz-transceivers/SX1280) module/demodule sur la bande SRD 2.4 GHz. 
 
 ## Carte d'évaluation IMST WimoDino iM282A-L
 
@@ -192,7 +192,7 @@ Enter Tx-Message: Rx-Message: [13]: 48 65 6C 6C 6F 20 57 6F 72 6C 64 20 21
 ## Envoi périodique d'un message
 
 Sauvegardez l'exemple `LrBasePlusSimpleChat` dans un nouveau sketch `LrBasePlusPeriodicPing`
-et modifiez la fonction `debugReadData` avec les lignes suivantes:
+et modifiez les fonctions `debugReadData` et `onRxData` avec les lignes suivantes:
 
 ```c
 /*****************************************************************************
@@ -222,10 +222,49 @@ void periodicPing()
 void debugReadData() {
   periodicPing();
 }
+
+/*****************************************************************************
+ * Callback function for processing incomming RF messages
+ ****************************************************************************/
+
+void onRxData(TWiMODLR_HCIMessage& rxMsg) {
+    int i;
+
+    // convert/copy the raw message to RX radio buffer
+    wimod.convert(rxMsg, &radioRxMsg);
+
+    // print out the received message as hex string
+    if (radioRxMsg.Length > 0) {
+        // print out the length
+        debugMsg(F("\nRx-Message: ["));
+        debugMsg(radioRxMsg.Length);
+        debugMsg(F("]: "));
+
+        // print out the payload
+        for (i = 0; i < radioRxMsg.Length; i++) {
+            debugMsgHex(radioRxMsg.Payload[i]);
+            debugMsg(F(" "));
+        }
+
+        debugMsg(F(", Opt="));
+        debugMsg(radioRxMsg.OptionalInfoAvaiable);
+        debugMsg(F(", RSSI="));
+        debugMsg(radioRxMsg.RSSI);
+        debugMsg(F(", SNR="));
+        debugMsg(radioRxMsg.SNR);
+        debugMsg(F(", RxTime="));
+        debugMsg(radioRxMsg.RxTime);
+        debugMsg(F(", MIC="));
+        debugMsg(radioRxMsg.MIC);
+
+        debugMsg(F("\n"));
+
+    }
+}
 ```
 Compilez et flashez sur la carte 1.
 
-Eloignez vous avec l'autre carte branchée sur votre PC portable pour constater les pertes de messages.
+Eloignez vous avec l'autre carte (n°2) branchée sur votre PC portable pour constater les pertes de messages.
 
 ## Changement de la configuration radio du sketch LrBasePlusSimpleChat
 
@@ -269,7 +308,6 @@ if (wimod.SetAesKey(AesKey)) {
 ...
 ```
 
-
 ## Sketch Radio Link Test
 
 The firmware has got a feature called "Radio Link Test". This feauture can be used to test the radio link between two devices.
@@ -303,6 +341,7 @@ Les messages journalisés sont du type `TWiMODLR_RadioLink_Msg`
 Vous pouvez utiliser un module GNSS GPS pour récupérer la position courante et journaliser celle-ci avec le message reçu.
 
 ## Annexes
+* [SX1280 LoRa Calculator: fast evaluation of link budget and time on air](https://os.mbed.com/media/uploads/GregCr/sx1280calculator_setup.zip)
 * [Vidéos](https://www.youtube.com/channel/UCQYAj7hYbkZZIRJgE2akBHg)
 * [iM282A Range Test](https://wireless-solutions.de/downloads/Radio-Modules/iM282A/General_Information/iM282A_AN023_RangeTest_V1_0.pdf)
 

@@ -108,6 +108,9 @@ MQTTUSER=org-$ORGID # le username de votre ORGANISATION (ce n’est pas le usern
 MQTTPASSWORD=__SUPER_SECRET_TO_CHANGE__ # le mot de passe de votre ORGANISATION (ce n’est pas le username de votre compte utilisateur)
 TLS="--cafile ca.crt -p 8883"
 
+# pour la souscription sans chiffrage de la connexion MQTT
+#TLS=""
+
 # Receive applications messages
 mosquitto_sub -h $BROKER -t "application/#" -u $MQTTUSER -P $MQTTPASSWORD -v  $TLS
 

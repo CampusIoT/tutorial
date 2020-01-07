@@ -157,6 +157,9 @@ mac tx uncnf 1 0102034
 ## Remarque:
 Le modem RN2483 est utilisé pour le [Field Tester](https://github.com/CampusIoT/lora-field-tester) de CampusIoT.
 
+## Mise à jour du firmware du RN2483
+Les anciennes versions du firmware des modules RN2483 doivent être mises à jour en suivant la [procédure suivante via l'UART](https://www.pocketmagic.net/rn2483-rn2903-firmware-upgrade-guide/).
+
 ## Gallerie
 ![RN2483 Android Serial Term](./RN2483_Android_Serial_Term.jpg)
 

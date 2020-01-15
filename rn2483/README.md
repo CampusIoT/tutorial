@@ -160,6 +160,10 @@ Le modem RN2483 est utilisé pour le [Field Tester](https://github.com/CampusIoT
 ## Mise à jour du firmware du RN2483
 Les anciennes versions du firmware des modules RN2483 doivent être mises à jour en suivant la [procédure suivante via l'UART](https://www.pocketmagic.net/rn2483-rn2903-firmware-upgrade-guide/).
 
+## Libraries Arduino pour le RN2483
+* https://github.com/Libelium/waspmoteapi/tree/master/libraries/LoRaWAN
+* https://github.com/SodaqMoja/Sodaq_RN2483/tree/master/src 
+
 ## Gallerie
 ![RN2483 Android Serial Term](./RN2483_Android_Serial_Term.jpg)
 

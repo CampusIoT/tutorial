@@ -2,7 +2,38 @@
 
 Exceptés quelques outils spécifiques à OSX, ce tutoriel est valable pour les autres systèmes d'exploitation. 
 
-## Environnement de développement sous OSX pour IM880a
+## Module IMST iM880a
+
+Le module [IMST iM880a](https://wireless-solutions.de/products/discontinued-products/im880a.html) est un module comporte un transceiver LoRa (Semtech SX1272) et et un MCU hôte STM32L1
+
+Il a été utilisé pour les premiers démonstrateurs de endpoints LoRaWAN avec la bibliothèque [LoRaMac-node](https://github.com/Lora-net/LoRaMac-node).
+
+Il est remplacé par le module [IMST iM880b](https://wireless-solutions.de/products/radiomodules/im880b-l).
+
+Ces caractéristiques sont:
+    Frequency range: 	    SRD Band 863 to 870 MHz
+    Modulation: 	        LoRa® Spread-Spectrum
+    RF output power: 	    up to +19 dBm (50Ω pad)
+    Receiver sensitivity: 	-137 dBm (SF 12;  SB 125 kHz, CR 4/6)
+                            -134 dBm (SF 12;  SB 250 kHz, CR 4/6)
+                            -128 dBm (SF 12;  SB 500 kHz, CR 4/6)
+    RF datarate: 	        0.24 to 37.5  kbps
+    RF range: 	            up to 15000 m (line of sight)
+    Operating voltage: 	    2.4 V to 3.6 V
+    Current consumption: 	< 2.5 μA (Trx sleep, RTC running)
+                            11 mA (Rx)
+                            118 mA (Tx @ 3.0 V/ +19 dBm)
+    Interfaces: 	        UART
+                            SPI
+                            I²C
+                            RF (LoRa®)
+    IO's: 	                Digital IOs
+                            Analog Inputs
+    Dimension (LxWxH): 	    20 x 25 x 2 mm
+    Operating temperature: 	-20°C to +70°C
+    Certification: 	        Prequalified according to ETSI EN 300 220
+
+## Environnement de développement sous OSX pour iM880a
 
 Il faut tout d'abord installer les outils de compilation (cmake, arm-none-eabi-gcc) 
 et de flashage (openocd ou stlink). 
@@ -73,8 +104,10 @@ Si le flashage ne marche pas, mieux vaut utiliser openocd pour débugger car il 
 
 ## LoRaMac-node + cartes à base d'iM880
 
-Si on part sur des cartes plus brutes (sans GPS, sans LED, ...) intégrant le module radio iM880a, on peut avoir des 
-carte plus compacte avec ses ports GPIO permettant un accès simplifié aux entrées/sorties du module iM880a. 
+Si on part sur des cartes plus brutes (sans GPS, sans LED, ...) intégrant le module radio iM880a, on peut avoir des cartes plus compactes avec ses ports GPIO permettant un accès simplifié aux entrées/sorties du module iM880a. 
+
+![Board iM880a + DS75LX Temperature Sensor](./figs/im880a-ds75lx.jpg)  
+
 Les instructions ci-dessous se veulent le plus générique possible. 
 
 Imaginons une carte nécessitant pour la flasher de : 

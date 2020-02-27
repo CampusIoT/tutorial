@@ -15,3 +15,13 @@ wget -q -O - 'https://www.thethingsnetwork.org/gateway-data/' | jq --unbuffered
 GWEUI=0000024b08123456
 wget -q -O - http://noc.thethingsnetwork.org:8085/api/v2/gateways/eui-$GWEUI | jq --unbuffered 
 ```
+
+## Affichage des gateways
+
+```bash
+wget -q -O - 'https://www.thethingsnetwork.org/gateway-data/country/fr' | jq --unbuffered | node gateways2geojson.js > gateways_france.geojson
+```
+
+Visualisez le fichier gateways_france.geojson en l'ouvrant dans http://geojson.io
+
+![TTN gateways in France](gateways_france.png)

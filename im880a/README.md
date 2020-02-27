@@ -11,6 +11,7 @@ Il a été utilisé pour les premiers démonstrateurs de endpoints LoRaWAN avec 
 Il est remplacé par le module [IMST iM880b](https://wireless-solutions.de/products/radiomodules/im880b-l).
 
 Ces caractéristiques sont:
+
     Frequency range: 	    SRD Band 863 to 870 MHz
     Modulation: 	        LoRa® Spread-Spectrum
     RF output power: 	    up to +19 dBm (50Ω pad)

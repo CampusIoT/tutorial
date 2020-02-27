@@ -1,5 +1,10 @@
 # CampusIoT :: Tutoriel TTN
 
+## Bridge CampusIoT vers TTN
+Ce simple bridge renvoie les messages de endpoints enregistrés sur TTN recus par des gateways de CampusIoT (chirpstack) vers TTN.
+
+Dépôt : https://github.com/campus-iot/ttn-bridge
+
 ## API non documentée
 ```bash
 # query all gateways 50km around LIG 45.1902768,5.765897

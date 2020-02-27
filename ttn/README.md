@@ -1,5 +1,7 @@
 # CampusIoT :: Tutoriel TTN
 
+Ce dossier regroupe quels outils pour l'utilisation de TTN.
+
 ## Bridge CampusIoT vers TTN
 Ce simple bridge renvoie les messages de endpoints enregistrés sur TTN recus par des gateways de CampusIoT (chirpstack) vers TTN.
 

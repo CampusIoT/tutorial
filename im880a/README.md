@@ -6,7 +6,7 @@ Exceptés quelques outils spécifiques à OSX, ce tutoriel est valable pour les 
 
 Le module [IMST iM880a](https://wireless-solutions.de/products/discontinued-products/im880a.html) est un module comporte un transceiver LoRa (Semtech SX1272) et et un MCU hôte STM32L1
 
-Il a été utilisé pour les premiers démonstrateurs de endpoints LoRaWAN avec la bibliothèque [LoRaMac-node](https://github.com/Lora-net/LoRaMac-node).
+Il a été utilisé pour les premiers démonstrateurs de endpoints LoRaWAN avec la bibliothèque [LoRaMac-node](https://github.com/Lora-net/LoRaMac-node). Le support de ce module a été arrêté à la release 2019-07-19, V4.4.2.
 
 Il est remplacé par le module [IMST iM880b](https://wireless-solutions.de/products/radiomodules/im880b-l).
 

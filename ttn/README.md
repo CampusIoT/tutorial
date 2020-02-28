@@ -7,7 +7,7 @@ Ce simple bridge renvoie les messages de endpoints enregistrés sur TTN recus pa
 
 Dépôt : https://github.com/campus-iot/ttn-bridge
 
-## API non documentée
+## API TTN non documentée
 ```bash
 # query all gateways 50km around LIG 45.1902768,5.765897
 wget -q -O - 'https://www.thethingsnetwork.org/gateway-data/location?latitude=45.1902768&longitude=5.765897&distance=50000' | jq --unbuffered 
@@ -23,7 +23,7 @@ GWEUI=0000024b08123456
 wget -q -O - http://noc.thethingsnetwork.org:8085/api/v2/gateways/eui-$GWEUI | jq --unbuffered 
 ```
 
-## Affichage des gateways
+### Affichage des gateways TTN d'une région
 
 ```bash
 wget -q -O - 'https://www.thethingsnetwork.org/gateway-data/country/fr' | jq --unbuffered | node gateways2geojson.js > gateways_france.geojson
@@ -32,3 +32,12 @@ wget -q -O - 'https://www.thethingsnetwork.org/gateway-data/country/fr' | jq --u
 Visualisez le fichier gateways_france.geojson en l'ouvrant dans http://geojson.io
 
 ![TTN gateways in France](gateways_france.png)
+
+## TTN Mapper
+TODO
+
+References:
+* https://www.thethingsnetwork.org/labs/story/payload-decoder-for-adeunis-field-test-device-ttn-mapper-integration
+* https://ttnmapper.org/
+
+

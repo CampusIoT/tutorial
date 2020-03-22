@@ -65,7 +65,7 @@ docker rm -f campusiot-nodered
 
 ```bash
 git clone https://github.com/CampusIoT/tutorial.git
-cd nodered/tuto-nodered
+cd tutorial/nodered/tuto-nodered
 docker-compose up -d
 docker-compose ps
 docker-compose logs -f

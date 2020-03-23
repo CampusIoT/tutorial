@@ -1,0 +1,166 @@
+openapi: 3.0.1
+info:
+  title: LoRaCloud API
+  description: LoRaCloud API
+  version: "3"
+servers:
+- url: https://gls.loracloud.com/api/v3/solve
+tags:
+- name: location
+  description: Location Resource
+paths:
+  /singleframe:
+    post:
+      tags:
+      - location
+      summary: Allows bundling of multiple single-frame requests into one HTTP request.
+        The HTTP request carries an array of frame instances where the service returns
+        a location estimate for each frame. If no location estimation can be calculated
+        for that frame, a null value is returned. A location estimate is computed
+        for each frame supplied in the array of frames. The frames can be from a single
+        device in multiple locations or from multiple devices.
+      externalDocs:
+        description: Official API description.
+        url: https://www.loracloud.com/documentation/geolocation?url=v3.html#single-frame-http-request
+      operationId: singleframe
+      parameters:
+      - name: Ocp-Apim-Subscription-Key
+        in: header
+        required: true
+        schema:
+          type: string
+      requestBody:
+        description: The location data.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Data'
+        required: true
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LocationSolverResult'
+        401:
+          description: Unauthorized – Authentication failed
+          content: {}
+        429:
+          description: Too Many Requests – Rate limit exceeded
+          content: {}
+      deprecated: false
+      x-codegen-request-body-name: data
+components:
+  schemas:
+    Data:
+      required:
+      - frame
+      - gateways
+      type: object
+      properties:
+        gateways:
+          minItems: 1
+          type: array
+          items:
+            $ref: '#/components/schemas/Gateway'
+        frame:
+          $ref: '#/components/schemas/Frame'
+        params:
+          $ref: '#/components/schemas/Parameters'
+    Gateway:
+      required:
+      - altitude
+      - gatewayId
+      - latitude
+      - longitude
+      type: object
+      properties:
+        gatewayId:
+          type: string
+          description: the gateway ID
+        latitude:
+          maximum: 90
+          minimum: -90
+          type: number
+          description: the latitude of the gateway
+        longitude:
+          maximum: 180
+          minimum: -180
+          type: number
+          description: the longitude of the gateway
+        altitude:
+          type: integer
+          description: the altitude of the gateway
+    Frame:
+      type: array
+      items:
+        $ref: '#/components/schemas/Uplink'
+    Uplink:
+      maxItems: 5
+      minItems: 5
+      type: array
+      items:
+        - object
+    Parameters:
+      required:
+      - doRssiTdoaCombine
+      - locAlgType
+      type: object
+      properties:
+        locAlgType:
+          type: string
+          enum:
+          - TDOA_ALG
+          - RSSI_ALG
+        doRssiTdoaCombine:
+          type: boolean
+    LocationSolverResult:
+      required:
+      - HDOP
+      - algorithmType
+      - locationEst
+      - numUsedGateways
+      type: object
+      properties:
+        numUsedGateways:
+          minimum: 1
+          type: integer
+          description: Number of contributing gateways
+        HDOP:
+          type: number
+          description: Horizontal dilution of precision. This value gives a measure
+            of how well the number and relative positions of the gateways contribute
+            to an accurate location estimatE. The expected values range from 0.5 to
+            35. Smaller HDOP values typically suggest better location estimates. If
+            HDOP is not available, this field is set to null.
+        algorithmType:
+          type: string
+          description: Only to be evaluated by clients if the value is one of the
+            following
+          enum:
+          - Tdoa
+          - Rssi
+          - RssiTdoaCombined
+        locationEst:
+          required:
+          - latitude
+          - longitude
+          - toleranceHoriz
+          type: object
+          properties:
+            latitude:
+              maximum: 9E+1
+              minimum: -9E+1
+              type: number
+              description: Latitude
+            longitude:
+              maximum: 1.8E+2
+              minimum: -1.8E+2
+              type: number
+              description: Longitude
+            toleranceHoriz:
+              type: integer
+              description: Error estimate for latitude and longitude (in meters).
+          description: Stores the estimated location and estimated inaccuracy in an
+            object with the following fields

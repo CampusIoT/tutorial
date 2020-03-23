@@ -1,3 +1,6 @@
+# This OpenAPI specification describes some operations of the LoRaCloud REST API.
+# Author: Didier DONSEZ
+
 openapi: 3.0.1
 info:
   title: LoRaCloud API

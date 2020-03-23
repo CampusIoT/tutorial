@@ -39,7 +39,7 @@ Les caractéristiques de ce module sont :
     * 25 mA (Tx @ 3.0 V/ +8 dBm, MCU sleep)
 
 ### Carte compatible-Arduino WiMODino iM282A-L
-La société IMST commercialise une carte d'évaluation compatible Arduino WiMODino comportant le module iM282A-L flashé avec un firmware modem d'API LR-Base Plus.
+La société IMST commercialise une [carte d'évaluation compatible Arduino WiMODino comportant le module iM282A-L](https://shop.imst.de/wireless-modules/lora-products/57/wimodino-im282a-lr-base-plus) flashé avec un firmware modem d'API LR-Base Plus.
 
 ![WimoDino](images/wimodino_pinout.png)
 

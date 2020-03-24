@@ -75,3 +75,5 @@ node res2geojson.js multiframes.json multiframes.result.json > multiframes.geojs
 ```
 
 Ouvrez le fichier [multiframes.geojson](./multiframes.geojson) avec http://geojson.io
+
+![multiframes.result.png](multiframes.result.png)

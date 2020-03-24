@@ -344,6 +344,15 @@ Vous pouvez utiliser un module GNSS GPS pour récupérer la position courante et
 
 Le wimodino a un MCU ATSAMD21J18 https://shop.imst.de/media/pdf/b4/50/b8/WiMODino_Datasheet_V1-0.pdf 
 
+      Microcontroller         ATSAMD21J18, 64 pin QFN
+      Architecture            ARM Cortex-M0+
+      Operating Value         3.3V
+      Flash memory            256KB
+      SRAM                    32kB
+      Clock Speed             48MHz
+      Compatibility Arduino   M0 / M0 Pro
+
+
 ATSAMD21J18A est supporté par RIOT OS https://doc.riot-os.org/group__boards__samd21-xpro.html
 
 ATSAMD21G18A est supporté par RIOT OS https://doc.riot-os.org/group__boards__arduino-zero.html

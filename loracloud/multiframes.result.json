@@ -1,0 +1,22 @@
+{
+	"result": [{
+		"numUsedGateways": 5,
+		"HDOP": 1.0,
+		"locationEst": {
+			"latitude": 46.987555,
+			"longitude": 6.9027,
+			"toleranceHoriz": 75
+		},
+		"algorithmType": "Tdoa"
+	}, {
+		"numUsedGateways": 5,
+		"HDOP": 1.0,
+		"locationEst": {
+			"latitude": 46.987555,
+			"longitude": 6.9027,
+			"toleranceHoriz": 75
+		},
+		"algorithmType": "Tdoa"
+	}],
+	"warnings": []
+}

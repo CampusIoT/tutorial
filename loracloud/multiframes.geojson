@@ -1,0 +1,485 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "marker-color": "#0432ff",
+        "marker-size": "medium",
+        "marker-symbol": "circle",
+        "gatewayId": "00-00-E4-77-6B-00-1B-DF",
+        "altitude": 446
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.99207,
+          47.01267
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "marker-color": "#0432ff",
+        "marker-size": "medium",
+        "marker-symbol": "circle",
+        "gatewayId": "00-00-E4-77-6B-00-1B-C9",
+        "altitude": 457
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.966399,
+          47.006389
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "marker-color": "#0432ff",
+        "marker-size": "medium",
+        "marker-symbol": "circle",
+        "gatewayId": "00-00-E4-77-6B-00-1B-63",
+        "altitude": 500
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.96084,
+          47.0077
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "marker-color": "#0432ff",
+        "marker-size": "medium",
+        "marker-symbol": "circle",
+        "gatewayId": "00-00-E4-77-6B-00-1B-D5",
+        "altitude": 500
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.94922,
+          46.9984
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "marker-color": "#0432ff",
+        "marker-size": "medium",
+        "marker-symbol": "circle",
+        "gatewayId": "00-00-E4-77-6B-00-1B-0B",
+        "altitude": 494
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.94109,
+          46.99849
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "marker-color": "#0432ff",
+        "marker-size": "medium",
+        "marker-symbol": "circle",
+        "gatewayId": "00-00-E4-77-6B-00-1B-67",
+        "altitude": 470
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.930833,
+          46.993333
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "marker-color": "#0432ff",
+        "marker-size": "medium",
+        "marker-symbol": "circle",
+        "gatewayId": "00-00-E4-77-6B-00-1B-B3",
+        "altitude": 603
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.92377,
+          47.0008
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "marker-color": "#0432ff",
+        "marker-size": "medium",
+        "marker-symbol": "circle",
+        "gatewayId": "00-00-E4-77-6B-00-1A-5D",
+        "altitude": 513
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.91287,
+          46.98886
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "marker-color": "#0432ff",
+        "marker-size": "medium",
+        "marker-symbol": "circle",
+        "gatewayId": "00-00-E4-77-6B-00-1B-CF",
+        "altitude": 455
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.89868,
+          46.98032
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "marker-color": "#0432ff",
+        "marker-size": "medium",
+        "marker-symbol": "circle",
+        "gatewayId": "00-00-E4-77-6B-00-1B-E7",
+        "altitude": 552
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.893333,
+          46.98799
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "marker-color": "#0432ff",
+        "marker-size": "medium",
+        "marker-symbol": "circle",
+        "gatewayId": "00-00-E4-77-6B-00-1A-97",
+        "altitude": 479
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.906008,
+          46.983753
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "marker-color": "#0432ff",
+        "marker-size": "medium",
+        "marker-symbol": "circle",
+        "gatewayId": "72-76-ff-ff-fe-01-7f-fe",
+        "altitude": 457
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.966399,
+          47.006389
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "marker-color": "#0432ff",
+        "marker-size": "medium",
+        "marker-symbol": "circle",
+        "gatewayId": "72-76-ff-ff-fe-01-7f-7a",
+        "altitude": 470
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.930833,
+          46.993333
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "marker-color": "#0432ff",
+        "marker-size": "medium",
+        "marker-symbol": "circle",
+        "gatewayId": "72-76-ff-ff-fe-01-7f-9a",
+        "altitude": 603
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.92377,
+          47.0008
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "marker-color": "#0432ff",
+        "marker-size": "medium",
+        "marker-symbol": "circle",
+        "gatewayId": "72-76-ff-ff-fe-01-7f-cb",
+        "altitude": 513
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.91287,
+          46.98886
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "marker-color": "#0432ff",
+        "marker-size": "medium",
+        "marker-symbol": "circle",
+        "gatewayId": "72-76-ff-ff-fe-01-7f-1e",
+        "altitude": 455
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.89868,
+          46.98032
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "marker-color": "#0432ff",
+        "marker-size": "medium",
+        "marker-symbol": "circle",
+        "gatewayId": "72-76-ff-ff-fe-01-7f-d9",
+        "altitude": 552
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.893333,
+          46.98799
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "marker-color": "#0432ff",
+        "marker-size": "medium",
+        "marker-symbol": "circle",
+        "gatewayId": "72-76-ff-ff-fe-01-01-70",
+        "altitude": 479
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.906008,
+          46.983753
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "marker-color": "#0432ff",
+        "marker-size": "medium",
+        "marker-symbol": "circle",
+        "gatewayId": "E4-77-6B-FF-FF-00-1B-D1",
+        "altitude": 100
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.8638,
+          45.24435
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "marker-color": "#0432ff",
+        "marker-size": "medium",
+        "marker-symbol": "circle",
+        "gatewayId": "E4-77-6B-FF-FF-00-1B-EB",
+        "altitude": 100
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.86821,
+          45.24672
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "marker-color": "#0432ff",
+        "marker-size": "medium",
+        "marker-symbol": "circle",
+        "gatewayId": "E4-77-6B-FF-FF-00-1B-CD",
+        "altitude": 100
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.8736,
+          45.24155
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "marker-color": "#0432ff",
+        "marker-size": "medium",
+        "marker-symbol": "circle",
+        "gatewayId": "E4-77-6B-FF-FF-00-0F-2F",
+        "altitude": 100
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.86819,
+          45.2392
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "marker-color": "#0432ff",
+        "marker-size": "medium",
+        "marker-symbol": "circle",
+        "gatewayId": "72-76-ff-ff-fe-01-79-e8",
+        "altitude": 1242
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          38.136771,
+          -4.067502
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "marker-color": "#0432ff",
+        "marker-size": "medium",
+        "marker-symbol": "circle",
+        "gatewayId": "72-76-ff-ff-fe-01-7a-03",
+        "altitude": 915
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          38.106914,
+          -4.052783
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "marker-color": "#0432ff",
+        "marker-size": "medium",
+        "marker-symbol": "circle",
+        "gatewayId": "72-76-ff-ff-fe-01-7a-6d",
+        "altitude": 1114
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          38.169315,
+          -4.118728
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "marker-color": "#0432ff",
+        "marker-size": "medium",
+        "marker-symbol": "circle",
+        "gatewayId": "72-76-ff-ff-fe-01-79-e2",
+        "altitude": 1358
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          38.078576,
+          -4.104836
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "marker-color": "#ff2600",
+        "marker-size": "medium",
+        "marker-symbol": "",
+        "numUsedGateways": 5,
+        "toleranceHoriz": 75,
+        "HDOP": 1,
+        "algorithmType": "Tdoa"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.9027,
+          46.987555
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "marker-color": "#ff2600",
+        "marker-size": "medium",
+        "marker-symbol": "",
+        "numUsedGateways": 5,
+        "toleranceHoriz": 75,
+        "HDOP": 1,
+        "algorithmType": "Tdoa"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.9027,
+          46.987555
+        ]
+      }
+    }
+  ]
+}

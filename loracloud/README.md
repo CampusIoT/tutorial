@@ -17,7 +17,8 @@ Créez un Token pour l'utilisation de l'API https://www.loracloud.com/portal/geo
 Testez les scripts suivants en utilisant le Token créé.
 
 ```bash
-./singleframe.sh
+./singleframe.sh > singleframe.result.json
+cat singleframe.result.json
 ```
 
 ```json
@@ -37,7 +38,8 @@ Testez les scripts suivants en utilisant le Token créé.
 ```
 
 ```bash
-./multiframes.sh
+./multiframes.sh > multiframes.result.json
+cat multiframes.result.json
 ```
 
 ```json
@@ -68,6 +70,8 @@ Testez les scripts suivants en utilisant le Token créé.
 
 ## Visualisation du résultat en GeoJSON
 
-TODO
+```bash
+node res2geojson.js multiframes.json multiframes.result.json > multiframes.geojson
+```
 
-Ouvrez le fichier result.geojson avec http://geojson.io
+Ouvrez le fichier [multiframes.geojson](./multiframes.geojson) avec http://geojson.io

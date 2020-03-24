@@ -340,6 +340,15 @@ Les messages journalisés sont du type `TWiMODLR_RadioLink_Msg`
 
 Vous pouvez utiliser un module GNSS GPS pour récupérer la position courante et journaliser celle-ci avec le message reçu.
 
+## RIOT OS
+
+Le wimodino a un MCU ATSAMD21J18 https://shop.imst.de/media/pdf/b4/50/b8/WiMODino_Datasheet_V1-0.pdf 
+
+ATSAMD21J18A est supporté par RIOT OS https://doc.riot-os.org/group__boards__samd21-xpro.html
+
+ATSAMD21G18A est supporté par RIOT OS https://doc.riot-os.org/group__boards__arduino-zero.html
+
+
 ## Annexes
 * [SX1280 LoRa Calculator: fast evaluation of link budget and time on air](https://os.mbed.com/media/uploads/GregCr/sx1280calculator_setup.zip)
 * [Vidéos](https://www.youtube.com/channel/UCQYAj7hYbkZZIRJgE2akBHg)

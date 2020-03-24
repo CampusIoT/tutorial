@@ -355,7 +355,7 @@ Le wimodino a un MCU ATSAMD21J18 https://shop.imst.de/media/pdf/b4/50/b8/WiMODin
 
 ATSAMD21J18A est supporté par RIOT OS https://doc.riot-os.org/group__boards__samd21-xpro.html
 
-ATSAMD21G18A est supporté par RIOT OS https://doc.riot-os.org/group__boards__arduino-zero.html
+ATSAMD21G18A est supporté par RIOT OS https://doc.riot-os.org/group__boards__arduino-zero.html et https://doc.riot-os.org/group__boards__feather-m0.html
 
 
 ## Annexes

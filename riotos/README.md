@@ -88,6 +88,11 @@ TODO
 
 RIOT supporte les cartes [Feather d'Adafruit](https://github.com/RIOT-OS/RIOT/tree/master/boards/feather-m0).
 
+## Cartes STM32 Nucleo et Discovery
+
+RIOT supporte beaucoup de cartes [STM32 Nucleo et Discovery](https://github.com/CampusIoT/stm32-riotos-demos/blob/master/boards.md).
+
+
 # References
 * https://github.com/RIOT-OS/RIOT/tree/master/examples/lorawan
 * https://github.com/aabadie/riot-course

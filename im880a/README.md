@@ -37,7 +37,7 @@ Ces caractéristiques sont:
 Nous disposons au fablab de plusieurs cartes de démonstration et de prototypage à base d'iM880a
 
 * [LoRaMote]() : traqueur GPS LoRa
-* [SK-iM880a]() : kit d'évaluation et de prototypage du module iM880a
+* [SK-iM880a](https://wireless-solutions.de/products/starterkits/sk-im880b.html) : kit d'évaluation et de prototypage du module iM880a
 * IMST-iM880a-DS75LX : carte simple muni d'un capteur de temperature DS75LX
 
 ![LoRaMote+st-linkv2](./figs/LoRaMote+st-linkv2.png)  
@@ -46,7 +46,7 @@ Nous disposons au fablab de plusieurs cartes de démonstration et de prototypage
 ![IMST-iM880a-DS75LX](./figs/im880a-ds75lx.jpg)  
 **Fig. 2: IMST-iM880a-DS75LX**
 
-TODO
+![SK-iM880a](./figs/sk-im880a.jpg)  
 **Fig. 3: SK-iM880a**
 
 ## Les codes sources disponibles

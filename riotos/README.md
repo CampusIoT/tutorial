@@ -1,10 +1,5 @@
 # CampusIoT :: Riot OS :: Tutoriel
 
-* https://github.com/RIOT-OS/RIOT/tree/master/examples/lorawan
-* https://github.com/aabadie/riot-course
-* https://wireless-solutions.de/products/radiomodules/im880b-l
-* https://github.com/fjmolinas/RIOT/tree/im880b_loramac
-
 ## Installation de RIOT OS
 TODO
 
@@ -52,6 +47,12 @@ TODO
 
 
 
+
+# References
+* https://github.com/RIOT-OS/RIOT/tree/master/examples/lorawan
+* https://github.com/aabadie/riot-course
+* https://wireless-solutions.de/products/radiomodules/im880b-l
+* https://github.com/fjmolinas/RIOT/tree/im880b_loramac
 
 
 

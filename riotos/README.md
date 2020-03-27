@@ -136,52 +136,13 @@ ls -al /dev/tty.*
 minicom -s
 ```
 
-## Cartes STM32 Nucleo et Carte fille LoRa SX1272MB2xAS
+## Cartes STM32 Nucleo et Carte fille Semtech LoRa SX127xMB
 
-* [SX1272MB2xAS)](https://os.mbed.com/components/SX1272MB2xAS/)
+Deux cartes d'évaluation des transceivers LoRa SX1272 et SX1276 sont proposées par Semtech :
+* [SX1272MB2xAS](https://os.mbed.com/components/SX1272MB2xAS/)
 * [SX1276MB1xAS](https://os.mbed.com/components/SX1276MB1xAS/)
 
-### LoRa
-
-Plugin the Nucleo LRWAN1 kit : Nucleo L073RZ + [SX1272MB2xAS)](https://os.mbed.com/components/SX1272MB2xAS/) with the USB cable.
-
-Build and flash
-```bash
-make BOARD=nucleo-l073rz DRIVER=sx1272 -C tests/driver_sx127x flash
-```
-Open serial terminal (115200 8N1 No Hardware Flow Control, No Software Flow Control)
-```bash
-ls -al /dev/tty.*
-minicom -s
-```
-
-Enter the command lines:
-```
-help
-setup
-setup 125 7 5
-syncword get
-syncword set 34
-channel get
-channel set 868100000
-send Hello_World
-```
-
-Sniff the output of a LoRa gateway
-```
-1585324959114,MSG,gateway/0016c00100002123/rx,{"rxInfo":{"mac":"0016c00100002123","timestamp":1222392710,"frequency":868100000,"channel":0,"rfChain":1,"crcStatus":1,"codeRate":"4/5","rssi":-66,"loRaSNR":13.8,"size":6,"dataRate":{"modulation":"LORA","spreadFactor":7,"bandwidth":125},"board":0,"antenna":0},"phyPayload":"SGVsbG9fV29ybGQA"}
-```
-
-Decode the phyPayload properties
-```bash
-echo SGVsbG9fV29ybGQA | base64 -d
-```
-Result is :
-```
-Hello_World
-```
-
-### LoRa
+### Simple LoRa Shell
 
 Plugin the Nucleo LRWAN1 kit : Nucleo L073RZ + [SX1272MB2xAS)](https://os.mbed.com/components/SX1272MB2xAS/) with the USB cable.
 
@@ -222,7 +183,8 @@ Hello_World
 ```
 
 
-### LoRaWAN
+
+### Simple LoRaWAN Shell
 
 Plugin the Nucleo LRWAN1 kit : Nucleo L073RZ + [SX1272MB2xAS)](https://os.mbed.com/components/SX1272MB2xAS/) with the USB cable.
 
@@ -257,6 +219,8 @@ loramac set adr on
 loramac save
 
 loramac join otaa
+# Blocage du programme !
+
 loramac tx Hello
 ```
 
@@ -276,21 +240,23 @@ loramac save
 loramac join abp
 
 loramac tx Hello
+# Blocage du programme !
+
 ```
 
 
 Register the endpoint on a network server (TTN, CampusIoT, Orange LiveObject) with an ABP device profile
 
-#### LoRaWAN simple program with SX1272MB2xAS
+#### LoRaWAN simple program
 
 Plugin the Nucleo LRWAN1 kit : Nucleo L073RZ + [SX1272MB2xAS)](https://os.mbed.com/components/SX1272MB2xAS/) with the USB cable.
 
 Set the DevEUI, AppEUI and AppKey into `~/github/RIOT-OS/riot-course/exercises/riot-lorawan/simple/.solution/main.c`
 ```
 /* Device and application informations required for OTAA activation */
-static const uint8_t deveui[LORAMAC_DEVEUI_LEN] = { 0xca, 0xfe, 0xba, 0xbe, 0x12, 0x34, 0x56, 0x78 };
-static const uint8_t appeui[LORAMAC_APPEUI_LEN] = { 0xca, 0xfe, 0xba, 0xbe, 0xff, 0xff, 0xff, 0xff };
-static const uint8_t appkey[LORAMAC_APPKEY_LEN] = { 0xca, 0xfe, 0xba, 0xbe, 0x12, 0x34, 0x56, 0x78, 0xca, 0xfe, 0xba, 0xbe, 0x12, 0x34, 0x56, 0x78 };
+static const uint8_t deveui[LORAMAC_DEVEUI_LEN] = { 0xca, 0xfe, 0xba, 0xbe, 0x12, 0x72, 0x00, 0x01 };
+static const uint8_t appeui[LORAMAC_APPEUI_LEN] = { 0xca, 0xfe, 0xba, 0xbe, 0x12, 0xff, 0xff, 0xff };
+static const uint8_t appkey[LORAMAC_APPKEY_LEN] = { 0xca, 0xfe, 0xba, 0xbe, 0x12, 0x72, 0x00, 0x01, 0xca, 0xfe, 0xba, 0xbe, 0x12, 0x72, 0x00, 0x01 };
 ```
 
 Build and flash
@@ -304,10 +270,18 @@ minicom -s
 ```
 
 #### LoRaWAN simple program
-* [SX1276MB1xAS](https://os.mbed.com/components/SX1276MB1xAS/)
 
-Plugin the Nucleo F411RE + [SX1276MB1xAS](https://os.mbed.com/components/SX1276MB1xAS/)
+Plugin the second kit : Nucleo F411RE + [SX1276MB1xAS](https://os.mbed.com/components/SX1276MB1xAS/)
  with the USB cable.
+
+
+Set the DevEUI, AppEUI and AppKey into `~/github/RIOT-OS/riot-course/exercises/riot-lorawan/simple/.solution/main.c`
+```
+/* Device and application informations required for OTAA activation */
+static const uint8_t deveui[LORAMAC_DEVEUI_LEN] = { 0xca, 0xfe, 0xba, 0xbe, 0x12, 0x76, 0x00, 0x01 };
+static const uint8_t appeui[LORAMAC_APPEUI_LEN] = { 0xca, 0xfe, 0xba, 0xbe, 0x12, 0xff, 0xff, 0xff };
+static const uint8_t appkey[LORAMAC_APPKEY_LEN] = { 0xca, 0xfe, 0xba, 0xbe, 0x12, 0x76, 0x00, 0x01, 0xca, 0xfe, 0xba, 0xbe, 0x12, 0x76, 0x00, 0x01 };
+```
 
 Build and flash
 ```bash
@@ -319,8 +293,6 @@ Open serial terminal (115200 8N1 No Hardware Flow Control, No Software Flow Cont
 ls -al /dev/tty.*
 minicom -s
 ```
-
-
 
 
 # References

@@ -1,13 +1,12 @@
 # CampusIoT :: Riot OS :: Tutoriel
 
 ## RIOT OS
-RIOT OS est un système d'exploitation pour les systèmes embarqués et les objets connectés. Il supporte de nombreux architectures, CPU, boards, composants (capteurs, actionneurs).
-
+[RIOT OS](http://www.riot-os.org/) est un système d'exploitation temps-réel pour les systèmes embarqués et les objets connectés. Il supporte de nombreux architectures, CPU, boards, composants (capteurs, actionneurs).
 
 On s'intéresse à RIOT-OS car il offre: 
 
 - plus de souplesse en terme de programmation (un OS, pile IP, support d'autres technologies wireless, timer, serial, ...)
-- le support de [nombreuses plateformes](https://doc.riot-os.org/group__boards.html) et [cartes](https://github.com/RIOT-OS/RIOT/tree/master/boards/),
+- le support de [nombreuses plateformes](https://doc.riot-os.org/group__boards.html) et [cartes](https://github.com/RIOT-OS/RIOT/tree/master/boards/), [périphériques](https://github.com/RIOT-OS/RIOT/tree/master/drivers) ...
 - beaucoup d'applicatifs
 - ...
 

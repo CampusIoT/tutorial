@@ -41,6 +41,19 @@ Build and flash
 ls -al /dev/tty.*
 minicom -s
 ```
+
+### MicroPython
+TODO
+```bash
+make BOARD=sodaq-explorer -C examples/micropython flash
+```
+
+Build and flash
+```bash
+ls -al /dev/tty.*
+minicom -s
+```
+
 ### LoRaWAN
 TODO
 

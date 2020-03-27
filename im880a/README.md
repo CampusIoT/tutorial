@@ -43,7 +43,7 @@ Nous disposons au fablab de plusieurs cartes de démonstration et de prototypage
 ![LoRaMote+st-linkv2](./figs/LoRaMote+st-linkv2.png)  
 **Fig. 1: LoRaMote + st-linkv2**
 
-![IMST-iM880a-DS75LX + STLink](./figs/im880a-ds75lx.jpg)  
+![IMST-iM880a-DS75LX](./figs/im880a-ds75lx.jpg)  
 **Fig. 2: IMST-iM880a-DS75LX**
 
 TODO

@@ -129,7 +129,7 @@ minicom -s
 
 ### LoRa
 
-Plugin the Nucleo LRWAN1 kit : Nucleo L076RZ + [SX1272MB2xAS)](https://os.mbed.com/components/SX1272MB2xAS/) with the USB cable.
+Plugin the Nucleo LRWAN1 kit : Nucleo L073RZ + [SX1272MB2xAS)](https://os.mbed.com/components/SX1272MB2xAS/) with the USB cable.
 
 Build and flash
 ```bash
@@ -166,6 +166,106 @@ Result is :
 ```
 Hello_World
 ```
+
+### LoRa
+
+Plugin the Nucleo LRWAN1 kit : Nucleo L073RZ + [SX1272MB2xAS)](https://os.mbed.com/components/SX1272MB2xAS/) with the USB cable.
+
+Build and flash
+```bash
+make BOARD=nucleo-l073rz DRIVER=sx1272 -C tests/driver_sx127x flash
+```
+Open serial terminal (115200 8N1 No Hardware Flow Control, No Software Flow Control)
+```bash
+ls -al /dev/tty.*
+minicom -s
+```
+
+Enter the command lines:
+```
+help
+setup
+setup 125 7 5
+syncword get
+syncword set 34
+channel get
+channel set 868100000
+send Hello_World
+```
+
+Sniff the output of a LoRa gateway
+```
+1585324959114,MSG,gateway/0016c00100002123/rx,{"rxInfo":{"mac":"0016c00100002123","timestamp":1222392710,"frequency":868100000,"channel":0,"rfChain":1,"crcStatus":1,"codeRate":"4/5","rssi":-66,"loRaSNR":13.8,"size":6,"dataRate":{"modulation":"LORA","spreadFactor":7,"bandwidth":125},"board":0,"antenna":0},"phyPayload":"SGVsbG9fV29ybGQA"}
+```
+
+Decode the phyPayload properties
+```bash
+echo SGVsbG9fV29ybGQA | base64 -d
+```
+Result is :
+```
+Hello_World
+```
+
+
+### LoRaWAN
+
+Plugin the Nucleo LRWAN1 kit : Nucleo L073RZ + [SX1272MB2xAS)](https://os.mbed.com/components/SX1272MB2xAS/) with the USB cable.
+
+Build and flash
+```bash
+make BOARD=nucleo-l073rz DRIVER=sx1272 -C tests/pkg_semtech-loramac flash
+```
+Open serial terminal (115200 8N1 No Hardware Flow Control, No Software Flow Control)
+```bash
+ls -al /dev/tty.*
+minicom -s
+```
+
+#### OTAA
+Enter the command lines:
+```
+help
+loramac                               
+loramac get
+loramac get deveui
+loramac get appeui
+loramac get appkey
+loramac get class
+loramac get adr
+loramac get dr
+loramac get pub
+
+loramac set deveui cafebabe12345678
+loramac set appeui cafebabeffffffff
+loramac set appkey cafebabe12345678cafebabe12345678
+loramac set adr on
+loramac save
+
+loramac join otaa
+loramac tx Hello
+```
+
+Register the endpoint on a network server (TTN, CampusIoT, Orange LiveObject) with an OTAA device profile
+
+
+#### ABP
+Enter the command lines:
+
+```
+loramac set deveui cafebabe12345679
+loramac set appeui cafebabeffffffff
+loramac set appskey cafebabe12345679cafebabe12345679
+loramac set nwkskey cafebabe12345679cafebabe12345679
+loramac set devaddr 00001234
+loramac save
+loramac join abp
+
+loramac tx Hello
+```
+
+
+Register the endpoint on a network server (TTN, CampusIoT, Orange LiveObject) with an ABP device profile
 
 # References
 * https://github.com/RIOT-OS/RIOT/tree/master/examples/lorawan

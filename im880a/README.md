@@ -43,6 +43,12 @@ Nous disposons au fablab de plusieurs cartes de démonstration et de prototypage
 ![LoRaMote+st-linkv2](./figs/LoRaMote+st-linkv2.png)  
 **Fig. 1: LoRaMote + st-linkv2**
 
+![IMST-iM880a-DS75LX + STLink](./figs/im880a-ds75lx.jpg)  
+**Fig. 2: IMST-iM880a-DS75LX**
+
+TODO
+**Fig. 3: SK-iM880a**
+
 ## Les codes sources disponibles
 
 L'implémentation officielle (Semtech) des drivers des composants SX126x/SX127x et de l'interface réseau LoRaWAN coté endpoint est dans le dépôt [LoRaMac-node](https://github.com/Lora-net/LoRaMac-node).

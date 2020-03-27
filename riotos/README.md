@@ -1,11 +1,36 @@
 # CampusIoT :: Riot OS :: Tutoriel
 
+## RIOT OS
+RIOT OS est un système d'exploitation pour les systèmes embarqués et les objets connectés. Il supporte de nombreux architectures, CPU, boards, composants (capteurs, actionneurs).
+
+
+On s'intéresse à RIOT-OS car il offre: 
+
+- plus de souplesse en terme de programmation (un OS, pile IP, support d'autres technologies wireless, timer, serial, ...)
+- le support de [nombreuses plateformes](https://doc.riot-os.org/group__boards.html) et [cartes](https://github.com/RIOT-OS/RIOT/tree/master/boards/),
+- beaucoup d'applicatifs
+- ...
+
 ## Installation de RIOT OS
-TODO
 
+```bash
+mkdir -p github/RIOT-OS
+cd github/RIOT-OS
+git clone git://github.com/RIOT-OS/RIOT.git
+cd RIOT
+RIOT_BASE=$(pwd)
+```
 
+Sur MacOS, récupérez une version récente de `make`
+```
+brew install make
+PATH="/usr/local/opt/make/libexec/gnubin:$PATH"
+```
 
 ## Cartes SODAQ Explorer
+
+RIOT supporte la carte [SODAQ Explorer](https://doc.riot-os.org/group__boards__sodaq-explorer.html).
+
 ### Hello World
 Build and flash
 ```bash
@@ -22,6 +47,8 @@ TODO
 
 
 ## Cartes IMST iM880a
+
+RIOT supporte le module IMST [iM880b](https://doc.riot-os.org/group__boards__im880b.html).
 
 ### Build
 ```bash
@@ -45,8 +72,21 @@ ll ~/RIOT/tests/pkg_semtech-loramac/bin/im880b/tests_pkg_semtech-loramac.*
 TODO
 ```
 
+## Cartes ESP 8266 Wemos
+TODO
+
+RIOT supporte les cartes à base d'[ESP8266](https://doc.riot-os.org/group__boards__esp8266.html).
+
+## Cartes ESP32-LoRa Heltec
+TODO
+
+RIOT supporte les cartes à base d'[ESP32](https://doc.riot-os.org/group__boards__esp32.html).
 
 
+## Cartes Feather LoRa
+TODO
+
+RIOT supporte les cartes [Feather d'Adafruit](https://github.com/RIOT-OS/RIOT/tree/master/boards/feather-m0).
 
 # References
 * https://github.com/RIOT-OS/RIOT/tree/master/examples/lorawan

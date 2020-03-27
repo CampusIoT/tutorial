@@ -136,6 +136,11 @@ ls -al /dev/tty.*
 minicom -s
 ```
 
+## Cartes STM32 Nucleo et Carte fille LoRa SX1272MB2xAS
+
+* [SX1272MB2xAS)](https://os.mbed.com/components/SX1272MB2xAS/)
+* [SX1276MB1xAS](https://os.mbed.com/components/SX1276MB1xAS/)
+
 ### LoRa
 
 Plugin the Nucleo LRWAN1 kit : Nucleo L073RZ + [SX1272MB2xAS)](https://os.mbed.com/components/SX1272MB2xAS/) with the USB cable.
@@ -276,7 +281,7 @@ loramac tx Hello
 
 Register the endpoint on a network server (TTN, CampusIoT, Orange LiveObject) with an ABP device profile
 
-####
+#### LoRaWAN simple program with SX1272MB2xAS
 
 Plugin the Nucleo LRWAN1 kit : Nucleo L073RZ + [SX1272MB2xAS)](https://os.mbed.com/components/SX1272MB2xAS/) with the USB cable.
 
@@ -298,11 +303,23 @@ ls -al /dev/tty.*
 minicom -s
 ```
 
-With the 
+#### LoRaWAN simple program
+* [SX1276MB1xAS](https://os.mbed.com/components/SX1276MB1xAS/)
+
+Plugin the Nucleo F411RE + [SX1276MB1xAS](https://os.mbed.com/components/SX1276MB1xAS/)
+ with the USB cable.
+
 Build and flash
 ```bash
 make BOARD=nucleo-f411re DRIVER=sx1276 -C ~/github/RIOT-OS/riot-course/exercises/riot-lorawan/simple/.solution flash
 ```
+
+Open serial terminal (115200 8N1 No Hardware Flow Control, No Software Flow Control)
+```bash
+ls -al /dev/tty.*
+minicom -s
+```
+
 
 
 

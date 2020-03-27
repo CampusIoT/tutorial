@@ -54,8 +54,11 @@ ls -al /dev/tty.*
 minicom -s
 ```
 
-### LoRaWAN
-TODO
+### LoRa (RN2483)
+```bash
+cd ~/github/RIOT-OS/RIOT
+make BOARD=sodaq-explorer -C tests/driver_rn2xx3 flash
+```
 
 ## Cartes IMST iM880a
 
@@ -98,6 +101,12 @@ RIOT supporte les cartes à base d'[ESP32](https://doc.riot-os.org/group__boards
 TODO
 
 RIOT supporte les cartes [Feather d'Adafruit](https://github.com/RIOT-OS/RIOT/tree/master/boards/feather-m0).
+
+```bash
+make BOARD=feather-m0 DRIVER=sx1276 -C ~/github/RIOT-OS/riot-course/exercises/riot-lorawan/simple/.solution flash
+```
+
+
 
 ## Cartes STM32 Nucleo et Discovery
 
@@ -266,6 +275,36 @@ loramac tx Hello
 
 
 Register the endpoint on a network server (TTN, CampusIoT, Orange LiveObject) with an ABP device profile
+
+####
+
+Plugin the Nucleo LRWAN1 kit : Nucleo L073RZ + [SX1272MB2xAS)](https://os.mbed.com/components/SX1272MB2xAS/) with the USB cable.
+
+Set the DevEUI, AppEUI and AppKey into `~/github/RIOT-OS/riot-course/exercises/riot-lorawan/simple/.solution/main.c`
+```
+/* Device and application informations required for OTAA activation */
+static const uint8_t deveui[LORAMAC_DEVEUI_LEN] = { 0xca, 0xfe, 0xba, 0xbe, 0x12, 0x34, 0x56, 0x78 };
+static const uint8_t appeui[LORAMAC_APPEUI_LEN] = { 0xca, 0xfe, 0xba, 0xbe, 0xff, 0xff, 0xff, 0xff };
+static const uint8_t appkey[LORAMAC_APPKEY_LEN] = { 0xca, 0xfe, 0xba, 0xbe, 0x12, 0x34, 0x56, 0x78, 0xca, 0xfe, 0xba, 0xbe, 0x12, 0x34, 0x56, 0x78 };
+```
+
+Build and flash
+```bash
+make BOARD=nucleo-l073rz DRIVER=sx1272 -C ~/github/RIOT-OS/riot-course/exercises/riot-lorawan/simple/.solution flash
+```
+Open serial terminal (115200 8N1 No Hardware Flow Control, No Software Flow Control)
+```bash
+ls -al /dev/tty.*
+minicom -s
+```
+
+With the 
+Build and flash
+```bash
+make BOARD=nucleo-f411re DRIVER=sx1276 -C ~/github/RIOT-OS/riot-course/exercises/riot-lorawan/simple/.solution flash
+```
+
+
 
 # References
 * https://github.com/RIOT-OS/RIOT/tree/master/examples/lorawan

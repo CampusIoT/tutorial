@@ -118,27 +118,75 @@ AT+SYS
 
 ### Liste des commandes AT
 
-        AT Returns +OK.
-        AT+HELP Prints help information.
-        AT+FDEFAULT Resets to factory default settings.
-        AT+RESET Software-reset gateway.
-        AT+SYS Checks all configurations.
-        AT+VER Gets version.
-        AT+LOG Turns on/off packet forwarder log.
-        AT+ECHO AT command echo on/off.
-        AT+MAC Sets/gets the gateway MAC address.
-        AT+IP DHCP/static IP control.
-        AT+DNS Sets/gets the DNS address.
-        AT+NTP Sets/gets the NTP server address.
-        AT+EUI MAC Address (EUI48) to Gateway ID (EUI64) padding. LORAWAN LoRaWAN® network selection (public/private).
-        AT+PKTFWD Packet forwarder server address and port settings.
-        AT+CH Packet forwarder channels.
-        AT+Baudrate AT command and logging UART interface baud rate.
+```
+AT Returns +OK.
+AT+HELP Prints help information.
+AT+FDEFAULT Resets to factory default settings.
+AT+RESET Software-reset gateway.
+AT+SYS Checks all configurations.
+AT+VER Gets version.
+AT+LOG Turns on/off packet forwarder log.
+AT+ECHO AT command echo on/off.
+AT+MAC Sets/gets the gateway MAC address.
+AT+IP DHCP/static IP control.
+AT+DNS Sets/gets the DNS address.
+AT+NTP Sets/gets the NTP server address.
+AT+EUI MAC Address (EUI48) to Gateway ID (EUI64) padding. LORAWAN LoRaWAN® network selection (public/private).
+AT+PKTFWD Packet forwarder server address and port settings.
+AT+CH Packet forwarder channels.
+AT+Baudrate AT command and logging UART interface baud rate.
+```
+## Démarrage du kit I-NUCLEO-LRWAN1
 
-## Démarrage de la carte Nucleo avec le I-Nucleo
+Le kit I-NUCLEO-LRWAN1 (carte Nucleo L073RZ et carte USI LoRa) est livré avec un firmware par défaut.
 
-TODO
+Pour récupérer DevEUI, AppEUI et AppKey, vous pouvez :
+* soit observer les frames LoRa de type JoinRequest reçues par votre gateway. Sur le LoRaServer, le joinEUI correspond à l'AppEUI,
+* soit brancher un adapteur USBSerial sur les broches de la carte USI retirée de la carte Nucleo.
+* soit lire le DevEUI et l'AppEui dans la mémoire Flash de la carte Nucleo
 
+Pour le deuxième cas, le brochage est le suivant:
+* +3V3 (CN6 pin 4)
+* GND (CN6 pin 6)
+* LPUART1_Rx (CN8 pin 2)
+* LPUART1_Tx (CN8 pin 1)
+et le réglage du port série est : 115200 8N1
+
+Les commandes AT sont les suivantes:
+```
+AT+EUI
+AT+APPEUI
+AT+AK
+```
+
+Pour le troisième cas, les commandes à lancer sont:
+* Pour le DevEUI: `ST-LINK_CLI.exe -c swd ur -r8 0x08080000 0x08`
+* Pour l'AppEUI: `ST-LINK_CLI.exe -c swd ur -r8 0x08080008 0x08`
+
+Dans le firmware par défaut, l'AppKey est la concatenation du DevEUI et l'AppEUI.
+
+Vous pouvez alors enregistrer le kit sur votre network server.
+
+Une fois enregistré, le kit effectue l'activation en mode OTAA et envoie périodiquement des frames dont le payload est encodé au [format LPP Cayenne](https://community.mydevices.com/t/cayenne-lpp-2-0/7510). Configurez le décodeur de frames selon le mode LPP Cayenne pour décoder le payload. Le résultat ressemblera à cet objet JSON: 
+```
+{
+  "digitalInput": {
+    "3": 0
+  },
+  "digitalOutput": {
+    "4": 0
+  },
+  "temperatureSensor": {
+    "1": 23
+  },
+  "humiditySensor": {
+    "2": 41.5
+  },
+  "barometer": {
+    "0": 990.7
+  }
+}
+```
 
 ## Documentation
 * [P-NUCLEO-LRWAN2](https://www.st.com/content/st_com/en/products/evaluation-tools/product-evaluation-tools/stm32-nucleo-expansion-boards/p-nucleo-lrwan2.html)  STM32 Nucleo pack LoRa™ HF band sensor and gateway

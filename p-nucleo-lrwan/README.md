@@ -116,6 +116,25 @@ AT+SYS
 
 
 
+### Liste des commandes AT
+
+        AT Returns +OK.
+        AT+HELP Prints help information.
+        AT+FDEFAULT Resets to factory default settings.
+        AT+RESET Software-reset gateway.
+        AT+SYS Checks all configurations.
+        AT+VER Gets version.
+        AT+LOG Turns on/off packet forwarder log.
+        AT+ECHO AT command echo on/off.
+        AT+MAC Sets/gets the gateway MAC address.
+        AT+IP DHCP/static IP control.
+        AT+DNS Sets/gets the DNS address.
+        AT+NTP Sets/gets the NTP server address.
+        AT+EUI MAC Address (EUI48) to Gateway ID (EUI64) padding. LORAWAN LoRaWAN® network selection (public/private).
+        AT+PKTFWD Packet forwarder server address and port settings.
+        AT+CH Packet forwarder channels.
+        AT+Baudrate AT command and logging UART interface baud rate.
+
 ## Démarrage de la carte Nucleo avec le I-Nucleo
 
 TODO

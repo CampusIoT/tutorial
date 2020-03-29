@@ -1,6 +1,6 @@
 # P-NUCLEO-LRWAN Starter Packs
 
-ST Microelectronics propose 2 Starter Packs de prototypage de la technologie LoRa. Chaque pack contient une gateway LoRaWAN basée sur une carte Nucleo NUCLEO-F746ZG et un concentrateur LRWAN_GS_HF1 SX1301 de RisingHF (433 MHz et 868 MHz), et un endpoint LoRaWAN basé sur une carte Nucleo NUCLEO-L073RZ et une carte fille comportant un module LoRa (USI pour le 868 MHz et RisingHF pour le 433 MHz).
+ST Microelectronics propose 2 Starter Packs de prototypage de la technologie LoRa : [P-NUCLEO-LRWAN2](https://www.st.com/content/st_com/en/products/evaluation-tools/product-evaluation-tools/stm32-nucleo-expansion-boards/p-nucleo-lrwan2.html) et  [P-NUCLEO-LRWAN3](https://www.st.com/en/evaluation-tools/p-nucleo-lrwan3.html). Chaque pack contient une gateway LoRaWAN basée sur une carte Nucleo NUCLEO-F746ZG et un concentrateur LRWAN_GS_HF1 SX1301 de RisingHF (433 MHz et 868 MHz), et un endpoint LoRaWAN basé sur une carte Nucleo NUCLEO-L073RZ et une carte fille comportant un module LoRa (USI pour le 868 MHz et RisingHF pour le 433 MHz).
 
 La gateway LoRaWAN peut être (re)configurée via des commandes AT pour changer:
 * le plan de fréquence du SX1301 (ie les 8 channels),
@@ -255,8 +255,6 @@ La gateway écoute et réponds désormais sur les canaux suivants.
 +CH: 7, 434575000, B, SF7/SF12, BW125KHz (LORA_MULTI_SF)                        
 +CH: 8, OFF                              (LORA_STANDARD)                        
 +CH: 9, OFF                              (FSK)                                  
-
-AT+RESET
 ```
 
 La gateway peut être enregistrée sur un network server configuré par la bande eu433.

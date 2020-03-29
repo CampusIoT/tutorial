@@ -9,6 +9,8 @@ La gateway LoRaWAN peut être (re)configurée via des commandes AT pour changer:
 
 ## Démarrage de la gateway
 
+Lisez le [manuel de démarrage](https://www.st.com/content/ccc/resource/technical/document/user_manual/group1/01/0e/9a/df/16/73/42/51/DM00620948/files/DM00620948.pdf/jcr:content/translations/en.DM00620948.pdf).
+
 ### Branchements
 
 Branchez l'antenne sur la carte fille LRWAN_GS_HF1. 

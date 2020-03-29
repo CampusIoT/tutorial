@@ -7,7 +7,10 @@ La gateway LoRaWAN peut être (re)configurée via des commandes AT pour changer:
 * l'adresse du network server (TTN, Loriot ou CampusIoT) du packet forwarder,
 * ...
 
-## Démarrage de la gateway
+![P-NUCLEO-LRWAN Starter Packs](./images/p-nucleo-lrwan.jpg)
+
+
+## Démarrage de la gateway LRWAN2 (868 MHz)
 
 Lisez le [manuel de démarrage](https://www.st.com/content/ccc/resource/technical/document/user_manual/group1/01/0e/9a/df/16/73/42/51/DM00620948/files/DM00620948.pdf/jcr:content/translations/en.DM00620948.pdf).
 
@@ -91,6 +94,13 @@ Downlink UDP Connected
 Uplink UDP Connected                                                            
 ```
 
+Positionnez le mode de journalisation de la gateway.
+```
+AT+LOG                                                                      
+AT+LOG=ON
+```
+
+
 La gateway envoie alors les messages LoRa reçus par le concentrateur RisingHF au network server.
 
 ### Configuration du serveur NTP
@@ -136,7 +146,7 @@ AT+PKTFWD Packet forwarder server address and port settings.
 AT+CH Packet forwarder channels.
 AT+Baudrate AT command and logging UART interface baud rate.
 ```
-## Démarrage du kit I-NUCLEO-LRWAN1
+## Démarrage du kit I-NUCLEO-LRWAN1 (868 MHz)
 
 Le kit I-NUCLEO-LRWAN1 (carte Nucleo L073RZ et carte USI LoRa) est livré avec un firmware par défaut.
 
@@ -187,8 +197,98 @@ Une fois enregistré, le kit effectue l'activation en mode OTAA et envoie pério
   }
 }
 ```
+## Démarrage de la gateway LRWAN3 (433 MHz)
+
+Le démarrage de la gateway LRWAN3 est presque identique au démarrage de la gateway LRWAN2.
+Elle est par défaut configurée sur la bande ISM chinoise (cn470). Il convient de reconfigurer ces canaux pour être conforme à la réglementation européene (ETSI eu433).
+
+```
+AT+SYS
+AT+SYS                                                                       
++SYS: OK                                                                     
+-------------------------------------------------------------------------------
+           VERSION: 2.1.7, Nov  6 2018  
+               LOG: OFF                 
+           AT ECHO: ON                  
+          BAUDRATE: 115200bps           
+           MACADDR: 00:80:E1:01:12:34   
+          ETHERNET: DHCP
+              DNS1: 114.114.114.114
+              DNS2: 8.8.8.8
+        NTP SERVER: 1.ubuntu.pool.ntp.org                                       
+       EUI PADDING: {3, FF}, {4, FF}                                            
+        GATEWAY ID: 0080E1FFFF011234                                            
+           LORAWAN: Public                                                      
+    LORAWAN SERVER: cn1.loriot.io                                               
+   UPLINK UDP PORT: 1780                                                        
+ DOWNLINK UDP PORT: 1780                                                        
+          CHANNEL0: 471500000, A, SF7/SF12, BW125KHz    (LORA_MULTI_SF)         
+          CHANNEL1: 471700000, A, SF7/SF12, BW125KHz    (LORA_MULTI_SF)         
+          CHANNEL2: 471900000, A, SF7/SF12, BW125KHz    (LORA_MULTI_SF)         
+          CHANNEL3: 472100000, A, SF7/SF12, BW125KHz    (LORA_MULTI_SF)         
+          CHANNEL4: 472300000, B, SF7/SF12, BW125KHz    (LORA_MULTI_SF)         
+          CHANNEL5: 472500000, B, SF7/SF12, BW125KHz    (LORA_MULTI_SF)         
+          CHANNEL6: 472700000, B, SF7/SF12, BW125KHz    (LORA_MULTI_SF)         
+          CHANNEL7: 472900000, B, SF7/SF12, BW125KHz    (LORA_MULTI_SF)         
+          CHANNEL8: OFF                                 (LORA_STANDARD)         
+          CHANNEL9: OFF                                 (FSK)                   
+------------------------------------------------------------------------------- 
+```
+
+```
+AT+PKTFWD=lora.campusiot.imag.fr,1700,1700
+AT+LOG=ON                                                                    
+AT+CH
+AT+CH=eu433                                                                    
+AT+RESET
+```
+
+La gateway écoute et réponds désormais sur les canaux suivants.
+```
++CH: 0, 433175000, A, SF7/SF12, BW125KHz (LORA_MULTI_SF)                        
++CH: 1, 433375000, A, SF7/SF12, BW125KHz (LORA_MULTI_SF)                        
++CH: 2, 433575000, A, SF7/SF12, BW125KHz (LORA_MULTI_SF)                        
++CH: 3, 433775000, A, SF7/SF12, BW125KHz (LORA_MULTI_SF)                        
++CH: 4, 433975000, B, SF7/SF12, BW125KHz (LORA_MULTI_SF)                        
++CH: 5, 434175000, B, SF7/SF12, BW125KHz (LORA_MULTI_SF)                        
++CH: 6, 434375000, B, SF7/SF12, BW125KHz (LORA_MULTI_SF)                        
++CH: 7, 434575000, B, SF7/SF12, BW125KHz (LORA_MULTI_SF)                        
++CH: 8, OFF                              (LORA_STANDARD)                        
++CH: 9, OFF                              (FSK)                                  
+
+AT+RESET
+```
+
+La gateway peut être enregistrée sur un network server configuré par la bande eu433.
+
+## Démarrage du kit LRWAN_NS1 (433 MHz)
+
+Le kit ST Nucleo LoRa Sensor LRWAN_NS1 est basé sur la carte Nucleo-L073 et la carte fille ST Nucleo LoRa Sensor basé sur le module RHF0M003 de RisingHF.
+
+Par défaut, ce kit est par défaut configuré sur la bande ISM chinoise (cn470). Il convient de reconfigurer ses canaux pour être conforme à la réglementation européene (ETSI eu433) en reconstruisant le firmware (TODO).
+
+Une fois enregistré, le kit effectue l'activation en mode OTAA et envoie périodiquement des frames dont le payload est encodé au [format LPP Cayenne](https://community.mydevices.com/t/cayenne-lpp-2-0/7510). Configurez le décodeur de frames selon le mode LPP Cayenne pour décoder le payload. Le résultat ressemblera à cet objet JSON: 
+```
+{
+  "digitalInput": {
+    "3": 0
+  },
+  "digitalOutput": {
+    "4": 0
+  },
+  "temperatureSensor": {
+    "1": 23
+  },
+  "humiditySensor": {
+    "2": 41.5
+  },
+  "barometer": {
+    "0": 990.7
+  }
+}
+```
 
 ## Documentation
 * [P-NUCLEO-LRWAN2](https://www.st.com/content/st_com/en/products/evaluation-tools/product-evaluation-tools/stm32-nucleo-expansion-boards/p-nucleo-lrwan2.html)  STM32 Nucleo pack LoRa™ HF band sensor and gateway
 * [P-NUCLEO-LRWAN3](https://www.st.com/en/evaluation-tools/p-nucleo-lrwan3.html) STM32 Nucleo pack LoRa™ LF band sensor and gateway
-* https://www.st.com/content/ccc/resource/technical/document/user_manual/group1/01/0e/9a/df/16/73/42/51/DM00620948/files/DM00620948.pdf/jcr:content/translations/en.DM00620948.pdf
+* [manuel de démarrage](https://www.st.com/content/ccc/resource/technical/document/user_manual/group1/01/0e/9a/df/16/73/42/51/DM00620948/files/DM00620948.pdf/jcr:content/translations/en.DM00620948.pdf)

@@ -293,6 +293,33 @@ Open serial terminal (115200 8N1 No Hardware Flow Control, No Software Flow Cont
 ls -al /dev/tty.*
 minicom -s
 ```
+## Carte P-NUCLEO-WB55 
+
+RIOT supporte la carte [STM32 P-NUCLEO-WB55](https://www.st.com/en/evaluation-tools/p-nucleo-wb55.html).
+
+### Hello World
+Build and flash
+```bash
+make BOARD=p-nucleo-wb55 -C examples/hello-world flash
+```
+
+Open serial terminal (115200 8N1 No Hardware Flow Control, No Software Flow Control)
+```bash
+ls -al /dev/tty.*
+minicom -s
+```
+
+### MicroPython
+Build and flash
+```bash
+make BOARD=p-nucleo-wb55 -C examples/micropython flash
+```
+
+Open serial terminal (115200 8N1 No Hardware Flow Control, No Software Flow Control)
+```bash
+ls -al /dev/tty.*
+minicom -s
+```
 
 ## Carte IMST iM880a DS75LX
 

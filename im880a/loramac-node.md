@@ -83,9 +83,10 @@ Si tout fonctionne bien, vous devriez voir les paquets arrivés sur TTN comme po
 
 Si cela ne fonctionne pas, reportez vous à la section [problèmes](./README.md#les-problèmes-éventuels) du LoRaMote.
 
-> Remarque: si vous ne possédez pas de flasheur ST-Link v2, vous pouvez utiliser le flasheur détachable des cartes Nucleo et connecter les 5 premières broches du [connecteur CN4 SWD](https://www.st.com/content/ccc/resource/technical/document/user_manual/98/2e/fa/4b/e0/82/43/b7/DM00105823.pdf/files/DM00105823.pdf/jcr:content/translations/en.DM00105823.pdf) au connecteur X1 de la carte IMST im880: 
-> Pin 1: VDD_TARGET (VDD from application),
-> Pin 2: SWCLK (clock),
-> Pin 3: GND (ground),
-> Pin 4: SWDIO (SWD data input/output),
-> Pin 5: NRST (RESET of target STM32).
+> Remarque: si vous ne possédez pas de flasheur ST-Link v2, vous pouvez utiliser le flasheur détachable des cartes Nucleo et connecter les 5 premières broches du [connecteur CN4 SWD](https://www.st.com/content/ccc/resource/technical/document/user_manual/98/2e/fa/4b/e0/82/43/b7/DM00105823.pdf/files/DM00105823.pdf/jcr:content/translations/en.DM00105823.pdf) au connecteur X1 de la carte IMST im880:
+
+	Pin 1: VDD_TARGET (VDD from application),
+	Pin 2: SWCLK (clock),
+	Pin 3: GND (ground),
+	Pin 4: SWDIO (SWD data input/output),
+	Pin 5: NRST (RESET of target STM32).

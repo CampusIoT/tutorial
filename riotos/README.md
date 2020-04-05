@@ -294,6 +294,36 @@ ls -al /dev/tty.*
 minicom -s
 ```
 
+## Carte IMST iM880a DS75LX
+
+### Temperature measurement
+
+Build and flash
+```bash
+make BOARD=im880b DRIVER=sx1272 -C tests/driver_ds75lx flash
+```
+
+Open serial terminal (115200 8N1 No Hardware Flow Control, No Software Flow Control)
+```bash
+ls -al /dev/tty.*
+minicom -s
+```
+
+### LoRa simple test
+
+Build and flash
+```bash
+make BOARD=im880b DRIVER=sx1272 -C tests/driver_sx127x flash
+```
+
+Open serial terminal (115200 8N1 No Hardware Flow Control, No Software Flow Control)
+```bash
+ls -al /dev/tty.*
+minicom -s
+```
+
+### LoRa simple test
+
 
 # References
 * https://github.com/RIOT-OS/RIOT/tree/master/examples/lorawan

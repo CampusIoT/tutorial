@@ -46,8 +46,11 @@ Nous disposons au fablab de plusieurs cartes de démonstration et de prototypage
 ![IMST-iM880a-DS75LX](./figs/im880a-ds75lx.jpg)  
 **Fig. 2: IMST-iM880a-DS75LX**
 
+![IMST-iM880a-DS75LX](./figs/im880a-ds75lx-top.jpg)
+**Fig. 3: IMST-iM880a-DS75LX**
+
 ![SK-iM880a](./figs/sk-im880a.jpg)  
-**Fig. 3: SK-iM880a**
+**Fig. 4: SK-iM880a**
 
 ## Les codes sources disponibles
 

@@ -261,7 +261,7 @@ La gateway peut être enregistrée sur un network server configuré par la bande
 
 ## Démarrage du kit LRWAN_NS1 (433 MHz)
 
-Le kit ST Nucleo LoRa Sensor LRWAN_NS1 est basé sur la carte Nucleo-L073 et la carte fille ST Nucleo LoRa Sensor basé sur le module RHF0M003 de RisingHF.
+Le kit ST Nucleo LoRa Sensor LRWAN_NS1 est basé sur la carte Nucleo-L073 et la carte fille ST Nucleo LoRa Sensor basé sur le module [RHF0M003](http://www.risinghf.com/#/product-details?product_id=4&lang=en) de RisingHF.
 
 Par défaut, ce kit est par défaut configuré sur la bande ISM chinoise (cn470). Il convient de reconfigurer ses canaux pour être conforme à la réglementation européene (ETSI eu433) en reconstruisant le firmware (TODO).
 

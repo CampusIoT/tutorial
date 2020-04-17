@@ -263,7 +263,15 @@ La gateway peut être enregistrée sur un network server configuré par la bande
 
 Le kit ST Nucleo LoRa Sensor LRWAN_NS1 est basé sur la carte Nucleo-L073 et la carte fille ST Nucleo LoRa Sensor basé sur le module [RHF0M003](http://www.risinghf.com/#/product-details?product_id=4&lang=en) de RisingHF.
 
-Par défaut, ce kit est par défaut configuré sur la bande ISM chinoise (cn470). Il convient de reconfigurer ses canaux pour être conforme à la réglementation européene (ETSI eu433) en reconstruisant le firmware (TODO).
+Par défaut, ce kit est par défaut configuré sur la bande ISM chinoise (cn470). Il convient de reconfigurer ses canaux pour être conforme à la réglementation européene (ETSI eu433) conformément à la [documentation](https://www.st.com/resource/en/user_manual/dm00620948-getting-started-with-the-pnucleolrwan2-and-pnucleolrwan3-starter-packs-stmicroelectronics.pdf#page=28):
+- soit en reconstruisant le firmware 
+- soit en le reconfigurant via les commandes AT
+
+Pour recontruire le firmware avec l'environnement gratuit [STM32CubeIDE](https://www.st.com/en/development-tools/stm32cubeide.html), il faut : 
+- télécharger le code de l'[extension LoRaWAN du STM3Cube](https://www.st.com/en/embedded-software/i-cube-lrwan.html)
+- importer le projet `STM32CubeExpansion_LRWAN_V1.3.1/Projects/STM32L073RZ-Nucleo/Applications/LoRa/AT_Master/SW4STM32/LRWAN_NS1` de l'environnement [SW4STM32](https://www.st.com/en/development-tools/sw4stm32.html) dans STM32CubeIDE: [guide de migration](https://www.st.com/resource/en/user_manual/dm00613836-migration-guide-from-system-workbench-to-stm32cubeide-stmicroelectronics.pdf)
+- modifier le code source de l'application AT_Master `STM32CubeExpansion_LRWAN_V1.3.1/Projects/STM32L073RZ-Nucleo/Applications/LoRa/AT_Master/LoRaWAN/App/src/main.c` comme indiqué dans la [documentation](https://www.st.com/resource/en/user_manual/dm00620948-getting-started-with-the-pnucleolrwan2-and-pnucleolrwan3-starter-packs-stmicroelectronics.pdf#page=28)
+- compiler le projet et flasher le firmware sur le noeud. Plus de détails sur https://www.st.com/en/development-tools/stm32cubeide.html#resource
 
 Une fois enregistré, le kit effectue l'activation en mode OTAA et envoie périodiquement des frames dont le payload est encodé au [format LPP Cayenne](https://community.mydevices.com/t/cayenne-lpp-2-0/7510). Configurez le décodeur de frames selon le mode LPP Cayenne pour décoder le payload. Le résultat ressemblera à cet objet JSON: 
 ```

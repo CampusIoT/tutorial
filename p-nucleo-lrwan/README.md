@@ -271,7 +271,14 @@ Pour recontruire le firmware avec l'environnement gratuit [STM32CubeIDE](https:/
 - télécharger le code de l'[extension LoRaWAN du STM3Cube](https://www.st.com/en/embedded-software/i-cube-lrwan.html)
 - importer le projet `STM32CubeExpansion_LRWAN_V1.3.1/Projects/STM32L073RZ-Nucleo/Applications/LoRa/AT_Master/SW4STM32/LRWAN_NS1` de l'environnement [SW4STM32](https://www.st.com/en/development-tools/sw4stm32.html) dans STM32CubeIDE: [guide de migration](https://www.st.com/resource/en/user_manual/dm00613836-migration-guide-from-system-workbench-to-stm32cubeide-stmicroelectronics.pdf)
 - modifier le code source de l'application AT_Master `STM32CubeExpansion_LRWAN_V1.3.1/Projects/STM32L073RZ-Nucleo/Applications/LoRa/AT_Master/LoRaWAN/App/src/main.c` comme indiqué dans la [documentation](https://www.st.com/resource/en/user_manual/dm00620948-getting-started-with-the-pnucleolrwan2-and-pnucleolrwan3-starter-packs-stmicroelectronics.pdf#page=28)
-- compiler le projet et flasher le firmware sur le noeud. Plus de détails sur https://www.st.com/en/development-tools/stm32cubeide.html#resource
+```
+#main.c
+
+#ifdef USE_LRWAN_NS1
+#define FREQ_BAND                  /*EU868*/ CN470PREQUEL <-- à modifier pour EU433
+#endif
+```
+- compiler le projet et flasher le firmware sur le noeud (menu `Run>Run`).  Plus de détails sur https://www.st.com/en/development-tools/stm32cubeide.html#resource
 
 Une fois enregistré, le kit effectue l'activation en mode OTAA et envoie périodiquement des frames dont le payload est encodé au [format LPP Cayenne](https://community.mydevices.com/t/cayenne-lpp-2-0/7510). Configurez le décodeur de frames selon le mode LPP Cayenne pour décoder le payload. Le résultat ressemblera à cet objet JSON: 
 ```

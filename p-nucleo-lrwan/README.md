@@ -123,7 +123,7 @@ AT+NTP=195.83.24.250
 AT+SYS
 ```
 ### Branchement du GPS
-
+TODO
 
 
 ### Liste des commandes AT
@@ -146,6 +146,16 @@ AT+PKTFWD Packet forwarder server address and port settings.
 AT+CH Packet forwarder channels.
 AT+Baudrate AT command and logging UART interface baud rate.
 ```
+
+### Perte ou mise à jour du firmware par défaut
+
+Afin d'éviter une perte du firmware, vous pouvez _dumper_ celui de votre carte avant son usage.
+
+Vous pouvez aussi réinstaller celui-ci mis à disposition par [TTN](https://www.thethingsnetwork.org/docs/gateways/st/).
+
+
+
+
 ## Démarrage du kit I-NUCLEO-LRWAN1 (868 MHz)
 
 Le kit I-NUCLEO-LRWAN1 (carte Nucleo L073RZ et carte USI LoRa) est livré avec un firmware par défaut.

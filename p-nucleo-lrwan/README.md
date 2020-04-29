@@ -153,8 +153,7 @@ Afin d'éviter une perte du firmware, vous pouvez _dumper_ celui de votre carte 
 
 Vous pouvez aussi réinstaller celui-ci mis à disposition par [TTN](https://www.thethingsnetwork.org/docs/gateways/st/).
 
-
-
+> Attention: il faudra configurer la gateway avec les commandes AT et notamment la MacAddress avec celui qui est sur l'étiquette présente sous la carte (`AT+MAC=mac_address`).
 
 ## Démarrage du kit I-NUCLEO-LRWAN1 (868 MHz)
 

@@ -26,7 +26,7 @@ A rédiger
 [Voir rapport projet d'évaluation des modes _low power_ des Nucleo](projet_eval_nucleo_low_power_2019/rapport_nucleo_lowpower.pdf) et [voir les sources](projet_eval_nucleo_low_power_2019/src).
 
 ## Références
-* [Rapport projet d'évaluation des modes _low power_ des Nucleo (2019)](projet_eval_nucleo_low_power_2019/rapport_nucleo_lowpower.pdf). [Sources du projet](projet_eval_nucleo_low_power_2019/src).
+* [Marcelo Viana da Silva, Qian Likun, Li Yihao, Rapport de projet sur l'évaluation des modes _low power_ des Nucleo (2019)](projet_eval_nucleo_low_power_2019/rapport_nucleo_lowpower.pdf). [Sources du projet](projet_eval_nucleo_low_power_2019/src).
 * [UM2243 User manual STM32 Nucleo expansion board for power consumption measurement](https://www.st.com/resource/en/user_manual/dm00406577-stm32-nucleo-expansion-board-for-power-consumption-measurement-stmicroelectronics.pdf)
 * [UM2202 STM32CubeMonitor-Power software tool for power and ultra-low-power measurements](https://www.st.com/resource/en/user_manual/dm00386264-stm32cubemonitorpower-software-tool-for-power-and-ultralowpower-measurements-stmicroelectronics.pdf)
 

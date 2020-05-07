@@ -34,3 +34,4 @@ CampusIoT is a learn-by-doing platform for teaching Internet of Things technolog
 * [Network level performances of a LoRa system](http://tesi.cab.unipd.it/53740/1/dissertation.pdf)
 * [LoRaWAN: single gateway capacity for a reasonable traffic by Martin Heusse](https://wiki.eclipse.org/Eclipse_IoT_Day_Grenoble_2019#lorawan_talk)
 * [The Challenge of LoRaWAN Antennas](https://www.youtube.com/watch?v=AhFy4-kForA&feature=youtu.be)
+* [The Things Network YouTube Channel](https://www.youtube.com/channel/UCv85CXnZUXEKnlZpQapTAwQ/videos)

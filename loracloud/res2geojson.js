@@ -1,3 +1,11 @@
+// Copyright 2020, Université Grenoble Alpes, LIG, ERODS
+
+// Author : Didier DONSEZ
+
+// TODO List
+// [ ] add line between point and gateways
+// [ ] add metrics into gateways properties (flight time, rssi, ...) for futur popups
+// [ ] remove the gateways which are not into the frames
 
 var fs = require('fs');
 

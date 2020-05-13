@@ -1,4 +1,4 @@
-# LoRaCloud Location Solver :: Tutoriel
+# CampusIoT :: LoRaCloud Location Solver :: Tutoriel
 
 LoRaCloud est un service en ligne proposé par l'entreprise Semtech qui est le fondeur des composants LoRa.
 
@@ -7,6 +7,8 @@ LoRaCloud propose un service de géolocalisation d'équipements à partir d'info
 Ce service est décrit ici https://www.loracloud.com/portal/geolocation
 
 Il propose une API REST dont l'interface est décrite https://www.loracloud.com/documentation/geolocation?url=index.html
+
+La LoRa Alliance a publié ce [white paper à propos de la géolocalisation LoRa](https://lora-alliance.org/sites/default/files/2018-04/geolocation_whitepaper.pdf).
 
 ## Démarrage
 

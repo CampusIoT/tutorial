@@ -68,7 +68,7 @@ cat multiframes.result.json
 	"warnings": []
 }
 ```
-
+> [HDOP horizontal dilution of precision](https://en.wikipedia.org/wiki/Dilution_of_precision_(navigation))
 
 ## Visualisation du résultat en GeoJSON
 

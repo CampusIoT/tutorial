@@ -11,12 +11,12 @@ docker-compose exec influxdb bash
 influx
 ```
 
-# Help
+## Help
 ```
 HELP
 ```
 
-# Databases
+## Databases
 ```
 SHOW DATABASES
 

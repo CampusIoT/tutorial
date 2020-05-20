@@ -117,6 +117,9 @@ SHOW SERIES EXACT CARDINALITY ON lorawan
 ```
 
 ## Queries
+
+[Available functions](https://docs.influxdata.com/influxdb/v1.8/query_language/functions/)
+
 ```
 SELECT COUNT(*) FROM "data"
 
@@ -126,17 +129,20 @@ SELECT COUNT(*) FROM "data" WHERE "deviceName" =~ /^SICONIA.*/ GROUP BY "deviceN
 
 SELECT MIN(temperature) AS min_temp, MAX(temperature) AS max_temp, MIN(humidity) AS min_hum, MAX(humidity) AS max_hum FROM "data" WHERE "deviceName" =~ /^SICONIA.*/ GROUP BY "deviceName"
 
+-- show last temperature and humidity values of the SICONIA devices
 SELECT LAST(temperature) AS last_temp, LAST(humidity) AS last_hum FROM "data" WHERE "deviceName" =~ /^SICONIA.*/ GROUP BY "deviceName"
 
 SELECT MEAN(temperature) AS mean_temp FROM data WHERE "deviceName" =~ /^SICONIA.*/ GROUP BY "deviceName"
 
 SELECT MEAN(temperature AS mean_temp, MEAN(humidity) AS mean_hum FROM data WHERE "deviceName" =~ /^SICONIA.*/ GROUP BY time(1h)
 
-SELECT MEAN(temperature) AS mean_temp, MEAN(humidity) AS mean_hum FROM data WHERE "deviceName" =~ /^SICONIA.*/ GROUP BY time(1d)
-
-SELECT MEAN(temperature) AS mean_temp, MEAN(humidity) AS mean_hum FROM data WHERE "deviceName" =~ /^SICONIA.*/ GROUP BY time(1d)
-
+-- show mean,max and min of temperature and humidity group by day of the SICONIA devices
 SELECT MEAN(temperature) AS mean_temp, MEAN(humidity) AS mean_hum, MIN(temperature) AS min_temp, MAX(temperature) AS max_temp, MIN(humidity) AS min_hum, MAX(humidity) AS max_hum FROM data WHERE "deviceName" =~ /^SICONIA.*/ GROUP BY "deviceName", time(1d)
+
+-- show mean,max and min of temperature and humidity group by day for the 7 last days of the SICONIA devices
+SELECT MEAN(temperature) AS mean_temp, MEAN(humidity) AS mean_hum, MIN(temperature) AS min_temp, MAX(temperature) AS max_temp, MIN(humidity) AS min_hum, MAX(humidity) AS max_hum FROM data WHERE "deviceName" =~ /^SICONIA.*/ AND time >= now() - 7d GROUP BY "deviceName", time(1d)
+
+SELECT DERIVATIVE(temperature,1d) AS dev_temp, DERIVATIVE(humidity,1d) AS dev_hum FROM data WHERE "deviceName" =~ /^SICONIA.*/ AND time >= now() - 7d GROUP BY "deviceName"
 ```
 
 ## Explain queries

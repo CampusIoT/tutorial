@@ -160,10 +160,24 @@ Le modem RN2483 est utilisé pour le [Field Tester](https://github.com/CampusIoT
 ## Mise à jour du firmware du RN2483
 Les anciennes versions du firmware des modules RN2483 doivent être mises à jour en suivant la [procédure suivante via l'UART](https://www.pocketmagic.net/rn2483-rn2903-firmware-upgrade-guide/).
 
-## Libraries Arduino pour le RN2483
+## Bibliothèque  Arduino pour le RN2483
 * https://github.com/Libelium/waspmoteapi/tree/master/libraries/LoRaWAN
 * https://github.com/SodaqMoja/Sodaq_RN2483/tree/master/src 
 
-## Gallerie
+## Bibliothèque RIOT OS pour RN2483
+* https://github.com/RIOT-OS/RIOT/tree/master/drivers/rn2xx3
+
+L'exemple du [tests/driver_rn2xx3](https://github.com/RIOT-OS/RIOT/tree/master/tests/driver_rn2xx3) permet d'utiliser des commandes shell de RIOT OS pour dialoguer avec le modem.
+
+```
+sys <sleep|reset|factoryRESET>
+mac get <deveui|appeui|devaddr|txport|txmode|poweridx|dr|adr|band|retx|rx1|rx2|ar|rx2dr|rx2freq>
+mac set <deveui|appeui|appkey|devaddr|appskey|nwkskey|txport|txmode|pwridx|dr|adr|bat|retx|linkchk|rx1|ar|rx2dr|rx2freq|sleep_duration> <value>
+mac save
+mac join <otaa|abp>
+mac tx <payload>
+```
+    
+## Galerie
 ![RN2483 Android Serial Term](./RN2483_Android_Serial_Term.jpg)
 

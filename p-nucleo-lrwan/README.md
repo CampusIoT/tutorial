@@ -159,7 +159,9 @@ Vous pouvez aussi réinstaller celui-ci mis à disposition par [TTN](https://www
 
 Le kit [I-NUCLEO-LRWAN1](https://www.st.com/en/evaluation-tools/i-nucleo-lrwan1.html) (carte Nucleo L073RZ et [modem USI LoRa](https://raw.githubusercontent.com/USIWP1Module/USI_I-NUCLEO-LRWAN1/master/WM-SG-SM-42%20AT%20Command%20Reference%20Manual%20rev.2.6_20200225.pdf)) est livré avec un firmware par défaut.
 
-Pour récupérer DevEUI, AppEUI et AppKey, vous pouvez :
+DevEUI, AppEUI et AppKey sont inscrits sur une étiquette sur la face dessous de la carte Nucleo.
+
+Si ce n'est pas ou plus le cas, pour récupérer DevEUI, AppEUI et AppKey, vous pouvez :
 * soit observer les frames LoRa de type JoinRequest reçues par votre gateway. Sur le LoRaServer, le joinEUI correspond à l'AppEUI,
 * soit brancher un adapteur USBSerial sur les broches de la carte USI retirée de la carte Nucleo.
 * soit lire le DevEUI et l'AppEui dans la mémoire Flash de la carte Nucleo

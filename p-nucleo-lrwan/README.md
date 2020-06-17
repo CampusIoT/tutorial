@@ -374,6 +374,13 @@ ATEerror_t Lora_SetDataRate(uint8_t DataRate)
 }
 ```
 
+Remarque: Pour activer l'ADR, vous pouvez modifier la fonction `Lora_fsm` du fichier `lora_driver.c`.
+```C
+        /*to adapt the data rate during transmission*/
+        LoraCmdRetCode = Lora_SetAdaptiveDataRate(ADAPT_DATA_RATE_ENABLE);
+        //LoraCmdRetCode = Lora_SetAdaptiveDataRate(ADAPT_DATA_RATE_DISABLE);
+```
+
 ## Documentation
 * [P-NUCLEO-LRWAN2](https://www.st.com/content/st_com/en/products/evaluation-tools/product-evaluation-tools/stm32-nucleo-expansion-boards/p-nucleo-lrwan2.html)  STM32 Nucleo pack LoRa™ HF band sensor and gateway
 * [P-NUCLEO-LRWAN3](https://www.st.com/en/evaluation-tools/p-nucleo-lrwan3.html) STM32 Nucleo pack LoRa™ LF band sensor and gateway

@@ -312,6 +312,68 @@ Une fois enregistré, le kit effectue l'activation en mode OTAA et envoie pério
 }
 ```
 
+
+### Trace et Debug
+Vous pouvez tracer les commandes AT du modem LoRaWAN en vous connecter pour port USBSerial de la carte Nucleo (`9600 8N1`).
+
+```
+AT
+????+AT: OK
+AT+ID=DevEui
+????+ID: DevEui, 8C:F9:57:20:00:00:12:34
+AT+ID=APPEUI
+????+ID: AppEui, A1:79:AA:AA:AD:20:4A:72
+AT+FDEFAULT
++FDEFAULT: OK
+AT+LOWPOWER=AUTOON
+????+LOWPOWER: AUTOON
+AT+DR=EU433
+????+DR: EU433
+AT+ID=DevAddr
+????+ID: DevAddr, 00:00:FC:6F
+AT+MODE=LWOTAA
+????+MODE: LWOTAA
+AT+WDT=OFF
+????+WDT: OFF
+AT+ADR=OFF
+????+ADR: OFF
+AT+DR=3
+AT+JOIN
+????+JOIN: Start
+????+JOIN: NORMAL
+????+JOIN: Network joined
+????+JOIN: NetID C0002B DevAddr FC:00:AF:88
+????+JOIN: Done
+AT+VDD
+????+VDD: 3.31V
+AT+MSGHEX=007326a601670105026860030064040100
+????+MSGHEX: Start
+????+MSGHEX: FPENDING
+????+MSGHEX: RXWIN1, RSSI -22, SNR 7.5
+????+MSGHEX: Done
+AT+VDD
+????+VDD: 3.31V
+AT+MSGHEX=007326a601670105026860030064040100
+????+MSGHEX: Start
+????+MSGHEX: Done
+AT+VDD
+????+VDD: 3.31V
+```
+
+
+Remarque: il est possible que le programme plante après la commande `AT+ADR=OFF` présente dans la trace : il faut ajouter l'instruction suivante dans la fonction `Lora_SetDataRate` du fichier `lora_driver.c`.
+
+```c
+ATEerror_t Lora_SetDataRate(uint8_t DataRate)
+{
+  ATEerror_t Status;
+  int32_t var = DataRate; // Instruction à ajouter
+  Status = Modem_AT_Cmd(AT_SET, AT_DR, &var);
+
+  return (Status);
+}
+```
+
 ## Documentation
 * [P-NUCLEO-LRWAN2](https://www.st.com/content/st_com/en/products/evaluation-tools/product-evaluation-tools/stm32-nucleo-expansion-boards/p-nucleo-lrwan2.html)  STM32 Nucleo pack LoRa™ HF band sensor and gateway
 * [P-NUCLEO-LRWAN3](https://www.st.com/en/evaluation-tools/p-nucleo-lrwan3.html) STM32 Nucleo pack LoRa™ LF band sensor and gateway

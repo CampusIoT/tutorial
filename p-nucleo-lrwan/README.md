@@ -208,6 +208,16 @@ Une fois enregistré, le kit effectue l'activation en mode OTAA et envoie pério
   }
 }
 ```
+## Modification du programme du kit I-NUCLEO-LRWAN1 (868 MHz)
+
+Pour recontruire le firmware avec l'environnement gratuit [STM32CubeIDE](https://www.st.com/en/development-tools/stm32cubeide.html), il faut : 
+- télécharger le code de la dernière version de l'[extension LoRaWAN du STM3Cube](https://www.st.com/en/embedded-software/i-cube-lrwan.html) soit la version 1.3.1 dans ce tutoriel.
+- importer le projet `STM32CubeExpansion_LRWAN_V1.3.1/Projects/STM32L073RZ-Nucleo/Applications/LoRa/AT_Master/SW4STM32/LRWAN_NS1` de l'environnement [SW4STM32](https://www.st.com/en/development-tools/sw4stm32.html) dans STM32CubeIDE: [guide de migration](https://www.st.com/resource/en/user_manual/dm00613836-migration-guide-from-system-workbench-to-stm32cubeide-stmicroelectronics.pdf)
+- modifier le code source de l'application AT_Master `STM32CubeExpansion_LRWAN_V1.3.1/Projects/STM32L073RZ-Nucleo/Applications/LoRa/AT_Master/LoRaWAN/App/src/main.c` comme indiqué dans la page 24 (section 4.3) de la [documentation](https://www.st.com/resource/en/user_manual/dm00620948-getting-started-with-the-pnucleolrwan2-and-pnucleolrwan3-starter-packs-stmicroelectronics.pdf#page=24)
+- compiler le projet et flasher le firmware sur le noeud (menu `Run>Run`).  Plus de détails sur https://www.st.com/en/development-tools/stm32cubeide.html#resource
+
+Vous pouvez ajouter d'autres shields Nucleo et Arduino (3.3V) pour prototyper des applications IoT avancées.
+
 ## Démarrage de la gateway LRWAN3 (433 MHz)
 
 Le démarrage de la gateway LRWAN3 est presque identique au démarrage de la gateway LRWAN2.
@@ -281,7 +291,7 @@ Par défaut, ce kit est par défaut configuré sur la bande ISM chinoise (cn470)
 Pour recontruire le firmware avec l'environnement gratuit [STM32CubeIDE](https://www.st.com/en/development-tools/stm32cubeide.html), il faut : 
 - télécharger le code de l'[extension LoRaWAN du STM3Cube](https://www.st.com/en/embedded-software/i-cube-lrwan.html)
 - importer le projet `STM32CubeExpansion_LRWAN_V1.3.1/Projects/STM32L073RZ-Nucleo/Applications/LoRa/AT_Master/SW4STM32/LRWAN_NS1` de l'environnement [SW4STM32](https://www.st.com/en/development-tools/sw4stm32.html) dans STM32CubeIDE: [guide de migration](https://www.st.com/resource/en/user_manual/dm00613836-migration-guide-from-system-workbench-to-stm32cubeide-stmicroelectronics.pdf)
-- modifier le code source de l'application AT_Master `STM32CubeExpansion_LRWAN_V1.3.1/Projects/STM32L073RZ-Nucleo/Applications/LoRa/AT_Master/LoRaWAN/App/src/main.c` comme indiqué dans la [documentation](https://www.st.com/resource/en/user_manual/dm00620948-getting-started-with-the-pnucleolrwan2-and-pnucleolrwan3-starter-packs-stmicroelectronics.pdf#page=28)
+- modifier le code source de l'application AT_Master `STM32CubeExpansion_LRWAN_V1.3.1/Projects/STM32L073RZ-Nucleo/Applications/LoRa/AT_Master/LoRaWAN/App/src/main.c` comme indiqué dans la page 28 (section 5.3) de la [documentation](https://www.st.com/resource/en/user_manual/dm00620948-getting-started-with-the-pnucleolrwan2-and-pnucleolrwan3-starter-packs-stmicroelectronics.pdf#page=28)
 ```
 #main.c
 

@@ -797,6 +797,39 @@ void onRxData(TWiMODLR_HCIMessage& rxMsg) {
     }
 }
 
+/*****************************************************************************
+ * Set the radio for multitech 2.4GHz gateways
+ ****************************************************************************/
+
+void setWimdRadioConfig() {
+    TWiMODLR_DevMgmt_RadioConfigPlus radioCfg;
+
+    debugMsg(F("\n\n Set RadioConfig:\n"));
+
+    // read the current configuration of the WiMOD module
+    if (wimod.GetRadioConfig(&radioCfg)) {
+
+      //radioCfg.RadioMode    = RadioMode_Standard;
+      radioCfg.StoreNwmFlag = 0x01; // store new config permanently
+      radioCfg.Modulation   = LRBASE_PLUS_Modulation_LoRa;
+      radioCfg.PowerLevel   = LRBASE_PLUS_TxPowerLevel_p10_dBm;
+      radioCfg.LoRaBandWidth   = LRBASE_PLUS_LoRaBandwith_800kHz;
+      radioCfg.LoRaSpreadingFactor   = LRBASE_PLUS_LoRa_SF12;
+      radioCfg.LoRaErrorCoding   = LRBASE_PLUS_LoRa_ErrorCoding_LI_4_5;
+
+      wimod.calcFreqToRegister(2422000000, // 2422000000, 2425000000, 2479000000
+                            &radioCfg.RfFreq_MSB,
+                            &radioCfg.RfFreq_MID,
+                            &radioCfg.RfFreq_LSB);
+      // set information from WiMOD
+      if (wimod.SetRadioConfig(&radioCfg)) {
+        //ok new config has been setup
+        debugMsg(F("\n\nNew config has been setup.\n"));
+      }
+    } else {
+        debugMsg(F("\n\nNew config has NOT been setup.\n"));     
+    }
+}
 
 /*****************************************************************************
  * Arduino setup function
@@ -817,6 +850,8 @@ void setup()
     PC_IF.begin(115200);
     
     printConfigurationMsg();
+
+    setWimdRadioConfig();
 
     printWimdRadioConfig();
 

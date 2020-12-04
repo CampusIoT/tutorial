@@ -20,7 +20,7 @@ Branchez l'antenne sur la carte fille LRWAN_GS_HF1.
 
 Branchez le connecteur micro USB (CN1) de la carte fille LRWAN_GS_HF1 sur un adaptateur 5V.
 
-Branchez le connecteur micro USB (CN1) de la carte Nucleo sur le port USB de votre machine et repérez son port `/dev/tty.*`. Attention: ce port NE SERT PAS à l'alimentation de l'ensemble.
+Branchez le connecteur micro USB (CN1) de la carte Nucleo sur le port USB de votre machine et repérez son port `/dev/tty.*` ou `/dev/ttyACM0`. Attention: ce port NE SERT PAS à l'alimentation de l'ensemble.
 
 Lancez `minicom -s` sur ce port avec la configuration suivante : `115200 8N1`.
 
@@ -39,7 +39,7 @@ Enregistrez la gateway dans votre organisation.
 Entrez les commandes suivantes dans le terminal série pour reconfigurer l'adresse du network server:
 ```
 AT+PKTFWD
-AT+PKTFWD=lora.campusiot.imag.fr,1700,1700
+AT+PKTFWD=lns.campusiot.imag.fr,1700,1700
 AT+RESET
 ```
 
@@ -257,7 +257,7 @@ AT+SYS
 ```
 
 ```
-AT+PKTFWD=lora.campusiot.imag.fr,1700,1700
+AT+PKTFWD=lns.campusiot.imag.fr,1700,1700
 AT+LOG=ON                                                                    
 AT+CH
 AT+CH=eu433                                                                    

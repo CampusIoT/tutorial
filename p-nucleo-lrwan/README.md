@@ -68,7 +68,7 @@ Powered by RisingHF & STMicroelectronics
        EUI PADDING: {3, FF}, {4, FF}                                            
         GATEWAY ID: 0080E1FFFF0152AF                                            
            LORAWAN: Public                                                      
-    LORAWAN SERVER: lora.campusiot.imag.fr                                      
+    LORAWAN SERVER: lns.campusiot.imag.fr                                      
    UPLINK UDP PORT: 1700                                                        
  DOWNLINK UDP PORT: 1700                                                        
           CHANNEL0: 867100000, A, SF7/SF12, BW125KHz    (LORA_MULTI_SF)         

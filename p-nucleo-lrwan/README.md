@@ -184,6 +184,18 @@ Pour le troisième cas, les commandes à lancer sont:
 * Pour le DevEUI: `ST-LINK_CLI.exe -c swd ur -r8 0x08080000 0x08`
 * Pour l'AppEUI: `ST-LINK_CLI.exe -c swd ur -r8 0x08080008 0x08`
 
+Si vous utilisez STM32CubeIDE, vous pouvez utiliser `gdb`:
+```
+(gdb) set endian big
+The target is assumed to be big endian
+
+(gdb) x/g 0x08080000
+0x8080000:      0x....
+
+(gdb) x/g 0x08080008
+0x8080008:      0x....
+```
+
 Dans le firmware par défaut, l'AppKey est la concatenation du DevEUI et l'AppEUI.
 
 Vous pouvez alors enregistrer le kit sur votre network server.

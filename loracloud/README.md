@@ -2,7 +2,7 @@
 
 LoRaCloud est un service en ligne proposé par l'entreprise Semtech qui est le fondeur des composants LoRa.
 
-LoRaCloud propose un service de géolocalisation d'équipements à partir d'informations dérivées du réseau (RSSI, TDOA).
+LoRaCloud propose un service de géolocalisation d'équipements à partir d'informations dérivées du réseau (RSSI, TDOA, GNSS).
 
 Ce service est décrit ici https://www.loracloud.com/portal/geolocation
 
@@ -79,3 +79,35 @@ node res2geojson.js multiframes.json multiframes.result.json > multiframes.geojs
 Ouvrez le fichier [multiframes.geojson](./multiframes.geojson) avec http://geojson.io
 
 ![multiframes.result.png](multiframes.result.png)
+
+
+# LR1110 LoRa Edge
+
+Le traqueur LR1110 est le démonstrateur du composant LR1110 de Semtech qui capture les signaux Wifi et GPS/Beidou et les envoie vers le cloud de Semtech via un réseau LoRaWAN (public ou privé) pour calculer la position du traqueur.
+
+[Requests a location estimate for a single on-chip GNSS capture](https://www.loracloud.com/documentation/geolocation?url=gnss.html#single-capture-http-request).
+
+The request body contains a JSON object with the navigation message in HEX and at least the capture timestamp:
+```json
+{
+  "payload":                    HEX,            // Required. HEX string with valid single capture payload
+  "gnss_capture_time":          FLOAT,          // Optional. capture time estimate, GPST
+  "gnss_capture_time_accuracy": FLOAT,          // Optional. capture time accuracy, seconds, default: 300
+  "gnss_assist_position":       [FLOAT, FLOAT], // Optional. assistance position WGS84, (latitude, longitude) [deg]
+  "gnss_assist_altitude":       FLOAT,          // Optional. assistance position WGS84, (latitude, longitude) [deg]
+  "gnss_use_2D_solver":         BOOL            // Optional. force 2D solve, "gnss_assist_altitude" mandatory
+}
+```
+
+```bash
+./gnss_lr1110_singleframe.sh > gnss_lr1110_singleframe.result.json
+cat gnss_lr1110_singleframe.result.json
+```
+
+> Linux Epoch has 315964782 sec more than GPS epoch.
+
+```bash
+LINUX_EPOCH=$(date +%s)
+GPS_EPOCH=`expr $LINUX_EPOCH - $315964782`
+echo $GPS_EPOCH
+```

@@ -104,6 +104,30 @@ The request body contains a JSON object with the navigation message in HEX and a
 cat gnss_lr1110_singleframe.result.json
 ```
 
+The result is:
+```json
+{
+  "result": {
+    "ecef": [
+      4288076.01,
+      665721.15,
+      4659254.83
+    ],
+    "llh": [
+      47.22729,
+      8.82469,
+      399.84
+    ],
+    "capture_time_gps": 1269172730.011371,
+    "gdop": 1.6,
+    "accuracy": 1.4,
+    "capture_time_utc": 1585137512.011371
+  },
+  "warnings": []
+}
+```
+
+
 > Linux Epoch has 315964782 sec more than GPS epoch.
 
 ```bash

@@ -24,6 +24,8 @@ Branchez le connecteur micro USB (CN1) de la carte Nucleo sur le port USB de vot
 
 Lancez `minicom -s` sur ce port avec la configuration suivante : `115200 8N1`.
 
+![P-NUCLEO-LRWAN Branchement](./images/lrwan2-cables.png)
+
 
 ### Enregistrement de la gateway
 

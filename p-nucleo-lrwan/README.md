@@ -160,13 +160,20 @@ AT+Baudrate AT command and logging UART interface baud rate.
 
 ```
 RX: 407BAD00FC800000088F8CC34CD1A913D9574AD997EC732B902412A00B77
-JUL: {"rxpk":[{"tmst":47323908,"chan":0,"rfch":0,"freq":433.175000,"stat":1,"modu":"LORA","datr":"SF9BW125","codr":"4/5","lsnr":11.5,"rssi":-28,"size":30,"data":"QHutAPyAAAAIj4zDTNGpE9lXStmX7HMrkCQSoA}
+JUL: {"rxpk":[{"tmst":47323908,"chan":0,"rfch":0,"freq":433.175000,"stat":1,"modu":"LORA","datr":"SF9BW125","codr":"4/5","lsnr":11.5,"rssi":-28,"size":30,"data":"QHutAPyAAAAIj4zDTNGpE9lXStmX7HMrkCQSoA"}]}
 JDL: {"txpk":{"imme":false,"rfch":0,"powe":14,"ant":0,"brd":0,"tmst":48323908,"freq":433.175,"modu":"LORA","datr":"SF9BW125","codr":"4/5","ipol":true,"size":18,"data":"YHutAPyGAAADUv8AAQb6/Vlm"}}
 LTX: 607BAD00FC8600000352FF000106FAFD5966
 LTS: 47686199 48323908 637709
+...
+LRX: 407BAD00FC802F0008577306DBC51D660B627B4F8F0FD1F738979A452C5E
+JUL: {"rxpk":[{"tmst":925204115,"chan":1,"rfch":0,"freq":433.375000,"stat":1,"modu":"LORA","datr":"SF7BW125","codr":"4/5","lsnr":11.3,"rssi":-33,"size":30,"data":"QHutAPyALwAIV3MG28UdZgtie0+PD9H3OJeaRSxe"}]}
+LRX: 407BAD00FC80300008F0AE14EBB9E18174A2AD5807D8F7A0E8D93185D870
+JUL: {"rxpk":[{"tmst":944028803,"chan":0,"rfch":0,"freq":433.175000,"stat":1,"modu":"LORA","datr":"SF7BW125","codr":"4/5","lsnr":9.5,"rssi":-34,"size":30,"data":"QHutAPyAMAAI8K4U67nhgXSirVgH2Peg6Nkxhdhw"}]}
+LRX: 407BAD00FC8031000841FE2E9D0BF57386EA6514A6FFEA3C083110CF4F33
+JUL: {"rxpk":[{"tmst":962853363,"chan":0,"rfch":0,"freq":433.175000,"stat":1,"modu":"LORA","datr":"SF7BW125","codr":"4/5","lsnr":9.3,"rssi":-35,"size":30,"data":"QHutAPyAMQAIQf4unQv1c4bqZRSm/+o8CDEQz08z"}]}
+LRX: 407BAD00FC8032000892FF1918D8F185EED04A2442C055A3328D83639893
+JUL: {"rxpk":[{"tmst":981675995,"chan":0,"rfch":0,"freq":433.175000,"stat":1,"modu":"LORA","datr":"SF7BW125","codr":"4/5","lsnr":9.5,"rssi":-30,"size":30,"data":"QHutAPyAMgAIkv8ZGNjxhe7QSiRCwFWjMo2DY5iT"}]}
 ```
-
-
 
 ### Perte ou mise à jour du firmware par défaut
 

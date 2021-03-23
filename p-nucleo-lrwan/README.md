@@ -149,6 +149,24 @@ AT+CH Packet forwarder channels.
 AT+Baudrate AT command and logging UART interface baud rate.
 ```
 
+
+### Trace de réception des messages
+* `RX` affiche la trame LoRa recue.
+* `JUL` affiche le contenu du datagramme envoyé au network serveur.
+* `JDL` affiche le contenu du datagramme recu de network serveur.
+* `LTX` affiche la trame LoRa envoyée à un endpoint.
+* `LTS` affiche le ???.
+ 
+
+```
+RX: 407BAD00FC800000088F8CC34CD1A913D9574AD997EC732B902412A00B77
+JUL: {"rxpk":[{"tmst":47323908,"chan":0,"rfch":0,"freq":433.175000,"stat":1,"modu":"LORA","datr":"SF9BW125","codr":"4/5","lsnr":11.5,"rssi":-28,"size":30,"data":"QHutAPyAAAAIj4zDTNGpE9lXStmX7HMrkCQSoA}
+JDL: {"txpk":{"imme":false,"rfch":0,"powe":14,"ant":0,"brd":0,"tmst":48323908,"freq":433.175,"modu":"LORA","datr":"SF9BW125","codr":"4/5","ipol":true,"size":18,"data":"YHutAPyGAAADUv8AAQb6/Vlm"}}
+LTX: 607BAD00FC8600000352FF000106FAFD5966
+LTS: 47686199 48323908 637709
+
+
+
 ### Perte ou mise à jour du firmware par défaut
 
 Afin d'éviter une perte du firmware, vous pouvez _dumper_ celui de votre carte avant son usage.

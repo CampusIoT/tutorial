@@ -164,6 +164,7 @@ JUL: {"rxpk":[{"tmst":47323908,"chan":0,"rfch":0,"freq":433.175000,"stat":1,"mod
 JDL: {"txpk":{"imme":false,"rfch":0,"powe":14,"ant":0,"brd":0,"tmst":48323908,"freq":433.175,"modu":"LORA","datr":"SF9BW125","codr":"4/5","ipol":true,"size":18,"data":"YHutAPyGAAADUv8AAQb6/Vlm"}}
 LTX: 607BAD00FC8600000352FF000106FAFD5966
 LTS: 47686199 48323908 637709
+```
 
 
 

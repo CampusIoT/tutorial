@@ -26,6 +26,7 @@ Lancez `minicom -s` sur ce port avec la configuration suivante : `115200 8N1`.
 
 ![P-NUCLEO-LRWAN Branchement](./images/lrwan2-cables.png)
 
+> Attention: Ne tentez pas de configurer la gateway LRWAN2 (notée HF sur la carte LRWAN_GS_HF1) pour les bandes de fréquences 433MHz ou 470MHz
 
 ### Enregistrement de la gateway
 
@@ -150,31 +151,6 @@ AT+Baudrate AT command and logging UART interface baud rate.
 ```
 
 
-### Trace de réception des messages
-* `RX` affiche la trame LoRa recue.
-* `JUL` affiche le contenu du datagramme envoyé au network serveur.
-* `JDL` affiche le contenu du datagramme recu de network serveur.
-* `LTX` affiche la trame LoRa envoyée à un endpoint.
-* `LTS` affiche le ???.
- 
-
-```
-RX: 407BAD00FC800000088F8CC34CD1A913D9574AD997EC732B902412A00B77
-JUL: {"rxpk":[{"tmst":47323908,"chan":0,"rfch":0,"freq":433.175000,"stat":1,"modu":"LORA","datr":"SF9BW125","codr":"4/5","lsnr":11.5,"rssi":-28,"size":30,"data":"QHutAPyAAAAIj4zDTNGpE9lXStmX7HMrkCQSoA"}]}
-JDL: {"txpk":{"imme":false,"rfch":0,"powe":14,"ant":0,"brd":0,"tmst":48323908,"freq":433.175,"modu":"LORA","datr":"SF9BW125","codr":"4/5","ipol":true,"size":18,"data":"YHutAPyGAAADUv8AAQb6/Vlm"}}
-LTX: 607BAD00FC8600000352FF000106FAFD5966
-LTS: 47686199 48323908 637709
-...
-LRX: 407BAD00FC802F0008577306DBC51D660B627B4F8F0FD1F738979A452C5E
-JUL: {"rxpk":[{"tmst":925204115,"chan":1,"rfch":0,"freq":433.375000,"stat":1,"modu":"LORA","datr":"SF7BW125","codr":"4/5","lsnr":11.3,"rssi":-33,"size":30,"data":"QHutAPyALwAIV3MG28UdZgtie0+PD9H3OJeaRSxe"}]}
-LRX: 407BAD00FC80300008F0AE14EBB9E18174A2AD5807D8F7A0E8D93185D870
-JUL: {"rxpk":[{"tmst":944028803,"chan":0,"rfch":0,"freq":433.175000,"stat":1,"modu":"LORA","datr":"SF7BW125","codr":"4/5","lsnr":9.5,"rssi":-34,"size":30,"data":"QHutAPyAMAAI8K4U67nhgXSirVgH2Peg6Nkxhdhw"}]}
-LRX: 407BAD00FC8031000841FE2E9D0BF57386EA6514A6FFEA3C083110CF4F33
-JUL: {"rxpk":[{"tmst":962853363,"chan":0,"rfch":0,"freq":433.175000,"stat":1,"modu":"LORA","datr":"SF7BW125","codr":"4/5","lsnr":9.3,"rssi":-35,"size":30,"data":"QHutAPyAMQAIQf4unQv1c4bqZRSm/+o8CDEQz08z"}]}
-LRX: 407BAD00FC8032000892FF1918D8F185EED04A2442C055A3328D83639893
-JUL: {"rxpk":[{"tmst":981675995,"chan":0,"rfch":0,"freq":433.175000,"stat":1,"modu":"LORA","datr":"SF7BW125","codr":"4/5","lsnr":9.5,"rssi":-30,"size":30,"data":"QHutAPyAMgAIkv8ZGNjxhe7QSiRCwFWjMo2DY5iT"}]}
-```
-
 ### Perte ou mise à jour du firmware par défaut
 
 Afin d'éviter une perte du firmware, vous pouvez _dumper_ celui de votre carte avant son usage.
@@ -186,6 +162,10 @@ Vous pouvez aussi réinstaller celui-ci mis à disposition par [TTN](https://www
 ## Démarrage du kit I-NUCLEO-LRWAN1 (868 MHz)
 
 Le kit [I-NUCLEO-LRWAN1](https://www.st.com/en/evaluation-tools/i-nucleo-lrwan1.html) (carte Nucleo L073RZ et [modem USI LoRa](https://raw.githubusercontent.com/USIWP1Module/USI_I-NUCLEO-LRWAN1/master/WM-SG-SM-42%20AT%20Command%20Reference%20Manual%20rev.2.6_20200225.pdf) avec SX1272) est livré avec un firmware par défaut.
+
+
+![P-NUCLEO-LRWAN2 Endpoint Detail](./images/p-nucleo-lrwan2.png)
+
 
 DevEUI, AppEUI et AppKey sont inscrits sur une étiquette sur la face dessous de la carte Nucleo.
 
@@ -320,9 +300,45 @@ La gateway écoute et réponds désormais sur les canaux suivants.
 
 La gateway peut être enregistrée sur un network server configuré par la bande eu433.
 
+
+
+### Trace de réception des messages
+* `RX` affiche la trame LoRa recue.
+* `JUL` affiche le contenu du datagramme envoyé au network serveur.
+* `JDL` affiche le contenu du datagramme recu de network serveur.
+* `LTX` affiche la trame LoRa envoyée à un endpoint.
+* `LTS` affiche le timestamp interne au concentrateur
+ 
+
+```
+RX: 407BAD00FC800000088F8CC34CD1A913D9574AD997EC732B902412A00B77
+JUL: {"rxpk":[{"tmst":47323908,"chan":0,"rfch":0,"freq":433.175000,"stat":1,"modu":"LORA","datr":"SF9BW125","codr":"4/5","lsnr":11.5,"rssi":-28,"size":30,"data":"QHutAPyAAAAIj4zDTNGpE9lXStmX7HMrkCQSoA"}]}
+JDL: {"txpk":{"imme":false,"rfch":0,"powe":14,"ant":0,"brd":0,"tmst":48323908,"freq":433.175,"modu":"LORA","datr":"SF9BW125","codr":"4/5","ipol":true,"size":18,"data":"YHutAPyGAAADUv8AAQb6/Vlm"}}
+LTX: 607BAD00FC8600000352FF000106FAFD5966
+LTS: 47686199 48323908 637709
+...
+LRX: 407BAD00FC802F0008577306DBC51D660B627B4F8F0FD1F738979A452C5E
+JUL: {"rxpk":[{"tmst":925204115,"chan":1,"rfch":0,"freq":433.375000,"stat":1,"modu":"LORA","datr":"SF7BW125","codr":"4/5","lsnr":11.3,"rssi":-33,"size":30,"data":"QHutAPyALwAIV3MG28UdZgtie0+PD9H3OJeaRSxe"}]}
+LRX: 407BAD00FC80300008F0AE14EBB9E18174A2AD5807D8F7A0E8D93185D870
+JUL: {"rxpk":[{"tmst":944028803,"chan":0,"rfch":0,"freq":433.175000,"stat":1,"modu":"LORA","datr":"SF7BW125","codr":"4/5","lsnr":9.5,"rssi":-34,"size":30,"data":"QHutAPyAMAAI8K4U67nhgXSirVgH2Peg6Nkxhdhw"}]}
+LRX: 407BAD00FC8031000841FE2E9D0BF57386EA6514A6FFEA3C083110CF4F33
+JUL: {"rxpk":[{"tmst":962853363,"chan":0,"rfch":0,"freq":433.175000,"stat":1,"modu":"LORA","datr":"SF7BW125","codr":"4/5","lsnr":9.3,"rssi":-35,"size":30,"data":"QHutAPyAMQAIQf4unQv1c4bqZRSm/+o8CDEQz08z"}]}
+LRX: 407BAD00FC8032000892FF1918D8F185EED04A2442C055A3328D83639893
+JUL: {"rxpk":[{"tmst":981675995,"chan":0,"rfch":0,"freq":433.175000,"stat":1,"modu":"LORA","datr":"SF7BW125","codr":"4/5","lsnr":9.5,"rssi":-30,"size":30,"data":"QHutAPyAMgAIkv8ZGNjxhe7QSiRCwFWjMo2DY5iT"}]}
+```
+
+
+
+> Attention: Ne tentez pas de configurer la gateway LRWAN3 (notée LF sur la carte LRWAN_GS_LF1) pour les bandes de fréquences 868MHz ou 915MHz
+
+
 ## Démarrage du kit LRWAN_NS1 (433 MHz)
 
 Le kit ST Nucleo LoRa Sensor LRWAN_NS1 est basé sur la carte Nucleo-L073 et la carte fille ST Nucleo LoRa Sensor basé sur le module [RHF0M003](http://www.risinghf.com/#/product-details?product_id=4&lang=en) de RisingHF.
+
+
+![P-NUCLEO-LRWAN3 Endpoint Detail](./images/p-nucleo-lrwan3.png)
+
 
 Par défaut, ce kit est par défaut configuré sur la bande ISM chinoise (cn470). Il convient de reconfigurer ses canaux pour être conforme à la réglementation européene (ETSI eu433) conformément à la [documentation](https://www.st.com/resource/en/user_manual/dm00620948-getting-started-with-the-pnucleolrwan2-and-pnucleolrwan3-starter-packs-stmicroelectronics.pdf#page=28):
 - soit en reconstruisant le firmware 

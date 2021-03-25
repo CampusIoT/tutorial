@@ -161,6 +161,50 @@ mac tx cnf 1 01020304
 mac tx uncnf 1 0102034
 ```
 
+## Configuration en classe C
+Depuis la version 1.0.5, le module RN2483 peut être configuré en classe C.
+
+```
+mac set class c
+mac save
+mac join otaa
+```
+
+## Recevoir des messages (downlink) en classe C
+
+```bash
+> echo HelloWorld | base64
+SGVsbG9Xb3JsZAo=
+```
+
+```
+>> mac_rx 5 48656C6C6F576F726C640A
+>> mac_tx_ok
+```
+
+## Configuration du multicast
+
+Depuis la version 1.0.5, le module RN2483 peut recevoir de messages sur une adresse multicast.
+
+```
+mac set mcastdevaddr 54ABCDEF
+mac set mcastappskey 29100192AFBECD564738837465FAEBDC
+mac set mcastnwkskey 6AFBECD1029384755647382910DACFEB
+mac set mcastdnctr 1
+mac set mcast on
+mac save
+```
+
+
+
+## Recevoir des messages (downlink) multicast
+
+```bash
+> echo HelloWorld | base64
+SGVsbG9Xb3JsZAo=
+```
+
+
 ## Remarque:
 Le modem RN2483 est utilisé pour le [Field Tester](https://github.com/CampusIoT/lora-field-tester) de CampusIoT.
 

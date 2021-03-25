@@ -195,15 +195,31 @@ mac set mcast on
 mac save
 ```
 
+## Création d'un groupe multicast sur Chripstack
 
+![Groupe](multicast.png)
 
 ## Recevoir des messages (downlink) multicast
 
 ```bash
-> echo HelloWorld | base64
-SGVsbG9Xb3JsZAo=
+> echo "This is a test" | base64
+VGhpcyBpcyBhIHRlc3QK
 ```
 
+A envoyer via l'API de Chirpstack https://lns.campusiot.imag.fr/api#!/MulticastGroupService/Enqueue
+
+![Groupe](multicast-api.png)
+
+```json
+{
+  "multicastQueueItem": {
+    "data": "VGhpcyBpcyBhIHRlc3QK",
+    "fCnt": 2,
+    "fPort": 11,
+    "multicastGroupID": "773339d7-26f2-4cd6-8e4d-013b09be8a05"
+  }
+}
+```
 
 ## Remarque:
 Le modem RN2483 est utilisé pour le [Field Tester](https://github.com/CampusIoT/lora-field-tester) de CampusIoT.

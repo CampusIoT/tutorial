@@ -104,11 +104,18 @@ mac tx uncnf 2 05060708
 
 ## Recevoir des messages (downlink)
 
+```bash
+> echo HelloWorld | base64
+SGVsbG9Xb3JsZAo=
+```
+
+
+
 ```
 # Envoyer un message uplink confirmed (au format hexadécimal) sur le port 3
 mac tx cnf 3 010B0C0D
 >> ok
->>
+>> mac_rx 10 48656C6C6F576F726C640A
 ```
 
 ## Reconfigurer la couche Mac

@@ -5,10 +5,12 @@ et de flashage (openocd ou stlink).
 
 Plus de détails à <https://github.com/Lora-net/LoRaMac-node/wiki/Development-environment#prerequisites> et <https://github.com/texane/stlink>
 
-    brew install cmake # génère les Makefile
-    brew tap ARMmbed/homebrew-formulae && brew install arm-none-eabi-gcc #cross-compile
-    brew install openocd
-    brew install stlink
+```bash
+brew install cmake # génère les Makefile
+brew tap ARMmbed/homebrew-formulae && brew install arm-none-eabi-gcc #cross-compile
+brew install openocd
+brew install stlink
+```
 
 Le flashage peut se faire : 
 

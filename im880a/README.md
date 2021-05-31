@@ -36,21 +36,9 @@ Ces caractéristiques sont:
 
 Nous disposons au fablab de plusieurs cartes de démonstration et de prototypage à base d'iM880a
 
-* [LoRaMote]() : traqueur GPS LoRa
-* [SK-iM880a](https://wireless-solutions.de/products/starterkits/sk-im880b.html) : kit d'évaluation et de prototypage du module iM880a
-* IMST-iM880a-DS75LX : carte simple muni d'un capteur de temperature DS75LX
-
-![LoRaMote+st-linkv2](./figs/LoRaMote+st-linkv2.png)  
-**Fig. 1: LoRaMote + st-linkv2**
-
-![IMST-iM880a-DS75LX](./figs/im880a-ds75lx.jpg)  
-**Fig. 2: IMST-iM880a-DS75LX**
-
-![IMST-iM880a-DS75LX](./figs/im880a-ds75lx-top.jpg)
-**Fig. 3: IMST-iM880a-DS75LX**
-
-![SK-iM880a](./figs/sk-im880a.jpg)  
-**Fig. 4: SK-iM880a**
+* [LoRaMote](./loramote.md) : traqueur GPS LoRa
+* [SK-iM880a](./sk-im880a.md) : kit d'évaluation et de prototypage du module iM880a
+* [IMST-iM880a-DS75LX](./im880a-ds75lx.md) : carte simple muni d'un capteur de temperature DS75LX
 
 ## Les codes sources disponibles
 
@@ -59,3 +47,17 @@ L'implémentation officielle (Semtech) des drivers des composants SX126x/SX127x 
 Les deux tutoriels suivants vous permetteront de programmer les cartes disponibles : 
 * [LoRaNet LoRaMac-node](loramac-node.md)
 * [RIOT OS](riot.md)
+
+## Media
+
+![LoRaMote+st-linkv2](./figs/LoRaMote+st-linkv2.png)  
+**Fig. 1: LoRaMote + st-linkv2**
+
+![SK-iM880a](./figs/sk-im880a.jpg)  
+**Fig. 2: SK-iM880a**
+
+![IMST-iM880a-DS75LX](./figs/im880a-ds75lx.jpg)  
+**Fig. 3: IMST-iM880a-DS75LX**
+
+![IMST-iM880a-DS75LX](./figs/im880a-ds75lx-top.jpg)
+**Fig. 4: IMST-iM880a-DS75LX**

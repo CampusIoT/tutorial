@@ -25,7 +25,7 @@ Par défaut, le Makefile généré par `cmake` est pour la plateforme *LoRaMote*
 
 Pour modifier ces options, plus de détails au <https://github.com/Lora-net/LoRaMac-node/wiki/Development-environment#available-configuration-options-for-cmake>
 
-### Flashage
+### Flashage avec le STLinkV2
 
 Les étapes sont : 
 
@@ -50,43 +50,3 @@ Si le flashage ne marche pas, mieux vaut utiliser openocd pour débugger car il 
 - une carte mal alimentée : `openocd -f interface/stlink-v2.cfg -f target/stm32l1.cfg` vous indiquera *Error: target voltage may be too low for reliable debugging*. 
 - `openocd` indique `Error: init mode failed (unable to connect to the target)`. `st-info --probe` devrait remettre la carte dans un état accessible par `openocd`
 
-## LoRaMac-node + cartes à base d'iM880
-
-Si on part sur des cartes plus brutes (sans GPS, sans LED, ...) intégrant le module radio iM880a, on peut avoir des cartes plus compactes avec ses ports GPIO permettant un accès simplifié aux entrées/sorties du module iM880a. 
-
-![Board iM880a + DS75LX Temperature Sensor](./figs/im880a-ds75lx.jpg)  
-
-Les instructions ci-dessous se veulent le plus générique possible. 
-
-Imaginons une carte nécessitant pour la flasher de : 
-
-- l'alimenter par USB.
-	- Nous utiliserons l'adaptateur [USB-Serial CH340G](https://robotdyn.com/usb-serial-adapter-ch340g-5v-3-3v.html) de RobotDyn avec son [driver](https://kig.re/2014/12/31/how-to-use-arduino-nano-mini-pro-with-CH340G-on-mac-osx-yosemite.html) car il n'est pas reconnu par défaut sous OSX
-	- Le lien série sera accessible via `/dev/tty.wchusbserial1410`
-- connecter les bonnes PIN du st-linkv2 à la carte 
-
-Cette dernière étape nécessitera bien évidemment d'avoir accès au schéma du circuit électronique. 
-Imaginons que la carte dispose des 2 ports GPIO X1 et X2 suivants.
-
-Vous trouverez ci-dessous un exemple le schéma pour relier l'adaptateur usb (cf fig. 3) et le st-link v2 à la carte (cf fig. 4).  
-![usb-X2](./figs/CH340G-to-X2.png)  
-**Fig. 3: connexion X2 - adaptateur usb serial**
-
-![jtag-X1](./figs/JTAG-to-X1.png)  
-**Fig. 4: schéma connexion X1 - JTAG**
-
-Il ne reste plus qu'à flasher : 
-
-- `st-flash --format ihex write LoRaMote-LoRaMac-classA.hex` ([LoRaMote-LoRaMac-classA.hex](./firmware/LoRaMote-LoRaMac-classA.hex))
-
-Si tout fonctionne bien, vous devriez voir les paquets arrivés sur TTN comme pour la LoraMote (cf. Section [flashage](./README.md#flashage) du LoRaMote)
-
-Si cela ne fonctionne pas, reportez vous à la section [problèmes](./README.md#les-problèmes-éventuels) du LoRaMote.
-
-> Remarque: si vous ne possédez pas de flasheur ST-Link v2, vous pouvez utiliser le flasheur détachable des cartes Nucleo et connecter les 5 premières broches du [connecteur CN4 SWD](https://www.st.com/content/ccc/resource/technical/document/user_manual/98/2e/fa/4b/e0/82/43/b7/DM00105823.pdf/files/DM00105823.pdf/jcr:content/translations/en.DM00105823.pdf) au connecteur X1 de la carte IMST im880:
-
-	Pin 1: VDD_TARGET (VDD from application),
-	Pin 2: SWCLK (clock),
-	Pin 3: GND (ground),
-	Pin 4: SWDIO (SWD data input/output),
-	Pin 5: NRST (RESET of target STM32).

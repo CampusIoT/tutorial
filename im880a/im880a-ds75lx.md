@@ -207,6 +207,8 @@ Ce bootloader attend quelques secondes une demande de flashage d'un nouveau firm
 Le firmware est logé dans les pages Flash suivantes de la MCU (à partir de `0x80000400` pour certaines MCU).
 Si rien n'est demandé, le bootloader démarre à l'adresse de début du firmware.
 
+A compléter ...
+
 A voir:
 * https://doc.riot-os.org/group__bootloader__riotboot.html
 * https://github.com/benpicco/RIOT/tree/riotboot-serial/bootloaders/riotboot_serial

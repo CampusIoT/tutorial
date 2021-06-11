@@ -47,7 +47,7 @@ Si vous ne possédez pas de flasheur ST-Link v2, vous pouvez utiliser le flasheu
 	Pin 5: NRST (RESET of target STM32).
 
 
-### Flashage via l'UART
+### Flashage via l'UART avec la broche BOOT
 
 Les MCU STM32 peuvent être flashé avec un simple adapteur USB Serial. Il suffit pour cela d'utiliser l'utilitaire [STM32CubeProgrammer](https://www.st.com/en/development-tools/stm32cubeprog.html) (en GUI ou en ligne de commande) et de mettre la MCU en mode boot en raccordant la broche BOOT avec le VCC.
 
@@ -205,10 +205,18 @@ Time elapsed during download operation: 00:00:12.327
 ```
 
 
+### Flashage via l'UART avec `riotboot serial`
 
+Si vous utilisez RIOTOS pour développer les firmwares de cette carte, il est possible d'installer un bootloader résident en début de la mémoire Flash (`0x80000000`).
+Ce bootloader attend quelques secondes une demande de flashage d'un nouveau firmware après le reset.
+Le firmware est logé dans les pages Flash suivantes de la MCU (à partir de `0x80000400` pour certaines MCU).
+Si rien n'est demandé, le bootloader démarre à l'adresse de début du firmware.
 
+A compléter ...
 
-
+A voir:
+* https://doc.riot-os.org/group__bootloader__riotboot.html
+* https://github.com/benpicco/RIOT/tree/riotboot-serial/bootloaders/riotboot_serial
 
 ## Figures
 

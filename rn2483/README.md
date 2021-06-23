@@ -17,12 +17,14 @@ Il y a 3 types de commandes pour accéder aux différentes fonctions du module:
 * Pour MacOS X, Linux ou Windows: [Coolterm](http://freeware.the-meiers.org/) [Tutoriel](https://learn.sparkfun.com/tutorials/terminal-basics/coolterm-windows-mac-linux)
 * Pour Android, [Serial USB Terminal](https://play.google.com/store/apps/details?id=de.kai_morich.serial_usb_terminal)
 https://play.google.com/store/apps/details?id=de.kai_morich.serial_usb_terminal
-
+* `minicom` (Linux et Mac) : il faut configurer `minicom`  
 
 ## Connecter le modem
 Configurer la fin de ligne à la valeur `<CR><LF>`. Attention, `ENTER` est interprété `<CR>` ou `<LF>` dans la configuration par défaut des applications de terminal série.
 
-Connecter le modem avec le débit de 57600 bps, 8 bits, no parity, 1 Stop bit, no flow control.
+Connecter le modem avec le débit de 57600 bps, 8 bits, no parity, 1 Stop bit, no flow control (et l'émulation `<CR><LF>` pour `ENTER`).
+
+> Pour CoolTerm, il faut configurer `Options > Terminal > Enter Key Emulation > CR+LF`.
 
 ## Inspecter le modem
 

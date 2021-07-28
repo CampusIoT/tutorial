@@ -60,9 +60,12 @@ Helium peut publier les messages relatives aux équipements vers un broker MQTT 
 
 ## Récupération d'un message publié
 
-La charge utile est décodée dans la propriété `decoded` du message JSON.
+Vous pouvez récupérer les messages publiés au moyen d'un client MQTT. Par exemple, le client [MQTT CLI HiveMQ](https://hivemq.github.io/mqtt-cli/docs/subscribe.html):
 
-Ce message LoRa n'a été reçu que par un seul hotspot Helium (ie station Helium)
+```console
+mqtt subscribe -v -h test.mosquitto.org -p 1883 -t 'helium/#'
+```
+
 
 ```json
 {
@@ -118,6 +121,10 @@ Ce message LoRa n'a été reçu que par un seul hotspot Helium (ie station Heliu
   "uuid": "76b51b8a-09a8-45f4-b889-4368c30882a4"
 }
 ```
+
+> La charge utile est décodée dans la propriété `decoded` du message JSON.
+
+> Ce message LoRa n'a été reçu que par un seul hotspot Helium (ie station Helium)
 
 ## Lister les flots
 

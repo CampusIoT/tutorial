@@ -52,6 +52,14 @@ Les labels sont utilisés pour l'intégration.
 
 Helium peut publier les messages relatives aux équipements vers un broker MQTT externe.
 
+![Détail d'une intégration MQTT](integrations-mqtt.png)
+
+> Si vous ne disposez pas de broker MQTT, vous pouvez utiliser le broker public `test.mosquitto.org`. L'URL est  `mqtt://test.mosquitto.org`. Pensez à modifier les 2 _topics_ `helium/thingsat/{{device_id}}/rx` et `helium/thingsat/{{device_id}}/tx`.
+
+![Détail d'une intégration MQTT](integrations-mqtt-add.png)
+
+## Récupération d'un message publié
+
 La charge utile est décodée dans la propriété `decoded` du message JSON.
 
 Ce message LoRa n'a été reçu que par un seul hotspot Helium (ie station Helium)
@@ -111,11 +119,13 @@ Ce message LoRa n'a été reçu que par un seul hotspot Helium (ie station Heliu
 }
 ```
 
-![Détail d'une intégration MQTT](integrations-mqtt.png)
-
 ## Lister les flots
 
 ![Flots](flows.png)
+
+
+Le nouveau flot après l'ajout de l'intégration MQTT vers `test.mosquitto.org.
+![Flots](flows-2.png)
 
 ## Lister les organisations
 

@@ -157,6 +157,30 @@ https://www.helium.com/mine#hotspots
 
 ## Installer un hotspot sur une station LoRa
 
+> _The current gateway project forwards packets to the router but does not yet use state channels which means forwarded packets are not yet rewarded by the blockchain_.
+
 https://github.com/helium/gateway-rs
 
-> _The current gateway project forwards packets to the router but does not yet use state channels which means forwarded packets are not yet rewarded by the blockchain_.
+Télécharger la dernière release https://github.com/helium/gateway-rs/releases pour votre station
+
+Suivre https://github.com/helium/gateway-rs#installing
+
+Les fichiers de configuration sont dans `/etc/helium_gateway`
+
+Modifier `/etc/helium_gateway/default.toml`
+```toml
+region = "EU868"
+```
+
+Lancer `helium_gateway`
+```bash
+helium_gateway --help
+helium_gateway server
+```
+
+Configurer le global_conf.json de votre packet forwarder Semtech `lora_pkt_fwd`
+
+Relancez votre packet forwarder Semtech
+```bash
+./lora_pkt_fwd 
+```

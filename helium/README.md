@@ -2,6 +2,8 @@
 
 [Helium](https://en.wikipedia.org/wiki/Helium_Systems) est un opérateur d'un réseau public LoRaWAN _crowdsourcé_. Les propriétaires de _hotspots_ LoRa (ie stations) sont récompensés avec de la [crypto-monnaie HNT](https://coinmarketcap.com/currencies/helium/).
 
+Les hotspots sont listés sur cette [carte](https://explorer.helium.com/hotspots).
+
 ## Création d'un compte Helium
 
 ![Sign Up](signup.png)
@@ -124,7 +126,7 @@ mqtt subscribe -v -h test.mosquitto.org -p 1883 -t 'helium/#'
 
 > La charge utile est décodée dans la propriété `decoded` du message JSON.
 
-> Ce message LoRa n'a été reçu que par un seul hotspot Helium (ie station Helium)
+> Ce message LoRa n'a été reçu que par un [seul hotspot Helium](https://explorer.helium.com/hotspots/112sVdDJ4ajY8ziyvu1QxUw44skHeuSzzk5x6gAFeCEfufZ7Weao) (ie station Helium)
 
 ## Lister les flots
 

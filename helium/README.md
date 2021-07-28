@@ -153,3 +153,10 @@ Le crÃ©dit initial en [HNT](https://coinmarketcap.com/currencies/helium/) est dÃ
 ## Ajouter un Hotspot (aka Miner)
 
 https://www.helium.com/mine#hotspots
+
+
+## Installer un hotspot sur une station LoRa
+
+https://github.com/helium/gateway-rs
+
+> _The current gateway project forwards packets to the router but does not yet use state channels which means forwarded packets are not yet rewarded by the blockchain_.

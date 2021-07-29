@@ -7,8 +7,11 @@ La description et le pinout sont disponibles [ici](https://components101.com/mic
 
 ![pinout](STM32-Blue-Pill-Development-Board-Pinout.jpg)
 
-
 > A noter: il existe un modèle similaire doté d'un STM32F103 : le [BlackPill](https://innovatorsguru.com/stm32-black-pill/).
+
+## Arduino IDE
+
+[Suivez ce tutoriel en anglais](https://maker.pro/arduino/tutorial/how-to-program-the-stm32-blue-pill-with-arduino-ide).
 
 ## RIOT
 
@@ -18,7 +21,7 @@ RIOT OS supporte les 2 modèles 64KB et 128KB :
 
 RIOT OS supporte également les [BlackPill](https://innovatorsguru.com/stm32-black-pill/).
 
-## Flashage
+### Flashage
 
 Connectez les broches (SW)DIO, (SW)CLK, 3V3 et GND au programmateur.
 
@@ -31,7 +34,7 @@ make BOARD=bluepill-stm32f030c8 flash
 make BOARD=bluepill-stm32f030c8 flash-only
 ```
 
-## Console UART
+### Console UART
 
 Connectez les broches A9,A10,3V3,GND aux broches RX,TX,3V3,GND de l'adapteur USB Serial.
 

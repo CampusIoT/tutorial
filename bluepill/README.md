@@ -27,7 +27,15 @@ make BOARD=bluepill-stm32f030c8 flash-only
 
 ## Console UART
 
+Connectez les broches A9,A10,3V3,GND aux broches RX,TX,3V3,GND de l'adapteur USB Serial.
+
 ![USB Serial](usbserial.png)
+
+```bash
+make BOARD=bluepill-stm32f030c8 term
+```
+
+ou
 
 ```bash
 minicom -s

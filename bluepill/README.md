@@ -7,12 +7,16 @@ La description et le pinout sont disponibles [ici](https://components101.com/mic
 
 ![pinout](STM32-Blue-Pill-Development-Board-Pinout.jpg)
 
+
+> A noter: il existe un modèle similaire doté d'un STM32F103 : le [BlackPill](https://innovatorsguru.com/stm32-black-pill/).
+
 ## RIOT
 
 RIOT OS supporte les 2 modèles 64KB et 128KB :
 * [bluepill-stm32f030c8 (64KB)](https://github.com/RIOT-OS/RIOT/blob/master/boards/bluepill-stm32f030c8/doc.txt)
 * [bluepill_128kib (128KB)](https://github.com/RIOT-OS/RIOT/blob/master/boards/bluepill_128kib/doc.txt)
 
+RIOT OS supporte également les [BlackPill](https://innovatorsguru.com/stm32-black-pill/).
 
 ## Flashage
 

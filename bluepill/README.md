@@ -3,7 +3,9 @@
 ## Description
 Les cartes STM32 sont des cartes compactes de prototypage avec une MCU STM32F030 dotée de 64KB or 128KB de FlashRAM. Elles ont l'avantage d'être très bon marché et sont disponibles sur plusieurs chinois. Elles sont en général livrées avec un programmateur STLink. Prévoyez un adapteur UART Serial pour le connecter au port console.
 
-Le pinout est disponible [ici](https://components101.com/microcontrollers/stm32f103c8t8-blue-pill-development-board).
+La description et le pinout sont disponibles [ici](https://components101.com/microcontrollers/stm32f103c8t8-blue-pill-development-board).
+
+![pinout](STM32-Blue-Pill-Development-Board-Pinout.jpg)
 
 ## RIOT
 

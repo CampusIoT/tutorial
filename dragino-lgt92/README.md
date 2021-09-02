@@ -1,5 +1,10 @@
 # Dragino LGT92 GPS Tracker :: Tutoriel
 
+Le Dragino LGT92 est un traqueur GPS bon marché muni d'un module GNSS Quectel L70 ou L76, d'un button et d'un accelerometre. Le code du firmware est open-source et peut être personnalisé.
+
+![lgt92](images/lgt92.jpg)
+
+
 ## Documentation
 * https://www.dragino.com/products/lora-lorawan-end-node/item/142-lgt-92.html
 * https://www.dragino.com/downloads/index.php?dir=LGT_92/

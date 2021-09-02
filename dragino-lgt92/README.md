@@ -7,7 +7,8 @@ Le Dragino LGT92 est un traqueur GPS bon marché muni d'un module GNSS Quectel L
 
 ## Documentation
 * https://www.dragino.com/products/lora-lorawan-end-node/item/142-lgt-92.html
-* https://www.dragino.com/downloads/index.php?dir=LGT_92/
+* Documents https://www.dragino.com/downloads/index.php?dir=LGT_92/
+* Code source du firmware https://github.com/dragino/LGT-92_-LoRa_GPS_Tracker
 
 ## Commandes AT
 
@@ -172,7 +173,7 @@ AT+SENDB=12:abcdef0123456789
 ```
 
 
-### Mode ballon du GPS
+### Configuration du mode ballon du GNSS
 ```
 AT+NMEA886=?
 AT+NMEA886=4

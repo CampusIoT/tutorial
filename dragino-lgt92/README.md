@@ -1,10 +1,12 @@
-# Dragino LGT92 GPS Tracker :: Tutorial
+# Dragino LGT92 GPS Tracker :: Tutoriel
 
 ## Documentation
 * https://www.dragino.com/products/lora-lorawan-end-node/item/142-lgt-92.html
 * https://www.dragino.com/downloads/index.php?dir=LGT_92/
 
 ## Commandes AT
+
+Branchez le FTDI comme indiqué dans la documentation et configurez minicom avec `9600 N 1`
 
 ### Aide
 

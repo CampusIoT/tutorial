@@ -174,11 +174,34 @@ AT+SENDB=12:abcdef0123456789
 
 
 ### Configuration du mode ballon du GNSS
+
+Set navigation mode.(L70-RL doesn't support option 5，L76-L support all)
+* `AT+NMEA886=0` default
+* `AT+NMEA886=1` Normal mode: For general purpose
+* `AT+NMEA886=2` Fitness mode: For running and walking purpose that the low-speed (<5m/s) movement will have more effect on the position calculation.
+* `AT+NMEA886=3` Aviation mode: For high-dynamic purpose that the large-acceleration movement will have more effect on the position calculation.
+* `AT+NMEA886=4` Balloon mode: For high-altitude balloon purpose that the vertical movement will have more effect on the position calculation.
+* `AT+NMEA886=5` Stationary mode: For stationary applications that zero dynamics is Assumed
+
+
 ```
 AT+NMEA886=?
 AT+NMEA886=4
 ```
 
+
+### Get or set the search mode of GPS
+
+* 0:GPS module factory default value
+* 1:GPS+GLONASS
+* 2:GPS+BeiDou
+* 3:GPS+Galileo
+* 4:GPS+GLONASS+Galileo
+
+```
+AT+NMEA353=?
+AT+NMEA353=4
+```
 
 ### MAJ de la clé AppKey
 ```

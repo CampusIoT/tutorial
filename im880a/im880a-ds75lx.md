@@ -15,14 +15,14 @@ La schématique de la carte est [ici](docs/LoRa-DS75LX_Node_Schematic.pdf).
 ## Flashage
 Le module peut être flashé 
 * soit via l'interface JTAG (connecteur X1) voir figure 3,
-* soit via l'UART en branche la broche P16-BOOT (broche 2 du connecteur X2) sur une des broches VCC (broches 11,13,15 du connecteur X3) voir figure 4.
+* soit via l'UART en branche la broche P16-BOOT (broche 2 du connecteur X2) sur une des broches `VCC` (broches 11,13,15 du connecteur X2) voir figure 4.
 
 
 ### Flashage avec un STLinkv2
 
-Il faut connecter les bonnes broches du st-linkv2 à la carte vers le connecteur X1 (voir figure 3).
+Il faut connecter les bonnes broches du ST-Linkv2 à la carte vers le connecteur X1 (voir figure 3).
 
-Il faut alimenter la carte soit avec 2 batteries AAA 1.5V soit via un adapteur USB série via les broches 11, 13 ou 15 pour le VCC et 12, 14 ou 16 pour le VCC
+Il faut alimenter la carte soit avec 2 batteries AAA 1.5V soit via un adapteur USB série via les broches 11, 13 ou 15 pour le `VCC` et 12, 14 ou 16 pour le `GND`
 
 Nous utiliserons l'adaptateur [USB-Serial CH340G](https://robotdyn.com/usb-serial-adapter-ch340g-5v-3-3v.html) de RobotDyn avec son [driver](https://kig.re/2014/12/31/how-to-use-arduino-nano-mini-pro-with-CH340G-on-mac-osx-yosemite.html) car il n'est pas reconnu par défaut sous OSX. Le lien série sera accessible via `/dev/tty.wchusbserial1410`
 
@@ -50,6 +50,12 @@ Si vous ne possédez pas de flasheur ST-Link v2, vous pouvez utiliser le flasheu
 ### Flashage via l'UART avec la broche BOOT
 
 Les MCU STM32 peuvent être flashé avec un simple adapteur USB Serial. Il suffit pour cela d'utiliser l'utilitaire [STM32CubeProgrammer](https://www.st.com/en/development-tools/stm32cubeprog.html) (en GUI ou en ligne de commande) et de mettre la MCU en mode boot en raccordant la broche BOOT avec le VCC.
+
+Instructions : 
+* Branchez l'UART sur les broches 9 (`TXD`),10 (`RXD`),11 (`VCC`),12 (`GND`) du connecteur X2 en croisant `TXD` et `RXD` de l'hôte.
+* Au moyen d'un fil, reliez la broche P16-BOOT (broche 2 du connecteur X2) sur une des broches `VCC` (broches 11,13,15 du connecteur X2) voir figure 4.
+* Appuyez sur le bouton `RESET`
+* La carte est en attente des commandes du STM32CubeProgrammer
 
 ```bash
 alias stm32proj_cli=/Applications/STMicroelectronics/STM32Cube/STM32CubeProgrammer/STM32CubeProgrammer.app/Contents/MacOs/bin/STM32_Programmer_CLI

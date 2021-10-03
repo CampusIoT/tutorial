@@ -4,7 +4,7 @@ La carte d'essai IMST iM880a DS75LX est une carte de prototypage du module iM880
 
 Il comporte :
 * un support double batterie AAA
-* un capteur de temperature SPI DS75LX
+* un capteur de temperature SPI [Maxim DS75LX](./docs/DS75LX.pdf)
 * deux connecteurs X1 et X2 (2x  16 broches) qui donnent accès à l'ensemble des broches du module iM880a (UART, JTAG, SPI, I2C, GPIO)
 
 La schématique de la carte est [ici](docs/LoRa-DS75LX_Node_Schematic.pdf).

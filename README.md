@@ -28,6 +28,7 @@ CampusIoT is a learn-by-doing platform for teaching Internet of Things technolog
 
 # Lectures
 ## LoRa et LoRaWAN
+* [LoRa protocol Evaluations, limitations and practical test, Eduardo Ruano, Master thesis, May 2016](./papers/lora_protocol_evaluations_limitations_and_practical_test.pdf)
 * [Orange LoRaWAN Developer Guide](https://www.multitech.com/documents/publications/marketing-guides/lora_device_dev_guide_orange.pdf) [(local)](mirror/lora_device_dev_guide_orange.pdf)
 * [LoRa/LoRaWAN Videos (mobilefish.com)](https://www.youtube.com/watch?v=cUhAyyzlv2o&list=PLmL13yqb6OxdeOi97EvI8QeO8o-PqeQ0g)
 * [LoRa/LoRaWAN Videos (Andreas Spiess)](https://www.youtube.com/watch?v=hMOwbNUpDQA&list=PL3XBzmAj53Rkkogh-lti58h_GkhzU1n7U)

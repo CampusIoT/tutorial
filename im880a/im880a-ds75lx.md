@@ -7,7 +7,7 @@ Il comporte :
 * un capteur de temperature SPI DS75LX
 * deux connecteurs X1 et X2 (2x  16 broches) qui donnent accès à l'ensemble des broches du module iM880a (UART, JTAG, SPI, I2C, GPIO)
 
-
+La schématique de la carte est [ici](docs/LoRa-DS75LX_Node_Schematic.pdf).
 ## Support logiciel
 * Le module IMST iM880a est supporté par [RIOTOS](https://github.com/RIOT-OS/RIOT/tree/master/boards/im880b).
 * Le capteur DS75LX est supporté par [RIOTOS](https://github.com/RIOT-OS/RIOT/tree/master/drivers/ds75lx). 

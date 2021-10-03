@@ -32,6 +32,8 @@ Ces caractéristiques sont:
     Operating temperature: 	-20°C to +70°C
     Certification: 	        Prequalified according to ETSI EN 300 220
 
+La documentation fabricant du module est [ici](./docs).
+
 ## Cartes à base d'iM880a
 
 Nous disposons au fablab de plusieurs cartes de démonstration et de prototypage à base d'iM880a

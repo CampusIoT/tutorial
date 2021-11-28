@@ -30,13 +30,13 @@ paths:
           name: data
           description: The location data.
           schema:
-            $ref: '#/definitions/Data'
+            $ref: '#/definitions/SingleframeRequest'
           required: true
       responses:
         '200':
           description: OK
           schema:
-            $ref: '#/definitions/LocationSolverResult'
+            $ref: '#/definitions/SingleframeResponse'
         '401':
           description: Unauthorized – Authentication failed
         '429':
@@ -45,10 +45,79 @@ paths:
       externalDocs:
         url: https://www.loracloud.com/documentation/geolocation?url=v3.html#single-frame-http-request
         description: Official API description.
-
+  /singleframes:
+    post:
+      tags:
+        - location
+      summary: Allows bundling of multiple single-frame requests into one HTTP request. The HTTP request carries an array of frame instances where the service returns a location estimate for each frame. If no location estimate can be calculated for that frame, a null value is returned. A location estimate is computed for each frame supplied in the array of frames. The frames can be from a single device in multiple locations or from multiple devices. 
+      operationId: singleframes
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - in: header
+          name: Ocp-Apim-Subscription-Key
+          type: string
+          required: true
+        - in: body
+          name: data
+          description: The location data.
+          schema:
+            $ref: '#/definitions/SingleframesRequest'
+          required: true
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/SingleframesResponse'
+        '401':
+          description: Unauthorized – Authentication failed
+        '429':
+          description: Too Many Requests – Rate limit exceeded
+      deprecated: false
+      externalDocs:
+        url: https://www.loracloud.com/documentation/geolocation?url=v3.html#single-frame-http-request
+        description: Official API description.
+  /multiframe:
+    post:
+      tags:
+        - location
+      summary: Requests a location estimate for a device using multiple frames, each with multiple uplinks. This improves the accuracy of the results for static devices over a single frame estimation because diversity is increased. Each uplink contains received information of the frame for one antenna of a gateway with received signal strength indicator (RSSI), signal-to-noise ratio (SNR) and, optionally, the time-of-arrival (TOA) timestamp.
+      operationId: multiframe
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - in: header
+          name: Ocp-Apim-Subscription-Key
+          type: string
+          required: true
+        - in: body
+          name: data
+          description: The location data.
+          schema:
+            $ref: '#/definitions/MultiframeRequest'
+          required: true
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/MultiframeResponse'
+        '401':
+          description: Unauthorized – Authentication failed
+        '429':
+          description: Too Many Requests – Rate limit exceeded
+      deprecated: false
+      externalDocs:
+        url: https://www.loracloud.com/documentation/geolocation?url=v3.html#single-frame-http-request
+        description: Official API description.
+#  /multiframes
+#     https://www.loracloud.com/documentation/geolocation?url=v3.html#multiframes-http-request
 definitions:  
   # https://www.loracloud.com/documentation/geolocation?url=v3.html#json-objects
-  Data:
+  SingleframeRequest:
     type: object
     properties:
       gateways:
@@ -63,6 +132,84 @@ definitions:
     required:
       - gateways
       - frame
+  SingleframeResponse:
+    type: object
+    properties:
+      result:
+        $ref: '#/definitions/LocationSolverResult'
+      errors:
+        type: array
+        items:
+          type: string
+      warnings:
+        type: array
+        items:
+          type: string
+  MultiframeRequest:
+    type: object
+    properties:
+      gateways:
+        type: array
+        minItems: 1
+        items:
+          $ref: '#/definitions/Gateway'
+      frames:
+        type: array
+        minItems: 1
+        items:
+          $ref: '#/definitions/Frame'
+      params:
+        $ref: '#/definitions/Parameters'
+    required:
+      - gateways
+      - frame
+  MultiframeResponse:
+    type: object
+    properties:
+      result:
+        $ref: '#/definitions/LocationSolverResult'
+      errors:
+        type: array
+        items:
+          type: string
+      warnings:
+        type: array
+        items:
+          type: string
+  SingleframesRequest:
+    type: object
+    properties:
+      gateways:
+        type: array
+        minItems: 1
+        items:
+          $ref: '#/definitions/Gateway'
+      frames:
+        type: array
+        minItems: 1
+        items:
+          $ref: '#/definitions/Frame'
+      params:
+        $ref: '#/definitions/Parameters'
+    required:
+      - gateways
+      - frame
+  SingleframesResponse:
+    type: object
+    properties:
+      result:
+        type: array
+        minItems: 1
+        items:
+          $ref: '#/definitions/LocationSolverResult'
+      errors:
+        type: array
+        items:
+          type: string
+      warnings:
+        type: array
+        items:
+          type: string
   Gateway:
     # Gateway descriptions. Each gateway is specified by gatewayId, latitude, longitude and altitude.
     type: object

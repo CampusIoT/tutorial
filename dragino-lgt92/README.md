@@ -4,14 +4,15 @@ Le Dragino LGT92 est un traqueur GPS bon marché muni d'un module GNSS Quectel L
 
 ![lgt92](images/lgt92.jpg)
 
-
 ## Documentation
 * https://www.dragino.com/products/lora-lorawan-end-node/item/142-lgt-92.html
 * Documents https://www.dragino.com/downloads/index.php?dir=LGT_92/
 * Code source du firmware https://github.com/dragino/LGT-92_-LoRa_GPS_Tracker
+* Commandes AT pour LGT92 https://www.dragino.com/downloads/downloads/LGT_92/DRAGINO_LGT92_AT_Commands_v1.5.3.pdf 
 
+## Commandes AT
 
-### Port Console
+Branchez le FTDI comme indiqué dans la documentation et configurez minicom avec `9600 N 1`
 
 * Baudrate: 9600 
 * Data bits: 8
@@ -19,9 +20,7 @@ Le Dragino LGT92 est un traqueur GPS bon marché muni d'un module GNSS Quectel L
 * Parity: None
 * Flow control: None
 
-## Commandes AT
-
-Branchez le FTDI comme indiqué dans la documentation et configurez minicom avec `9600 N 1`
+![dragino-ttl](images/dragino-ttl.png)
 
 ### Aide
 
@@ -235,6 +234,10 @@ ATZ
 ## Mise à jour du firmware
 
 Brancher le STLink chinois au cable fourni comme montré dans la documentation.
+
+![dragino stlink](images/dragino-stlink.png)
+
+Lancez le STM32CubeProgrammer  (pré-installé).
 
 ```
 alias stm32proj_cli=/Applications/STMicroelectronics/STM32Cube/STM32CubeProgrammer/STM32CubeProgrammer.app/Contents/MacOs/bin/STM32_Programmer_CLI

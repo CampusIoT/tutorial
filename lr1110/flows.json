@@ -1,0 +1,1151 @@
+[
+    {
+        "id": "6aa09eba.735e88",
+        "type": "tab",
+        "label": "LoRaCloud Credentials",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "edfba8c1.9acfd8",
+        "type": "inject",
+        "z": "6aa09eba.735e88",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "flow",
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "x": 150,
+        "y": 160,
+        "wires": [
+            [
+                "574f4f71.4c11"
+            ]
+        ]
+    },
+    {
+        "id": "574f4f71.4c11",
+        "type": "function",
+        "z": "6aa09eba.735e88",
+        "name": "Set LoRaCloud credentials",
+        "func": "const DAS_URL = \"https://das.loracloud.com/api/v1/device/send\" \nconst DAS_AUTH_TOKEN =\"TO SET\";\n\nglobal.set('DAS_URL', DAS_URL);\nglobal.set('DAS_AUTH_TOKEN', DAS_AUTH_TOKEN);\n\nconst GLS_URL = \"https://gls.loracloud.com/api/v3/solve/gnss_lr1110_singleframe\" \nconst GLS_AUTH_TOKEN =\"TO SET\"\n\nglobal.set('GLS_URL', GLS_URL);\nglobal.set('GLS_AUTH_TOKEN', GLS_AUTH_TOKEN);\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 470,
+        "y": 160,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "714750ad.4821f",
+        "type": "tab",
+        "label": "LR1110 Modem-E",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "879981d.b0ee3",
+        "type": "function",
+        "z": "714750ad.4821f",
+        "name": "Filter LR1110",
+        "func": "var payload = msg.payload;\n\nif(payload.type === \"dataMessage\" && payload.tags.includes(\"lr1110\")) {\n    var lora = payload.metadata.network.lora;\n    msg.deveui = lora.devEUI.toLowerCase();\n    if(lora.location){\n        msg.lat = lora.location.lat;\n        msg.lon = lora.location.lon;\n    }\n    return msg;\n}\nreturn undefined",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 210,
+        "y": 240,
+        "wires": [
+            [
+                "edf38aeb.98c93",
+                "b1609b63.714f08"
+            ]
+        ]
+    },
+    {
+        "id": "b1ee40de.a0d488",
+        "type": "link in",
+        "z": "714750ad.4821f",
+        "name": "",
+        "links": [
+            "6e2e14a3.1147cc",
+            "8901f62a.a9b968"
+        ],
+        "x": 55,
+        "y": 140,
+        "wires": [
+            [
+                "d8d459f3.703a28"
+            ]
+        ]
+    },
+    {
+        "id": "d8d459f3.703a28",
+        "type": "function",
+        "z": "714750ad.4821f",
+        "name": "Filter LR1110",
+        "func": "var payload = msg.payload;\n\nif(payload.applicationName.startsWith(\"LR1110\")) {\n    return msg;\n}\nreturn undefined",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 210,
+        "y": 140,
+        "wires": [
+            [
+                "b1609b63.714f08",
+                "49a0f7cc.18952"
+            ]
+        ]
+    },
+    {
+        "id": "7a729fd0.8657d8",
+        "type": "link in",
+        "z": "714750ad.4821f",
+        "name": "",
+        "links": [
+            "16cc577e.d91489",
+            "fbf704ba.589e18"
+        ],
+        "x": 55,
+        "y": 240,
+        "wires": [
+            [
+                "879981d.b0ee3",
+                "b1609b63.714f08"
+            ]
+        ]
+    },
+    {
+        "id": "5ca65f28.f8482",
+        "type": "function",
+        "z": "714750ad.4821f",
+        "name": "Prepare DAS request",
+        "func": "const DAS_URL = global.get('DAS_URL');\nconst DAS_AUTH_TOKEN = global.get('DAS_AUTH_TOKEN');\n\nvar payload = msg.payload;\n\nvar diffSec=315964800;\nvar gps_time = payload.time - diffSec;\n\nif(!payload.frmPayload) return;\n\nvar modem_e_payload = payload.frmPayload.toString(\"hex\");\n\nvar d = payload.devEUI;\nvar fcnt = payload.fCnt;\nvar deveui = d.match( /.{1,2}/g ).join( \"-\" );\n\nvar json_dict={\n    \"deveui\":deveui,\n    \"uplink\":{\n        \"msgtype\":\"modem\",\n        \"payload\":modem_e_payload,\n        \"timestamp\": payload.time,\n        \"fcnt\":fcnt\n    }\n};\nif(payload.tx_info) {\n    json_dict.uplink.dr = payload.tx_info.dr;\n    json_dict.uplink.freq = payload.tx_info.frequency;\n}\n\n//json_dict.uplink.freq = ;\njson_dict.uplink.gnss_capture_time = gps_time;\njson_dict.uplink.gnss_capture_time_accuracy = 15;\n\n// Optional. Assistance position WGS84, (latitude, longitude) [deg]\njson_dict.uplink.gnss_assist_position = [ 45.1823473, 5.73548 ];\n// Optional. Assistance altitude, (meters above WGS84 reference ellipsoid) [m]\njson_dict.uplink.gnss_assist_altitude = 220.0;\n\nvar headers = {\n    'Accept':'application/json',\n    'Authorization': DAS_AUTH_TOKEN\n}\n\nmsg = {\n    \"url\": DAS_URL,\n    \"headers\": headers,\n    \"payload\": json_dict,\n    \"deveui\":  d\n}\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 620,
+        "y": 140,
+        "wires": [
+            [
+                "1894e2b5.9e39fd"
+            ]
+        ]
+    },
+    {
+        "id": "1894e2b5.9e39fd",
+        "type": "http request",
+        "z": "714750ad.4821f",
+        "name": "DAS Lora Cloud",
+        "method": "POST",
+        "ret": "txt",
+        "paytoqs": false,
+        "url": "",
+        "tls": "",
+        "proxy": "",
+        "authType": "basic",
+        "x": 800,
+        "y": 240,
+        "wires": [
+            [
+                "43b074bd.92ae7c"
+            ]
+        ]
+    },
+    {
+        "id": "bab5b243.80b428",
+        "type": "debug",
+        "z": "714750ad.4821f",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 1170,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "43b074bd.92ae7c",
+        "type": "json",
+        "z": "714750ad.4821f",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 900,
+        "y": 40,
+        "wires": [
+            [
+                "bab5b243.80b428",
+                "c891f9d0.3b4ec",
+                "6a89ac18.ea606c",
+                "33b55a4b.5548fe"
+            ]
+        ]
+    },
+    {
+        "id": "c891f9d0.3b4ec",
+        "type": "function",
+        "z": "714750ad.4821f",
+        "name": "Extract position_solution",
+        "func": "var payload = msg.payload;\nvar result = payload.result;\nif(result.position_solution) {\n    msg.payload = result.position_solution;\n    return msg;\n}\nreturn undefined;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1210,
+        "y": 100,
+        "wires": [
+            [
+                "d29bf72a.1cbe7"
+            ]
+        ]
+    },
+    {
+        "id": "d29bf72a.1cbe7",
+        "type": "debug",
+        "z": "714750ad.4821f",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 1470,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "edf38aeb.98c93",
+        "type": "function",
+        "z": "714750ad.4821f",
+        "name": "add devEUI and fCnt",
+        "func": "var payload = msg.payload;\n\nvar lora = payload.metadata.network.lora;\nvar location = lora.location;\n\nif(lora) {\n    payload.fCnt = lora.fcnt;\n    payload.devEUI = lora.devEUI;\n    if(location) {\n       payload.location = location;\n    }\n}\n\nmsg.payload = payload;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 420,
+        "y": 240,
+        "wires": [
+            [
+                "5ca65f28.f8482",
+                "5f669ef7.cd2198"
+            ]
+        ]
+    },
+    {
+        "id": "b1609b63.714f08",
+        "type": "debug",
+        "z": "714750ad.4821f",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 530,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "1d86b068.433308",
+        "type": "function",
+        "z": "714750ad.4821f",
+        "name": "add header",
+        "func": "var p = msg.payload;\n\nif(p.timestamp) {\n    msg.payload.time = Date.parse(p.timestamp);\n} else {\n    msg.payload.time = new Date().getTime();\n}\n\nmsg.payload = new Date().getTime() + \";MSG/\"+msg.topic+\";\" + msg.payload; \n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1150,
+        "y": 360,
+        "wires": [
+            [
+                "5187d2c0.a63104"
+            ]
+        ]
+    },
+    {
+        "id": "5187d2c0.a63104",
+        "type": "file",
+        "z": "714750ad.4821f",
+        "name": "append to log file",
+        "filename": "/log/das.log",
+        "appendNewline": true,
+        "createDir": true,
+        "overwriteFile": "false",
+        "encoding": "none",
+        "x": 1410,
+        "y": 360,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "6a89ac18.ea606c",
+        "type": "link out",
+        "z": "714750ad.4821f",
+        "name": "DAS Parser",
+        "links": [
+            "4bbccb54.e5d104"
+        ],
+        "x": 1115,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "49a0f7cc.18952",
+        "type": "function",
+        "z": "714750ad.4821f",
+        "name": "add devEUI",
+        "func": "\nmsg.deveui = msg.payload.devEUI;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 390,
+        "y": 80,
+        "wires": [
+            [
+                "5ca65f28.f8482",
+                "5f669ef7.cd2198"
+            ]
+        ]
+    },
+    {
+        "id": "fc4bd2e4.e13838",
+        "type": "comment",
+        "z": "714750ad.4821f",
+        "name": "CampusIoT",
+        "info": "",
+        "x": 150,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "38cabb85.4f3d64",
+        "type": "comment",
+        "z": "714750ad.4821f",
+        "name": "LiveObject",
+        "info": "",
+        "x": 140,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "33b55a4b.5548fe",
+        "type": "json",
+        "z": "714750ad.4821f",
+        "name": "",
+        "property": "payload",
+        "action": "str",
+        "pretty": false,
+        "x": 1110,
+        "y": 260,
+        "wires": [
+            [
+                "1d86b068.433308"
+            ]
+        ]
+    },
+    {
+        "id": "5f669ef7.cd2198",
+        "type": "debug",
+        "z": "714750ad.4821f",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 840,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "6cfcf5f5.9c1c4c",
+        "type": "tab",
+        "label": "DAS Parser",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "4bbccb54.e5d104",
+        "type": "link in",
+        "z": "6cfcf5f5.9c1c4c",
+        "name": "",
+        "links": [
+            "6a89ac18.ea606c"
+        ],
+        "x": 135,
+        "y": 300,
+        "wires": [
+            [
+                "87c60ad0.22798",
+                "21b5b16.1786cce"
+            ]
+        ]
+    },
+    {
+        "id": "6f1f4c32.c3c7ec",
+        "type": "function",
+        "z": "6cfcf5f5.9c1c4c",
+        "name": "Parse TLV output",
+        "func": "function pad(b) {\n  const h = b.toString(16);\n  return (h + \"\").length < 2 ? \"0\" + h : h;\n}\n\nfunction parse_wifi(devEui, bytes) {\n    const das_query = {\n        \"deveui\":devEui.match( /.{1,2}/g ).join( '-' ),\n        \"uplink\":{\n            \"msgtype\":\"wifi\",\n            \"payload\": `01${bytes}`,\n        }\n    };\n\n    bytes = Buffer.from(bytes, \"hex\");\n    var addresses = [];\n    for (var i = 0; i < bytes.length; i += 7) {\n        var rssi_raw = bytes[i + 0];\n        var bssid_slice = bytes.slice(i + 1, i + 7);\n        var bssid = [];\n        bssid_slice.forEach(byte => {\n            bssid.push(pad(byte));\n        });\n        addresses.push({\n            \"macAddress\": bssid.join(\":\"),\n            \"signalStrength\":  (rssi_raw > 127) ? rssi_raw - 256 : rssi_raw,\n        });\n    }\n    \n    const lorawan = [{\n        \"gatewayId\": \"fake\",\n        \"antennaId\": 0,\n        \"rssi\": 0,\n        \"snr\":0,\n        \"antennaLocation\": {\n            \"latitude\": 0.0,\n            \"longitude\": 0.0,\n            \"altitude\": 0.0\n        }\n    }];\n    \n    var gls_query = {\n       \"lorawan\": lorawan,\n       \"wifiAccessPoints\": addresses,\n    };\n    gls_query.wifiAccessPoints.forEach(ap => {\n        delete ap.type;\n        delete ap.channel;\n    });\n    \n    \n    return {\n        \"type\": \"Wi-Fi\",\n        \"addresses\": addresses,\n        \"raw\": bytes,\n        \"gls_query\": gls_query,\n        \"das_query\": das_query,\n    };\n}\n\nfunction parse_gnss(antenna, devEui, data) {\n    const bit_mask_has_location = 1;\n    const has_assisted_location = (parseInt(data.slice(6, 8), 16) & bit_mask_has_location) !== 0;\n    var das_query = {\n        \"deveui\":devEui.match( /.{1,2}/g ).join( \"-\" ),\n        \"uplink\":{\n            \"msgtype\":\"gnss\",\n            \"payload\": data,\n        }\n    };\n    if (has_assisted_location === false){\n       das_query.uplink.gnss_assist_position = global.get(\"device_assistance_coordinates\")\n    }\n    \n    return {\n        \"type\": `GNSS - ${antenna} antenna`,\n        \"data\": data,\n        \"das_query\": das_query,\n    };\n}\n\nfunction parse_signed_2_bytes_int(value) {\n    var value_int =  parseInt(value, 16);\n    if ((value_int & 0x8000) > 0) {\n        value_int = value_int - 0x10000;\n    }\n    return value_int;\n}\n\nfunction parse_acc(data) {\n    const move_history = parseInt(data.slice(0, 2), 16);\n    const acc = {\n        'x': parse_signed_2_bytes_int(data.slice(2, 6), 16),\n        'y': parse_signed_2_bytes_int(data.slice(6, 10), 16),\n        'z': parse_signed_2_bytes_int(data.slice(10, 14), 16),\n    };\n    const temperature =  parse_signed_2_bytes_int(data.slice(14, 18), 16)/100;\n    \n    return {\n        \"type\": \"acc\",\n        \"move_history\": move_history,\n        \"acc_mg\": acc,\n        \"temperature_C\": temperature\n    };\n}\n\nfunction parse_charge(data) {\n    return {\n        \"type\": \"charge\",\n        \"charge_mAh\":  parseInt(data, 16),\n    };\n}\n\nfunction create_message(payload, uplink, topic) {\n    return {\n        \"payload\": payload,\n        \"uplink\": uplink,\n        \"topic\": topic,\n    };\n}\n\n\n\n\n\nmsg.payload.forEach( stream_array => {\n    var index = 0;\n    var stream = stream_array[1];\n    \n    while(index < stream.length) {\n        var tag = parseInt(stream.slice(index, index + 2), 16);\n        index += 2;\n        var length = parseInt(stream.slice(index, index + 2), 16);\n        index += 2;\n        var value = stream.slice(index, index + length*2);\n        index += length * 2;\n        \n        \n        switch (tag) {\n            case 5:         // GNSS - No specific antenna\n                node.send(\n                    create_message(\n                        parse_gnss(\"\", msg.uplink.devEui, value),\n                        msg.uplink,\n                        msg.topic\n                    )\n                );\n                break;\n            case 6:\n                node.send(\n                    create_message(\n                        parse_gnss(\"PCB\", msg.uplink.devEui, value),\n                        msg.uplink,\n                        msg.topic\n                    )\n                );\n                break;\n            case 7:\n                node.send(\n                    create_message(\n                        parse_gnss(\"Patch\", msg.uplink.devEui, value),\n                        msg.uplink,\n                        msg.topic\n                    )\n                );\n                break;\n            case 8:\n                node.send(\n                    create_message(\n                        parse_wifi(msg.uplink.devEui, value),\n                        msg.uplink,\n                        msg.topic\n                    )\n                );\n                break;\n            case 9:\n                node.send(\n                    create_message(\n                        parse_acc(value),\n                        msg.uplink,\n                        msg.topic\n                    )\n                );\n                break;\n            case 10:\n                node.send(\n                    create_message(\n                        parse_charge(value),\n                        msg.uplink,\n                        msg.topic\n                    )\n                );\n                break;\n            case 11: // TODO\n            default:\n                continue;\n        }\n    }\n    \n});\n\n\nreturn null;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 450,
+        "y": 300,
+        "wires": [
+            [
+                "cfa3f291.69d678",
+                "2c62c5aa.b5412a"
+            ]
+        ]
+    },
+    {
+        "id": "cfa3f291.69d678",
+        "type": "switch",
+        "z": "6cfcf5f5.9c1c4c",
+        "name": "",
+        "property": "payload.type",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "Wi-Fi",
+                "vt": "str"
+            },
+            {
+                "t": "cont",
+                "v": "GNSS",
+                "vt": "str"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 3,
+        "x": 650,
+        "y": 300,
+        "wires": [
+            [
+                "428dfc2a.71c29c"
+            ],
+            [
+                "af6f18cc.74c848"
+            ],
+            [
+                "6cd65ddb.cba934"
+            ]
+        ],
+        "outputLabels": [
+            "Wi-Fi",
+            "GNSS",
+            "Tracker"
+        ],
+        "info": "Route data regarding their content:\n* Wi-Fi\n* GNSS\n* Tracker data (accelerometer/battery)"
+    },
+    {
+        "id": "6a8ea219.fb4414",
+        "type": "function",
+        "z": "6cfcf5f5.9c1c4c",
+        "name": "Prepare Wi-Fi request",
+        "func": "const DAS_URL = global.get('DAS_URL');\nconst DAS_AUTH_TOKEN = global.get('DAS_AUTH_TOKEN');\n\nmsg.url = DAS_URL;\nvar das_token = DAS_AUTH_TOKEN;\n\nmsg.method = \"POST\";\nmsg.headers = {\n    'Authorization': das_token,\n    'Content-Type': 'application/json',\n};\n\nmsg.data = msg.payload;\nmsg.payload = msg.payload.das_query;\n\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 241,
+        "y": 520,
+        "wires": [
+            [
+                "d5e50beb.3c7f4"
+            ]
+        ]
+    },
+    {
+        "id": "d5e50beb.3c7f4",
+        "type": "http request",
+        "z": "6cfcf5f5.9c1c4c",
+        "name": "",
+        "method": "use",
+        "ret": "txt",
+        "paytoqs": true,
+        "url": "",
+        "tls": "",
+        "proxy": "",
+        "authType": "",
+        "x": 451,
+        "y": 520,
+        "wires": [
+            [
+                "9669e5c4.cc0a",
+                "f3416c00.1226b",
+                "a3ab5325.0f7488"
+            ]
+        ]
+    },
+    {
+        "id": "9669e5c4.cc0a",
+        "type": "json",
+        "z": "6cfcf5f5.9c1c4c",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 591,
+        "y": 520,
+        "wires": [
+            [
+                "b5f0603a.dccc7",
+                "3d0c0ab3.c122c6"
+            ]
+        ]
+    },
+    {
+        "id": "b5f0603a.dccc7",
+        "type": "function",
+        "z": "6cfcf5f5.9c1c4c",
+        "name": "Create worldmap object",
+        "func": "if (msg.payload.result === null) return;\n\nconst devEui = msg.uplink.devEui.match( /.{1,2}/g ).join( '-' );\n\ntry {\n    const position_solution = msg.payload.result.position_solution;\n    const coordinates = position_solution.llh;\n    msg.payload = {\n        \"deveui\": msg.uplink.devEui,\n        \"name\": `${devEui} (Wi-Fi)`,\n        \"lat\": coordinates[0],\n        \"lon\": coordinates[1],\n        \"alt\": coordinates[2],\n        \"algo\": position_solution.algorithm_type,\n        \"accuracy\": position_solution.accuracy,\n        \"icon\": \"fa-wifi\",\n        \"command\": {\n            \"lat\": coordinates[0],\n            \"lon\": coordinates[1],\n            \"layer\": \"OSM\",\n            \"zoom\": 16,\n        }\n    }\n    return [msg, null];\n} catch(err) {\n    msg.payload = msg.payload.result.log_messages;\n    return [null, msg];\n}\n\nreturn msg;",
+        "outputs": 2,
+        "noerr": 0,
+        "x": 791,
+        "y": 480,
+        "wires": [
+            [
+                "db96bfc8.caf838"
+            ],
+            [
+                "5b21ba85.77da44"
+            ]
+        ]
+    },
+    {
+        "id": "428dfc2a.71c29c",
+        "type": "link out",
+        "z": "6cfcf5f5.9c1c4c",
+        "name": "",
+        "links": [
+            "f30fa5e2.6e5648",
+            "314f7c36.4d0234"
+        ],
+        "x": 755,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "f30fa5e2.6e5648",
+        "type": "link in",
+        "z": "6cfcf5f5.9c1c4c",
+        "name": "To prepare Wi-Fi request",
+        "links": [
+            "428dfc2a.71c29c"
+        ],
+        "x": 96,
+        "y": 520,
+        "wires": [
+            [
+                "6a8ea219.fb4414"
+            ]
+        ]
+    },
+    {
+        "id": "beb7d133.b4dff",
+        "type": "link in",
+        "z": "6cfcf5f5.9c1c4c",
+        "name": "To worldmap",
+        "links": [
+            "db96bfc8.caf838",
+            "31c1b945.3caece"
+        ],
+        "x": 95,
+        "y": 800,
+        "wires": [
+            [
+                "3770f88.4317408",
+                "d8db421.50eb84"
+            ]
+        ]
+    },
+    {
+        "id": "db96bfc8.caf838",
+        "type": "link out",
+        "z": "6cfcf5f5.9c1c4c",
+        "name": "",
+        "links": [
+            "1a4a5d79.494a6b",
+            "beb7d133.b4dff"
+        ],
+        "x": 956,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "c5792215.194c",
+        "type": "link in",
+        "z": "6cfcf5f5.9c1c4c",
+        "name": "To prepare GNSS request",
+        "links": [
+            "af6f18cc.74c848"
+        ],
+        "x": 95,
+        "y": 700,
+        "wires": [
+            [
+                "8559ae0e.008668"
+            ]
+        ]
+    },
+    {
+        "id": "8559ae0e.008668",
+        "type": "function",
+        "z": "6cfcf5f5.9c1c4c",
+        "name": "Prepare GNSS request",
+        "func": "const DAS_URL = global.get('DAS_URL');\nconst DAS_AUTH_TOKEN = global.get('DAS_AUTH_TOKEN');\n\nmsg.url = DAS_URL;\nvar das_token = DAS_AUTH_TOKEN;\n\nmsg.method = \"POST\";\nmsg.headers = {\n    'Authorization': das_token,\n    'Content-Type': 'application/json',\n};\n\nmsg.data = msg.payload;\nmsg.payload = msg.payload.das_query;\n\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 250,
+        "y": 700,
+        "wires": [
+            [
+                "c434c8d6.e11f48"
+            ]
+        ]
+    },
+    {
+        "id": "c434c8d6.e11f48",
+        "type": "http request",
+        "z": "6cfcf5f5.9c1c4c",
+        "name": "",
+        "method": "use",
+        "ret": "txt",
+        "paytoqs": false,
+        "url": "",
+        "tls": "",
+        "proxy": "",
+        "authType": "",
+        "x": 450,
+        "y": 700,
+        "wires": [
+            [
+                "477a8ad3.9a2824",
+                "3a5ac9f8.f19b86"
+            ]
+        ]
+    },
+    {
+        "id": "477a8ad3.9a2824",
+        "type": "json",
+        "z": "6cfcf5f5.9c1c4c",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 590,
+        "y": 700,
+        "wires": [
+            [
+                "c231d480.c1d418",
+                "1120fe47.9b4332",
+                "3d0c0ab3.c122c6"
+            ]
+        ]
+    },
+    {
+        "id": "af6f18cc.74c848",
+        "type": "link out",
+        "z": "6cfcf5f5.9c1c4c",
+        "name": "",
+        "links": [
+            "c5792215.194c"
+        ],
+        "x": 755,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "c231d480.c1d418",
+        "type": "function",
+        "z": "6cfcf5f5.9c1c4c",
+        "name": "Create worldmap object",
+        "func": "/*\nmsg.payload = {\"result\":{\n  \"llh\":              [45.2, 5.7, 200],\n},\"warnings\":[],\"errors\":[\"GNSS solver error [1]: Not enough viewable satellites\"]}\n*/\n\nif (msg.payload.result === null) return;\n\n\ntry {\n    const device_name = msg.topic.split('/')[2];\n    const devEui = msg.uplink.devEui.match( /.{1,2}/g ).join( '-' );\n    const data = msg.payload.result;\n    \n    \n    \n    const position_solution = msg.payload.result.position_solution;\n    const coordinates = position_solution.llh;\n    msg.payload = {\n        \"deveui\": msg.uplink.devEui,\n        \"name\": `${devEui} (${msg.data.type})`,\n        \"lat\": coordinates[0],\n        \"lon\": coordinates[1],\n        \"alt\": coordinates[2],\n        \"algo\": position_solution.algorithm_type,\n        \"accuracy\": position_solution.accuracy,\n        \"icon\": \"fa-wifi\",\n        \"command\": {\n            \"lat\": coordinates[0],\n            \"lon\": coordinates[1],\n            \"layer\": \"OSM\",\n            \"zoom\": 16,\n        }\n    }\n    return [msg, null];\n} catch(err) {\n    const devEui = msg.uplink.devEui.match( /.{1,2}/g ).join( '-' );\n    msg.payload = msg.payload.result.log_messages;\n    return [null, msg];\n}\n\nreturn msg;",
+        "outputs": 2,
+        "noerr": 0,
+        "x": 790,
+        "y": 700,
+        "wires": [
+            [
+                "31c1b945.3caece"
+            ],
+            [
+                "b1b88185.f4429"
+            ]
+        ]
+    },
+    {
+        "id": "31c1b945.3caece",
+        "type": "link out",
+        "z": "6cfcf5f5.9c1c4c",
+        "name": "",
+        "links": [
+            "1a4a5d79.494a6b",
+            "beb7d133.b4dff"
+        ],
+        "x": 955,
+        "y": 680,
+        "wires": []
+    },
+    {
+        "id": "b1b88185.f4429",
+        "type": "debug",
+        "z": "6cfcf5f5.9c1c4c",
+        "name": "DAS GNSS Error",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "x": 1030,
+        "y": 720,
+        "wires": []
+    },
+    {
+        "id": "5b21ba85.77da44",
+        "type": "debug",
+        "z": "6cfcf5f5.9c1c4c",
+        "name": "DAS Wi-Fi Error",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "x": 1041,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "6cd65ddb.cba934",
+        "type": "debug",
+        "z": "6cfcf5f5.9c1c4c",
+        "name": "LR1110 Tracker environmental data",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "x": 890,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "4fc837f6.00dee8",
+        "type": "comment",
+        "z": "6cfcf5f5.9c1c4c",
+        "name": "License",
+        "info": "Revised BSD License\nCopyright Semtech Corporation 2020. All rights reserved.\n\nRedistribution and use in source and binary forms, with or without\nmodification, are permitted provided that the following conditions are met:\n* Redistributions of source code must retain the above copyright\n  notice, this list of conditions and the following disclaimer.\n* Redistributions in binary form must reproduce the above copyright\n  notice, this list of conditions and the following disclaimer in the\n  documentation and/or other materials provided with the distribution.\n* Neither the name of the Semtech corporation nor the\n  names of its contributors may be used to endorse or promote products\n  derived from this software without specific prior written permission.\n\nTHIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS \"AS IS\"\nAND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE\nIMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE\nARE DISCLAIMED. IN NO EVENT SHALL SEMTECH S.A. BE LIABLE FOR ANY DIRECT,\nINDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES\n(INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;\nLOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND\nON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT\n(INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS\nSOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.\n",
+        "x": 670,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "124fe7f9.acd1b8",
+        "type": "comment",
+        "z": "6cfcf5f5.9c1c4c",
+        "name": "_________________________      CONFIG      _________________________",
+        "info": "Demo AS code Modem-E v1.0.1\n\n---\n\nv1.0.1\n\n- Fix bug with Wi-Fi http request output that is not converted to json\n- Rename the *Force port to downlink GNSS assisted position*\n",
+        "x": 300,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "c5e555f0.56c63",
+        "type": "inject",
+        "z": "6cfcf5f5.9c1c4c",
+        "name": "Assistance coordinates for GNSS autonomous scans",
+        "topic": "",
+        "payload": "[45.1823473,5.73548]",
+        "payloadType": "json",
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "",
+        "x": 300,
+        "y": 160,
+        "wires": [
+            [
+                "b22d907b.70f41"
+            ]
+        ]
+    },
+    {
+        "id": "b22d907b.70f41",
+        "type": "function",
+        "z": "6cfcf5f5.9c1c4c",
+        "name": "Assistance coordinates",
+        "func": "global.set('device_assistance_coordinates', msg.payload);",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 650,
+        "y": 160,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "f3416c00.1226b",
+        "type": "link out",
+        "z": "6cfcf5f5.9c1c4c",
+        "name": "",
+        "links": [],
+        "x": 1195,
+        "y": 620,
+        "wires": []
+    },
+    {
+        "id": "3770f88.4317408",
+        "type": "worldmap",
+        "z": "6cfcf5f5.9c1c4c",
+        "name": "",
+        "lat": "",
+        "lon": "",
+        "zoom": "",
+        "layer": "OSM",
+        "cluster": "",
+        "maxage": "",
+        "usermenu": "show",
+        "layers": "show",
+        "panit": "false",
+        "panlock": "false",
+        "zoomlock": "false",
+        "hiderightclick": "false",
+        "coords": "none",
+        "path": "/worldmap",
+        "x": 200,
+        "y": 800,
+        "wires": []
+    },
+    {
+        "id": "1120fe47.9b4332",
+        "type": "function",
+        "z": "6cfcf5f5.9c1c4c",
+        "name": "Force port to downlink GNSS assistance position",
+        "func": "// This block exists because the DAS is returning value 0\n// for the dnlink.port field.\n// This is the trigger that this downlink has to be transported on application level\n\nfor (const eui in msg.payload.result){\n    if ((msg.payload.result.dnlink !== null) && (msg.payload.result.dnlink.port === 0)){\n        msg.payload.result.dnlink.port = global.get('port_gnss_push_solver_message_port');\n    }\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 800,
+        "y": 620,
+        "wires": [
+            [
+                "4b894002.9a24f"
+            ]
+        ]
+    },
+    {
+        "id": "4b894002.9a24f",
+        "type": "json",
+        "z": "6cfcf5f5.9c1c4c",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 1070,
+        "y": 620,
+        "wires": [
+            [
+                "f3416c00.1226b"
+            ]
+        ]
+    },
+    {
+        "id": "9ba31765.31c6d",
+        "type": "inject",
+        "z": "6cfcf5f5.9c1c4c",
+        "name": "Port GNSS push solver message port",
+        "topic": "",
+        "payload": "150",
+        "payloadType": "json",
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "",
+        "x": 250,
+        "y": 220,
+        "wires": [
+            [
+                "50759dde.b311ec"
+            ]
+        ]
+    },
+    {
+        "id": "50759dde.b311ec",
+        "type": "function",
+        "z": "6cfcf5f5.9c1c4c",
+        "name": "Push GNSS solver message port",
+        "func": "global.set('port_gnss_push_solver_message_port', msg.payload);",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 680,
+        "y": 220,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "5f261175.016e9",
+        "type": "comment",
+        "z": "6cfcf5f5.9c1c4c",
+        "name": "Link it to DAS Parser input",
+        "info": "",
+        "x": 1170,
+        "y": 660,
+        "wires": []
+    },
+    {
+        "id": "dcff3f94.950448",
+        "type": "comment",
+        "z": "6cfcf5f5.9c1c4c",
+        "name": "Link it from stream of DAS Parser",
+        "info": "",
+        "x": 170,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "87c60ad0.22798",
+        "type": "function",
+        "z": "6cfcf5f5.9c1c4c",
+        "name": "Extract stream_records",
+        "func": "if(msg.payload.result.stream_records) {\n    msg.payload = msg.payload.result.stream_records;\n    msg.uplink = { devEui: msg.deveui };\n    return msg;    \n}\nreturn undefined;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 320,
+        "y": 400,
+        "wires": [
+            [
+                "6f1f4c32.c3c7ec",
+                "d41c76e9.7c8b08"
+            ]
+        ]
+    },
+    {
+        "id": "d8db421.50eb84",
+        "type": "debug",
+        "z": "6cfcf5f5.9c1c4c",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 200,
+        "y": 880,
+        "wires": []
+    },
+    {
+        "id": "21b5b16.1786cce",
+        "type": "debug",
+        "z": "6cfcf5f5.9c1c4c",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "x": 260,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "3d0c0ab3.c122c6",
+        "type": "debug",
+        "z": "6cfcf5f5.9c1c4c",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 830,
+        "y": 840,
+        "wires": []
+    },
+    {
+        "id": "a3ab5325.0f7488",
+        "type": "debug",
+        "z": "6cfcf5f5.9c1c4c",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 480,
+        "y": 640,
+        "wires": []
+    },
+    {
+        "id": "3a5ac9f8.f19b86",
+        "type": "debug",
+        "z": "6cfcf5f5.9c1c4c",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 490,
+        "y": 780,
+        "wires": []
+    },
+    {
+        "id": "d41c76e9.7c8b08",
+        "type": "debug",
+        "z": "6cfcf5f5.9c1c4c",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 570,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "2c62c5aa.b5412a",
+        "type": "debug",
+        "z": "6cfcf5f5.9c1c4c",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 660,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "fe92c6e7.4ff72",
+        "type": "tab",
+        "label": "GLS",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "77913437.08bc3c",
+        "type": "function",
+        "z": "fe92c6e7.4ff72",
+        "name": "Prepare request",
+        "func": "const DAS_URL = global.get('DAS_URL');\nconst DAS_AUTH_TOKEN = global.get('DAS_AUTH_TOKEN');\n\nvar LAT = 45.452761\nvar LON = 5.641854\nvar nav_payload = \"010106D9430816a202a82aeb61df9b2d5031d5367d072aa05209c0c7ae7651d5b8e7203c09a3caba8ea4bf8c8c16558652c17787636a776c44f9294cd5a54356ff4900\"\n\nvar gps_time = 1271763033\n\nvar json_dict = {\n    \"payload\": nav_payload,\n    \"gnss_capture_time\": gps_time,\n    \"gnss_capture_time_accuracy\": 15, \n    \"gnss_assist_position\" : [LAT, LON]\n}\n\nvar headers = {\n    'Accept':'application/json',\n    'Ocp-Apim-Subscription-Key': DAS_AUTH_TOKEN\n}\n\nmsg = {\n    \"url\": DAS_URL,\n    \"headers\": headers,\n    \"payload\": json_dict,\n    \"deveui\": \"56789\"\n}\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 340,
+        "y": 280,
+        "wires": [
+            [
+                "4ee79366.03e19c"
+            ]
+        ]
+    },
+    {
+        "id": "4ee79366.03e19c",
+        "type": "http request",
+        "z": "fe92c6e7.4ff72",
+        "name": "GLS Lora Cloud",
+        "method": "POST",
+        "ret": "txt",
+        "paytoqs": false,
+        "url": "https://gls.loracloud.com/api/v3/solve/gnss_lr1110_singleframe",
+        "tls": "",
+        "proxy": "",
+        "authType": "basic",
+        "x": 580,
+        "y": 280,
+        "wires": [
+            [
+                "f0c7be95.066ef8"
+            ]
+        ]
+    },
+    {
+        "id": "f0c7be95.066ef8",
+        "type": "function",
+        "z": "fe92c6e7.4ff72",
+        "name": "Parse response",
+        "func": "var resp = JSON.parse(msg.payload)\n\nvar result = resp.result;\n\nif(result) {\n    msg.payload = {\n        deveui: msg.deveui,\n        lat_sent_fixed : result.llh[0],\n        lon_sent_fixed:   result.llh[1],\n        gdop_sent_fixed:   result.gdop,\n        accuracy_sent_fixed:   result.accuracy,\n    }\n    return msg;\n} else {\n    msg.payload = resp;\n    return msg;\n}\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 880,
+        "y": 280,
+        "wires": [
+            [
+                "53d25e95.05ea78"
+            ]
+        ]
+    },
+    {
+        "id": "53d25e95.05ea78",
+        "type": "debug",
+        "z": "fe92c6e7.4ff72",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "x": 1050,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "aa830502.1870a",
+        "type": "inject",
+        "z": "fe92c6e7.4ff72",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 100,
+        "y": 280,
+        "wires": [
+            [
+                "77913437.08bc3c"
+            ]
+        ]
+    },
+    {
+        "id": "ad182c60.583f8",
+        "type": "function",
+        "z": "fe92c6e7.4ff72",
+        "name": "Prepare GLS request",
+        "func": "var URL = \"https://gls.loracloud.com/api/v3/solve/gnss_lr1110_singleframe\" \nvar AUTH_TOKEN =\"AQEAvQksfjvdtGyrUUP+A6zbwizCdQ1NyPa+obEjSpaLAg2sY5wH\"\n\nvar diffSec=315964800;\n\nvar nav_payload = msg.payload.frmPayload.toString(\"hex\");\n\nvar gps_time = msg.payload.time - diffSec;\n\nvar json_dict = {\n    \"payload\": nav_payload,\n//    \"gnss_capture_time_accuracy\": 15, \n//    \"gnss_assist_position\" : [msg.lat, msg.lon],\n    \"gnss_capture_time\": gps_time\n}\n\nvar headers = {\n    'Accept':'application/json',\n    'Ocp-Apim-Subscription-Key': AUTH_TOKEN\n}\n\nmsg = {\n    \"url\": URL,\n    \"headers\": headers,\n    \"payload\": json_dict,\n    \n    \"deveui\":  msg.deveui\n}\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 500,
+        "y": 180,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "820f92c8.39ee6",
+        "type": "function",
+        "z": "fe92c6e7.4ff72",
+        "name": "Prepare GLS request",
+        "func": "var URL = \"https://gls.loracloud.com/api/v3/solve/gnss_lr1110_singleframe\" \nvar AUTH_TOKEN =\"AQEAvQksfjvdtGyrUUP+A6zbwizCdQ1NyPa+obEjSpaLAg2sY5wH\"\n\nvar diffSec=315964800\n\nvar nav_payload = msg.payload.frmPayload.toString(\"hex\");\n\nvar gps_time = msg.payload.time - diffSec;\n\nvar json_dict = {\n    \"payload\": nav_payload,\n    \"gnss_capture_time\": gps_time,\n    \"gnss_capture_time_accuracy\": 15, \n    \"gnss_assist_position\" : [msg.lat, msg.lon]\n}\n\nvar headers = {\n    'Accept':'application/json',\n    'Ocp-Apim-Subscription-Key': AUTH_TOKEN\n}\n\nmsg = {\n    \"url\": URL,\n    \"headers\": headers,\n    \"payload\": json_dict,\n    \n    \"deveui\":  msg.devEUI\n}\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 500,
+        "y": 220,
+        "wires": [
+            []
+        ]
+    }
+]

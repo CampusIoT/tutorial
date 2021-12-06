@@ -35,6 +35,12 @@ References:
 
 * https://github.com/Lora-net/lr1110_driver
 
+## Flot NodeRED avec les services de LoRaCloud
+
+[flows.json](./flows.json)
+
+> Il reste à ajouter un sous-flot de souscription aux messages MQTT pour chaque réseau sur lesquels sont enregistrés des LR1110.
+
 
 ## Press Release
 

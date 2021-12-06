@@ -37,10 +37,22 @@ References:
 
 ## Flot NodeRED avec les services de LoRaCloud
 
-[flows.json](./flows.json)
 
-> Il reste à ajouter un sous-flot de souscription aux messages MQTT pour chaque réseau sur lesquels sont enregistrés des LR1110.
+Lancez le container NodeRED
+```bash
+mkdir -p data/nodered
+mkdir -p data/log
+docker run -d \
+    -p 1880:1880 \
+    -v $PWD/data/nodered:/data \
+    -v $PWD/data/log:/log \
+    --name nodered-lr1110 nodered/node-red
+open http://127.0.0.1:8080
+```
 
+Ajoutez le flot [flows.json](./flows.json) via la console Web.
+
+> Il reste à configurer les credentials des brokers MQTT des réseaux sur lesquels sont enregistrés les LR1110.
 
 ## Press Release
 

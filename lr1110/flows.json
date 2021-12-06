@@ -1,5 +1,29 @@
 [
     {
+        "id": "a0b16dbb5faaacf9",
+        "type": "tab",
+        "label": "Collect CampusIoT",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "bd0aacf5de34b8b9",
+        "type": "tab",
+        "label": "Collect TTNv3",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "2ee54474bad37467",
+        "type": "tab",
+        "label": "Collect Helium",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
         "id": "6aa09eba.735e88",
         "type": "tab",
         "label": "LoRaCloud Credentials",
@@ -7,17 +31,501 @@
         "info": ""
     },
     {
+        "id": "714750ad.4821f",
+        "type": "tab",
+        "label": "LR1110 Modem-E",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "6cfcf5f5.9c1c4c",
+        "type": "tab",
+        "label": "DAS Parser",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "fe92c6e7.4ff72",
+        "type": "tab",
+        "label": "GLS",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "33c6911b.f9f16e",
+        "type": "mqtt-broker",
+        "name": "LNS",
+        "broker": "lns.campusiot.imag.fr",
+        "port": "8883",
+        "tls": "e038e18.c53e52",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": true,
+        "protocolVersion": 4,
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": ""
+    },
+    {
+        "id": "e038e18.c53e52",
+        "type": "tls-config",
+        "name": "",
+        "cert": "",
+        "key": "",
+        "ca": "",
+        "certname": "",
+        "keyname": "",
+        "caname": "",
+        "servername": "",
+        "verifyservercert": false
+    },
+    {
+        "id": "8314e5c1a28c6460",
+        "type": "mqtt-broker",
+        "name": "TTNv3 LR1110",
+        "broker": "eu1.cloud.thethings.network",
+        "port": "8883",
+        "tls": "e038e18.c53e52",
+        "clientid": "eu1.cloud.thethings.network",
+        "autoConnect": true,
+        "usetls": true,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "sessionExpiry": ""
+    },
+    {
+        "id": "6e2e14a3.1147cc",
+        "type": "link out",
+        "z": "a0b16dbb5faaacf9",
+        "name": "application",
+        "links": [
+            "bcc1609e.126fc8",
+            "d2a7a32f.3004e",
+            "1647abb9.cc75dc",
+            "7058df19.536df",
+            "b1ee40de.a0d488"
+        ],
+        "x": 1115,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "4f190c00.84bc84",
+        "type": "debug",
+        "z": "a0b16dbb5faaacf9",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "x": 1110,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "2d629578.d9032a",
+        "type": "function",
+        "z": "a0b16dbb5faaacf9",
+        "name": "add radio",
+        "func": "function getRegion(frequency) {\n    if(frequency>=863000000 && frequency<870000000) {\n        return \"eu868\";\n    } else if(frequency>=433050000 && frequency<434790000) {\n        return \"eu433\";\n    } else if(frequency>=169400000 && frequency<169475000) {\n        return \"eu169\";\n    } else if(frequency>=2400000000 && frequency<2500000000) {\n        return \"ism2400\";\n    } else {\n        return undefined;\n    }\n}\n\nfunction getSubBandsEU868(frequency) {\n    if(frequency>=863000000 && frequency<868000000) {\n        return \"g\";\n    } else if(frequency>=868000000 && frequency<868600000) {\n        return \"g1\";\n    } else if(frequency>=868700000 && frequency<869200000) {\n        return \"g2\";\n    } else if(frequency>=869400000 && frequency<869650000) {\n        return \"g3\";\n    } else if(frequency>=869700000 && frequency<870000000) {\n        return \"g4\";\n    } else {\n        return undefined;\n    }\n    /* Duty Cycle */\n    /*\n    g (863.0 – 868.0 MHz): 1%\n    g1 (868.0 – 868.6 MHz): 1%\n    g2 (868.7 – 869.2 MHz): 0.1%\n    g3 (869.4 – 869.65 MHz): 10%\n    g4 (869.7 – 870.0 MHz): 1%\n    */\n}\n\nvar p = msg.payload;\n\nvar rxInfo = p.rxInfo;\n\nvar ri = undefined;\n\nrxInfo.forEach(function(e) {\n  if(ri === undefined) {\n      ri = e;\n  } else if(e.rssi > ri.rssi) {\n      ri = e;\n  }\n});\n\nri.date = Date.now();\nri.dr = p.txInfo.dr;\nri.frequency = p.txInfo.frequency;\nri.region = getRegion(ri.frequency);\nri.subband = getSubBandsEU868(ri.frequency);\n// Can not compute timeonair without the frame length\n//ri.toa = TimeOnAir.getLoRaWANTimeOnAir(size, 0, ri.dr)\n\n\nri.redundancy = rxInfo.length;\n\nmsg.payload.radio = ri;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 860,
+        "y": 200,
+        "wires": [
+            [
+                "6ae9579b.c63d4"
+            ]
+        ]
+    },
+    {
+        "id": "ddb4a53c.b4b57",
+        "type": "function",
+        "z": "a0b16dbb5faaacf9",
+        "name": "convert frame payload",
+        "func": "if(msg.payload.data){\n    msg.payload.frmPayload = Buffer.from(msg.payload.data, 'base64');\n    msg.payload.size = msg.payload.frmPayload.length;\n} else {\n    msg.payload.size = 0;\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 600,
+        "y": 80,
+        "wires": [
+            [
+                "cb521cd0.aadb"
+            ]
+        ]
+    },
+    {
+        "id": "6ae9579b.c63d4",
+        "type": "function",
+        "z": "a0b16dbb5faaacf9",
+        "name": "add now",
+        "func": "\nmsg.payload.time = new Date().getTime();\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 960,
+        "y": 260,
+        "wires": [
+            [
+                "4f190c00.84bc84",
+                "6e2e14a3.1147cc"
+            ]
+        ]
+    },
+    {
+        "id": "cb521cd0.aadb",
+        "type": "function",
+        "z": "a0b16dbb5faaacf9",
+        "name": "Flatten LPP",
+        "func": "var p = msg.payload;\n\nfunction FlattenLPP(json) {\n    var o = {};\n    for (const p in json) {\n        var value = json[p];\n        if(typeof(value) === 'number') {\n            o[p] = value;\n        } else if(typeof(value) === 'object'){\n            for (const p2 in value) {\n                var value2 = value[p2];\n                if(typeof(value2) === 'number') {\n                    o[p + p2] = value2;\n                }\n            }\n        }\n    }\n    return o    \n}\n\nvar json = msg.payload.object;\n\nif(json) {\n    var o = FlattenLPP(json);\n    if(o) {\n        msg.payload.object = o;\n        return msg;\n    }\n}\n\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 750,
+        "y": 140,
+        "wires": [
+            [
+                "2d629578.d9032a"
+            ]
+        ]
+    },
+    {
+        "id": "23dc752e.9de09a",
+        "type": "mqtt in",
+        "z": "a0b16dbb5faaacf9",
+        "name": "Application Rx LR1110",
+        "topic": "application/APPLICATION_ID/device/+/rx",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "33c6911b.f9f16e",
+        "nl": false,
+        "rap": false,
+        "inputs": 0,
+        "x": 120,
+        "y": 200,
+        "wires": [
+            [
+                "4026f9bb.2220e"
+            ]
+        ]
+    },
+    {
+        "id": "4026f9bb.2220e",
+        "type": "function",
+        "z": "a0b16dbb5faaacf9",
+        "name": "",
+        "func": "\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 500,
+        "y": 320,
+        "wires": [
+            [
+                "dc964d59.24ff1",
+                "b1e5523b.fa2158"
+            ]
+        ]
+    },
+    {
+        "id": "dc964d59.24ff1",
+        "type": "function",
+        "z": "a0b16dbb5faaacf9",
+        "name": "add time",
+        "func": "var p = msg.payload;\n\nmsg.payload = new Date().getTime() + \";MSG/\"+msg.topic+\";\" + msg.payload; \n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 580,
+        "y": 460,
+        "wires": [
+            [
+                "84ba827e.ecaf68"
+            ]
+        ]
+    },
+    {
+        "id": "84ba827e.ecaf68",
+        "type": "file",
+        "z": "a0b16dbb5faaacf9",
+        "name": "append to log file",
+        "filename": "/log/lr1110.log",
+        "appendNewline": true,
+        "createDir": true,
+        "overwriteFile": "false",
+        "encoding": "none",
+        "x": 850,
+        "y": 460,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "b1e5523b.fa2158",
+        "type": "json",
+        "z": "a0b16dbb5faaacf9",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 490,
+        "y": 200,
+        "wires": [
+            [
+                "ddb4a53c.b4b57",
+                "4f190c00.84bc84"
+            ]
+        ]
+    },
+    {
+        "id": "6a253db2deb0d846",
+        "type": "mqtt in",
+        "z": "bd0aacf5de34b8b9",
+        "name": "TTNv3 LR1110 up",
+        "topic": "v3/lr1110@ttn/devices/+/up",
+        "qos": "1",
+        "datatype": "auto",
+        "broker": "8314e5c1a28c6460",
+        "nl": false,
+        "rap": false,
+        "inputs": 0,
+        "x": 150,
+        "y": 280,
+        "wires": [
+            [
+                "e8d0b9c7b607407b"
+            ]
+        ]
+    },
+    {
+        "id": "c7ec61a11d07cea1",
+        "type": "json",
+        "z": "bd0aacf5de34b8b9",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 630,
+        "y": 280,
+        "wires": [
+            [
+                "44343c329ac04996",
+                "a89068a4c0f4063c"
+            ]
+        ]
+    },
+    {
+        "id": "44343c329ac04996",
+        "type": "function",
+        "z": "bd0aacf5de34b8b9",
+        "name": "convert frame payload",
+        "func": "if(msg.payload.payload_raw){\n    msg.payload.frmPayload = Buffer.from(msg.payload.payload_raw, 'base64');\n    msg.payload.size = msg.payload.frmPayload.length;\n} else {\n    msg.payload.size = 0;\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 800,
+        "y": 320,
+        "wires": [
+            [
+                "c1f601f6a8cc5ded"
+            ]
+        ]
+    },
+    {
+        "id": "b3878f3cddd9be26",
+        "type": "link out",
+        "z": "bd0aacf5de34b8b9",
+        "name": "application",
+        "links": [],
+        "x": 1135,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "c1f601f6a8cc5ded",
+        "type": "function",
+        "z": "bd0aacf5de34b8b9",
+        "name": "add time",
+        "func": "var p = msg.payload;\n\nif(p.received_at) {\n    msg.received_at = Date.parse(p.received_at);\n} else {\n    msg.received_at = new Date().getTime();\n}\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1000,
+        "y": 320,
+        "wires": [
+            [
+                "b3878f3cddd9be26",
+                "a89068a4c0f4063c"
+            ]
+        ]
+    },
+    {
+        "id": "d3a628e5b102793b",
+        "type": "function",
+        "z": "bd0aacf5de34b8b9",
+        "name": "add time",
+        "func": "var p = msg.payload;\n\nmsg.payload = new Date().getTime() + \";MSG/\"+msg.topic+\";\" + msg.payload; \n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 600,
+        "y": 500,
+        "wires": [
+            [
+                "e34dd71d78443dce",
+                "3f3f7a5e0f610f80"
+            ]
+        ]
+    },
+    {
+        "id": "e34dd71d78443dce",
+        "type": "file",
+        "z": "bd0aacf5de34b8b9",
+        "name": "append to log file",
+        "filename": "/log/lr1110-ttnv3.log",
+        "appendNewline": true,
+        "createDir": true,
+        "overwriteFile": "false",
+        "encoding": "none",
+        "x": 1070,
+        "y": 560,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "a89068a4c0f4063c",
+        "type": "debug",
+        "z": "bd0aacf5de34b8b9",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "x": 1170,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "3f3f7a5e0f610f80",
+        "type": "debug",
+        "z": "bd0aacf5de34b8b9",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 1050,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "024cd1ede2a7f655",
+        "type": "comment",
+        "z": "bd0aacf5de34b8b9",
+        "name": "API TTN",
+        "info": "https://www.thethingsindustries.com/docs/integrations/mqtt/",
+        "x": 140,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "e8d0b9c7b607407b",
+        "type": "function",
+        "z": "bd0aacf5de34b8b9",
+        "name": "dispatch",
+        "func": "\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 440,
+        "y": 280,
+        "wires": [
+            [
+                "c7ec61a11d07cea1",
+                "d3a628e5b102793b"
+            ]
+        ]
+    },
+    {
+        "id": "14e6d7e8d1eab0a9",
+        "type": "function",
+        "z": "bd0aacf5de34b8b9",
+        "name": "",
+        "func": "var r= {\"end_device_ids\":{\"device_id\":\"stm32wl55-6035\",\"application_ids\":{\"application_id\":\"stm32wl55\"},\"dev_eui\":\"0080E11505006035\",\"join_eui\":\"0101010101010101\",\"dev_addr\":\"260B7F9F\"},\"correlation_ids\":[\"as:up:01F2H370S542B6B5556KDHX32Q\",\"ns:uplink:01F2H3706AGVJENRH4EK8X9M74\",\"pba:conn:up:01F213FATNNQHVYKECYF9SYTXC\",\"pba:uplink:01F2H3704EDETH16WF04JM40K1\",\"rpc:/ttn.lorawan.v3.GsNs/HandleUplink:01F2H3706A0JGYKSMWXMKDT1GN\",\"rpc:/ttn.lorawan.v3.NsAs/HandleUplink:01F2H370S4PWJF4AC65GVSMMX3\"],\"received_at\":\"2021-04-05T13:23:08.197630676Z\",\"uplink_message\":{\"session_key_id\":\"AXiiMws0YnsIwBg98geLmA==\",\"f_port\":2,\"f_cnt\":1,\"frm_payload\":\"AHOGoAFnAKoCaGQDAP4EAQA=\",\"rx_metadata\":[{\"gateway_ids\":{\"gateway_id\":\"packetbroker\"},\"packet_broker\":{\"message_id\":\"01F2H3704EDETH16WF04JM40K1\",\"forwarder_net_id\":\"000013\",\"forwarder_tenant_id\":\"ttn\",\"forwarder_cluster_id\":\"ttn-v2-eu-3\",\"home_network_net_id\":\"000013\",\"home_network_tenant_id\":\"ttn\",\"home_network_cluster_id\":\"ttn-eu1\",\"hops\":[{\"received_at\":\"2021-04-05T13:23:07.534327784Z\",\"sender_address\":\"40.113.68.198\",\"receiver_name\":\"router-dataplane-f8764784f-p5gbg\",\"receiver_agent\":\"pbdataplane/1.5.2 go/1.16.2 linux/amd64\"},{\"received_at\":\"2021-04-05T13:23:07.534728357Z\",\"sender_name\":\"router-dataplane-f8764784f-p5gbg\",\"sender_address\":\"forwarder_uplink\",\"receiver_name\":\"router-7665c7b677-7tm85\",\"receiver_agent\":\"pbrouter/1.5.2 go/1.16.2 linux/amd64\"},{\"received_at\":\"2021-04-05T13:23:07.536609172Z\",\"sender_name\":\"router-7665c7b677-7tm85\",\"sender_address\":\"deliver.000013_ttn_ttn-eu1.uplink\",\"receiver_name\":\"router-dataplane-f8764784f-n76ql\",\"receiver_agent\":\"pbdataplane/1.5.2 go/1.16.2 linux/amd64\"}]},\"rssi\":-111,\"channel_rssi\":-111,\"snr\":-15.5,\"uplink_token\":\"eyJnIjoiWlhsS2FHSkhZMmxQYVVwQ1RWUkpORkl3VGs1VE1XTnBURU5LYkdKdFRXbFBhVXBDVFZSSk5GSXdUazVKYVhkcFlWaFphVTlwU25oWU1sSXdXakpLVVZVeVVteFBSVlkxVlVoak1rbHBkMmxrUjBadVNXcHZhVk42VGxGYVYyeFJVVEJ2TVZkRmVHcGxWRlY2WkRCdmRFMXRVbWxhZVVvNUxuWkRlbVF4VXpRMGVGaHJkRTFKVjNGQ05qRllNMmN1ZEVScFVYZElPRVJwTlZnNWNVYzVjUzVqVEdadE5ubHJWVmM1YnpoRmRsSnJla3hXVGs1T1lXUjJSR3B1Y0dFM1gySjVWR0ZQZWxCRE1UUTNkRGhrZFhNNVpsOWxVV2RVZW5kVE5tUlFla0ZsZG1FeWQyeFFlRXRhTXpFNVJEWXpSVkJ3YldVdGVXUlZjemhaVDE5bE9YTkdiVTkxVTFwT2VXOVJjVlpaYXpkRllXNUVUM0ZFUkVNNVptNWtTazVMTVhodlJUWkhUa1l0TFVsNlJsWmtPRVJ5TFVaM2REQkVOMWhyZFV0cVdGUkJkWGhyTlhwTWJXOUZPSEpSTG14UWQwNVpSVVJ5YkhFNGNUUTVaVEl6T0VSR2FsRT0iLCJhIjp7ImZuaWQiOiIwMDAwMTMiLCJmdGlkIjoidHRuIiwiZmNpZCI6InR0bi12Mi1ldS0zIn19\"},{\"gateway_ids\":{\"gateway_id\":\"packetbroker\"},\"packet_broker\":{\"message_id\":\"01F2H370A107TJVR3Q4Z5SDRW8\",\"forwarder_net_id\":\"000013\",\"forwarder_tenant_id\":\"ttn\",\"forwarder_cluster_id\":\"ttn-v2-eu-4\",\"home_network_net_id\":\"000013\",\"home_network_tenant_id\":\"ttn\",\"home_network_cluster_id\":\"ttn-eu1\",\"hops\":[{\"received_at\":\"2021-04-05T13:23:07.713346748Z\",\"sender_address\":\"52.169.150.138\",\"receiver_name\":\"router-dataplane-f8764784f-5hp49\",\"receiver_agent\":\"pbdataplane/1.5.2 go/1.16.2 linux/amd64\"},{\"received_at\":\"2021-04-05T13:23:07.722319837Z\",\"sender_name\":\"router-dataplane-f8764784f-5hp49\",\"sender_address\":\"forwarder_uplink\",\"receiver_name\":\"router-7665c7b677-kmdr7\",\"receiver_agent\":\"pbrouter/1.5.2 go/1.16.2 linux/amd64\"},{\"received_at\":\"2021-04-05T13:23:07.725273382Z\",\"sender_name\":\"router-7665c7b677-kmdr7\",\"sender_address\":\"deliver.000013_ttn_ttn-eu1.uplink\",\"receiver_name\":\"router-dataplane-f8764784f-n76ql\",\"receiver_agent\":\"pbdataplane/1.5.2 go/1.16.2 linux/amd64\"}]},\"time\":\"2021-04-05T13:23:06.478237Z\",\"rssi\":-106,\"signal_rssi\":-119,\"channel_rssi\":-106,\"snr\":-13,\"frequency_offset\":\"-18\",\"uplink_token\":\"eyJnIjoiWlhsS2FHSkhZMmxQYVVwQ1RWUkpORkl3VGs1VE1XTnBURU5LYkdKdFRXbFBhVXBDVFZSSk5GSXdUazVKYVhkcFlWaFphVTlwU2tWVVJrMTRaVmRrUkZac1NrdGpWa1pYV2tNd2VrbHBkMmxrUjBadVNXcHZhV1ZVVFhSV2JFWlBUakp3VVZacVdscGFSMFV6WVZWNFlWb3hiRTFWVTBvNUxsY3diV1o0TnpoUlIzTXdibkY2UmtGSE0ydG1kVkV1TW0wdFowazNUV1ZRZDIxdFQxbFhTaTVSTjBSaWMxYzNWWEpmVFRORlVGbHZlamgxZHpacmVWaFRWM0JzY0ZKSFpHdElkRzlMZDI4d1pucE1PWFp0VG1wQ1gzbHJkREEyV1dsT2RIQmFNR1JPT0VKcloxQlVXVzB4YkZwM1RUWk5ZVWRrTkZGVmVGSmxiblp3ZG1VNFVVTmlUV0pxYW5NdFUyTXlhMFYzUTBaR1J6QkhibGxSUmpoU1lrUnROWGhSVVhScmFIaFBWMjFKTTJOeVRuUTRURUZOYlVWUlIzWkdZWFJOZUdOU05DMDNRVFI1TUcxVE9DNVRUalpVWlZKRk9FcFJiVGxtU2pOQmVEWmtlVlozIiwiYSI6eyJmbmlkIjoiMDAwMDEzIiwiZnRpZCI6InR0biIsImZjaWQiOiJ0dG4tdjItZXUtNCJ9fQ==\"}],\"settings\":{\"data_rate\":{\"lora\":{\"bandwidth\":125000,\"spreading_factor\":12}},\"coding_rate\":\"4/5\",\"frequency\":\"867500000\"},\"received_at\":\"2021-04-05T13:23:07.594547933Z\",\"consumed_airtime\":\"1.646592s\"}};\n\nmsg.payload = r;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 830,
+        "y": 120,
+        "wires": [
+            [
+                "2f54098d0e0a89b0"
+            ]
+        ]
+    },
+    {
+        "id": "7c9339f80570b492",
+        "type": "inject",
+        "z": "bd0aacf5de34b8b9",
+        "name": "",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 480,
+        "y": 120,
+        "wires": [
+            [
+                "14e6d7e8d1eab0a9"
+            ]
+        ]
+    },
+    {
+        "id": "2f54098d0e0a89b0",
+        "type": "debug",
+        "z": "bd0aacf5de34b8b9",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 1190,
+        "y": 120,
+        "wires": []
+    },
+    {
         "id": "edfba8c1.9acfd8",
         "type": "inject",
         "z": "6aa09eba.735e88",
         "name": "",
-        "topic": "",
-        "payload": "",
-        "payloadType": "flow",
         "repeat": "",
         "crontab": "",
         "once": true,
         "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "flow",
         "x": 150,
         "y": 160,
         "wires": [
@@ -39,13 +547,6 @@
         "wires": [
             []
         ]
-    },
-    {
-        "id": "714750ad.4821f",
-        "type": "tab",
-        "label": "LR1110 Modem-E",
-        "disabled": false,
-        "info": ""
     },
     {
         "id": "879981d.b0ee3",
@@ -356,13 +857,6 @@
         "x": 840,
         "y": 400,
         "wires": []
-    },
-    {
-        "id": "6cfcf5f5.9c1c4c",
-        "type": "tab",
-        "label": "DAS Parser",
-        "disabled": false,
-        "info": ""
     },
     {
         "id": "4bbccb54.e5d104",
@@ -762,13 +1256,13 @@
         "type": "inject",
         "z": "6cfcf5f5.9c1c4c",
         "name": "Assistance coordinates for GNSS autonomous scans",
-        "topic": "",
-        "payload": "[45.1823473,5.73548]",
-        "payloadType": "json",
         "repeat": "",
         "crontab": "",
         "once": true,
         "onceDelay": "",
+        "topic": "",
+        "payload": "[45.1823473,5.73548]",
+        "payloadType": "json",
         "x": 300,
         "y": 160,
         "wires": [
@@ -861,13 +1355,13 @@
         "type": "inject",
         "z": "6cfcf5f5.9c1c4c",
         "name": "Port GNSS push solver message port",
-        "topic": "",
-        "payload": "150",
-        "payloadType": "json",
         "repeat": "",
         "crontab": "",
         "once": true,
         "onceDelay": "",
+        "topic": "",
+        "payload": "150",
+        "payloadType": "json",
         "x": 250,
         "y": 220,
         "wires": [
@@ -1027,13 +1521,6 @@
         "wires": []
     },
     {
-        "id": "fe92c6e7.4ff72",
-        "type": "tab",
-        "label": "GLS",
-        "disabled": false,
-        "info": ""
-    },
-    {
         "id": "77913437.08bc3c",
         "type": "function",
         "z": "fe92c6e7.4ff72",
@@ -1105,13 +1592,13 @@
         "type": "inject",
         "z": "fe92c6e7.4ff72",
         "name": "",
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
         "repeat": "",
         "crontab": "",
         "once": false,
         "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
         "x": 100,
         "y": 280,
         "wires": [

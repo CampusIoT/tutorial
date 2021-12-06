@@ -10,6 +10,15 @@ Le Dragino LGT92 est un traqueur GPS bon marché muni d'un module GNSS Quectel L
 * Documents https://www.dragino.com/downloads/index.php?dir=LGT_92/
 * Code source du firmware https://github.com/dragino/LGT-92_-LoRa_GPS_Tracker
 
+
+### Port Console
+
+* Baudrate: 9600 
+* Data bits: 8
+* Stop bits: 1
+* Parity: None
+* Flow control: None
+
 ## Commandes AT
 
 Branchez le FTDI comme indiqué dans la documentation et configurez minicom avec `9600 N 1`
@@ -166,6 +175,12 @@ AT+DCS=1
 AT+TDC=10000
 ```
 
+### Configuration de la période du _keep alive_
+
+```
+AT+KAT=?
+AT+KAT=360000
+```
 
 ### Envoi d'un message Uplink
 ```

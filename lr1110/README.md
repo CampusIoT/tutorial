@@ -29,7 +29,7 @@ Multi-Purpose Radio Front-End targeting geo-positioning purposes
 
 References:
 * https://www.semtech.com/products/wireless-rf/lora-transceivers/LR1110#download-resources
-
+* https://www.loracloud.com/documentation/device_management?url=v1.html#device-and-application-services-protocol-payloads
 
 ## LR1110 Software
 

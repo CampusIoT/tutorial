@@ -337,7 +337,7 @@ Network connection failed!
 [Plus d'info](https://github.com/Orange-OpenSource/Orange-ExpLoRer-Kit-for-LoRa)
 
 ## Enregistrer le device SODAQ Explorer
-Du coté de la console https://lora.campusiot.imag.fr
+Du coté de la console https://lns.campusiot.imag.fr
 
 Créez une application `SODAQ_EXPLORER` avec le service-profile `DEFAULT`
 

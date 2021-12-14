@@ -411,6 +411,26 @@ Par exemple:
 * [Grove LCD Display](http://wiki.seeedstudio.com/Grove-16x2_LCD_Series/)
 
 
+## Construction et chargement d'un firmware avec RIOT OS
+
+La carte [SODAQ Explorer](https://github.com/RIOT-OS/RIOT/blob/master/boards/sodaq-explorer/doc.txt) est supporté par RIOT OS. Si vous êtes familier avec RIOT OS.
+
+Construisez et chargez le firmware de test pour le paquetage LoRaMAC :
+
+```bash
+cd pkg_semtech-loramac 
+make BOARD=sodaq-explorer flash
+```
+
+Suivez les instructions du [README](https://github.com/RIOT-OS/RIOT/blob/master/tests/pkg_semtech-loramac/README.md) en utilisant le`DevEUI`.
+```
+loramac set deveui 0004A30B001234656
+loramac set appeui 0004A30B00FFFFFFF
+loramac set appkey 0004A30B0012346560004A30B001234656
+loramac join otaa
+loramac tx This\ is\ RIOT! cnf 2
+```
+
 ## Pour aller plus loin
 [Tutoriel NodeRED](../nodered/README.md)
 

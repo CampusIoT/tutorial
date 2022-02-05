@@ -4,6 +4,7 @@ Wio Terminal est une carte embarquée basse consommation d'énergie pour réalis
 
 Cette carte dispose de connecteurs Grove pour ajouter des cartes Grove comme par exemple: 
 * [Grove Gas Multichannel v2](https://wiki.seeedstudio.com/Grove-Multichannel-Gas-Sensor-V2/)
+* [Grove - AMG8833 8x8 Infrared Thermal Temperature Sensor Array](https://wiki.seeedstudio.com/Wio-Terminal-Thermal-Camera/)
 * ...
 
 Cette carte peut être équipée entre autre d'une modem LoRaWAN ([Grove LoRa RFM95 868 MHz](https://wiki.seeedstudio.com/Grove_LoRa_Radio/)) pour communiquer des mesures relevées et analysées.

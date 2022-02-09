@@ -2,9 +2,20 @@
 
 La platine [Grove CO2 & Temperature & Humidity Sensor SCD41](https://wiki.seeedstudio.com/Grove-CO2_%26_Temperature_%26_Humidity_Sensor-SCD41/) comporte un des derniers modèles de capteurs CO2 Sensirion SCD4x
 
+Pour mémoire, les niveaux de CO2 dans l'air et les problèmes de santé potentiels sont :
+* 400 ppm : niveau moyen dans l'air extérieur.
+* 400-1000 ppm : niveau typique trouvé dans les espaces occupés avec un bon échange d'air.
+* 1000-2000 ppm : niveau associé aux plaintes de somnolence et de mauvaise qualité de l'air.
+* 2000 à 5000 ppm : niveau associé aux maux de tête, à la somnolence et à l'air stagnant, vicié et étouffant. Une mauvaise concentration, une perte d'attention, une accélération du rythme cardiaque et de légères nausées peuvent également être présentes.
+* 5000 ppm : cela indique des conditions atmosphériques inhabituelles où des niveaux élevés d'autres gaz peuvent également être présents. Une toxicité ou une privation d'oxygène pourrait se produire. Il s'agit de la limite d'exposition admissible pour les expositions quotidiennes sur le lieu de travail.
+* 40000 ppm : ce niveau est immédiatement nocif par manque d'oxygène. 
+
+
 Suivez les instructions pour l'installation des bibliothèques (https://github.com/Sensirion/arduino-i2c-scd4x).
 
 Chargez l'exemple de test sur le Wio Terminal.
+
+![GroveCO2TemperatureHumiditySensorSCD41](./GroveCO2TemperatureHumiditySensorSCD41.jpg)
 
 Voici un petit test effectué dans une pièce non ventilée un soir.
 
@@ -80,6 +91,6 @@ Ouverture de la fenêtre pour aérer.
 07:21:59.832 -> Co2:832	Temperature:15.83	Humidity:45.50
 07:22:04.843 -> Co2:817	Temperature:15.80	Humidity:45.53
 ```
-## Affichage des valeurs sur l'écran LCD
 
-TODO
+
+Ce code est directement inspiré de cet article https://www.hackster.io/naveenbskumar/co2-levels-monitoring-and-airflow-control-using-wio-terminal-a5a241#toc-conclusion-6

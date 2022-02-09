@@ -7,7 +7,7 @@
 #include "icon_humidity.h"
 #include "icon_co2.h"
 
-#define CO2_THRESHOLD 1200
+#define CO2_THRESHOLD 2000
 
 SensirionI2CScd4x scd4x;
 TFT_eSPI tft = TFT_eSPI();

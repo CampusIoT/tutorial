@@ -17,6 +17,16 @@ Installez la bibliothèque [Seeed_Arduino_LCD](https://wiki.seeedstudio.com/Wio-
 
 Chargez l'exemple de test sur le Wio Terminal.
 
+```
+21:40:32.109 -> Carbon Dioxide Concentration is: 1573.91 ppm
+21:40:32.109 ->  
+21:40:32.109 -> Temperature = 20.67 ℃
+21:40:32.109 ->  
+21:40:32.109 -> Humidity = 52.32 %
+```
+
+
+
 ## Pour aller plus loin avec ArduPy
 
 https://wiki.seeedstudio.com/Grove-CO2_Temperature_Humidity_Sensor-SCD30/#play-with-wio-terminal-ardupy

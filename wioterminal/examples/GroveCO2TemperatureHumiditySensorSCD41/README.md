@@ -19,7 +19,7 @@ Chargez l'exemple de test sur le Wio Terminal.
 
 Voici un petit test effectué dans une pièce non ventilée un soir.
 
-```
+```console
 22:48:00.100 -> Serial: 0x27F7BF073B58
 22:40:00.103 -> Waiting for first measurement... (5 sec)
 ...
@@ -31,7 +31,7 @@ Voici un petit test effectué dans une pièce non ventilée un soir.
 
 Quelques heures plus tard (la nuit passée).
 
-```
+```console
 07:17:44.486 -> Co2:1045	Temperature:17.80	Humidity:43.51
 07:17:49.487 -> Co2:993	Temperature:17.80	Humidity:43.82
 07:17:54.486 -> Co2:1002	Temperature:17.71	Humidity:44.14
@@ -39,7 +39,7 @@ Quelques heures plus tard (la nuit passée).
 
 Ouverture de la fenêtre pour aérer.
 
-```
+```console
 07:17:59.501 -> Co2:984	Temperature:17.57	Humidity:44.40
 07:18:04.494 -> Co2:947	Temperature:17.40	Humidity:44.67
 07:18:09.515 -> Co2:921	Temperature:17.26	Humidity:44.90
@@ -94,3 +94,5 @@ Ouverture de la fenêtre pour aérer.
 
 
 Ce code est directement inspiré de cet article https://www.hackster.io/naveenbskumar/co2-levels-monitoring-and-airflow-control-using-wio-terminal-a5a241#toc-conclusion-6
+
+_The free icon images for CO2, temperature and humidity were downloaded from [Flaticon](https://www.flaticon.com/) and were converted to X BitMap (XBM), a plain text binary image format, using [Convertio])(https://convertio.co/)._

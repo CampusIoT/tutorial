@@ -18,7 +18,10 @@ Cette carte peut être utilisée pour des démonstrateurs d'intelligence artific
 
 TODO
 
-Référence: https://wiki.seeedstudio.com/Wio-Terminal-LCD-Overview/
+Référence:
+* https://wiki.seeedstudio.com/Wio-Terminal-LCD-Overview/
+* https://github.com/Seeed-Studio/Seeed_Arduino_LvGL
+* https://github.com/moononournation/Arduino_GFX
 
 ## Carte MicroSD
 
@@ -54,6 +57,8 @@ Référence:  https://wiki.seeedstudio.com/Wio-Terminal-RTC/
 ## IMU
 
 TODO
+
+* [Rolling Ball Maze Game](./examples/RollingBallMaze)
 
 Référence: https://wiki.seeedstudio.com/Wio-Terminal-IMU-Basic/
 
@@ -130,6 +135,11 @@ TODO
 TODO
 
 * https://www.seeedstudio.com/wio-terminal-tinyml.html
+
+## Edge Impluse
+
+https://wiki.seeedstudio.com/Wio-Terminal-TinyML-EI-1/
+
 
 ## Pinout
 

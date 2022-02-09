@@ -2,9 +2,7 @@
 
 Wio Terminal est une carte embarquée basse consommation d'énergie pour réaliser rapidement des démonstrateurs pour l'Internet des Objets.
 
-Cette carte dispose de connecteurs Grove pour ajouter des cartes Grove comme par exemple: 
-* [Grove Gas Multichannel v2](https://wiki.seeedstudio.com/Grove-Multichannel-Gas-Sensor-V2/)
-* ...
+Cette carte dispose de connecteurs Grove pour ajouter des platines Grove ainsi qu'un _header_ 40 broches compatible avec celui du Raspberry Pi 3.
 
 Cette carte peut être équipée entre autre d'une modem LoRaWAN ([Grove LoRa RFM95 868 MHz](https://wiki.seeedstudio.com/Grove_LoRa_Radio/)) pour communiquer des mesures relevées et analysées.
 
@@ -14,10 +12,74 @@ Cette carte peut être utilisée pour des démonstrateurs d'intelligence artific
 
 * https://wiki.seeedstudio.com/Wio-Terminal-Getting-Started/
 
+## Ecran LCD
+
+TODO
+
+## Carte MicroSD
+
+TODO
+
+## Platines Grove
+
+Le catalogue de Seeedstudio comporte dans son [catalogue](https://wiki.seeedstudio.com/Grove/) plusieurs dizaines de platines Grove démontrant les capteurs et les actionneurs les plus courants de s principaux fabricants.
+
+### Qualité de l'air
+
+Le catalogue de Seeedstudio comporte plusieurs platines Grove pour la mesure de gaz dans son [catalogue](https://wiki.seeedstudio.com/Sensor_gas/).
+
+* [Grove - Gas Sensor V2 (Multichannel](./examples/GroveMultiChannelGasSensor_Wio)
+* [Grove CO2 & Temperature & Humidity Sensor SCD41](./examples/GroveCO2TemperatureHumiditySensorSCD41)
+
+### Vision
+
+* [Grove - Infrared Temperature Sensor Array (AMG8833)](./examples/GroveInfraredTemperatureSensorArrayAMG8833)
+
+## Adaptateurs Mikrobus
+
+Le header femelle 40 broches du Wio Terminal est compatible avec celui du Raspberry Pi 3.
+
+Il est possible de brancher des cartes pour Raspberry Pi 3 comme ce [support pour cartes Mikrobus](https://www.mikroe.com/pi-3-click-shield) afin d'utiliser les [adaptateurs de l'écosystème Mikrobus](https://www.mikroe.com/).
+
+TODO
+
+## WiFi
+
+TODO
+
+## MQTT
+
+TODO
+
+## LoRaWAN avec LoRa E5
+
+TODO
+
+## LoRa 2.4 GHz avec SX1280
+
+TODO
+
+## MicroPython (ArduPy)
+
+TODO
+
+* https://micropython.org/download/SEEED_WIO_TERMINAL/
+* https://wiki.seeedstudio.com/ArduPy/
+
+## FreeRTOS
+
+TODO
+
+## RIOT OS
+
+TODO
 
 ## TinyML
 
+TODO
+
 * https://www.seeedstudio.com/wio-terminal-tinyml.html
 
+## Pinout
 
-
+![Wio-Terminal-pinout](./images/Wio-Terminal-pinout-hires.png)

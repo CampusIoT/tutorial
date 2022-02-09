@@ -11,3 +11,6 @@ Chargez l'exemple de test sur le Wio Terminal.
 Faites quelques tests dans des produits comme du gaz de briquet, du CO emis par une bougie piègée dans un bocal ...
 
 ![Grove-Multichannel-Gas-Sensor-V2 Wio](./Grove-Multichannel-Gas-Sensor-V2-Wio.jpg)
+
+## Plus aller plus loin
+* [Le Nez Artificiel de Benjamin Cabé](https://blog.benjamin-cabe.com/2021/08/03/how-i-built-a-connected-artificial-nose)

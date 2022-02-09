@@ -13,6 +13,8 @@ Pour mémoire, les niveaux de CO2 dans l'air et les problèmes de santé potenti
 
 Suivez les instructions pour l'installation des bibliothèques (https://github.com/Sensirion/arduino-i2c-scd4x).
 
+Installez la bibliothèque [Seeed_Arduino_LCD](https://wiki.seeedstudio.com/Wio-Terminal-LCD-Overview/) si ce n'est pas déjà fait.
+
 Chargez l'exemple de test sur le Wio Terminal.
 
 ![GroveCO2TemperatureHumiditySensorSCD41](./GroveCO2TemperatureHumiditySensorSCD41.jpg)
@@ -95,4 +97,4 @@ Ouverture de la fenêtre pour aérer.
 
 Ce code est directement inspiré de cet article https://www.hackster.io/naveenbskumar/co2-levels-monitoring-and-airflow-control-using-wio-terminal-a5a241#toc-conclusion-6
 
-_The free icon images for CO2, temperature and humidity were downloaded from [Flaticon](https://www.flaticon.com/) and were converted to X BitMap (XBM), a plain text binary image format, using [Convertio])(https://convertio.co/)._
+_The free icon images for CO2, temperature and humidity were downloaded from [Flaticon](https://www.flaticon.com/) and were converted to X BitMap (XBM), a plain text binary image format, using [Convertio](https://convertio.co/)._

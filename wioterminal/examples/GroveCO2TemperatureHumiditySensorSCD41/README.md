@@ -2,7 +2,7 @@
 
 La platine [Grove CO2 & Temperature & Humidity Sensor SCD41](https://wiki.seeedstudio.com/Grove-CO2_%26_Temperature_%26_Humidity_Sensor-SCD41/) comporte un des derniers modèles de capteurs CO2 Sensirion SCD4x
 
-Suivez les instructions pour l'installation des bibliothèques.
+Suivez les instructions pour l'installation des bibliothèques (https://github.com/Sensirion/arduino-i2c-scd4x).
 
 Chargez l'exemple de test sur le Wio Terminal.
 
@@ -80,3 +80,6 @@ Ouverture de la fenêtre pour aérer.
 07:21:59.832 -> Co2:832	Temperature:15.83	Humidity:45.50
 07:22:04.843 -> Co2:817	Temperature:15.80	Humidity:45.53
 ```
+## Affichage des valeurs sur l'écran LCD
+
+TODO

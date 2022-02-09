@@ -18,9 +18,46 @@ Cette carte peut être utilisée pour des démonstrateurs d'intelligence artific
 
 TODO
 
+Référence: https://wiki.seeedstudio.com/Wio-Terminal-LCD-Overview/
+
 ## Carte MicroSD
 
 TODO
+
+Référence: https://wiki.seeedstudio.com/Wio-Terminal-FS-Overview/
+
+## Audio
+
+### Microphone
+
+TODO
+
+Référence: https://wiki.seeedstudio.com/Wio-Terminal-Mic/
+
+### Buzzer
+
+TODO
+
+Référence: https://wiki.seeedstudio.com/Wio-Terminal-Buzzer/
+
+### Haut parleur
+
+TODO
+
+Référence: https://wiki.seeedstudio.com/Wio-Terminal-Audio-GUI/
+
+
+## RTC
+
+TODO
+
+Référence:  https://wiki.seeedstudio.com/Wio-Terminal-RTC/
+
+## IMU
+
+TODO
+
+Référence: https://wiki.seeedstudio.com/Wio-Terminal-IMU-Basic/
 
 ## Platines Grove
 
@@ -48,6 +85,12 @@ TODO
 ## WiFi
 
 TODO
+
+## BLE
+
+TODO
+
+Référence: https://wiki.seeedstudio.com/Wio-Terminal-Bluetooth-Overview/
 
 ## MQTT
 

@@ -8,7 +8,7 @@ Cette carte peut être équipée entre autre d'un modem LoRa ([Grove LoRa RFM95 
 
 Cette carte peut être utilisée pour des démonstrateurs d'intelligence artificielle embarquée avec le canevas TinyML.
 
-![Wio Terminal et Grove - Infrared Temperature Sensor Array (AMG8833)](./examples/GroveInfraredTemperatureSensorArrayAMG8833/GroveInfraredTemperatureSensorArrayAMG8833.jpg)
+![Grove - Infrared Temperature Sensor Array (AMG8833)](./examples/GroveInfraredTemperatureSensorArrayAMG8833/GroveInfraredTemperatureSensorArrayAMG8833.jpg) ![Grove CO2 Temperature Humidity Sensor SCD41](./examples/GroveCO2TemperatureHumiditySensorSCD41/GroveCO2TemperatureHumiditySensorSCD41.jpg)
 
 ## Démarrage
 

@@ -15,3 +15,6 @@ Faites quelques tests des _choses_ chaudes et froides comme la flamme d'un briqu
 ![Wio Terminal et Grove - Infrared Temperature Sensor Array (AMG8833)](./GroveInfraredTemperatureSensorArrayAMG8833.jpg)
 
 
+## Pour aller plus loin
+* https://www.hackster.io/mithun-das/ai-powered-thermal-camera-for-safe-camping-8fc887
+* https://www.hackster.io/naveenbskumar/no-pause-f1bcbf

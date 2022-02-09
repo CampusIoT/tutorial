@@ -59,6 +59,8 @@ TODO
 
 Référence: https://wiki.seeedstudio.com/Wio-Terminal-IMU-Basic/
 
+Avec [TinyML](https://makergram.com/blog/play-chromes-dino-game-physically/?fbclid=IwAR3h19XxXITb4jh6Ot1pvc7yDXJ5g8gvNAOPA7DYTs8rpQ1DaiHmd_WsGFo)
+
 ## Platines Grove
 
 Le catalogue de Seeedstudio comporte dans son [catalogue](https://wiki.seeedstudio.com/Grove/) plusieurs dizaines de platines Grove démontrant les capteurs et les actionneurs les plus courants de s principaux fabricants.
@@ -128,3 +130,7 @@ TODO
 ## Pinout
 
 ![Wio-Terminal-pinout](./images/Wio-Terminal-pinout-hires.png)
+
+## Misc
+* Le cours de Seeestudio https://github.com/lakshanthad/Wio_Terminal_Classroom_Arduino
+* Un cours complet IoT utilisant le Wio Terminal https://github.com/microsoft/IoT-For-Beginners

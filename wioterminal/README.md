@@ -30,9 +30,7 @@ Référence: https://wiki.seeedstudio.com/Wio-Terminal-FS-Overview/
 
 ### Microphone
 
-TODO
-
-Référence: https://wiki.seeedstudio.com/Wio-Terminal-Mic/
+* [Microphone](examples/WioMicrophone)
 
 ### Buzzer
 

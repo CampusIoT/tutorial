@@ -1,3 +1,9 @@
+/*
+The free icon images for CO2, temperature and humidity
+were downloaded from [Flaticon](https://www.flaticon.com/)
+and were converted to X BitMap (XBM), a plain text binary image format,
+using [Convertio](https://convertio.co/).
+*/
 #define icon_co2_width 50
 #define icon_co2_height 50
 const unsigned char icon_co2_bits[] = {

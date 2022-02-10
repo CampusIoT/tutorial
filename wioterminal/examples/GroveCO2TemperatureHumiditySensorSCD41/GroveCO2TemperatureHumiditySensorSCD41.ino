@@ -7,7 +7,19 @@
 #include "icon_humidity.h"
 #include "icon_co2.h"
 
-#define CO2_THRESHOLD 2000
+
+#define ENABLE_LOG 1
+
+#if ENABLE_LOG==1
+#include <Seeed_FS.h>
+#include "SD/Seeed_SD.h"
+#endif
+
+#define CO2_THRESHOLD     (1200U)
+
+#if ENABLE_LOG==1 
+File myFile; //Intialise the file Class and named it myFile
+#endif
 
 SensirionI2CScd4x scd4x;
 TFT_eSPI tft = TFT_eSPI();
@@ -35,6 +47,23 @@ void printSerialNumber(uint16_t serial0, uint16_t serial1, uint16_t serial2)
 void setup() {
 
   Serial.begin(115200);
+ 
+#if ENABLE_LOG==1
+  Serial.print("Initializing SD card...");
+  if (!SD.begin(SDCARD_SS_PIN, SDCARD_SPI)) {
+    Serial.println("initialization failed!");
+    while (1);
+  }
+  Serial.println("initialization done.");
+
+  // open the file. note that only one file can be open at a time,
+  // so you have to close this one before opening another.
+  myFile = SD.open("scd41.csv", FILE_APPEND); //Writing Mode
+  if (!myFile) {
+    // if the file didn't open, print an error:
+    Serial.println("error opening scd41.csv");
+  }
+#endif
 
   pinMode(WIO_5S_PRESS, INPUT_PULLUP);
   pinMode(WIO_BUZZER, OUTPUT);
@@ -134,6 +163,19 @@ void loop()
       Serial.print("\t");
       Serial.print("Humidity:");
       Serial.println(humidity);
+
+ 
+#if ENABLE_LOG==1
+  // if the file opened okay, write to it:
+  if (myFile) {
+      Serial.print(co2);
+      Serial.print(";");
+      Serial.print(temperature);
+      Serial.print(";");
+      Serial.print(humidity);
+      Serial.println("\n");
+  }
+#endif 
 
       // clear previous value by setting black font color
       tft.setTextFont(6);

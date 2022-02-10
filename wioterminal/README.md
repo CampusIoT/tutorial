@@ -132,14 +132,18 @@ TODO
 
 ## TinyML
 
+_Qu'est-ce que [TinyML](https://www.tinyml.org/) ? ML, comme vous l'avez peut-être deviné, signifie Machine Learning et, dans la plupart des cas (pas toujours cependant), fait aujourd'hui référence à Deep Learning. Tiny dans TinyML signifie que les modèles ML sont optimisés pour fonctionner sur des appareils à très faible consommation d'énergie et à faible encombrement, tels que divers microcontrôleurs. Il s'agit d'un sous-ensemble de ML on the Edge ou Embedded Machine Learning. (traduit de https://www.seeedstudio.com/wio-terminal-tinyml.html)_
+
 TODO
 
 * https://www.seeedstudio.com/wio-terminal-tinyml.html
+* https://blog.benjamin-cabe.com/tag/tinyml
 
 ## Edge Impluse
 
-https://wiki.seeedstudio.com/Wio-Terminal-TinyML-EI-1/
+_[Edge Impulse](https://www.edgeimpulse.com/) est la principale plate-forme de développement pour l'apprentissage automatique sur les appareils périphériques, gratuite pour les développeurs et approuvée par les entreprises._
 
+https://wiki.seeedstudio.com/Wio-Terminal-TinyML-EI-1/
 
 ## Pinout
 

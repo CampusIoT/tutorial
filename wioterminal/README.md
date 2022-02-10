@@ -141,8 +141,9 @@ TODO
 
 ## Edge Impluse
 
-https://wiki.seeedstudio.com/Wio-Terminal-TinyML-EI-1/
+_[Edge Impulse](https://www.edgeimpulse.com/) est la principale plate-forme de développement pour l'apprentissage automatique sur les appareils périphériques, gratuite pour les développeurs et approuvée par les entreprises._
 
+https://wiki.seeedstudio.com/Wio-Terminal-TinyML-EI-1/
 
 ## Pinout
 

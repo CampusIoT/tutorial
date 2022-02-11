@@ -1,6 +1,6 @@
 # Wio Terminal et Grove - Gas Sensor V2 (Multichannel)
 
-La platine [Grove - Gas Sensor V2(Multichannel)](https://wiki.seeedstudio.com/Grove-Multichannel-Gas-Sensor-V2/) détecte plusieurs variétés de gaz incluant Carbon monoxide (CO), Nitrogen dioxide (NO2), Ethyl alcohol(C2H5CH), Volatile Organic Compounds (VOC) ...
+La platine [Grove - Gas Sensor V2(Multichannel)](https://wiki.seeedstudio.com/Grove-Multichannel-Gas-Sensor-V2/) détecte plusieurs variétés de gaz incluant Carbon monoxide (CO), Nitrogen dioxide (NO2), Ethyl alcohol(C2H5CH), Volatile Organic Compounds (VOC) ... au moyen des composants [GM-102B, GM-302B, GM-502B et GM-702B](https://www.cnwinsen.com/products/MEMS-sensor).
 
 Suivez les instructions pour l'installation des bibliothèques.
 

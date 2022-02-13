@@ -94,7 +94,21 @@ Ouverture de la fenêtre pour aérer.
 07:22:04.843 -> Co2:817	Temperature:15.80	Humidity:45.53
 ```
 
-
 Ce code est directement inspiré de cet article https://www.hackster.io/naveenbskumar/co2-levels-monitoring-and-airflow-control-using-wio-terminal-a5a241#toc-conclusion-6
 
 _The free icon images for CO2, temperature and humidity were downloaded from [Flaticon](https://www.flaticon.com/) and were converted to X BitMap (XBM), a plain text binary image format, using [Convertio](https://convertio.co/)._
+
+## Journalisation des mesures sur une carte SD
+
+Installez les 2 bibliothèques [Seeed_Arduino_SFUD et Seeed_Arduino_FS](https://wiki.seeedstudio.com/Wio-Terminal-FS-Overview) si ce n'est pas déjà fait.
+
+Installez la bibliothèques [Seeed_Arduino_RTC](https://wiki.seeedstudio.com/Wio-Terminal-RTC/) si ce n'est pas déjà fait.
+
+Changez la valeur de la macro `ENABLE_LOG`
+```c
+#define ENABLE_LOG 1
+```
+
+Synchronisez préalablement la [RTC du Wio Terminal](https://wiki.seeedstudio.com/Wio-Terminal-RTC/).
+
+Les valeurs mesurées sont stockées dans le fichier `scd41.csv`.

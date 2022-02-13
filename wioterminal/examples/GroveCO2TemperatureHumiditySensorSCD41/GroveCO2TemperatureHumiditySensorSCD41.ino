@@ -7,7 +7,6 @@
 #include "icon_humidity.h"
 #include "icon_co2.h"
 
-
 #define ENABLE_LOG 1
 
 #if ENABLE_LOG==1

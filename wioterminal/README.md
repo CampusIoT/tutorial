@@ -151,5 +151,5 @@ https://wiki.seeedstudio.com/Wio-Terminal-TinyML-EI-1/
 
 ## Misc
 * Le cours de Seeestudio https://github.com/lakshanthad/Wio_Terminal_Classroom_Arduino
-* [https://github.com/Seeed-Studio/Seeed_Arduino_Sketchbook/tree/master/examples Seeed Arduino Sketchbook]
+* [Seeed Arduino Sketchbook](https://github.com/Seeed-Studio/Seeed_Arduino_Sketchbook/tree/master/examples)
 * Un cours complet IoT utilisant le Wio Terminal https://github.com/microsoft/IoT-For-Beginners

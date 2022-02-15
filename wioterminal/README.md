@@ -35,6 +35,9 @@ Référence: https://wiki.seeedstudio.com/Wio-Terminal-FS-Overview/
 ### Microphone
 
 * [Microphone](examples/Microphone)
+* [Wio Audio Spectrum Display](examples/Wio_audio_spectrum_display)
+* [Wio Terminal Sound Meter](https://wiki.seeedstudio.com/Wio-Terminal-Sound-Meter/)
+
 
 ### Buzzer
 
@@ -76,6 +79,10 @@ TODO
 ## Platines Grove
 
 Le catalogue de Seeedstudio comporte dans son [catalogue](https://wiki.seeedstudio.com/Grove/) plusieurs dizaines de platines Grove démontrant les capteurs et les actionneurs les plus courants de s principaux fabricants.
+
+### Météo
+
+* [Grove High Precision Pressure Sensor DPS310](https://wiki.seeedstudio.com/Barometric-Pressure-sensor-using-the-Wio-terminal/)
 
 ### Qualité de l'air
 

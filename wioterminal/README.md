@@ -99,7 +99,7 @@ Le catalogue de Seeedstudio comporte plusieurs platines Grove pour la mesure de 
 ### Vision
 
 * [Grove - Infrared Temperature Sensor Array (AMG8833)](./examples/GroveInfraredTemperatureSensorArrayAMG8833)
-
+* [Capture d'images avec une camera](https://github.com/microsoft/IoT-For-Beginners/blob/main/4-manufacturing/lessons/2-check-fruit-from-device/wio-terminal-camera.md)
 
 ### GPS
 

@@ -22,6 +22,7 @@ Référence:
 * https://wiki.seeedstudio.com/Wio-Terminal-LCD-Overview/
 * https://github.com/Seeed-Studio/Seeed_Arduino_LvGL
 * https://github.com/moononournation/Arduino_GFX
+* [WioTerminal UncannyEyes](https://github.com/Seeed-Studio/Seeed_Arduino_Sketchbook/tree/master/examples/WioTerminal_UncannyEyes)
 
 ## Carte MicroSD
 
@@ -59,6 +60,8 @@ Référence:  https://wiki.seeedstudio.com/Wio-Terminal-RTC/
 TODO
 
 * [Rolling Ball Maze Game](./examples/RollingBallMaze)
+* [Level](https://github.com/Seeed-Studio/Seeed_Arduino_Sketchbook/tree/master/examples/WioTerminal_Level)
+* [Attitude Indicator](https://github.com/Seeed-Studio/Seeed_Arduino_Sketchbook/blob/master/examples/WioTerminal_AttitudeIndicator/WioTerminal_AttitudeIndicator.ino)
 
 Référence: https://wiki.seeedstudio.com/Wio-Terminal-IMU-Basic/
 
@@ -84,6 +87,10 @@ Le catalogue de Seeedstudio comporte plusieurs platines Grove pour la mesure de 
 
 * [Grove - Infrared Temperature Sensor Array (AMG8833)](./examples/GroveInfraredTemperatureSensorArrayAMG8833)
 
+
+### GPS
+
+* [Grove GPS](https://github.com/Seeed-Studio/Seeed_Arduino_Sketchbook/tree/master/examples/WioTerminal_GPS)
 
 ## Adaptateurs Mikrobus
 
@@ -130,20 +137,30 @@ TODO
 
 TODO
 
-## TinyML
+## Machine Learning
+
+### TinyML
 
 _Qu'est-ce que [TinyML](https://www.tinyml.org/) ? ML, comme vous l'avez peut-être deviné, signifie Machine Learning et, dans la plupart des cas (pas toujours cependant), fait aujourd'hui référence à Deep Learning. Tiny dans TinyML signifie que les modèles ML sont optimisés pour fonctionner sur des appareils à très faible consommation d'énergie et à faible encombrement, tels que divers microcontrôleurs. Il s'agit d'un sous-ensemble de ML on the Edge ou Embedded Machine Learning. (traduit de https://www.seeedstudio.com/wio-terminal-tinyml.html)_
 
 TODO
 
 * https://www.seeedstudio.com/wio-terminal-tinyml.html
-* https://blog.benjamin-cabe.com/tag/tinyml
+* [Artificial Nose](https://blog.benjamin-cabe.com/tag/tinyml)
+* [Audio Scene Recognition](https://github.com/Seeed-Studio/Seeed_Arduino_Sketchbook/tree/master/examples/WioTerminal_TinyML_2_Audio_Scene_Recognition)
+* [Speech Recognition](https://github.com/Seeed-Studio/Seeed_Arduino_Sketchbook/tree/master/examples/WioTerminal_TinyML_6_Speech_Recognition)
+* [IMU Anomaly Detection](https://github.com/Seeed-Studio/Seeed_Arduino_Sketchbook/tree/master/examples/WioTerminal_TinyML_5_Anomaly_Detection)
 
-## Edge Impluse
+### Edge Impluse
 
 _[Edge Impulse](https://www.edgeimpulse.com/) est la principale plate-forme de développement pour l'apprentissage automatique sur les appareils périphériques, gratuite pour les développeurs et approuvée par les entreprises._
 
 https://wiki.seeedstudio.com/Wio-Terminal-TinyML-EI-1/
+
+
+### TensorFlow Lite
+
+* https://github.com/Seeed-Studio/Seeed_Arduino_Sketchbook/tree/master/examples/WioTerminal_TF_MNIST
 
 ## Pinout
 

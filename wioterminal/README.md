@@ -48,7 +48,6 @@ TODO
 
 Référence: https://wiki.seeedstudio.com/Wio-Terminal-Audio-GUI/
 
-
 ## RTC
 
 TODO
@@ -66,6 +65,13 @@ TODO
 Référence: https://wiki.seeedstudio.com/Wio-Terminal-IMU-Basic/
 
 Avec [TinyML](https://makergram.com/blog/play-chromes-dino-game-physically/?fbclid=IwAR3h19XxXITb4jh6Ot1pvc7yDXJ5g8gvNAOPA7DYTs8rpQ1DaiHmd_WsGFo)
+
+## Emetteur InfraRouge (IR)
+
+TODO
+
+* https://wiki.seeedstudio.com/Wio-Terminal-Infrared-Emitter/
+* https://github.com/Arduino-IRremote/Arduino-IRremote : Supported IR Protocols : Denon / Sharp, JVC, LG, NEC / Onkyo / Apple, Panasonic / Kaseikyo, Philips RC5, Philips RC6, Samsung, Sony, (Pronto), BoseWave, Lego, Whynter and optional MagiQuest.
 
 ## Platines Grove
 

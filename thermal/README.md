@@ -9,7 +9,7 @@ Plusieurs cartes d'évalution sont disponibles:
 
 ## Capteur FIR MLX90640
 
-Le capteur caméra [FIR MLX90640 de Melexis](https://www.digikey.fr/fr/product-highlight/m/melexis/mlx90640-fir-sensor) dispose d'un réseau de 768 (32 x 24) pixels IR qui peut détecter des températures allant de -40°C à +300°C avec une précision d'environ 1°C et jusqu'à 64 IPS. Le modèle MLX90641  dispose d'un réseau de 192 (16x12) pixels IR. Le protocole de communication est I2C.
+Le capteur caméra [FIR MLX90640 de Melexis](https://www.digikey.fr/fr/product-highlight/m/melexis/mlx90640-fir-sensor) dispose d'un réseau de 768 (32 x 24) pixels IR qui peut détecter des températures allant de -40°C à +300°C avec une précision d'environ 1°C et jusqu'à 64 IPS. Le modèle MLX90641 dispose d'un réseau de 192 (16x12) pixels IR. La caméra thermique MLX90621 dispose d'un réseau de 64 (16 x 4) IR pixels. Le protocole de communication est I2C.
 
 Plusieurs cartes d'évalution sont disponibles:
 * https://www.adafruit.com/product/4407

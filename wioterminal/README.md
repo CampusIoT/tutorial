@@ -163,6 +163,7 @@ TODO
 * [Audio Scene Recognition](https://github.com/Seeed-Studio/Seeed_Arduino_Sketchbook/tree/master/examples/WioTerminal_TinyML_2_Audio_Scene_Recognition)
 * [Speech Recognition](https://github.com/Seeed-Studio/Seeed_Arduino_Sketchbook/tree/master/examples/WioTerminal_TinyML_6_Speech_Recognition)
 * [IMU Anomaly Detection](https://github.com/Seeed-Studio/Seeed_Arduino_Sketchbook/tree/master/examples/WioTerminal_TinyML_5_Anomaly_Detection)
+* [TinyML Benchmark](https://github.com/bharathsudharsan/TinyML-Benchmark-NNs-on-MCUs)
 
 ### Edge Impluse
 

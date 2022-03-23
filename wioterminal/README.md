@@ -100,6 +100,7 @@ Le catalogue de Seeedstudio comporte plusieurs platines Grove pour la mesure de 
 
 * [Grove - Infrared Temperature Sensor Array (AMG8833)](./examples/GroveInfraredTemperatureSensorArrayAMG8833)
 * [Capture d'images avec une camera](https://github.com/microsoft/IoT-For-Beginners/blob/main/4-manufacturing/lessons/2-check-fruit-from-device/wio-terminal-camera.md)
+* [MLX90640](https://github.com/sparkfun/SparkFun_MLX90640_Arduino_Example (32x24 array of thermopile sensors with 110° and 55° FOV) disponible chez Sparkfun (SEN-14843 et SEN-14844) , Pimoroni (PIM365 et PIM366), Adafruit ([4407](https://www.adafruit.com/product/4407)) ...
 
 ### GPS
 

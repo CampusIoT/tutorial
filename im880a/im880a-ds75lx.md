@@ -12,11 +12,19 @@ La schématique de la carte est [ici](docs/LoRa-DS75LX_Node_Schematic.pdf).
 * Le module IMST iM880a est supporté par [RIOTOS](https://github.com/RIOT-OS/RIOT/tree/master/boards/im880b).
 * Le capteur DS75LX est supporté par [RIOTOS](https://github.com/RIOT-OS/RIOT/tree/master/drivers/ds75lx). 
 
+## Brochage
+Vous pouvez inclure ce fichier `pinmap.h` pour utiliser les GPIO des headers X1 et X2 de la carte:
+
+```c
+#define PIN_X1_7 GPIO(0,11)  // P5 @ module
+#define PIN_X1_8 GPIO(0,12)  // P6 @ module
+...
+```
+
 ## Flashage
 Le module peut être flashé 
 * soit via l'interface JTAG (connecteur X1) voir figure 3,
 * soit via l'UART en branche la broche P16-BOOT (broche 2 du connecteur X2) sur une des broches `VCC` (broches 11,13,15 du connecteur X2) voir figure 4.
-
 
 ### Flashage avec un STLinkv2
 

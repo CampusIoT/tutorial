@@ -16,9 +16,33 @@ La schématique de la carte est [ici](docs/LoRa-DS75LX_Node_Schematic.pdf).
 Vous pouvez inclure ce fichier `pinmap.h` pour utiliser les GPIO des headers X1 et X2 de la carte:
 
 ```c
+
+#ifndef IM880_PINMAP
+
+#define IM880_PINMAP 	1
+
+#define PIN_X1_1  GPIO(0,14)  // P1 @ module SWCLK JTCK
+#define PIN_X1_2  GPIO(0,13)  // P2 @ module SWDAT JTMS
+#define PIN_X1_3  GPIO(1,3)   // P3 @ module JTDO
+#define PIN_X1_4  GPIO(0,15)  // P4 @ module JTDI
+
 #define PIN_X1_7 GPIO(0,11)  // P5 @ module
 #define PIN_X1_8 GPIO(0,12)  // P6 @ module
-...
+
+#define PIN_X1_10 GPIO(1,14)  // P7 @ module
+#define PIN_X1_9  GPIO(1,15)  // P8 @ module
+#define PIN_X1_12 GPIO(1,13)  // P9 @ module
+#define PIN_X1_11 GPIO(1,12)  // P10 @ module
+
+#define PIN_X2_7  GPIO(0,8)  // P11 @ module
+#define PIN_X2_6  GPIO(1,8)  // P12 @ module
+#define PIN_X2_5  GPIO(1,9)  // P13 @ module
+#define PIN_X2_14 GPIO(0,1)  // P14 @ module
+#define PIN_X2_3  GPIO(0,0)  // P15 @ module
+#define PIN_X2_17 GPIO(0,3)  // P17 @ module
+
+#endif
+
 ```
 
 ## Flashage

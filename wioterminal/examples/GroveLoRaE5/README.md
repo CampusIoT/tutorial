@@ -6,6 +6,10 @@
 
 ## Utilisation avec un adaptateur USB Série (aka FTDI)
 
+Branchez un cable Grove femelle sur l'adapteur USB Série (`RX` sur fil jaune, `TX` sur fil blanc).
+
+Ouvrez une console série sur le prot série avec les paramêtres `9600 8N1`.
+
 ```
 AT+ID                                                                   
 +INFO: Input timeout                                                            
@@ -154,6 +158,84 @@ AT+CMSGHEX=2122232421222324
 +LOG: DEBUG  1058147 LORA    RX, 869525000, SF12, 125KHz, 6
 +CMSGHEX: Done
 
+AT+JOIN
++INFO: Input timeout                                                                                            
++JOIN: Start                                                                                                    
++JOIN: NORMAL                                                                                                   
++LOG: DEBUG    87401 LW      ch 00                                                                              
++LOG: DEBUG    87401 LORA    TX, 868100000, SF12, 125KHz, 8, 14                                                 
++LOG: DEBUG    87402 LORA    TX, 00060000000000008001A5303220F1F72C51557AF69894                                 
++LOG: DEBUG    93924 LORA    RX, 868100000, SF12, 125KHz, 6                                                     
++LOG: DEBUG    95732 LORA    RX, 20F0237266D38BF423DE278F19E8F657695D02C0887D417D46DAB23FD20CC83A4B, -64, 6     
++JOIN: Network joined                                                                                           
++JOIN: NetID C0002B DevAddr FC:00:AE:C8                                                                         
++JOIN: Done                                                                                                     
+
+```
+
+```
+AT+JOIN
++INFO: Input timeout                                                                                            
++JOIN: Start                                                                                                    
++JOIN: NORMAL                                                                                                   
++LOG: DEBUG    87401 LW      ch 00                                                                              
++LOG: DEBUG    87401 LORA    TX, 868100000, SF12, 125KHz, 8, 14                                                 
++LOG: DEBUG    87402 LORA    TX, 00060000000000008001A5303220F1F72C51557AF69894                                 
++LOG: DEBUG    93924 LORA    RX, 868100000, SF12, 125KHz, 6                                                     
++LOG: DEBUG    95732 LORA    RX, 20F0237266D38BF423DE278F19E8F657695D02C0887D417D46DAB23FD20CC83A4B, -64, 6     
++JOIN: Network joined                                                                                           
++JOIN: NetID C0002B DevAddr FC:00:AE:C8                                                                         
++JOIN: Done                                                                                                     
+                                                                                                                
+AT+CMSGHEX=2122232421222324
++INFO: Input timeout                                                                                            
++LOG:  WARN  2262881 LW      tx 8, 2122232421222324(8)                                                          
++CMSGHEX: Start                                                                                                 
++CMSGHEX: Wait ACK                                                                                              
++LOG: DEBUG  2262882 LW      ch 07                                                                              
++LOG: DEBUG  2262882 LORA    TX, 867900000, SF12, 125KHz, 8, 14                                                 
++LOG: DEBUG  2262882 LORA    TX, 80C8AE00FC800000089683D34295C5FE9B43D71E21                                     
++LOG: DEBUG  2265404 LORA    RX, 867900000, SF12, 125KHz, 6                                                     
++LOG: DEBUG  2266557 LW      MACCMD, RX, 06                                                                     
++LOG: DEBUG  2266557 LORA    RX, 60C8AE00FCA10000069985A409, -114, -7                                           
++CMSGHEX: FPENDING                                                                                              
++CMSGHEX: ACK Received                                                                                          
++CMSGHEX: RXWIN1, RSSI -114, SNR -8.0                                                                           
++CMSGHEX: Done                                                                                                  
+```
+
+Enqueue a downlink payload with port=10 and base64 encoded `SGVsbG8gV29ybGQ=` (`Hello World`) into the LNS web console.
+
+```
+AT+CMSGHEX=2122232421222324                                                                                            
++INFO: Input timeout                                                                                            
++LOG:  WARN  2281654 LW      tx 8, 2122232421222324(8)                                                          
++CMSGHEX: Start                                                                                                 
++CMSGHEX: Wait ACK                                                                                              
++LOG: DEBUG  2281655 LW      MACCMD, TX, 06FF38                                                                 
++LOG: DEBUG  2281655 LW      ch 06                                                                              
++LOG: DEBUG  2281655 LORA    TX, 867700000, SF12, 125KHz, 8, 14                                                 
++LOG: DEBUG  2281656 LORA    TX, 80C8AE00FC83010006FF3808BE54E0F1FD35132C17EF6947                               
++LOG: DEBUG  2284177 LORA    RX, 867700000, SF12, 125KHz, 6                                                     
++LOG: DEBUG  2285821 LORA    RX, A0C8AE00FCA501000310FF00010AD99E24FBF5F926F6CF444533B4D2BB, -114, -9           
++LOG: DEBUG  2285823 LW      MACCMD, RX, 0310FF0001                                                             
++CMSGHEX: FPENDING                                                                                              
++CMSGHEX: ACK Received                                                                                          
++CMSGHEX: PORT: 10; RX: "48656C6C6F20576F726C64"                                                                
++CMSGHEX: RXWIN1, RSSI -114, SNR -10.0                                                                          
++CMSGHEX: Done                                                                                                  
+```
+
+Disable ADR and set Datarate to 0 (long Range)
+```
+AT+ADR=OFF
++INFO: Input timeout                                                                                            
++ADR: OFF                                                                                                       
+                                                                                                                
+AT+DR=0
++INFO: Input timeout                                                                                            
++DR: DR0                                                                                                        
++DR: EU868 DR0  SF12 BW125K                                                                                     
 ```
 
 ## Sketch Arduino sur Wio Terminal

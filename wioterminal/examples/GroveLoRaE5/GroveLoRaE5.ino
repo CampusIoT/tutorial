@@ -1,11 +1,18 @@
-#include <Arduino.h>
-#include <U8x8lib.h>
- 
+// INO from https://wiki.seeedstudio.com/Grove_LoRa_E5_New_Version/
+
 // #define NODE_SLAVE
+
+#include <Arduino.h>
+
+#ifdef ENABLE_DISPLAY
+#include <U8x8lib.h>
  
 U8X8_SSD1306_128X64_NONAME_HW_I2C u8x8(/* reset=*/U8X8_PIN_NONE);
 // U8X8_SSD1306_128X64_NONAME_SW_I2C u8x8(/* clock=*/ SCL, /* data=*/ SDA, /* reset=*/ U8X8_PIN_NONE);   // OLEDs without Reset of the Display
- 
+ #endif
+
+// TODO for WIO TERMINAL : add display on LCD screen
+
 static char recv_buf[512];
 static bool is_exist = false;
  
@@ -76,11 +83,15 @@ static int recv_prase(void)
             if (p_start && (1 == sscanf(p_start, "5345454544%s", data)))
             {
                 data[4] = 0;
+
+#ifdef ENABLE_DISPLAY                
                 u8x8.setCursor(0, 4);
                 u8x8.print("               ");
                 u8x8.setCursor(2, 4);
                 u8x8.print("RX: 0x");
                 u8x8.print(data);
+#endif
+                Serial.print("RX: 0x");
                 Serial.print(data);
                 Serial.print("\r\n");
             }
@@ -88,20 +99,31 @@ static int recv_prase(void)
             p_start = strstr(recv_buf, "RSSI:");
             if (p_start && (1 == sscanf(p_start, "RSSI:%d,", &rssi)))
             {
+#ifdef ENABLE_DISPLAY                
                 u8x8.setCursor(0, 6);
                 u8x8.print("                ");
                 u8x8.setCursor(2, 6);
                 u8x8.print("rssi:");
                 u8x8.print(rssi);
-            }
+#endif
+                Serial.print("rssi:");
+                Serial.print(rssi);
+                Serial.print("\r\n");
+           }
             p_start = strstr(recv_buf, "SNR:");
             if (p_start && (1 == sscanf(p_start, "SNR:%d", &snr)))
             {
+#ifdef ENABLE_DISPLAY                
+
                 u8x8.setCursor(0, 7);
                 u8x8.print("                ");
                 u8x8.setCursor(2, 7);
                 u8x8.print("snr :");
                 u8x8.print(snr);
+#endif
+                Serial.print("snr :");
+                Serial.print(snr);
+                Serial.print("\r\n");
             }
             return 1;
         }
@@ -133,13 +155,18 @@ static int node_send(void)
     memset(data, 0, sizeof(data));
     sprintf(data, "%04X", count);
     sprintf(cmd, "AT+TEST=TXLRPKT,\"5345454544%s\"\r\n", data);
- 
+
+#ifdef ENABLE_DISPLAY                 
     u8x8.setCursor(0, 3);
     u8x8.print("                ");
     u8x8.setCursor(2, 3);
     u8x8.print("TX: 0x");
     u8x8.print(data);
- 
+#endif
+    Serial.print("TX: 0x");
+    Serial.print(data);
+    Serial.print("\r\n");
+
     ret = at_send_check_response("TX DONE", 2000, cmd);
     if (ret == 1)
     {
@@ -186,17 +213,20 @@ static void node_send_then_recv(uint32_t timeout)
  
 void setup(void)
 {
- 
+ #ifdef ENABLE_DISPLAY                 
     u8x8.begin();
     u8x8.setFlipMode(1);
     u8x8.setFont(u8x8_font_chroma48medium8_r);
+#endif
  
     Serial.begin(115200);
     // while (!Serial);
  
     Serial1.begin(9600);
     Serial.print("ping pong communication!\r\n");
+#ifdef ENABLE_DISPLAY                 
     u8x8.setCursor(0, 0);
+#endif
  
     if (at_send_check_response("+AT: OK", 100, "AT\r\n"))
     {
@@ -205,19 +235,27 @@ void setup(void)
         at_send_check_response("+TEST: RFCFG", 1000, "AT+TEST=RFCFG,866,SF12,125,12,15,14,ON,OFF,OFF\r\n");
         delay(200);
 #ifdef NODE_SLAVE
+#ifdef ENABLE_DISPLAY                 
         u8x8.setCursor(5, 0);
         u8x8.print("slave");
+#endif
+        Serial.println("slave");
 #else
+#ifdef ENABLE_DISPLAY                 
         u8x8.setCursor(5, 0);
         u8x8.print("master");
+#endif
+        Serial.println("master");
 #endif
     }
     else
     {
         is_exist = false;
         Serial.print("No E5 module found.\r\n");
+#ifdef ENABLE_DISPLAY                 
         u8x8.setCursor(0, 1);
         u8x8.print("unfound E5 !");
+#endif
     }
 }
  

@@ -1,24 +1,28 @@
-// INO from https://wiki.seeedstudio.com/Grove_LoRa_E5_New_Version/
-
-// #define NODE_SLAVE
-
 #include <Arduino.h>
-
-#ifdef ENABLE_DISPLAY
 #include <U8x8lib.h>
+#include "DHT.h"
+ 
+#define DHTPIN 0 // what pin we're connected to
+ 
+// Uncomment whatever type you're using!
+#define DHTTYPE DHT11 // DHT 11
+// #define DHTTYPE DHT22   // DHT 22  (AM2302)
+//#define DHTTYPE DHT21   // DHT 21 (AM2301)
+ 
+DHT dht(DHTPIN, DHTTYPE);
  
 U8X8_SSD1306_128X64_NONAME_HW_I2C u8x8(/* reset=*/U8X8_PIN_NONE);
 // U8X8_SSD1306_128X64_NONAME_SW_I2C u8x8(/* clock=*/ SCL, /* data=*/ SDA, /* reset=*/ U8X8_PIN_NONE);   // OLEDs without Reset of the Display
- #endif
-
-// TODO for WIO TERMINAL : add display on LCD screen
-
+ 
 static char recv_buf[512];
 static bool is_exist = false;
+static bool is_join = false;
+static int led = 0;
  
 static int at_send_check_response(char *p_ack, int timeout_ms, char *p_cmd, ...)
 {
-    int ch = 0;
+    int ch;
+    int num = 0;
     int index = 0;
     int startMillis = 0;
     va_list args;
@@ -54,220 +58,166 @@ static int at_send_check_response(char *p_ack, int timeout_ms, char *p_cmd, ...)
     return 0;
 }
  
-static int recv_prase(void)
+static void recv_prase(char *p_msg)
 {
-    char ch;
-    int index = 0;
-    memset(recv_buf, 0, sizeof(recv_buf));
-    while (Serial1.available() > 0)
+    if (p_msg == NULL)
     {
-        ch = Serial1.read();
-        recv_buf[index++] = ch;
-        Serial.print((char)ch);
-        delay(2);
-    }
- 
-    if (index)
-    {
-        char *p_start = NULL;
-        char data[32] = {
-            0,
-        };
-        int rssi = 0;
-        int snr = 0;
- 
-        p_start = strstr(recv_buf, "+TEST: RX \"5345454544");
-        if (p_start)
-        {
-            p_start = strstr(recv_buf, "5345454544");
-            if (p_start && (1 == sscanf(p_start, "5345454544%s", data)))
-            {
-                data[4] = 0;
-
-#ifdef ENABLE_DISPLAY                
-                u8x8.setCursor(0, 4);
-                u8x8.print("               ");
-                u8x8.setCursor(2, 4);
-                u8x8.print("RX: 0x");
-                u8x8.print(data);
-#endif
-                Serial.print("RX: 0x");
-                Serial.print(data);
-                Serial.print("\r\n");
-            }
- 
-            p_start = strstr(recv_buf, "RSSI:");
-            if (p_start && (1 == sscanf(p_start, "RSSI:%d,", &rssi)))
-            {
-#ifdef ENABLE_DISPLAY                
-                u8x8.setCursor(0, 6);
-                u8x8.print("                ");
-                u8x8.setCursor(2, 6);
-                u8x8.print("rssi:");
-                u8x8.print(rssi);
-#endif
-                Serial.print("rssi:");
-                Serial.print(rssi);
-                Serial.print("\r\n");
-           }
-            p_start = strstr(recv_buf, "SNR:");
-            if (p_start && (1 == sscanf(p_start, "SNR:%d", &snr)))
-            {
-#ifdef ENABLE_DISPLAY                
-
-                u8x8.setCursor(0, 7);
-                u8x8.print("                ");
-                u8x8.setCursor(2, 7);
-                u8x8.print("snr :");
-                u8x8.print(snr);
-#endif
-                Serial.print("snr :");
-                Serial.print(snr);
-                Serial.print("\r\n");
-            }
-            return 1;
-        }
-    }
-    return 0;
-}
- 
-static int node_recv(uint32_t timeout_ms)
-{
-    at_send_check_response("+TEST: RXLRPKT", 1000, "AT+TEST=RXLRPKT\r\n");
-    int startMillis = millis();
-    do
-    {
-        if (recv_prase())
-        {
-            return 1;
-        }
-    } while (millis() - startMillis < timeout_ms);
-    return 0;
-}
- 
-static int node_send(void)
-{
-    static uint16_t count = 0;
-    int ret = 0;
-    char data[32];
-    char cmd[128];
- 
-    memset(data, 0, sizeof(data));
-    sprintf(data, "%04X", count);
-    sprintf(cmd, "AT+TEST=TXLRPKT,\"5345454544%s\"\r\n", data);
-
-#ifdef ENABLE_DISPLAY                 
-    u8x8.setCursor(0, 3);
-    u8x8.print("                ");
-    u8x8.setCursor(2, 3);
-    u8x8.print("TX: 0x");
-    u8x8.print(data);
-#endif
-    Serial.print("TX: 0x");
-    Serial.print(data);
-    Serial.print("\r\n");
-
-    ret = at_send_check_response("TX DONE", 2000, cmd);
-    if (ret == 1)
-    {
- 
-        count++;
-        Serial.print("Sent successfully!\r\n");
-    }
-    else
-    {
-        Serial.print("Send failed!\r\n");
-    }
-    return ret;
-}
- 
-static void node_recv_then_send(uint32_t timeout)
-{
-    int ret = 0;
-    ret = node_recv(timeout);
-    delay(100);
-    if (!ret)
-    {
-        Serial.print("\r\n");
         return;
     }
-    node_send();
-    Serial.print("\r\n");
-}
+    char *p_start = NULL;
+    int data = 0;
+    int rssi = 0;
+    int snr = 0;
  
-static void node_send_then_recv(uint32_t timeout)
-{
-    int ret = 0;
-    ret = node_send();
-    if (!ret)
+    p_start = strstr(p_msg, "RX");
+    if (p_start && (1 == sscanf(p_start, "RX: \"%d\"\r\n", &data)))
     {
-        Serial.print("\r\n");
-        return;
+        Serial.println(data);
+        u8x8.setCursor(2, 4);
+        u8x8.print("led :");
+        led = !!data;
+        u8x8.print(led);
+        if (led)
+        {
+            digitalWrite(LED_BUILTIN, LOW);
+        }
+        else
+        {
+            digitalWrite(LED_BUILTIN, HIGH);
+        }
     }
-    if (!node_recv(timeout))
+ 
+    p_start = strstr(p_msg, "RSSI");
+    if (p_start && (1 == sscanf(p_start, "RSSI %d,", &rssi)))
     {
-        Serial.print("recv timeout!\r\n");
+        u8x8.setCursor(0, 6);
+        u8x8.print("                ");
+        u8x8.setCursor(2, 6);
+        u8x8.print("rssi:");
+        u8x8.print(rssi);
     }
-    Serial.print("\r\n");
+    p_start = strstr(p_msg, "SNR");
+    if (p_start && (1 == sscanf(p_start, "SNR %d", &snr)))
+    {
+        u8x8.setCursor(0, 7);
+        u8x8.print("                ");
+        u8x8.setCursor(2, 7);
+        u8x8.print("snr :");
+        u8x8.print(snr);
+    }
 }
  
 void setup(void)
 {
- #ifdef ENABLE_DISPLAY                 
     u8x8.begin();
     u8x8.setFlipMode(1);
     u8x8.setFont(u8x8_font_chroma48medium8_r);
-#endif
  
     Serial.begin(115200);
-    // while (!Serial);
+    pinMode(LED_BUILTIN, OUTPUT);
+    digitalWrite(LED_BUILTIN, HIGH);
  
     Serial1.begin(9600);
-    Serial.print("ping pong communication!\r\n");
-#ifdef ENABLE_DISPLAY                 
+    Serial.print("E5 LORAWAN TEST\r\n");
     u8x8.setCursor(0, 0);
-#endif
  
     if (at_send_check_response("+AT: OK", 100, "AT\r\n"))
     {
         is_exist = true;
-        at_send_check_response("+MODE: TEST", 1000, "AT+MODE=TEST\r\n");
-        at_send_check_response("+TEST: RFCFG", 1000, "AT+TEST=RFCFG,866,SF12,125,12,15,14,ON,OFF,OFF\r\n");
+        at_send_check_response("+ID: AppEui", 1000, "AT+ID\r\n");
+        at_send_check_response("+MODE: LWOTAA", 1000, "AT+MODE=LWOTAA\r\n");
+        at_send_check_response("+DR: EU868", 1000, "AT+DR=EU868\r\n");
+        at_send_check_response("+CH: NUM", 1000, "AT+CH=NUM,0-2\r\n");
+        at_send_check_response("+KEY: APPKEY", 1000, "AT+KEY=APPKEY,\"2B7E151628AED2A6ABF7158809CF4F3C\"\r\n");
+        at_send_check_response("+CLASS: C", 1000, "AT+CLASS=A\r\n");
+        at_send_check_response("+PORT: 8", 1000, "AT+PORT=8\r\n");
         delay(200);
-#ifdef NODE_SLAVE
-#ifdef ENABLE_DISPLAY                 
         u8x8.setCursor(5, 0);
-        u8x8.print("slave");
-#endif
-        Serial.println("slave");
-#else
-#ifdef ENABLE_DISPLAY                 
-        u8x8.setCursor(5, 0);
-        u8x8.print("master");
-#endif
-        Serial.println("master");
-#endif
+        u8x8.print("LoRaWAN");
+        is_join = true;
     }
     else
     {
         is_exist = false;
         Serial.print("No E5 module found.\r\n");
-#ifdef ENABLE_DISPLAY                 
         u8x8.setCursor(0, 1);
         u8x8.print("unfound E5 !");
-#endif
     }
+ 
+    dht.begin();
+ 
+    u8x8.setCursor(0, 2);
+    u8x8.setCursor(2, 2);
+    u8x8.print("temp:");
+ 
+    u8x8.setCursor(2, 3);
+    u8x8.print("humi:");
+ 
+    u8x8.setCursor(2, 4);
+    u8x8.print("led :");
+    u8x8.print(led);
 }
  
 void loop(void)
 {
+    float temp = 0;
+    float humi = 0;
+ 
+    temp = dht.readTemperature();
+    humi = dht.readHumidity();
+ 
+    Serial.print("Humidity: ");
+    Serial.print(humi);
+    Serial.print(" %\t");
+    Serial.print("Temperature: ");
+    Serial.print(temp);
+    Serial.println(" *C");
+ 
+    u8x8.setCursor(0, 2);
+    u8x8.print("      ");
+    u8x8.setCursor(2, 2);
+    u8x8.print("temp:");
+    u8x8.print(temp);
+    u8x8.setCursor(2, 3);
+    u8x8.print("humi:");
+    u8x8.print(humi);
+ 
     if (is_exist)
     {
-#ifdef NODE_SLAVE
-        node_recv_then_send(2000);
-#else
-        node_send_then_recv(2000);
-        delay(3000);
-#endif
+        int ret = 0;
+        if (is_join)
+        {
+ 
+            ret = at_send_check_response("+JOIN: Network joined", 12000, "AT+JOIN\r\n");
+            if (ret)
+            {
+                is_join = false;
+            }
+            else
+            {
+                at_send_check_response("+ID: AppEui", 1000, "AT+ID\r\n");
+                Serial.print("JOIN failed!\r\n\r\n");
+                delay(5000);
+            }
+        }
+        else
+        {
+            char cmd[128];
+            sprintf(cmd, "AT+CMSGHEX=\"%04X%04X\"\r\n", (int)temp, (int)humi);
+            ret = at_send_check_response("Done", 5000, cmd);
+            if (ret)
+            {
+                recv_prase(recv_buf);
+            }
+            else
+            {
+                Serial.print("Send failed!\r\n\r\n");
+            }
+            delay(5000);
+        }
+    }
+    else
+    {
+        delay(1000);
     }
 }

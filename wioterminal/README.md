@@ -130,6 +130,8 @@ TODO
 
 ## LoRaWAN avec LoRa E5
 
+https://wiki.seeedstudio.com/Grove_LoRa_E5_New_Version/
+
 TODO
 
 ## LoRa 2.4 GHz avec SX1280

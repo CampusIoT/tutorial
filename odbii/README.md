@@ -10,6 +10,7 @@
 
 * [Carte de pilote de Bus CAN MCP2515 TJA1050 récepteur SPI](https://fr.aliexpress.com/item/32223930366.html)
 
+![mcp2515-board](mcp2515-board.png)
 
 ### Carte de pilote de Bus CAN MCP2515 
 
@@ -34,11 +35,16 @@ Code de test sur Arduino (MCU AVR)
 * https://www.dropbox.com/sh/hd1feflnh5gkw8l/AACFr87wOB2fKy98NXHXgZZya/Resource?dl=0&subfolder_nav_tracking=1
 * [Sparkfun CAN BUS](https://github.com/sparkfun/CAN-Bus_Shield)
 
+![Keyestudio-CAN-BUS-Shield-MCP2515](Keyestudio-CAN-BUS-Shield-MCP2515.jpg)
+![ks0411_keyestudio_can-bus_shield](ks0411_keyestudio_can-bus_shield.png)
+
 ### L9616
 
 L9616 seems compatible with the [NXP TJA1042](https://www.nxp.com/docs/en/data-sheet/TJA1042.pdf) CAN driver.
 
 The TJA1042 driver for RIOT should be added as a module.
+
+![l9616-pin](l9616-pin.png)
 
 ## Wiring
 
@@ -63,6 +69,9 @@ The pinout of the L9616 (SOC8) adapter is:
 The Nucleo F446RE had 2 CAN ports:
 * CAN1 (CAN1_RD is on D15, CAN1_TD is on D14) --> can0 on "can list"
 * CAN2 (CAN2_RD is on D4, CAN2_TD is on D10)  --> can1 on "can list"
+
+![can_nucleo_2](can_nucleo_2.jpg)
+
 
 ### RIOT Driver tja1042 for L9616
 
@@ -294,4 +303,9 @@ brp=3phase-seg1=5, phase-seg2=4, sjw=1
 https://github.com/sparkfun/CAN-Bus_Shield/blob/2e152297bd82162a0aa01cae8f074c9ae953bbcb/Libraries/Arduino/src/Canbus.cpp#L100
 
 
+## Test sur Grove ODBII 
 
+https://docs.longan-labs.cc/1030002/
+
+![obdii_port](obdii_port.jpg)
+![odbii_grove_connect](odbii_grove_connect.png)

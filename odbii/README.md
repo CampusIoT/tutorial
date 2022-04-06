@@ -20,6 +20,7 @@
 
 * [Carte CAN VP230](https://fr.aliexpress.com/item/1005002843325046.html)
 
+![can_vp230](can_vp230.jpg)
 
 ### KS0411 keyestudio CAN-BUS Shield
 

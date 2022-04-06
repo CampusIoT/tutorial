@@ -114,8 +114,7 @@ gmake BOARD=nucleo-wl55jc flash
 
 ```
 
-
-### RIOT Test can_trx on F446RE CAN (x1)
+### RIOT Test `can_trx` avec 1 Nucleo F446RE
 
 No README.md
 
@@ -135,17 +134,17 @@ set_mode             set a can trx mode
 ```
 
 
+### RIOT Test CAN `conn_can` avec 2 Nucleo F446RE
 
-### RIOT Test F446RE CAN (x2)
+#### Makefile
 
-
-#### Build
-
-```bash
-cd ~/gricad/thingsat/riot-board
-cd tests/conn_can/
-gmake BOARD=nucleo-f446re
-cat README.md
+Ajouter au Makefile
+```makefile
+ifeq ($(BOARD),nucleo-f446re)
+# Enabling CAN2 (aka can1)
+CFLAGS += -DCAN_DLL_NUMOF=2
+CFLAGS += -DPAYLOAD_CAN=\"can1\"
+endif
 ```
 
 Normalement, il faudrait modifier le Makefile en commentant TRX_TO_BUILD
@@ -157,6 +156,15 @@ Normalement, il faudrait modifier le Makefile en commentant TRX_TO_BUILD
 ```
 Cependant, en faisant cela, ca ne fonctionne plus (12/11/2020)
 
+
+#### Build
+
+```bash
+cd ~/gricad/thingsat/riot-board
+cd tests/conn_can/
+cat README.md
+gmake BOARD=nucleo-f446re
+```
 
 #### On Nucleo #1 and #2
 Test démarré le 9/11/2020

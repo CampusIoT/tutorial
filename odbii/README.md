@@ -304,9 +304,13 @@ brp=3phase-seg1=5, phase-seg2=4, sjw=1
 https://github.com/sparkfun/CAN-Bus_Shield/blob/2e152297bd82162a0aa01cae8f074c9ae953bbcb/Libraries/Arduino/src/Canbus.cpp#L100
 
 
-## Test sur Grove ODBII 
+## Test sur Grove ODB-II 
 
 https://docs.longan-labs.cc/1030002/
+
+Il faut que la carte soit alimenté en 5V0.
+
+Compatbilité avec les cartes Nucleo : à vérifier
 
 ![obdii_port](obdii_port.jpg)
 ![odbii_grove_connect](odbii_grove_connect.png)

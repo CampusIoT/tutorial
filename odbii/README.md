@@ -1,26 +1,26 @@
 # ODB-II ::Tutoriel
 
-## Montage
+## Cartes
 
 * [Keyestudio CAN-BUS Shield MCP2515](https://fr.aliexpress.com/item/32998255055.html) [wiki](https://wiki.keyestudio.com/KS0411_keyestudio_CAN-BUS_Shield)
 
 ![Keyestudio CAN-BUS Shield MCP2515](images/Keyestudio-CAN-BUS-Shield-MCP2515.jpg)
 
-# Carte de pilote de Bus CAN MCP2515 + TJA1050 récepteur SPI 
+### Carte de pilote de Bus CAN MCP2515 + TJA1050 récepteur SPI 
 
 * [Carte de pilote de Bus CAN MCP2515 TJA1050 récepteur SPI](https://fr.aliexpress.com/item/32223930366.html)
 
 
-# Carte de pilote de Bus CAN MCP2515 
+### Carte de pilote de Bus CAN MCP2515 
 
 * [Carte de pilote de Bus CAN MCP2515 TJA1050 récepteur SPI](https://fr.aliexpress.com/item/32223930366.html)
 
-# Carte CAN VP230
+### Carte CAN VP230
 
 * [Carte CAN VP230](https://fr.aliexpress.com/item/1005002843325046.html)
 
 
-# KS0411 keyestudio CAN-BUS Shield
+### KS0411 keyestudio CAN-BUS Shield
 
 Ce shield contient à la fois un driver MCP2515 et un lecteur de cartes Micro-SD : il faut s'en servir pour l'emulateur d'OBC.
 
@@ -34,12 +34,15 @@ Code de test sur Arduino (MCU AVR)
 * https://www.dropbox.com/sh/hd1feflnh5gkw8l/AACFr87wOB2fKy98NXHXgZZya/Resource?dl=0&subfolder_nav_tracking=1
 * [Sparkfun CAN BUS](https://github.com/sparkfun/CAN-Bus_Shield)
 
+### L9616
 
 L9616 seems compatible with the [NXP TJA1042](https://www.nxp.com/docs/en/data-sheet/TJA1042.pdf) CAN driver.
 
 The TJA1042 driver for RIOT should be added as a module.
 
-## Wiring with 2 Nucleo F446RE + 2 L9616
+## Wiring
+
+### Wiring with 2 Nucleo F446RE + 2 L9616
 
 
 The pinout of the L9616 is belong:
@@ -60,7 +63,8 @@ The pinout of the L9616 (SOC8) adapter is:
 The Nucleo F446RE had 2 CAN ports:
 * CAN1 (CAN1_RD is on D15, CAN1_TD is on D14) --> can0 on "can list"
 * CAN2 (CAN2_RD is on D4, CAN2_TD is on D10)  --> can1 on "can list"
-## Driver tja1042 for L9616
+
+### RIOT Driver tja1042 for L9616
 
 L9616 seems compatible with the [NXP TJA1042](https://www.nxp.com/docs/en/data-sheet/TJA1042.pdf) CAN driver.
 
@@ -80,7 +84,7 @@ endif
 ```
 
 
-## Driver MCP2515 for KS0411 keyestudio CAN-BUS Shield
+### RIOT Driver MCP2515 for KS0411 keyestudio CAN-BUS Shield
 
 CAN_DRIVER ?= MCP2515
 
@@ -111,7 +115,7 @@ gmake BOARD=nucleo-wl55jc flash
 ```
 
 
-## Test can_trx on F446RE CAN (x1)
+### RIOT Test can_trx on F446RE CAN (x1)
 
 No README.md
 
@@ -132,10 +136,10 @@ set_mode             set a can trx mode
 
 
 
-## Test F446RE CAN (x2)
+### RIOT Test F446RE CAN (x2)
 
 
-### Build
+#### Build
 
 ```bash
 cd ~/gricad/thingsat/riot-board
@@ -154,7 +158,7 @@ Normalement, il faudrait modifier le Makefile en commentant TRX_TO_BUILD
 Cependant, en faisant cela, ca ne fonctionne plus (12/11/2020)
 
 
-### On Nucleo #1 and #2
+#### On Nucleo #1 and #2
 Test démarré le 9/11/2020
 TD  démarré le 9/11/2020
 
@@ -182,7 +186,7 @@ interfaces and their RIOT names can be retrieved with:
 test_can list
 ```
 
-### On Nucleo #1
+#### On Nucleo #1
 
 To send a raw CAN frame, id 0x100 with 2 bytes of data 01 02 on interface 0:
 ```
@@ -203,7 +207,7 @@ can send 0 100 AA BB CC DD EE FF
 can send 0 500 CC DD EE FF AA BB
 ```
 
-### On Nucleo #2
+#### On Nucleo #2
 
 Two threads are launched to enable receiving frames. To receive raw CAN frames,
 ids 0x100 and 0x500 with thread 0 on interface 1, with 10s timeout:
@@ -215,14 +219,14 @@ ids 0x100 and 0x500 with thread 0 on interface 1, with 10s timeout:
 test_can recv 0 0 100000000 100 500
 ```
 
-### On Nucleo #1 and #2
+#### On Nucleo #1 and #2
 
 A connection can be closed with its thread id, for instance:
 ```
 test_can close 0
 ```
 
-### On Nucleo #1 and #2 (ERROR)
+#### On Nucleo #1 and #2 (ERROR)
 
 To send an ISO-TP datagram, first bind a connection with one of the threads,
 source id 700, dest id 708, thread 1 and interface 0:
@@ -245,7 +249,7 @@ An ISO-TP channel can be closed with:
 test_can close_isotp 1
 ```
 
-### On Nucleo #1 and #2
+#### On Nucleo #1 and #2
 
 ```
 test_can get_bitrate 0
@@ -263,7 +267,7 @@ test_can get_bitrate 0
 ```
 
 
-For SatRev
+For Thingsat
 
 ```
 > test_can set_bitrate 0 1000000 750                                            
@@ -276,7 +280,7 @@ brp=3phase-seg1=5, phase-seg2=4, sjw=1
 
 
 
-### Test sur prise ODBII 
+## Test sur prise ODBII 
 
 
 https://github.com/sparkfun/CAN-Bus_Shield/blob/2e152297bd82162a0aa01cae8f074c9ae953bbcb/Libraries/Arduino/src/Canbus.cpp#L100

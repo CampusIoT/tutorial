@@ -103,7 +103,7 @@ Le catalogue de Seeedstudio comporte plusieurs platines Grove pour la mesure de 
 ### Infrared Vision
 
 * [Grove - Infrared Temperature Sensor Array (AMG8833)](./examples/GroveInfraredTemperatureSensorArrayAMG8833)
-* Melexis [MLX90640](./MLX90640) : 32x24 array of thermopile sensors with 110° and 55° FOV
+* Melexis [MLX90640](./MLX90640/README.md) : 32x24 array of thermopile sensors with 110° and 55° FOV
 
 ### GPS
 

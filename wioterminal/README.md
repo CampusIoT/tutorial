@@ -63,7 +63,7 @@ TODO
 
 * [Rolling Ball Maze Game](./examples/RollingBallMaze)
 * [Level](https://github.com/Seeed-Studio/Seeed_Arduino_Sketchbook/tree/master/examples/WioTerminal_Level)
-* [Attitude Indicator](https://github.com/Seeed-Studio/Seeed_Arduino_Sketchbook/blob/master/examples/WioTerminal_AttitudeIndicator/WioTerminal_AttitudeIndicator.ino)
+* [Attitude Indicator](https://github.com/Seeed-Studio/Seeed_Arduino_Sketchbook/blob/master/examples/WioTerminal_AttitudeIndicator/WioTerminal_AttitudeIndicator.ino) [local](./examples/Attitude)
 
 Référence: https://wiki.seeedstudio.com/Wio-Terminal-IMU-Basic/
 
@@ -133,7 +133,8 @@ TODO
 
 ## LoRaWAN avec LoRa E5
 
-https://wiki.seeedstudio.com/Grove_LoRa_E5_New_Version/
+* https://wiki.seeedstudio.com/Grove_LoRa_E5_New_Version/
+* https://github.com/disk91/WioLoRaWANFieldTester
 
 TODO
 
@@ -147,7 +148,7 @@ TODO
 
 * https://micropython.org/download/SEEED_WIO_TERMINAL/
 * https://wiki.seeedstudio.com/ArduPy/
-
+* [Playing Snake](https://www.hackster.io/ansonhe1997/playing-snakes-on-seeed-wio-terminal-9659d7)
 ## FreeRTOS
 
 TODO
@@ -186,7 +187,17 @@ https://wiki.seeedstudio.com/Wio-Terminal-TinyML-EI-1/
 
 ![Wio-Terminal-pinout](./images/Wio-Terminal-pinout-hires.png)
 
+## Wio Terminal Battery Chassis
+
+https://wiki.seeedstudio.com/Wio-Terminal-Battery-Chassis/
+
+![Wio-Terminal-Battery-Chassis](./images/Wio-battery.png)
+![Wio-Terminal-Battery-Chassis](./images/WT-battery-front.jpg)
+![Wio-Terminal-Battery-Chassis](./images/Wio-battery-pinout.png)
+
+
 ## Misc
 * Le cours de Seeestudio https://github.com/lakshanthad/Wio_Terminal_Classroom_Arduino
 * [Seeed Arduino Sketchbook](https://github.com/Seeed-Studio/Seeed_Arduino_Sketchbook/tree/master/examples)
 * Un cours complet IoT utilisant le Wio Terminal https://github.com/microsoft/IoT-For-Beginners
+* [hackster.io projects with Wio Terminal](https://www.hackster.io/search?q=Wio%20Terminal&i=projects)

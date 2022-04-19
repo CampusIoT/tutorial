@@ -6,13 +6,13 @@ Suivez les instructions pour l'installation des bibliothèques.
 
 Installez la bibliothèque [Seeed_Arduino_LCD](https://wiki.seeedstudio.com/Wio-Terminal-LCD-Overview/) si ce n'est pas déjà fait.
 
-Branchez la platine Grove LoRa E5 (qui est un modem LoRaWAN) sur le connecteur Grove UART du Wio Terminal Battery Chassis.
+Branchez la [platine Grove LoRa E5](https://wiki.seeedstudio.com/Grove_LoRa_E5_New_Version/) (qui est un modem LoRaWAN) sur le connecteur Grove UART du Wio Terminal Battery Chassis.
 
 Chargez l'exemple de test sur le Wio Terminal.
 
-Reperez le `DevEUI`, l'`AppEUI` et l'`AppKey` dans la console série du Wio Terminal.
+Repérez et relevez le `DevEUI`, l'`AppEUI` et l'`AppKey` de la [platine Grove LoRa E5](https://wiki.seeedstudio.com/Grove_LoRa_E5_New_Version/) dans la console série du Wio Terminal.
 
-Enregsitrez le WioTerminal sur un réseau LoRaWAN ([TTN](https://console.cloud.thethings.network/), [Helium](https://console.helium.com/) ou Chirpstack) en utilisant le `DevEUI`, l'`AppEUI` et l'`AppKey` relevés.
+Enregistrez le WioTerminal sur un réseau LoRaWAN ([TTN](https://console.cloud.thethings.network/), [Helium](https://console.helium.com/) ou Chirpstack) en utilisant le `DevEUI`, l'`AppEUI` et l'`AppKey` relevés.
 
 > Vous pouvez changer les valeurs d'`AppEUI` et d'`AppKey` dans le croquis.
 
@@ -55,5 +55,7 @@ Regardez les messages LoRaWAN envoyés par le Wio Terminal lorsque la procédure
 
 ## Améliorations
 
-* [ ] Transmettre la tension de la batterie du chassis.
+* [ ] Transmettre la [tension de la batterie du chassis](../LiPoBatteryStatus/).
+* [ ] Eteindre l'écran après 30 secondes pour économiser la batterie.
+* [ ] Arrêter de relever les mesures quand l'écran est éteint.
 

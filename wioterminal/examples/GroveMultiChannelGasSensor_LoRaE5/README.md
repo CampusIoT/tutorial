@@ -53,4 +53,7 @@ Regardez les messages LoRaWAN envoyés par le Wio Terminal lorsque la procédure
 
 ![Grove LoRaE5 + Grove-Multichannel-Gas-Sensor-V2 Wio](./LoRaE5_Multichannel-Gas-Sensor-V2-Wio.jpg)
 
+## Améliorations
+
+* [ ] Transmettre la tension de la batterie du chassis.
 

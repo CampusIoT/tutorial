@@ -55,7 +55,7 @@ Regardez les messages LoRaWAN envoyés par le Wio Terminal lorsque la procédure
 
 ## Améliorations
 
+* [ ] Ajouter le status de connectivité LoRaWAN (join) à l'écran
 * [ ] Transmettre la [tension de la batterie du chassis](../LiPoBatteryStatus/).
 * [ ] Eteindre l'écran après 30 secondes pour économiser la batterie.
 * [ ] Arrêter de relever les mesures quand l'écran est éteint.
-

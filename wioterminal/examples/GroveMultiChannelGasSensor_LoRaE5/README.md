@@ -51,6 +51,6 @@ Faites quelques tests dans des produits comme du gaz de briquet, du CO émis par
 
 Regardez les messages LoRaWAN envoyés par le Wio Terminal lorsque la procédure d'activation OTAA a réussi.
 
-![Grove-Multichannel-Gas-Sensor-V2 Wio](./Grove-Multichannel-Gas-Sensor-V2-Wio.jpg)
+![Grove LoRaE5 + Grove-Multichannel-Gas-Sensor-V2 Wio](./LoRaE5_Multichannel-Gas-Sensor-V2-Wio.jpg)
 
 

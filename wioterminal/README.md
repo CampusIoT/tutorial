@@ -149,6 +149,11 @@ TODO
 * https://micropython.org/download/SEEED_WIO_TERMINAL/
 * https://wiki.seeedstudio.com/ArduPy/
 * [Playing Snake](https://www.hackster.io/ansonhe1997/playing-snakes-on-seeed-wio-terminal-9659d7)
+
+## Rust
+
+* https://docs.rs/wio_terminal/latest/wio_terminal/index.html#
+
 ## FreeRTOS
 
 TODO
@@ -182,6 +187,7 @@ https://wiki.seeedstudio.com/Wio-Terminal-TinyML-EI-1/
 ### TensorFlow Lite
 
 * https://github.com/Seeed-Studio/Seeed_Arduino_Sketchbook/tree/master/examples/WioTerminal_TF_MNIST
+
 
 ## Pinout
 

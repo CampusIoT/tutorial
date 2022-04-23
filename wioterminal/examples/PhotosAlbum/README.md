@@ -3,8 +3,6 @@
 This example is a crossover of [Display Images](https://wiki.seeedstudio.com/Wio-Terminal-Displaying-Photos/) and `Examples > Seedstudio Arduino FS > listfiles` example
 
 
-
-
 ## Convert JPEG images in BMP
 
 You can convert your JPEG photos with [imagemagick CLI](https://imagemagick.org/script/convert.php)

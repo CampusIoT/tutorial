@@ -8,7 +8,7 @@ Il est disponible sur les modules de :
 * Adafruit ([4407](https://www.adafruit.com/product/4407))
 
 
-![Pimoroni PIM366](ar-module-camera-thermique-pim387-31582)
+![Pimoroni PIM366](ar-module-camera-thermique-pim387-31582.jpg)
 
 ## Démarrage
 

@@ -22,7 +22,6 @@ From https://github.com/okini3939/wio_thermal
 
 ![Wio_Thermal_MLX90640](Wio_Thermal_MLX90640.jpg)
 
-
 ## TODO
 
-- Save current thermal image (BMP format) to SDCard
+* [ ] Save current thermal image (BMP format) to SDCard

@@ -25,3 +25,4 @@ From https://github.com/okini3939/wio_thermal
 ## TODO
 
 * [ ] Save current thermal image (BMP format) to SDCard
+* [ ] Add temperature interpolation like in [GroveInfraredTemperatureSensorArrayAMG8833](../GroveInfraredTemperatureSensorArrayAMG8833)

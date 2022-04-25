@@ -86,3 +86,5 @@ Faites quelques tests des _choses_ chaudes et froides comme la flamme d'un briqu
 ### Affichage de l'image sur l'écran TFT
 
 Voir [Wio_Thermal_MLX90640](../Wio_Thermal_MLX90640)
+
+![Wio_Thermal_MLX90640](../Wio_Thermal_MLX90640/Wio_Thermal_MLX90640.jpg)

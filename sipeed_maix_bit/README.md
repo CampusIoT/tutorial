@@ -104,6 +104,10 @@ Testez les exemples disponibles dans les différents répertoires du [dépôt de
 
 Chargez les scripts en utilisant TODO
 
+Sélection:
+* [Gimbal](https://github.com/sipeed/MaixPy_scripts/tree/master/application/gimbal)
+
+
 ## Misc
 
 * [PMMA Enclosure](./sipeed_maix_bit_enclosure.svg) by Germain Lemasson, FabMSTIC

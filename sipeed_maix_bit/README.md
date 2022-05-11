@@ -252,6 +252,10 @@ Start up scripts
     main.py: this is the main script that contains your code. It is executed immediately after the boot.py.
 
 
+Sélection:
+* [Gimbal](https://github.com/sipeed/MaixPy_scripts/tree/master/application/gimbal)
+
+
 ## Misc
 
 * [3mm PMMA Enclosure](./sipeed_maix_bit_enclosure.svg) by Germain Lemasson, FabMSTIC

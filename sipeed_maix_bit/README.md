@@ -252,7 +252,7 @@ Start up scripts
     main.py: this is the main script that contains your code. It is executed immediately after the boot.py.
 
 
-Sélection:
+## Autres
 * [Gimbal](https://github.com/sipeed/MaixPy_scripts/tree/master/application/gimbal)
 
 

@@ -117,6 +117,11 @@ Il est possible de brancher des cartes pour Raspberry Pi 3 comme ce [support pou
 
 TODO
 
+## Autres capteurs
+
+* [Load Cell and HX711 Amplifier (Digital Scale)](./HX711LoadCell)
+
+
 ## WiFi
 
 TODO

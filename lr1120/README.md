@@ -7,6 +7,8 @@ Check the model of your LR1120 shield. Mine is [`LR1120MB1DIS` (868 MHz for the 
 
 ## Build
 
+`arm-none-eabi-gcc` suite should .be installed.
+
 ```bash
 mkdir -p github/lora-net
 cd github/lora-net/

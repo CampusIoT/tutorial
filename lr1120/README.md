@@ -10,6 +10,9 @@ Two Github repositories are available:
 * [SWSD001: LoRa Basics Modem SDK](https://github.com/Lora-net/SWSD001)
 
 
+![LR1120MB1DIS](LR1120MB1DIS.jpg)
+
+
 ## Setup SWSD003 LR11xx SDK
 
 `arm-none-eabi-gcc` suite should .be installed.

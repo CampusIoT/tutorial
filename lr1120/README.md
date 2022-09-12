@@ -12,6 +12,8 @@ Two Github repositories are available:
 
 ## Setup SWSD003 LR11xx SDK
 
+`arm-none-eabi-gcc` suite should .be installed.
+
 ```bash
 mkdir -p github/lora-net
 cd github/lora-net/

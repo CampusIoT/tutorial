@@ -12,7 +12,6 @@ Two Github repositories are available:
 
 ![LR1120MB1DIS](LR1120MB1DIS.jpg)
 
-
 ## Setup SWSD003 LR11xx SDK
 
 `arm-none-eabi-gcc` suite should .be installed.
@@ -39,7 +38,7 @@ tio -b 921600 -m INLCRNL /dev/tty.usbmodem142xxx
 ### Ping Pong
 
 ```bash
-cd ping_pong/
+cd apps/ping_pong/
 cd makefile/
 make RADIO_SHIELD=LR1120MB1DIS
 cp build/ping_pong.bin  /Volumes/NODE_L476RG/
@@ -48,7 +47,7 @@ cp build/ping_pong.bin  /Volumes/NODE_L476RG/
 ###  Spectral scan
 
 ```bash
-cd spectral_scan/
+cd apps/spectral_scan/
 cd makefile/
 make RADIO_SHIELD=LR1120MB1DIS
 cp build/spectral_scan.bin  /Volumes/NODE_L476RG/
@@ -57,11 +56,19 @@ cp build/spectral_scan.bin  /Volumes/NODE_L476RG/
 ###  GNSS
 
 ```bash
-cd gnss/gnss_autonomous/
+cd apps/gnss/gnss_autonomous/
 cd makefile/
 make RADIO_SHIELD=LR1120MB1DIS
 cp build/gnss.bin  /Volumes/NODE_L476RG/
 ```
+
+```bash
+cd apps/gnss/gnss_assisted/
+cd makefile/
+make RADIO_SHIELD=LR1120MB1DIS
+cp build/gnss.bin  /Volumes/NODE_L476RG/
+```
+
 
 ## Setup SWSD001 LoRa Basics Modem SDK
 

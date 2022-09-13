@@ -1,5 +1,6 @@
 # RTK examples with Wio Terminal
 
+## Setup
 
 * Wio Terminal
 * Grove Cable
@@ -15,10 +16,20 @@ Connect the ZED-F9P module to the I2C Grove Connector of the WioTerminal
     pin 3 - Red - VCC on all Grove Connectors
     pin 4 - Black - GND on all Grove Connectors
 
+## Sparkfun u-blox GNSS Library
 
-As part of our ever growing Arduino u-blox GNSS library, we’ve added a NTRIP Server example (located under ... -> examples -> ZED-F9P -> Example14_NTRIPServer).
+Search and install the "SparkFun u-blox GNSS" library using the Arduino IDE library manager.
 
-Read
+## Get Position Accuracy
+
+Open the GetPositionAccuracy sketch (located under `File > SparkFun u-blox GNSS > ZED-F9P > Example1_GetPositionAccuracy`).
+
+## NTRIP Server
+
+As part of our ever growing Arduino u-blox GNSS library, we’ve added a NTRIP Server example (located under `File > SparkFun u-blox GNSS > ZED-F9P -> Example14_NTRIPServer`) or the modified[RTK_Example14_NTRIPServer](./Example14_NTRIPServer).
+
+## Readings
+
 * https://docs.sparkfun.com/SparkFun_RTK_Firmware/intro/
 * https://docs.sparkfun.com/SparkFun_RTK_Firmware/permanent_base/
 * https://centipede.fr/

@@ -3,8 +3,8 @@
 
 * Wio Terminal
 * Grove Cable
-* ZED-F9P module : we use the Mikrobus one
-* GPS outdoor antenna
+* ZED-F9P module : we use the [Mikrobus one](https://www.digikey.fr/fr/products/detail/mikroelektronika/MIKROE-4456/13662957)
+* GPS outdoor antenna : we use [this one](https://www.digikey.fr/fr/products/detail/u-blox/ANN-MB-00-00/9817928).
 
 * A Wifi access point (for the NTRIPServer)
 
@@ -22,3 +22,5 @@ Read
 * https://docs.sparkfun.com/SparkFun_RTK_Firmware/intro/
 * https://docs.sparkfun.com/SparkFun_RTK_Firmware/permanent_base/
 * https://centipede.fr/
+* https://www.digikey.fr/fr/products/detail/mikroelektronika/MIKROE-4456/13662957
+* https://www.digikey.fr/fr/products/detail/u-blox/ANN-MB-00-00/9817928

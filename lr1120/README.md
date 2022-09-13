@@ -35,6 +35,15 @@ tio -b 921600 -m INLCRNL /dev/tty.usbmodem142xxx
 
 ## Demonstrations SWSD003
 
+Change default configuration into [`../common/apps_configuration.h`](../common/apps_configuration.h)
+
+For instance :
+```c
+#define RF_FREQ_IN_HZ 868300000U
+...
+#define LORA_SYNCWORD 0x34  // 0x12 Private Network, 0x34 Public Network
+```
+
 ### Ping Pong
 
 ```bash
@@ -53,7 +62,146 @@ make RADIO_SHIELD=LR1120MB1DIS
 cp build/spectral_scan.bin  /Volumes/NODE_L476RG/
 ```
 
+### Wifi Scan
+
+The application executes Wi-Fi Scans in a loop.
+The Wi-Fi scans can be the following:
+- Wi-Fi passive scan
+- Wi-Fi passive scan time limit
+- Wi-Fi passive scan country code
+- Wi-Fi passive scan country code time limit
+
+It prints results on the serial line on every scan termination.
+
+First, change the WIFI_DEMO_TO_RUN macro in `main_wifi.h`.
+
+```c
+/**
+ * @brief Selection of the demo to run.
+ *
+ * It must be one of wifi_demo_to_run_t enumeration :
+ *  WIFI_SCAN,
+ *  WIFI_SCAN_TIME_LIMIT,
+ *  WIFI_SCAN_COUNTRY_CODE,
+ *  WIFI_SCAN_COUNTRY_CODE_TIME_LIMIT
+ */
+#define WIFI_DEMO_TO_RUN ( WIFI_SCAN_TIME_LIMIT )
+
+/**
+ * @brief Wi-Fi channels to scan
+ *
+ * It is expressed as 16 bits mask of channels
+ *
+ */
+#define WIFI_CHANNEL_MASK ( 0x0421 )
+
+/**
+ * @brief Wi-Fi result formats
+ *
+ * Must be one of lr11xx_wifi_result_format_t
+ *
+ * @warning The possible value depends on the value provided in WIFI_SCAN_MODE:
+ * WIFI_RESULT_FORMAT can be:
+ *   - LR11XX_WIFI_RESULT_FORMAT_BASIC_COMPLETE or LR11XX_WIFI_RESULT_FORMAT_BASIC_MAC_TYPE_CHANNEL if WIFI_SCAN_MODE
+ * is:
+ *       - LR11XX_WIFI_SCAN_MODE_BEACON or
+ *       - LR11XX_WIFI_SCAN_MODE_BEACON_AND_PKT
+ *   - LR11XX_WIFI_RESULT_FORMAT_EXTENDED_FULL if WIFI_SCAN_MODE is:
+ *       - LR11XX_WIFI_SCAN_MODE_FULL_BEACON or
+ *       - LR11XX_WIFI_SCAN_MODE_UNTIL_SSID
+ */
+#define WIFI_RESULT_FORMAT ( LR11XX_WIFI_RESULT_FORMAT_BASIC_COMPLETE )
+```
+
+> About [Wifi channels](https://en.wikipedia.org/wiki/List_of_WLAN_channels)
+
+Build and flash the firmware
+
+```bash
+cd apps/wifi/
+cd makefile/
+make RADIO_SHIELD=LR1120MB1DIS
+cp build/wifi.bin  /Volumes/NODE_L476RG/
+```
+
+```console
+INFO: ===== LR11xx Wi-Fi passive scan time limit example =====
+
+INFO: LR11xx information:
+INFO:   - Firmware = 0x0101
+INFO:   - Hardware = 0x22
+INFO:   - Type     = 0x02 (0x01 for LR1110, 0x02 for LR1120)
+
+Wi-Fi example configuration:
+  -> channel mask: 0x0421
+  -> max result: 10
+  -> scan mode: LR11XX_WIFI_SCAN_MODE_BEACON
+  -> signal type: LR11XX_WIFI_TYPE_SCAN_B
+  -> timeout per channel: 1000
+  -> timeout per scan: 90
+  -> max number of scan: 0
+
+INFO: Interrupt flags = 0x00100000
+INFO: Interrupt flags (after filtering) = 0x00100000
+INFO: Wi-Fi scan done
+== Scan #1 ==
+Cummulative timings:
+  -> Demodulation: 27267 us
+  -> Capture: 12029 us
+  -> Correlation: 736934 us
+  -> Detection: 0 us
+  => Total : 776230 us
+
+Result 1/2
+  -> MAC address: xx:xx:xx:xx:bf:c0
+  -> Channel: LR11XX_WIFI_CHANNEL_1
+  -> MAC origin: From gateway
+  -> Signal type: LR11XX_WIFI_TYPE_RESULT_B
+  -> Frame type: LR11XX_WIFI_FRAME_TYPE_MANAGEMENT
+  -> Frame sub-type: 0x08
+  -> FromDS/ToDS: false / false
+  -> Phi Offset: -2461
+  -> Timestamp: 64 us
+  -> Beacon period: 100 TU
+
+Result 2/2
+  -> MAC address: xx:xx:xx:xx:9a:3f
+  -> Channel: LR11XX_WIFI_CHANNEL_6
+  -> MAC origin: From gateway
+  -> Signal type: LR11XX_WIFI_TYPE_RESULT_B
+  -> Frame type: LR11XX_WIFI_FRAME_TYPE_MANAGEMENT
+  -> Frame sub-type: 0x08
+  -> FromDS/ToDS: false / false
+  -> Phi Offset: -1567
+  -> Timestamp: 64 us
+  -> Beacon period: 100 TU
+
+```
+
+
 ###  GNSS
+
+The application executes GNSS scans in a loop. It prints results on the serial line on every scan termination.
+
+The GNSS assisted example needs the almanac to be up-to-date. If the almanacs are too old, the LR11xx chip is likely to detect less Satellite Vehicles. And if the almanacs are older than three months the LR11xx chip will not start a scanning operation and will return an error result `00 08` indicating the scan was not attempt because the almanacs are too old.
+
+To update the almanacs consider using the [LR1110 EVK Demo Application](https://github.com/Lora-net/lr1110_evk_demo_app) and the python program `AlmanacUpdate` as described [here](https://github.com/Lora-net/lr1110_evk_demo_app#almanacupdate-usage). This process can be followed for both LR1110 and LR1120.
+
+
+Change the assistance position into `main_gnss.h`
+
+```c
+/**
+ * @brief Assistance position latitude
+ */
+#define GNSS_ASSISTANCE_POSITION_LATITUDE ( 45.1 )
+
+/**
+ * @brief Assistance position longitude
+ */
+#define GNSS_ASSISTANCE_POSITION_LONGITUDE ( 5.7 )
+```
+
 
 ```bash
 cd apps/gnss/gnss_autonomous/

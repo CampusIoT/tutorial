@@ -125,6 +125,10 @@ TODO
 
 ## WiFi
 
+Avant d'utiliser le Wifi, il faut mettre à jour 
+
+Suivez les [instructions](https://wiki.seeedstudio.com/Wio-Terminal-Network-Overview/).
+
 TODO
 
 ## BLE
@@ -213,3 +217,6 @@ https://wiki.seeedstudio.com/Wio-Terminal-Battery-Chassis/
 * [Seeed Arduino Sketchbook](https://github.com/Seeed-Studio/Seeed_Arduino_Sketchbook/tree/master/examples)
 * Un cours complet IoT utilisant le Wio Terminal https://github.com/microsoft/IoT-For-Beginners
 * [hackster.io projects with Wio Terminal](https://www.hackster.io/search?q=Wio%20Terminal&i=projects)
+
+## TODO
+* [Add RTKLIB for decoding RTCM3 messages](https://github.com/tomojitakasu/RTKLIB)

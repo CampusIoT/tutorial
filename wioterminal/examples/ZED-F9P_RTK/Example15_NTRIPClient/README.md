@@ -38,9 +38,9 @@ RTK2Go works well and is free
 
 [Emlid Caster](https://emlid.com/ntrip-caster/) also works well and is free 
 
-### Console output
+## Console output
 
-For Centipede `CRO2` mount point 
+### For Centipede `CRO2` mount point 
 
 ```console
 Press any key to start NTRIP Client.
@@ -104,3 +104,32 @@ RTCM3 message: len=840 type=1042 : Beidou ephemerides --> RTCM pushed 840 bytes 
 Not a RTCM3 messages. Discard 992 bytes
 RTCM3 message: len=100 type=1004 : Extended L1&L2 GPS RTK Observables --> RTCM pushed 100 bytes to ZED
 ```
+
+### For rtk2go `bldr_SparkFun1` mount point 
+
+```console
+Opening socket to rtk2go.com
+Connected to rtk2go.com: 2101
+Requesting NTRIP Data from mount point bldr_SparkFun1
+Sending credentials: didier.donsez@gmail.com:
+serverRequest size: 591 of 512 bytes available
+Sending server request:
+GET /bldr_SparkFun1 HTTP/1.0
+User-Agent: NTRIP SparkFun u-blox Client v1.0
+⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮
+
+Caster responded with: ICY 200 OK
+
+Connected to rtk2go.com
+RTCM3 message: len=486 type=1074 : GPS MSM4 --> RTCM pushed 486 bytes to ZED
+RTCM3 message: len=25 type=1005 : Stationary RTK Reference Station ARP --> RTCM pushed 25 bytes to ZED
+RTCM3 message: len=486 type=1074 : GPS MSM4 --> RTCM pushed 486 bytes to ZED
+RTCM3 message: len=25 type=1005 : Stationary RTK Reference Station ARP --> RTCM pushed 25 bytes to ZED
+RTCM3 message: len=486 type=1074 : GPS MSM4 --> RTCM pushed 486 bytes to ZED
+RTCM3 message: len=25 type=1005 : Stationary RTK Reference Station ARP --> RTCM pushed 25 bytes to ZED
+RTCM3 message: len=486 type=1074 : GPS MSM4 --> RTCM pushed 486 bytes to ZED
+RTCM3 message: len=25 type=1005 : Stationary RTK Reference Station ARP --> RTCM pushed 25 bytes to ZED
+RTCM3 message: len=496 type=1074 : GPS MSM4 --> RTCM pushed 496 bytes to ZED
+RTCM3 message: len=25 type=1005 : Stationary RTK Reference Station ARP --> RTCM pushed 25 bytes to ZED
+```
+

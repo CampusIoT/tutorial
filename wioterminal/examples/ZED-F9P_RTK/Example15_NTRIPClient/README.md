@@ -40,6 +40,34 @@ RTK2Go works well and is free
 
 ### Console output
 
+For Centipede `CRO2` mount point 
+
 ```console
+RTCM3 message: len=100 type=1004 --> RTCM pushed 100 bytes to ZED
+Not a RTCM3 messages. Discard 992 bytes
+RTCM3 message: len=1092 type=1004 --> RTCM pushed 1092 bytes to ZED
+RTCM3 message: len=100 type=1004 --> RTCM pushed 100 bytes to ZED
+Not a RTCM3 messages. Discard 992 bytes
+RTCM3 message: len=1198 type=1004 --> RTCM pushed 1198 bytes to ZED
+RTCM3 message: len=100 type=1004 --> RTCM pushed 100 bytes to ZED
+Not a RTCM3 messages. Discard 992 bytes
+RTCM3 message: len=100 type=1004 --> RTCM pushed 100 bytes to ZED
+Not a RTCM3 messages. Discard 992 bytes
+RTCM3 message: len=100 type=1004 --> RTCM pushed 100 bytes to ZED
+Not a RTCM3 messages. Discard 992 bytes
+RTCM3 message: len=100 type=1004 --> RTCM pushed 100 bytes to ZED
+Not a RTCM3 messages. Discard 992 bytes
+RTCM3 message: len=100 type=1004 --> RTCM pushed 100 bytes to ZED
+Not a RTCM3 messages. Discard 992 bytes
+RTCM3 message: len=100 type=1004 --> RTCM pushed 100 bytes to ZED
+Not a RTCM3 messages. Discard 992 bytes
+RTCM3 message: len=100 type=1004 --> RTCM pushed 100 bytes to ZED
+Not a RTCM3 messages. Discard 992 bytes
+RTCM3 message: len=1092 type=1004 --> RTCM pushed 1092 bytes to ZED
+RTCM3 message: len=100 type=1004 --> RTCM pushed 100 bytes to ZED
+Not a RTCM3 messages. Discard 992 bytes
+RTCM3 message: len=1198 type=1004 --> RTCM pushed 1198 bytes to ZED
+RTCM3 message: len=100 type=1004 --> RTCM pushed 100 bytes to ZED
+Not a RTCM3 messages. Discard 992 bytes
 
 ```

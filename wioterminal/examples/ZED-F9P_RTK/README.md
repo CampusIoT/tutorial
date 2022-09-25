@@ -26,7 +26,13 @@ Open the GetPositionAccuracy sketch (located under `File > SparkFun u-blox GNSS 
 
 ## NTRIP Server
 
-As part of our ever growing Arduino u-blox GNSS library, we’ve added a NTRIP Server example (located under `File > SparkFun u-blox GNSS > ZED-F9P -> Example14_NTRIPServer`) or the modified[RTK_Example14_NTRIPServer](./Example14_NTRIPServer).
+As part of our ever growing Arduino u-blox GNSS library, we’ve added a NTRIP Server example (located under `File > SparkFun u-blox GNSS > ZED-F9P -> Example14_NTRIPServer`) or the modified[Example14_NTRIPServer](./Example14_NTRIPServer).
+
+## NTRIP Client
+[Example15_NTRIPClient](./Example15_NTRIPClient)
+
+## TODOList
+* [ ] [Use the PPS pin for a clock with nanosec-accuracy](https://forum.arduino.cc/t/pps-from-ultimate-gps-synch-with-arduino-uno/336683/2)
 
 ## Readings
 
@@ -35,3 +41,4 @@ As part of our ever growing Arduino u-blox GNSS library, we’ve added a NTRIP S
 * https://centipede.fr/
 * https://www.digikey.fr/fr/products/detail/mikroelektronika/MIKROE-4456/13662957
 * https://www.digikey.fr/fr/products/detail/u-blox/ANN-MB-00-00/9817928
+* https://igs.bkg.bund.de/ntrip/download

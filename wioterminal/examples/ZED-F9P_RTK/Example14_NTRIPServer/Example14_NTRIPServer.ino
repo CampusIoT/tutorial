@@ -174,7 +174,7 @@ void setup()
 
   // Enable necessary RTCM sentences
   // All types are listed here : https://www.use-snip.com/kb/knowledge-base/rtcm-3-message-list  
-  response &= myGPS.enableRTCMmessage(/*UBX_RTCM_1004*/0x04, COM_PORT_I2C, 1); // Enable message 1004 (Extended L1&L2 GPS RTK Observables) to output through I2C, message every second
+  //response &= myGPS.enableRTCMmessage(/*UBX_RTCM_1004*/0x04, COM_PORT_I2C, 1); // Enable message 1004 (Extended L1&L2 GPS RTK Observables) to output through I2C, message every second
   response &= myGPS.enableRTCMmessage(UBX_RTCM_1005, COM_PORT_I2C, 1); // Enable message 1005 (Stationary RTK Reference Station ARP) to output through I2C, message every second
   response &= myGPS.enableRTCMmessage(UBX_RTCM_1074, COM_PORT_I2C, 1); // Enable message 1074 (GPS MSM4) to output through I2C, message every second
   response &= myGPS.enableRTCMmessage(UBX_RTCM_1084, COM_PORT_I2C, 1); // Enable message 1084 (GLONASS MSM4) to output through I2C, message every second

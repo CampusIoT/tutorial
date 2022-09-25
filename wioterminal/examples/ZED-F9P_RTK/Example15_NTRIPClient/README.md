@@ -105,7 +105,7 @@ Not a RTCM3 messages. Discard 992 bytes
 RTCM3 message: len=100 type=1004 : Extended L1&L2 GPS RTK Observables --> RTCM pushed 100 bytes to ZED
 ```
 
-### For rtk2go `bldr_SparkFun1` mount point 
+### For [rtk2go `bldr_SparkFun1` mount point](http://rtk2go.com:2101/SNIP::MOUNTPT?baseName=bldr_SparkFun1)
 
 ```console
 Opening socket to rtk2go.com

@@ -113,6 +113,10 @@ static int getbits(const unsigned char *buff, int pos, int len)
     return (int)(bits|(~0u<<len)); /* extend sign */
 }
 
+/*
+ Dump type of RTCM3 message
+*/
+
 /* RTCM3 Type 1004: extended L1&L2 gps rtk observables ----------------------*/
 /* RTCM3 Type 1005: stationary rtk reference station arp --------------------*/
 /* RTCM3 Type 1006: stationary rtk reference station arp with height --------*/
@@ -146,6 +150,47 @@ static int getbits(const unsigned char *buff, int pos, int len)
 /* RTCM3 Type 1045: galileo F/NAV satellite ephemerides (ref [15]) ----------*/
 /* RTCM3 Type 1046: galileo I/NAV satellite ephemerides (ref [17]) ----------*/
 
+static void dump_rtcm3_type(const unsigned int type) {
+  switch(type){
+    case 1004:
+      Serial.print("Extended L1&L2 GPS RTK Observables");
+      break;
+    case 1005:
+      Serial.print("Stationary RTK Reference Station ARP");
+      break;
+    case 1019:
+      Serial.print("GPS ephemerides");
+      break;
+    case 1020:
+      Serial.print("GLONASS ephemerides");
+      break;
+    case 1042:
+      Serial.print("Beidou ephemerides");
+      break;
+    case 1046:
+      Serial.print("Galileo I/NAV satellite ephemerides (ref [17])");
+      break;
+    case 1074:
+      Serial.print("GPS MSM4");
+      break;
+    case 1084:
+      Serial.print("GLONASS MSM4");
+      break;
+    case 1094:
+      Serial.print("Galileo MSM4");
+      break;
+    case 1124:
+      Serial.print("BeiDou MSM4");
+      break;
+    case 1230:
+      Serial.print("GLONASS L1 and L2 Code-Phase Biases");
+      break;
+    default:
+      Serial.print("Unknown");
+      break;
+  }
+}
+
 static int dump_rtcm3(const uint8_t* buf, const size_t len)
 {
     double tow;
@@ -155,6 +200,8 @@ static int dump_rtcm3(const uint8_t* buf, const size_t len)
     Serial.print(len);
     Serial.print(" type=");
     Serial.print(type);
+    Serial.print(" : ");
+    dump_rtcm3_type(type);
 }
 
 // WiFi Utilities

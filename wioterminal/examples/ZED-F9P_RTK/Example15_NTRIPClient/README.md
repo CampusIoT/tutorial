@@ -43,31 +43,64 @@ RTK2Go works well and is free
 For Centipede `CRO2` mount point 
 
 ```console
-RTCM3 message: len=100 type=1004 --> RTCM pushed 100 bytes to ZED
-Not a RTCM3 messages. Discard 992 bytes
-RTCM3 message: len=1092 type=1004 --> RTCM pushed 1092 bytes to ZED
-RTCM3 message: len=100 type=1004 --> RTCM pushed 100 bytes to ZED
-Not a RTCM3 messages. Discard 992 bytes
-RTCM3 message: len=1198 type=1004 --> RTCM pushed 1198 bytes to ZED
-RTCM3 message: len=100 type=1004 --> RTCM pushed 100 bytes to ZED
-Not a RTCM3 messages. Discard 992 bytes
-RTCM3 message: len=100 type=1004 --> RTCM pushed 100 bytes to ZED
-Not a RTCM3 messages. Discard 992 bytes
-RTCM3 message: len=100 type=1004 --> RTCM pushed 100 bytes to ZED
-Not a RTCM3 messages. Discard 992 bytes
-RTCM3 message: len=100 type=1004 --> RTCM pushed 100 bytes to ZED
-Not a RTCM3 messages. Discard 992 bytes
-RTCM3 message: len=100 type=1004 --> RTCM pushed 100 bytes to ZED
-Not a RTCM3 messages. Discard 992 bytes
-RTCM3 message: len=100 type=1004 --> RTCM pushed 100 bytes to ZED
-Not a RTCM3 messages. Discard 992 bytes
-RTCM3 message: len=100 type=1004 --> RTCM pushed 100 bytes to ZED
-Not a RTCM3 messages. Discard 992 bytes
-RTCM3 message: len=1092 type=1004 --> RTCM pushed 1092 bytes to ZED
-RTCM3 message: len=100 type=1004 --> RTCM pushed 100 bytes to ZED
-Not a RTCM3 messages. Discard 992 bytes
-RTCM3 message: len=1198 type=1004 --> RTCM pushed 1198 bytes to ZED
-RTCM3 message: len=100 type=1004 --> RTCM pushed 100 bytes to ZED
-Not a RTCM3 messages. Discard 992 bytes
+Press any key to start NTRIP Client.
+Press any key to start NTRIP Client.
+Press any key to start NTRIP Client.
+Press any key to start NTRIP Client.
+Press any key to start NTRIP Client.
+Subscribing to Caster. Press key to stop
+Opening socket to caster.centipede.fr
+Connected to caster.centipede.fr: 2101
+Requesting NTRIP Data from mount point CRO2
+Sending credentials: xxxx
+serverRequest size: 581 of 512 bytes available
+Sending server request:
+GET /CRO2 HTTP/1.0
+User-Agent: NTRIP SparkFun u-blox Client v1.0
+⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮
 
+Caster timed out!
+Press any key to start NTRIP Client.
+Press any key to start NTRIP Client.
+Subscribing to Caster. Press key to stop
+Opening socket to caster.centipede.fr
+Connected to caster.centipede.fr: 2101
+Requesting NTRIP Data from mount point CRO2
+Sending credentials: xxxx
+serverRequest size: 138 of 512 bytes available
+Sending server request:
+GET /CRO2 HTTP/1.0
+User-Agent: NTRIP SparkFun u-blox Client v1.0
+⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮
+
+
+Caster responded with: ICY 200 OK
+
+
+Connected to caster.centipede.fr
+RTCM3 message: len=100 type=1004 : Extended L1&L2 GPS RTK Observables --> RTCM pushed 100 bytes to ZED
+Not a RTCM3 messages. Discard 992 bytes
+RTCM3 message: len=1560 type=1004 : Extended L1&L2 GPS RTK Observables --> RTCM pushed 1560 bytes to ZED
+Not a RTCM3 messages. Discard 202 bytes
+RTCM3 message: len=100 type=1004 : Extended L1&L2 GPS RTK Observables --> RTCM pushed 100 bytes to ZED
+Not a RTCM3 messages. Discard 992 bytes
+RTCM3 message: len=100 type=1004 : Extended L1&L2 GPS RTK Observables --> RTCM pushed 100 bytes to ZED
+Not a RTCM3 messages. Discard 992 bytes
+RTCM3 message: len=100 type=1004 : Extended L1&L2 GPS RTK Observables --> RTCM pushed 100 bytes to ZED
+Not a RTCM3 messages. Discard 992 bytes
+RTCM3 message: len=1560 type=1004 : Extended L1&L2 GPS RTK Observables --> RTCM pushed 1560 bytes to ZED
+Not a RTCM3 messages. Discard 84 bytes
+RTCM3 message: len=100 type=1004 : Extended L1&L2 GPS RTK Observables --> RTCM pushed 100 bytes to ZED
+Not a RTCM3 messages. Discard 992 bytes
+RTCM3 message: len=1092 type=1004 : Extended L1&L2 GPS RTK Observables --> RTCM pushed 1092 bytes to ZED
+RTCM3 message: len=100 type=1004 : Extended L1&L2 GPS RTK Observables --> RTCM pushed 100 bytes to ZED
+Not a RTCM3 messages. Discard 1037 bytes
+RTCM3 message: len=459 type=1020 : GLONASS ephemerides --> RTCM pushed 459 bytes to ZED
+RTCM3 message: len=1560 type=1004 : Extended L1&L2 GPS RTK Observables --> RTCM pushed 1560 bytes to ZED
+Not a RTCM3 messages. Discard 84 bytes
+RTCM3 message: len=100 type=1004 : Extended L1&L2 GPS RTK Observables --> RTCM pushed 100 bytes to ZED
+Not a RTCM3 messages. Discard 992 bytes
+RTCM3 message: len=840 type=1042 : Beidou ephemerides --> RTCM pushed 840 bytes to ZED
+Not a RTCM3 messages. Discard 992 bytes
+RTCM3 message: len=100 type=1004 : Extended L1&L2 GPS RTK Observables --> RTCM pushed 100 bytes to ZED
 ```

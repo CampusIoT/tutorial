@@ -39,7 +39,7 @@ My Base's Caster Status Report http://rtk2go.com:2101/SNIP::MOUNTPT?baseName=Gre
 [Emlid Caster](https://emlid.com/ntrip-caster/) also works well and is free 
 
 
-### Console output
+## Console output
 
 ```console
 RTCM3 message: len=71 type=1084 : GLONASS MSM4
@@ -142,3 +142,7 @@ RTCM3 message: len=10 type=1230 : GLONASS L1 and L2 Code-Phase Biases
 
 
 ```
+
+## Caster Report
+
+![RTK2GO Caster Report](rtk2go_caster_report.png)

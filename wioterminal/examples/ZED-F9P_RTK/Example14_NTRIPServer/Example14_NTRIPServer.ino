@@ -174,7 +174,7 @@ void setup()
 
   // Enable necessary RTCM sentences
   // All types are listed here : https://www.use-snip.com/kb/knowledge-base/rtcm-3-message-list  
-  //response &= myGPS.enableRTCMmessage(UBX_RTCM_1004, COM_PORT_I2C, 1); // Enable message 1004 (Extended L1&L2 GPS RTK Observables) to output through I2C, message every second
+  response &= myGPS.enableRTCMmessage(/*UBX_RTCM_1004*/0x04, COM_PORT_I2C, 1); // Enable message 1004 (Extended L1&L2 GPS RTK Observables) to output through I2C, message every second
   response &= myGPS.enableRTCMmessage(UBX_RTCM_1005, COM_PORT_I2C, 1); // Enable message 1005 (Stationary RTK Reference Station ARP) to output through I2C, message every second
   response &= myGPS.enableRTCMmessage(UBX_RTCM_1074, COM_PORT_I2C, 1); // Enable message 1074 (GPS MSM4) to output through I2C, message every second
   response &= myGPS.enableRTCMmessage(UBX_RTCM_1084, COM_PORT_I2C, 1); // Enable message 1084 (GLONASS MSM4) to output through I2C, message every second
@@ -371,14 +371,41 @@ static int getbits(const unsigned char *buff, int pos, int len)
 
 /*
  Dump type of RTCM3 message
- message 1004 (Extended L1&L2 GPS RTK Observables) 
- message 1005 (Stationary RTK Reference Station ARP) 
- message 1074 (GPS MSM4) 
- message 1084 (GLONASS MSM4) 
- message 1094 (Galileo MSM4) 
- message 1124 (BeiDou MSM4) 
- message 1230 (GLONASS L1 and L2 Code-Phase Biases)
 */
+
+/* RTCM3 Type 1004: extended L1&L2 gps rtk observables ----------------------*/
+/* RTCM3 Type 1005: stationary rtk reference station arp --------------------*/
+/* RTCM3 Type 1006: stationary rtk reference station arp with height --------*/
+/* RTCM3 Type 1007: antenna descriptor --------------------------------------*/
+/* RTCM3 Type 1008: antenna descriptor & serial number ----------------------*/
+/* RTCM3 Type 1009: L1-only glonass rtk observables -------------------------*/
+/* RTCM3 Type 1010: extended L1-only glonass rtk observables ----------------*/
+/* RTCM3 Type 1011: L1&L2 glonass rtk observables ---------------------------*/
+/* RTCM3 Type 1012: extended L1&L2 glonass rtk observables ------------------*/
+/* RTCM3 Type 1013: system parameters ---------------------------------------*/
+/* RTCM3 Type 1019: gps ephemerides -----------------------------------------*/
+/* RTCM3 Type 1020: glonass ephemerides -------------------------------------*/
+/* RTCM3 Type 1021: helmert/abridged molodenski -----------------------------*/
+/* RTCM3 Type 1022: moledenski-badekas transfromation -----------------------*/
+/* RTCM3 Type 1023: residual, ellipoidal grid representation ----------------*/
+/* RTCM3 Type 1024: residual, plane grid representation ---------------------*/
+/* RTCM3 Type 1025: projection (types except LCC2SP,OM) ---------------------*/
+/* RTCM3 Type 1026: projection (LCC2SP - lambert conic conformal (2sp)) -----*/
+/* RTCM3 Type 1027: projection (type OM - oblique mercator) -----------------*/
+/* RTCM3 Type 1030: network rtk residual ------------------------------------*/
+/* RTCM3 Type 1031: glonass network rtk residual ----------------------------*/
+/* RTCM3 Type 1032: physical reference station position information ---------*/
+/* RTCM3 Type 1033: receiver and antenna descriptor -------------------------*/
+/* RTCM3 Type 1034: gps network fkp gradient --------------------------------*/
+/* RTCM3 Type 1035: glonass network fkp gradient ----------------------------*/
+/* RTCM3 Type 1037: glonass network rtk ionospheric correction difference ---*/
+/* RTCM3 Type 1038: glonass network rtk geometic correction difference ------*/
+/* RTCM3 Type 1039: glonass network rtk combined correction difference ------*/
+/* RTCM3 Type 1042/63: beidou ephemerides -----------------------------------*/
+/* RTCM3 Type 1044: qzss ephemerides (ref [15]) -----------------------------*/
+/* RTCM3 Type 1045: galileo F/NAV satellite ephemerides (ref [15]) ----------*/
+/* RTCM3 Type 1046: galileo I/NAV satellite ephemerides (ref [17]) ----------*/
+
 static void dump_rtcm3_type(const unsigned int type) {
   switch(type){
     case 1004:
@@ -386,6 +413,18 @@ static void dump_rtcm3_type(const unsigned int type) {
       break;
     case 1005:
       Serial.print("Stationary RTK Reference Station ARP");
+      break;
+    case 1019:
+      Serial.print("GPS ephemerides");
+      break;
+    case 1020:
+      Serial.print("GLONASS ephemerides");
+      break;
+    case 1042:
+      Serial.print("Beidou ephemerides");
+      break;
+    case 1046:
+      Serial.print("Galileo I/NAV satellite ephemerides (ref [17])");
       break;
     case 1074:
       Serial.print("GPS MSM4");

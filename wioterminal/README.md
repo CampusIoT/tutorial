@@ -125,7 +125,7 @@ TODO
 
 ## WiFi
 
-Avant d'utiliser le Wifi, il faut mettre à jour 
+Avant d'utiliser le Wifi, il faut mettre à jour le firmware du module Wifi RTL8720.
 
 Suivez les [instructions](https://wiki.seeedstudio.com/Wio-Terminal-Network-Overview/).
 
@@ -163,6 +163,10 @@ TODO
 ## Rust
 
 * https://docs.rs/wio_terminal/latest/wio_terminal/index.html#
+
+## TinyGo
+
+* https://tinygo.org/docs/reference/microcontrollers/wioterminal/
 
 ## FreeRTOS
 

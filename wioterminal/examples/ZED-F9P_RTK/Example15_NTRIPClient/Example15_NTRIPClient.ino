@@ -1,4 +1,3 @@
-
 /*
   Use ESP32 WiFi to get RTCM data from RTK2Go (caster) as a Client
   By: SparkFun Electronics / Nathan Seidle
@@ -41,35 +40,39 @@ CHANGES: Didier DONSEZ for Wio Terminal
 
 */
 
-#define WIO_TERMINAL 1
 #define CENTIPEDE 1
 
-#ifdef WIO_TERMINAL
-#include "rpcWiFi.h"
-#else 
-#include <WiFi.h>
-#endif
-
-/* 
- *  1) Download the ZIP file of the base64 library https://github.com/adamvr/arduino-base64
- *  2) Uncompress the ZIP file of the base64 library https://github.com/adamvr/arduino-base64
- *  3) Rename Base64.h in ArduinoBase64.h since there is a name conflict
- *  4) Compress the directory as a ZIP file
- *  5) Install the new ZIP file of the base64 library
-*/
-#include <ArduinoBase64.h>
-
 #include "secrets.h"
+
+
+#if defined(ARDUINO_ARCH_ESP32)
+#include <WiFi.h>
+#elif defined(ARDUINO_WIO_TERMINAL)
+#include "rpcWiFi.h"
+#else
+#error "Only ESP32 and Wio Terminal are supported"
+#endif
 
 #include <SparkFun_u-blox_GNSS_Arduino_Library.h> //http://librarymanager/All#SparkFun_u-blox_GNSS
 SFE_UBLOX_GNSS myGNSS;
 
 //The ESP32 core has a built in base64 library but not every platform does
 //We'll use an external lib if necessary.
+
 #if defined(ARDUINO_ARCH_ESP32)
 #include "base64.h" //Built-in ESP32 library
+#elif defined(ARDUINO_WIO_TERMINAL)
+/* 
+ *  1) Download the ZIP file of the base64 library https://github.com/adamvr/arduino-base64
+ *  2) Uncompress the ZIP file of the base64 library https://github.com/adamvr/arduino-base64
+ *  3) Rename Base64.h in ArduinoBase64.h since there is a name conflict
+ *  4) Edit Base64.cpp for changing Base64.h
+ *  5) Compress the directory as a ZIP file
+ *  6) Install the new ZIP file of the base64 library
+*/
+#include <ArduinoBase64.h>
 #else
-#include <Base64.h> //nfriendly library from https://github.com/adamvr/arduino-base64, will work with any platform
+#error "Only ESP32 and Wio Terminal are supported"
 #endif
 
 //Global variables
@@ -350,11 +353,13 @@ void beginClient()
           char encodedCredentials[strEncodedCredentials.length() + 1];
           strEncodedCredentials.toCharArray(encodedCredentials, sizeof(encodedCredentials)); //Convert String to char array
           snprintf(credentials, sizeof(credentials), "Authorization: Basic %s\r\n", encodedCredentials);
-#else
+#elif defined(ARDUINO_WIO_TERMINAL)
           //Encode with nfriendly library
           int encodedLen = base64_enc_len(strlen(userCredentials));
           char encodedCredentials[encodedLen]; //Create array large enough to house encoded data
           base64_encode(encodedCredentials, userCredentials, strlen(userCredentials)); //Note: Input array is consumed
+#else
+#error "Only ESP32 and Wio Terminal are supported"
 #endif
         }
         strncat(serverRequest, credentials, SERVER_BUFFER_SIZE);

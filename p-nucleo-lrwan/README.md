@@ -97,14 +97,17 @@ Downlink UDP Connected
 Uplink UDP Connected                                                            
 ```
 
-Positionnez le mode de journalisation de la gateway.
+La gateway envoie alors les messages LoRa reçus par le concentrateur RisingHF au network server.
+
+### Jounalisation
+
+Positionnez le mode de journalisation de la gateway pour visualiser les messages LoRa reçus par la gateway.
 ```
 AT+LOG                                                                      
 AT+LOG=ON
 ```
 
 
-La gateway envoie alors les messages LoRa reçus par le concentrateur RisingHF au network server.
 
 ### Configuration du serveur NTP
 

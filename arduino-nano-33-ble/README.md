@@ -26,6 +26,18 @@ https://github.com/arduino-libraries/Arduino_LSM9DS1
 
 ### Test de la caméra OV7675
 
+Installez les bibliothèques [`Arduino_OV767X`](https://github.com/arduino-libraries/Arduino_OV767X) et [`Harvard_TinyMLx`](https://github.com/tinyMLx/arduino-library)
+
+Ouvrez le croquis `person_detection` depuis les exemples `Fichier > Exemples > Harvard_TinyMLx`.
+
+Compilez le croquis et chargez sur la carte.
+
+
+
+https://docs.edgeimpulse.com/docs/tutorials/detect-objects-using-fomo
+
+
+
 
 ### Test de la connectivité BLE
 
@@ -47,7 +59,7 @@ make BOARD=arduino-nano-33-ble -C tests/leds flash
 
 ### Test avec Tensorflow Lite
 
-
+https://github.com/tinyMLx/arduino-library/tree/main/examples
 
 ## Démarrage avec Zephyr OS
 
@@ -57,9 +69,8 @@ make BOARD=arduino-nano-33-ble -C tests/leds flash
 
 [TODO](https://docs.edgeimpulse.com/docs/development-platforms/officially-supported-mcu-targets/arduino-nano-33-ble-sense)
 
- 
-
-
 ## Autres exemples de démonstration
 
-https://www.youtube.com/watch?v=LXgL850p7b0 
+* https://www.youtube.com/watch?v=LXgL850p7b0 
+* https://github.com/tinyMLx/arduino-library
+* https://github.com/tinyMLx/arduino-library/tree/main/examples

@@ -2,11 +2,14 @@
 
 La carte [Arduino Nano 33 BLE](https://docs.arduino.cc/hardware/nano-33-ble) est batie autour d'une MCU Nordic nRF52840 (64 MHz, 1MB FlashRAM, 256KB SRAM) avec un module Bluetooth® NINA-B306 et une centrale inertiele IMU [LSM9DS1](https://www.st.com/en/mems-and-sensors/lsm9ds1.html).
 
-La carte [Arduino Nano 33 BLE](https://docs.arduino.cc/hardware/nano-33-ble) peut être achetée [individuelement](https://store.arduino.cc/products/arduino-nano-33-ble-sense) ou bien dans ce kit dédié à [Tiny Machine Learning](https://store.arduino.cc/products/arduino-tiny-machine-learning-kit). Ce dernier kit comporte une platine pour brancher facilement une camera OV7675 et des 6 platines Grove (3x I2C, 1 x Analogique A6 et A7, et 2x Numérique pour D11 et D12) ainsi qu'un bouton.
+La carte [Arduino Nano 33 BLE](https://docs.arduino.cc/hardware/nano-33-ble) peut être achetée [individuelement](https://store.arduino.cc/products/arduino-nano-33-ble-sense) ou bien dans ce kit dédié à [Tiny Machine Learning](https://store.arduino.cc/products/arduino-tiny-machine-learning-kit). Ce dernier kit comporte une platine pour brancher facilement une camera OV7675 et des 6 platines Grove (3x I2C, 1 x Analogique A6 et A7, et 2x Numérique pour D11 et D12) ainsi qu'un bouton raccordé à D13.
 
 ![Pinout](https://content.arduino.cc/assets/Pinout-NANOble_latest.png)
 
 ![Tiny Machine Learning Kit](./arduino-nano-33-ble.jpg)
+
+* [Schématique de la carte Nano 33 BLE](https://content.arduino.cc/assets/NANO33BLE_V2.0_sch.pdf)
+* [Schématique de la platine Machine Learning Kit](https://content.arduino.cc/assets/MachineLearningCarrierV1.0.pdf)
 
 ## Démarrage avec Arduino IDE 1.8
 

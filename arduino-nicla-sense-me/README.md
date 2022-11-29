@@ -29,5 +29,14 @@ Compilez et chargez le croquis.
 
 [TODO](https://docs.edgeimpulse.com/docs/development-platforms/officially-supported-mcu-targets/arduino-nicla-sense-me)
 
+
+```bash
+cd nicla_sense_ingestion/
+arduino-cli core install arduino:mbed_nicla
+arduino-cli lib install Arduino_BHY2
+arduino-cli lib install ArduinoBLE
+arduino-cli compile --fqbn arduino:mbed_nicla:nicla_sense --output-dir . --verbose
+```
+
 ## Références
 * [Manuel](https://docs.arduino.cc/static/9566019e357480c6f47f4978bd738d6a/ABX00050-datasheet.pdf)

@@ -32,16 +32,13 @@ Ouvrez le croquis `person_detection` depuis les exemples `Fichier > Exemples > H
 
 Compilez le croquis et chargez sur la carte.
 
-
-
-https://docs.edgeimpulse.com/docs/tutorials/detect-objects-using-fomo
-
-
-
-
 ### Test de la connectivité BLE
 
 https://www.arduino.cc/reference/en/libraries/arduinoble/
+
+### Test avec Tensorflow Lite
+
+https://github.com/tinyMLx/arduino-library/tree/main/examples
 
 
 ## Démarrage avec RIOT OS
@@ -59,7 +56,6 @@ make BOARD=arduino-nano-33-ble -C tests/leds flash
 
 ### Test avec Tensorflow Lite
 
-https://github.com/tinyMLx/arduino-library/tree/main/examples
 
 ## Démarrage avec Zephyr OS
 
@@ -68,6 +64,8 @@ https://github.com/tinyMLx/arduino-library/tree/main/examples
 ## Démarrage avec Edge Impulse
 
 [TODO](https://docs.edgeimpulse.com/docs/development-platforms/officially-supported-mcu-targets/arduino-nano-33-ble-sense)
+
+[Detect objects with centroids with FOMO](https://docs.edgeimpulse.com/docs/tutorials/detect-objects-using-fomo)
 
 ## Autres exemples de démonstration
 

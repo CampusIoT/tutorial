@@ -14,3 +14,7 @@ https://m5stack.oss-cn-shenzhen.aliyuncs.com/resource/arduino/package_m5stack_in
 
 * https://github.com/m5stack/TimerCam-arduino/tree/master/examples
 
+## Ajout d'un capteur IR de présence
+
+* https://www.hackster.io/jinxiao777/m5camera-motion-sensor-3b7527
+* https://github.com/masaki-takano/m5-capture

@@ -35,6 +35,10 @@ Ouvrez le croquis `person_detection` depuis les exemples `Fichier > Exemples > H
 
 Compilez le croquis et chargez sur la carte.
 
+### Test audio
+
+https://docs.edgeimpulse.com/docs/tutorials/audio-classification
+
 ### Test de la connectivité BLE
 
 https://www.arduino.cc/reference/en/libraries/arduinoble/

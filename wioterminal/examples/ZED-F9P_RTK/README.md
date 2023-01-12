@@ -18,7 +18,7 @@ Connect the ZED-F9P module to the I2C Grove Connector of the WioTerminal
 
 ## Sparkfun u-blox GNSS Library
 
-Search and install the "SparkFun u-blox GNSS" library using the Arduino IDE library manager.
+Search and install the "[SparkFun u-blox GNSS](https://github.com/sparkfun/SparkFun_u-blox_GNSS_Arduino_Library)" library using the Arduino IDE library manager.
 
 ## Get Position Accuracy
 
@@ -38,6 +38,8 @@ As part of our ever growing Arduino u-blox GNSS library, we’ve added a NTRIP S
 
 * https://docs.sparkfun.com/SparkFun_RTK_Firmware/intro/
 * https://docs.sparkfun.com/SparkFun_RTK_Firmware/permanent_base/
+* https://github.com/sparkfun/SparkFun_u-blox_GNSS_Arduino_Library
+* https://github.com/sparkfun/SparkFun_u-blox_GNSS_Arduino_Library/tree/main/examples/ZED-F9P
 * https://centipede.fr/
 * https://www.digikey.fr/fr/products/detail/mikroelektronika/MIKROE-4456/13662957
 * https://www.digikey.fr/fr/products/detail/u-blox/ANN-MB-00-00/9817928

@@ -37,8 +37,12 @@ Compile and upload the `Blink` sketch.
 
 The blue led blinks at 1 Hz
 
-## Python SDK
 
+## C/C++ SDK
+https://datasheets.raspberrypi.com/pico/raspberry-pi-pico-c-sdk.pdf
+
+## Python SDK
+https://datasheets.raspberrypi.com/pico/raspberry-pi-pico-python-sdk.pdf
 
 ## RIOT OS
 * https://doc.riot-os.org/group__boards__rpi__pico.html

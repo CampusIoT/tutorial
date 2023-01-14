@@ -2,6 +2,8 @@
 
 [M5 Stack](https://m5stack.com/) [Core2](https://shop.m5stack.com/collections/m5-controllers/products/m5stack-core2-esp32-iot-development-kit?variant=35960244109476) est une carte embarquée contruite sur ESP32 (connectivé BLE et Wifi) et un processeur LX6 dual core Xtensa® 32-bit 240Mhz. Elle a 16MB Flash et 8MB PSRAM. Elle a un écran tactile capacitif 2 pouces, un slot SDCard, un microphone, un speaker, une moteur vibrant, une IMU 6 axes, une batterie LiPo. Elle a un connecteur Grove et un port d'extension qui permet d'empiler des extensions disponibles dans un [important catalogue](https://docs.m5stack.com/en/products).
 
+![M5 Stack Core 2](m5stack-core2.jpg)
+
 
 ## Environnements de développement
 [Arduino](https://docs.m5stack.com/en/quick_start/core2/arduino)

@@ -1,6 +1,6 @@
 # M5 Stack Core2 (ESP32)
 
-[M5 Stack](https://m5stack.com/) [Core2](https://shop.m5stack.com/collections/m5-controllers/products/m5stack-core2-esp32-iot-development-kit?variant=35960244109476) est une carte embarquée contruite sur ESP32 (connectivé BLE et Wifi) et un processeur LX6 dual core Xtensa® 32-bit 240Mhz. Elle a 16MB Flash et 8MB PSRAM. Elle a un écran tactile capacitif 2 pouces, un slot SDCard, un microphone, un speaker, une moteur vibrant, une IMU 6 axes, une batterie LiPo. Elle a un connecteur Grove et un port d'extension qui permet d'empiler des extensions disponibles dans un [important catalogue](https://docs.m5stack.com/en/products).
+[M5 Stack](https://m5stack.com/) [Core2](https://shop.m5stack.com/collections/m5-controllers/products/m5stack-core2-esp32-iot-development-kit?variant=35960244109476) est une carte embarquée contruite sur ESP32 (connectivé BLE et Wifi) et un processeur LX6 dual core Xtensa® 32-bit 240Mhz. Elle a 16MB Flash et 8MB PSRAM. Elle a un écran tactile capacitif 2 pouces, un slot SDCard, un microphone, un speaker, une moteur vibrant, une IMU 6 axes, une batterie LiPo. Elle a un connecteur I2C et un port d'extension qui permet d'empiler des extensions disponibles dans un [important catalogue](https://docs.m5stack.com/en/products).
 
 ![M5 Stack Core 2](m5stack-core2.jpg)
 
@@ -15,9 +15,17 @@
 
 ## Démarrage avec Arduino
 
-TBD
+Ajoutez `https://m5stack.oss-cn-shenzhen.aliyuncs.com/resource/arduino/package_m5stack_index.json` dans la liste des URL des gestionnaires de cartes (menu `Arduino > Preferences ...`)
 
+Installez les cartes M5Stack via le menu `Outils > Type de cartes > Gestionnaire de cartes`.
 
+Selectionnez la carte `M5Stack Core 2` dans `Outils > Type de cartes > M5Stack Arduino`.
+
+Ouvrez le sketch `Fichier > Exemples > Wifi > WifiScan`.
+
+Compilez et chargez le sketch.
+
+Ouvrez la console série.
 
 ## IMU
 * https://www.hackster.io/fe-b/seismom5-earthquake-sensor-9982d9

@@ -14,8 +14,8 @@ https://www.mouser.fr/datasheet/2/412/DWM1001_DEV_Data_Sheet-1950462.pdf
 
 ## Getting started
 
-https://www.qorvo.com/products/d/da007973
-
+* [DWM1001 Gateway Quick Deployment Guide](https://www.qorvo.com/products/d/da007973)
+* [DWM1001 FIRMWARE APPLICATION PROGRAMMING INTERFACE (API) GUIDE](https://www.qorvo.com/products/d/da007975)
 
 ## Getting started with RIOT
 

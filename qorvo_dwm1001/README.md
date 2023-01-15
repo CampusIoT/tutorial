@@ -15,7 +15,75 @@ https://www.mouser.fr/datasheet/2/412/DWM1001_DEV_Data_Sheet-1950462.pdf
 ## Getting started
 
 * [DWM1001 Gateway Quick Deployment Guide](https://www.qorvo.com/products/d/da007973)
-* [DWM1001 FIRMWARE APPLICATION PROGRAMMING INTERFACE (API) GUIDE](https://www.qorvo.com/products/d/da007975)
+* [DWM1001 Firmware API Guide](https://www.qorvo.com/products/d/da007975)
+
+
+
+### UART Shell
+
+See Chapter 6 of [DWM1001 Firmware API Guide](https://www.qorvo.com/products/d/da007975):
+
+Shell mode shares UART interface with Generic mode. DWM1001 starts by default in UART Generic
+mode after reset. The Shell mode can be switched to by pressing ENTER twice within 1 second. The
+Generic mode can be switched to by executing command “quit” when in Shell mode. Shell mode and
+Generic mode can be switched back and forth.
+Enter the Shell command and press “Enter” to execute the command. Press “Enter” without any
+command in Shell mode to repeat the last command. The following sub-sections provides overview
+of the Shell commands.
+
+```
+dwm> ?
+Usage: <command> [arg0] [arg1]
+Build-in commands:
+** Command group: Base **
+?: this help
+help: this help
+quit: quit
+** Command group: GPIO **
+gc: GPIO clear
+gg: GPIO get
+gs: GPIO set
+gt: GPIO toggle
+** Command group: SYS **
+f: Show free memory on the heap
+ps: Show running threads
+pms: Show PM tasks
+reset: Reboot the system
+si: System info
+ut: Show device uptime
+frst: Factory reset
+** Command group: SENS **
+twi: General purpose TWI read
+aid: Read ACC device ID
+av: Read ACC values
+** Command group: LE **
+les: Show meas. and pos.
+lec: Show meas. and pos. in CSV
+lep: Show pos. in CSV
+** Command group: UWBMAC **
+nmg: Get node mode
+nmp: Set mode to PN (passive)
+nmo: Set mode to PN (off)
+nma: Set mode to AN
+nmi: Set mode to AIN
+nmt: Set mode to TN
+nmtl: Set mode to TN-LP
+bpc: Toggle BW/TxPWR comp
+la: Show AN list
+stg: Get stats
+stc: Clear stats
+** Command group: API **
+tlv: Send TLV frame
+aurs: Set upd rate
+aurg: Get upd rate
+apg: Get pos
+aps: Set pos
+acas: Set anchor config
+acts: Set tag config
+** Tips **
+Press Enter to repeat the last command
+```
+
 
 ## Getting started with RIOT
 

@@ -14,10 +14,16 @@ https://www.mouser.fr/datasheet/2/412/DWM1001_DEV_Data_Sheet-1950462.pdf
 
 ## Getting started
 
+* https://www.qorvo.com/products/p/DWM1001-DEV#documents
+
 * [DWM1001 Gateway Quick Deployment Guide](https://www.qorvo.com/products/d/da007973)
 * [DWM1001 Firmware API Guide](https://www.qorvo.com/products/d/da007975)
 
+* [Raspberry Pi 3B Image for DWM1001C](https://www.qorvo.com/extra/pim/da008480/DRTLS_raspbian_R2.0.zip)
+* [Android Application (APK file)](https://www.qorvo.com/products/d/da007984)
+* [DWM1001C Software and Documentation Pack](https://www.qorvo.com/products/d/da008479)
 
+* [DW1000 Metrics for Estimation of NLOS Operating Conditions (Application Note APS006 Part 3) Rev 1.1 – 2016](https://www.qorvo.com/products/d/da008442)
 
 ### UART Shell
 
@@ -120,6 +126,7 @@ https://github.com/thotro/arduino-dw1000
 * https://www.pozyx.io/pozyx-academy/how-does-ultra-wideband-work
 * https://github.com/Decawave
 * https://github.com/Decawave/dwm1001-examples
+* https://github.com/TIERS/dwm1001-uwb-firmware
 * https://medium.com/garage-inside-garage/getting-started-with-ultra-wide-band-3d-positioning-dwm1000-and-dwm1001-modules-ba2f64e572b6
 * https://developer.nordicsemi.com/nRF_Connect_SDK/doc/1.9.1/zephyr/boards/arm/decawave_dwm1001_dev/doc/index.html
 
@@ -134,6 +141,7 @@ https://github.com/thotro/arduino-dw1000
 * [Drone indoor positionning](https://www.youtube.com/watch?v=FVa_on1S_gg)
    
 ### PCB
+* [DWM1001-DEV Schematic](https://www.qorvo.com/products/d/da007979)
 * https://oshwlab.com/iforce2d/dwm1000-pro-mini
 
 ### Enclosures

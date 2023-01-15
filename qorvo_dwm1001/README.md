@@ -41,6 +41,13 @@ PROGRAMMER=openocd make BOARD=dwm1001 -C examples/twr_aloha flash
 
 https://github.com/thotro/arduino-dw1000
 
+## Getting started with ROS
+
+* https://forum.qorvo.com/t/robot-localization-using-dwm1001-for-ros-2/11992
+* https://github.com/TIERS/ros-dwm1001-uwb-localization
+* https://repositorio-aberto.up.pt/bitstream/10216/145742/2/593212.pdf
+* https://researchrepository.wvu.edu/cgi/viewcontent.cgi?article=12337&context=etd
+
 ## References
 * https://www.pozyx.io/pozyx-academy/how-does-ultra-wideband-work
 * https://github.com/Decawave

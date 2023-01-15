@@ -2,7 +2,7 @@
 
 Ultra WideBand (UWB) is one of the technologies for indoor [Real-time locating systems (RTLS)](https://en.wikipedia.org/wiki/Real-time_locating_system) with centimeter accuracy. Ultra WideBand (UWB) measures how long it takes for a radio wave to get from the asset to the anchor or reference point. This is called time of flight (TOF). [more](https://www.pozyx.io/pozyx-academy/how-does-ultra-wideband-work).
 
-Applications of indoor RTLS are : robotics/cobotics, industry 4.0 (smart factory), smart building maintenance, worker safety (danger zone alert), flying drone swarm's indoor positioning, sports, disable persons (Alzeimler), hospital (nursing trolley, stretcher, wheelchair ...) , entertaiment ([actors positioning](https://eliko.tech/case-study/tracking-actors-at-puy-du-fou-theme-park-in-france/) ...) RC car ...
+Applications of indoor RTLS are : robotics/cobotics, industry 4.0 (smart factory), smart building maintenance, worker safety (danger zone alert), flying drone swarm's indoor positioning, sports, disable persons (Alzeimler), hospital (nursing trolley, stretcher, wheelchair ...) , entertaiment ([actors positioning](https://eliko.tech/case-study/tracking-actors-at-puy-du-fou-theme-park-in-france/) for triggering light, video, sound, and special effects during a live show ...) RC car ...
 
 The Qorvo/Decawave DWM1001 development board includes a DWM1001 module which is based on a Nordic nRF51832 microcontroller. This microcontroller is an ARM Cortex-M4 with 64KB of RAM and 512KB of flash memory. It also provides in integrated BLE radio. The DWM1001 module also contains an Ultra Wide Band transceiver for indoor ranging and geolocation.
 

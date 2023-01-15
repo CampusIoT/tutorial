@@ -67,3 +67,7 @@ https://github.com/thotro/arduino-dw1000
    
 ### PCB
 * https://oshwlab.com/iforce2d/dwm1000-pro-mini
+
+### Enclosures
+* [DWM1001-DEV enclosures](https://gitlab.com/Inria-Chile/Atelier-Inria/dwm-rtls/-/tree/master/enclosures)
+

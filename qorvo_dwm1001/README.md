@@ -90,7 +90,6 @@ acts: Set tag config
 Press Enter to repeat the last command
 ```
 
-
 ## Getting started with RIOT
 
 * https://github.com/RIOT-OS/RIOT/blob/master/boards/dwm1001/doc.txt
@@ -121,7 +120,8 @@ https://github.com/thotro/arduino-dw1000
 * https://github.com/TIERS/ros-dwm1001-uwb-localization
 * https://repositorio-aberto.up.pt/bitstream/10216/145742/2/593212.pdf
 * https://researchrepository.wvu.edu/cgi/viewcontent.cgi?article=12337&context=etd
-
+* https://github.com/TIERS/uwb-drone-dataset/blob/master/ros_nodes/dwm1001_interface/src/dwm1001_apiCommands.py
+* 
 ## References
 * https://www.pozyx.io/pozyx-academy/how-does-ultra-wideband-work
 * https://github.com/Decawave
@@ -129,6 +129,11 @@ https://github.com/thotro/arduino-dw1000
 * https://github.com/TIERS/dwm1001-uwb-firmware
 * https://medium.com/garage-inside-garage/getting-started-with-ultra-wide-band-3d-positioning-dwm1000-and-dwm1001-modules-ba2f64e572b6
 * https://developer.nordicsemi.com/nRF_Connect_SDK/doc/1.9.1/zephyr/boards/arm/decawave_dwm1001_dev/doc/index.html
+* https://github.com/bsppbep/DWM1001-DEV
+* https://github.com/TIERS/uwb-drone-dataset
+* https://github.com/TIERS/dynamic-uwb-firmware
+* https://github.com/TIERS/active-passive-uwb-ros
+* https://github.com/TIERS/uwb-collaborative-sensing
 
 ### Video
 * [MDEK Quick Start Guide](https://www.youtube.com/watch?v=hI8EaU5nOmI) 

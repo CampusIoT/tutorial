@@ -242,11 +242,6 @@ cd ~/github/RIOT-OS/RIOT/tests/saul
 make BOARD=$BOARD flash term
 ```
 
-For `lora-e5-dev`
-```bash
-TODO
-```
-
 Edit `Makefile` in order to add the modules related to the sensors available onto the shield.
 
 ```Makefile

@@ -40,22 +40,50 @@ TODO
 * [Getting Started](https://riot-os.github.io/riot-course/slides/02-getting-started/#1)
 * [RIOT Basics](https://riot-os.github.io/riot-course/slides/03-riot-basics/#1)
 
-## Boards and shields
+> All the supported CPU are in the [directory `cpu`](https://github.com/RIOT-OS/RIOT/tree/master/cpu)
+
+```bash
+cd ~/github/RIOT-OS/RIOT/cpu
+ls -al
+```
+
+> All the supported boards are in the [directory `boards`](https://github.com/RIOT-OS/RIOT/tree/master/boards)
+
+```bash
+cd ~/github/RIOT-OS/RIOT/boards
+ls -al
+```
+
+> All the supported sensors drivers are in the [directory `drivers`](https://github.com/RIOT-OS/RIOT/tree/master/drivers)
+
+```bash
+cd ~/github/RIOT-OS/RIOT/drivers
+ls -al
+```
+
+
+## Boards and shields for the workshop
 
 ### MCU boards
 
-* Nucleo STM32 Fxxx / Lxxx
-* Nucleo STM32WB55
+* STM Nucleo STM32 Fxxx / Lxxx
+* [STM P-Nucleo STM32WB55](https://www.st.com/en/evaluation-tools/p-nucleo-wb55.html)
+* [STM B-L072Z-LRWAN1](https://www.st.com/en/evaluation-tools/b-l072z-lrwan1.html)
+* [STM B-L475E-IOT01A](https://www.st.com/en/evaluation-tools/b-l475e-iot01a.html)
+* [STM B-U585I-IOT02A](https://www.st.com/en/evaluation-tools/b-u585i-iot02a.html)
 * Seeedstudio LoRa E5 [Dev](https://stm32python.gitlab.io/fr-version-lora/lora-e5-dev.html)/[Mini]() (STM32WL55 included) requires a STLink programmer
 * [IMST iM880a](https://github.com/CampusIoT/tutorial/tree/master/im880a)
-* Espressive ESP32 Wroom Dev Kit 
-* Sparkfun PRaspberry RP2040
+* [Sparkfun Raspberry RP2040](https://www.sparkfun.com/products/18721)
+* [Espressif ESP32 Wroom Dev Kit](https://www.espressif.com/en/products/devkits)
 
 ### Sensors and Actuators
 
 * Shield MEMS IKS01Ax
 * [Grove Base Shield (for Arduino)](https://www.seeedstudio.com/Base-Shield-V2.html)
 * [Grove Sensor Modules](https://wiki.seeedstudio.com/Grove/)
+
+![Grove Basic Shield](images/grove-shield.jpg)
+
 
 ### IoT Communications
 
@@ -67,11 +95,9 @@ TODO
 
 * [Qorvo DWM 1001](https://github.com/CampusIoT/tutorial/tree/master/qorvo_dwm1001)
 
-
 ## Lesson #1: Hello world and Shell
 
-
-Configure your board (`nucleo-f411re`, `nucleo-f446re`, `nucleo-l152re`, `p-nucleo-wb55`, `lora-e5-dev` ...)
+Configure your board (`nucleo-f411re`, `nucleo-f446re`, `nucleo-l152re`, `p-nucleo-wb55`, `lora-e5-dev`, `b-l072z-lrwan1`,  ...)
 ```bash
 BOARD=your_board
 ```
@@ -85,7 +111,6 @@ make BOARD=$BOARD flash term
 cd ~/github/RIOT-OS/RIOT/tests/shell
 make BOARD=$BOARD flash term
 ```
-
 
 ## Lesson #2: Blink a LED (Hello world)
 
@@ -103,20 +128,17 @@ make BOARD=$BOARD flash term
 
 ## Lesson #3: MEMS and IMU
 
-Check the version of the shield
+IKS01Ax shields provide several IMU and TH sensors from ST Microelectronic.
+
+Check the version of the shield.
+
+![iks01a3](images/iks01a3.jpg)
 
 Shield Nucleo IKS01A1 (sensors are LSM6DS0, LIS3MDL, LPS25HB, HTS221)
 * https://www.st.com/en/ecosystems/x-nucleo-iks01a1.html
 
-LSM6DS0: MEMS 3D accelerometer (±2/±4/±8 g) + 3D gyroscope (±245/±500/±2000 dps)
-LIS3MDL: MEMS 3D magnetometer (±4/ ±8/ ±12/ 16 gauss)
-LPS25HB*: MEMS pressure sensor, 260-1260 hPa absolute digital output barometer
-HTS221: capacitive digital relative humidity and temperature 
-
-
 Shield Nucleo IKS01A2 (sensors are LSM6DSL, LSM303AGR, LPS22HB, HTS221)
 * https://www.st.com/en/ecosystems/x-nucleo-iks01a2.html 
-
 
 Shield Nucleo IKS01A3 (sensors are LSM6DSO, LIS2MDL, LIS2DW12, LPS22HH, HTS221, STTS751)
 * https://stm32python.gitlab.io/fr-version-lora/micro_python_iks01a3.html
@@ -186,7 +208,7 @@ USEMODULE += lm75
 USEMODULE += stts751
 
 USEMODULE += lpsxxx
-# Add the sub driver
+# set the correct sub driver
 USEMODULE += lps25hb
 ...
 ```
@@ -196,7 +218,19 @@ cd ~/github/RIOT-OS/RIOT/tests/saul
 make BOARD=$BOARD flash term
 ```
 
-## Lesson #5: LoRa/LoRaWAN communications
+## Lesson #5 : Analog GPIO
+
+Connect the Grove Thumb Joystick to the Grove Basic Shield (A1,A3)
+
+```bash
+cd ~/github/RIOT-OS/RIOT/tests/saul
+make BOARD=$BOARD flash term
+```
+
+![Grove Thumb Joystick](grove-thumb-joystick.jpg)
+
+
+## Lesson #6: LoRa/LoRaWAN communications
 
 * https://riot-os.github.io/riot-course/slides/05-lorawan-with-riot/#1
 * https://stm32python.gitlab.io/fr-version-lora/lora.html 
@@ -208,7 +242,6 @@ Login on [CampusIoT LoRa Network Server](https://lns.campusiot.imag.fr/#/organiz
 The username is GuestSandbox and the password is given during the workshop.
 
 The Organisation is `SANDBOX`.
-
 Several endpoints has been already provisioned in this [application](https://lns.campusiot.imag.fr/#/organizations/5/applications/258).
 
 Choose one for setting the DEVEUI, APPEUI and APPKEY of your endpoint.

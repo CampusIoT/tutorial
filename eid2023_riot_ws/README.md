@@ -82,7 +82,7 @@ ls -al
 * [Grove Base Shield (for Arduino)](https://www.seeedstudio.com/Base-Shield-V2.html)
 * [Grove Sensor Modules](https://wiki.seeedstudio.com/Grove/)
 
-![Grove Basic Shield](images/grove-shield.jpg)
+![Grove Basic Shield](images/grove-shield.png)
 
 
 ### IoT Communications
@@ -227,7 +227,7 @@ cd ~/github/RIOT-OS/RIOT/tests/saul
 make BOARD=$BOARD flash term
 ```
 
-![Grove Thumb Joystick](grove-thumb-joystick.jpg)
+![Grove Thumb Joystick](images/grove-thumb-joystick.jpg)
 
 
 ## Lesson #6: LoRa/LoRaWAN communications
@@ -263,22 +263,22 @@ EID_0A ABCDEF120000000A  ABCDEF1200FFFFFF CAFEBABECAFEBABE0123456789ABCDEF
 Show the LoRa trafic on the [local gateway console](https://lns.campusiot.imag.fr/#/organizations/5/gateways)
 
 
-## Lesson #6: UWB Ranging and positioning
+## Lesson #7: UWB Ranging and positioning
 
 * https://github.com/CampusIoT/tutorial/tree/master/qorvo_dwm1001#getting-started-with-riot 
 
 
-## Lesson #7: Micro Python
+## Lesson #8: Micro Python
 TODO
 
-## Lesson #8: RUST
+## Lesson #9: RUST
 TODO
 
-## Lesson #9: Cryptography (ED25519)
+## Lesson #10: Cryptography (ED25519)
 
 https://github.com/thingsat/ecc_mcu_benchmarks
 
 
-### Lesson #10: Secure Firmware Update (TODO)
+### Lesson #11: Secure Firmware Update (TODO)
 
 This part requires a SDCard reader. New firmware is delivered on a SDCard 

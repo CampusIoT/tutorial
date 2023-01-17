@@ -293,14 +293,32 @@ Data:	          20.87 °C
 
 ## Lesson #5 : Analog GPIO
 
-Connect the Grove Thumb Joystick to the Grove Basic Shield (A1,A3)
+Connect the Grove Thumb Joystick to the A0 connector on the Grove Basic Shield (Pins are A0,A1)
+
+![Grove Thumb Joystick](images/grove-thumb-joystick.jpg)
 
 ```bash
-cd ~/github/RIOT-OS/RIOT/tests/saul
+cd ~/github/RIOT-OS/RIOT/tests/periph_adc
 make BOARD=$BOARD flash term
 ```
 
-![Grove Thumb Joystick](images/grove-thumb-joystick.jpg)
+```
+TODO
+```
+
+
+
+
+```bash
+cd ~/github/RIOT-OS/RIOT/tests/sys_arduino_analog
+make BOARD=$BOARD flash term
+```
+
+```
+TODO
+```
+
+
 
 
 ## Lesson #6: LoRa/LoRaWAN communications
@@ -357,6 +375,30 @@ TODO
 https://github.com/thingsat/ecc_mcu_benchmarks
 
 
-### Lesson #12: Secure Firmware Update (TODO)
+## Lesson #12: Secure Firmware Update (TODO)
 
 This part requires a SDCard reader. New firmware is delivered on a SDCard 
+
+## Extra
+
+### SRF0x ultrasonic range sensor
+
+Plug the SRF0x ultrasonic range sensor into a I2C commector of the Grove Basic Shield
+
+
+```bash
+cd ~/github/RIOT-OS/RIOT/tests/driver_srf02
+make BOARD=$BOARD flash term
+```
+
+```bash
+cd ~/github/RIOT-OS/RIOT/tests/driver_srf04
+make BOARD=$BOARD flash term
+```
+
+```bash
+cd ~/github/RIOT-OS/RIOT/tests/driver_srf08
+make BOARD=$BOARD flash term
+```
+
+

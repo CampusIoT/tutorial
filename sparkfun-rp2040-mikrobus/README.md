@@ -47,6 +47,16 @@ https://datasheets.raspberrypi.com/pico/raspberry-pi-pico-python-sdk.pdf
 ## RIOT OS
 * https://doc.riot-os.org/group__boards__rpi__pico.html
 
+Push Boot button when plug the USB cable in order to set the board in `boot` mode.
+
+```bash
+cd ~/github/RIOT-OS/RIOT/tests/leds
+if [ "$(uname)" == "Darwin" ]; then
+ELF2UF2_MOUNT_PATH=/Volumes/RPI-RP2 make BOARD=rpi-pico flash
+else
+make BOARD=rpi-pico flash
+fi
+```
 
 ## References
 

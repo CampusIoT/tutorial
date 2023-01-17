@@ -59,11 +59,11 @@ TODO
 
 ### IoT Communications
 
-### LoRa/LoRaWAN
+#### LoRa/LoRaWAN
 
 * Shield LoRa [SX1272](https://os.mbed.com/components/SX1272MB2xAS/) and [SX1276](https://os.mbed.com/components/SX1276MB1xAS/)
 
-### Ultra Wide Band
+#### Ultra Wide Band
 
 * [Qorvo DWM 1001](https://github.com/CampusIoT/tutorial/tree/master/qorvo_dwm1001)
 

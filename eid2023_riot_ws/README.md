@@ -97,7 +97,7 @@ ls -al
 
 ## Lesson #1: Hello world and Shell
 
-Configure your board (`nucleo-f411re`, `nucleo-f446re`, `nucleo-l152re`, `p-nucleo-wb55`, `lora-e5-dev`, `b-l072z-lrwan1`,  ...)
+Configure your board (`nucleo-f411re`, `nucleo-f446re`, `nucleo-l152re`, `p-nucleo-wb55`, `lora-e5-dev`, `b-l072z-lrwan1`, `dwm1001`, `rpi-pico` ...)
 ```bash
 BOARD=your_board
 ```
@@ -124,6 +124,33 @@ make BOARD=$BOARD flash term
 ```bash
 cd ~/github/RIOT-OS/RIOT/tests/buttons
 make BOARD=$BOARD flash term
+```
+
+With `lora-e5-dev` boards
+```
+Help: Press s to start test, r to print it is ready
+START
+main(): This is RIOT! (Version: 2022.01-devel-217-g43bef)
+On-board button test
+
+ -- Available buttons: 2
+
+ -- Try pressing buttons to test.
+
+[SUCCESS]
+Help: Press s to start test, r to print it is ready
+START
+main(): This is RIOT! (Version: 2022.01-devel-217-g43bef)
+On-board button test
+
+ -- Available buttons: 2
+
+ -- Try pressing buttons to test.
+
+[SUCCESS]
+Pressed BTN0
+Pressed BTN0
+Pressed BTN0
 ```
 
 ## Lesson #3: MEMS and IMU
@@ -183,9 +210,32 @@ make BOARD=$BOARD flash term
 
 > TODO : test for `drivers/lsm303agr`
 
+
+For `lora-e5-dev` boards, test the NXP LM75 temperature sensor
+```bash
+cd ~/github/RIOT-OS/RIOT/tests/driver_lm75
+make BOARD=lora-e5-dev DRIVER=lm75a
+```
+
+```
+main(): This is RIOT! (Version: 2022.01-devel-429-g70744)                       
+Sensor test...                                                                  
+Initialization...                                                               
+Initialization succeeded                                                        
+error setting Hyst and/or OS temps                                              
+Set OS temp is 80.0ºC                                                          
+Set HYST temp is 75.0ºC                                                        
+20.0ºC                                                                         
+Set OS temp is 80.0ºC                                                          
+Set HYST temp is 75.0ºC                                                        
+lm75: OS alert pin not connected or defined                                     
+Error reading OS pin state                                                      
+22.500ºC                                                                       
+``` 
+
 ## Lesson #4: SAUL ([[S]ensor [A]ctuator [U]ber [L]ayer](https://doc.riot-os.org/group__drivers__saul.html))
 
-Keep the  Nucleo IKS01Ax Shield onto your Nucleo board
+Keep the Nucleo IKS01Ax Shield onto your Nucleo board
 
 ```bash
 cd ~/github/RIOT-OS/RIOT/tests/saul
@@ -216,6 +266,29 @@ USEMODULE += lps25hb
 ```bash
 cd ~/github/RIOT-OS/RIOT/tests/saul
 make BOARD=$BOARD flash term
+```
+
+
+For `lora-e5-dev` boards
+```bash
+cd ~/github/RIOT-OS/RIOT/tests/saul
+make BOARD=lora-e5-dev
+```
+
+```
+##########################
+ 
+Dev: LED(red)	Type: ACT_SWITCH
+Data:	              1 
+ 
+Dev: Button(B1 Boot)	Type: SENSE_BTN
+Data:	              0 
+ 
+Dev: Button(B2 D0)	Type: SENSE_BTN
+Data:	              0 
+ 
+Dev: lm75	Type: SENSE_TEMP
+Data:	          20.87 °C
 ```
 
 ## Lesson #5 : Analog GPIO
@@ -267,18 +340,23 @@ Show the LoRa trafic on the [local gateway console](https://lns.campusiot.imag.f
 
 * https://github.com/CampusIoT/tutorial/tree/master/qorvo_dwm1001#getting-started-with-riot 
 
+## Lesson #8: GNSS module
 
-## Lesson #8: Micro Python
 TODO
 
-## Lesson #9: RUST
+## Lesson #9: Micro Python
+
 TODO
 
-## Lesson #10: Cryptography (ED25519)
+## Lesson #10: RUST
+
+TODO
+
+## Lesson #11: Cryptography (ED25519)
 
 https://github.com/thingsat/ecc_mcu_benchmarks
 
 
-### Lesson #11: Secure Firmware Update (TODO)
+### Lesson #12: Secure Firmware Update (TODO)
 
 This part requires a SDCard reader. New firmware is delivered on a SDCard 

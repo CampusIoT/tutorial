@@ -30,8 +30,8 @@ Installing building tools for ARM7 architecture since the boards used for the tu
 
 ### Applications for Serial Console
 
-* Putty for Windows
-* minicom,tio,pyterm on MacOS/Linux
+* [Putty for Windows](https://www.putty.org/)
+* `minicom`, `tio`, `pyterm` on MacOS/Linux
 
 TODO
 
@@ -82,7 +82,9 @@ ls -al
 * [Grove Base Shield (for Arduino)](https://www.seeedstudio.com/Base-Shield-V2.html)
 * [Grove Sensor Modules](https://wiki.seeedstudio.com/Grove/)
 
-![Grove Basic Shield](images/grove-shield.png)
+<!-- ![Grove Basic Shield](images/grove-shield.png) -->
+
+![Grove Basic Shield](images/base_shield_v2.png)
 
 
 ### IoT Communications

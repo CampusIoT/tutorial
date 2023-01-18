@@ -86,6 +86,7 @@ ls -al
 
 ![Grove Basic Shield](images/base_shield_v2.png)
 
+![Boards and shields for the tutorial](images/boards.jpg)
 
 ### IoT Communications
 

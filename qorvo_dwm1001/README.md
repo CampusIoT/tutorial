@@ -106,7 +106,7 @@ brew install tio
 tio -L
 ```
 
-For node #1 on terminal 1
+For node #1 (`4F:AA`) on terminal 1
 ```bash
 tio -b 115200 -m INLCRNL /dev/tty.usbmodem0007601826991
 ```
@@ -123,7 +123,7 @@ Iface  3	HWaddr: 4F:AA  Channel: 5  NID: DE:CA
 [twr]: start listening
 ```
 
-For node #2 on terminal 2
+For node #2 (`92:1E`) on terminal 2
 ```bash
 tio -b 115200 -m INLCRNL /dev/tty.usbmodem0007601826991
 ```
@@ -163,6 +163,9 @@ Usage:
 {"t": 3256625, "src": "92:1E", "dst": "4F:AA", "d_cm": 72}
 ```
 
+TODO:
+* add RTC shell command and show add RTC epoch into the JSON entry.
+* request a list of nodes in "parallel".
 
 ## Getting started with Zephyr
 

@@ -66,7 +66,8 @@ ls -al
 
 ### MCU boards
 
-* STM Nucleo STM32 Fxxx / Lxxx
+* STM Nucleo STM32 F446RE, F401RE, F411RE, L152RE, L073RZ, L053R8 ...
+* [STM STM32F746G-DISCO](https://www.st.com/en/evaluation-tools/32f746gdiscovery.html)
 * [STM P-Nucleo STM32WB55](https://www.st.com/en/evaluation-tools/p-nucleo-wb55.html)
 * [STM B-L072Z-LRWAN1](https://www.st.com/en/evaluation-tools/b-l072z-lrwan1.html)
 * [STM B-L475E-IOT01A](https://www.st.com/en/evaluation-tools/b-l475e-iot01a.html)
@@ -100,7 +101,7 @@ ls -al
 
 ## Lesson #1: Hello world and Shell
 
-Configure your board (`nucleo-f411re`, `nucleo-f446re`, `nucleo-l152re`, `p-nucleo-wb55`, `lora-e5-dev`, `b-l072z-lrwan1`, `dwm1001`, `rpi-pico` ...)
+Configure your board (`nucleo-f411re`, `nucleo-f446re`, `nucleo-l152re`, `nucleo-l073rz`, `p-nucleo-wb55`, `stm32f746g-disco`, `lora-e5-dev`, `b-l072z-lrwan1`, `dwm1001`, `rpi-pico` ...) according to the model into the [supported list](https://github.com/RIOT-OS/RIOT/tree/master/boards).
 ```bash
 BOARD=your_board
 ```

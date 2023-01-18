@@ -92,12 +92,75 @@ Press Enter to repeat the last command
 
 ## Getting started with RIOT
 
-* https://github.com/RIOT-OS/RIOT/blob/master/boards/dwm1001/doc.txt
-* https://github.com/RIOT-OS/RIOT/blob/master/examples/twr_aloha/README.md
+The DWM1001 DEV kit is supported by [RIOT OS](https://github.com/RIOT-OS/RIOT/blob/master/boards/dwm1001/doc.txt).
+
+Follow the [DWM1001 Ranging Tutorial](https://github.com/RIOT-OS/RIOT/blob/master/examples/twr_aloha/README.md)
 
 ```bash
-PROGRAMMER=openocd make BOARD=dwm1001 -C examples/hello-world flash
-PROGRAMMER=openocd make BOARD=dwm1001 -C examples/twr_aloha flash
+cd examples/twr_aloha
+PROGRAMMER=openocd make BOARD=dwm1001 flash
+```
+
+```bash
+brew install tio
+tio -L
+```
+
+For node #1 on terminal 1
+```bash
+tio -b 115200 -m INLCRNL /dev/tty.usbmodem0007601826991
+```
+
+Set the node in (ranging request) listening mode:
+
+```
+> ifconfig
+Iface  3	HWaddr: 4F:AA  Channel: 5  NID: DE:CA
+
+		Long HWaddr: 0D:BB:31:40:10:24:4F:AA
+		TX-Power: 8.5dBm  TC-PGdelay: 0xb5
+> twr lst on
+[twr]: start listening
+```
+
+For node #2 on terminal 2
+```bash
+tio -b 115200 -m INLCRNL /dev/tty.usbmodem0007601826991
+```
+
+Send a ranging request:
+```
+> ifconfig
+Iface  3	HWaddr: 92:1E  Channel: 5  NID: DE:CA
+
+		Long HWaddr: 0D:BB:31:40:10:24:92:1E
+		TX-Power: 8.5dBm  TC-PGdelay: 0xb5
+> twr
+Usage:
+	twr req <short_addr> [-p <proto>] [-c <count>] [-h][-i <ms interval>] 
+	 - short_addr: short address of request destination
+	 - count: number of requests (default: 1)
+	 - ms interval: wait interval milliseconds between requests(default: 1000)
+	 - proto: twr protocol (ss|ss-ext|ss-ack|ds|ds-ext, default: ss)
+	twr lst on: start listening for ranging requests
+	twr lst off: stop listening for ranging requests
+> twr req 4F:AA
+[twr]: start ranging
+{"t": 2945891, "src": "92:1E", "dst": "4F:AA", "d_cm": 24}
+> twr req 4F:AA
+[twr]: start ranging
+{"t": 2972012, "src": "92:1E", "dst": "4F:AA", "d_cm": 82}
+> twr req 4F:AA -count 10
+[twr]: start ranging
+{"t": 3247626, "src": "92:1E", "dst": "4F:AA", "d_cm": 47}
+{"t": 3248626, "src": "92:1E", "dst": "4F:AA", "d_cm": 41}
+{"t": 3249625, "src": "92:1E", "dst": "4F:AA", "d_cm": 43}
+{"t": 3250625, "src": "92:1E", "dst": "4F:AA", "d_cm": 70}
+{"t": 3251625, "src": "92:1E", "dst": "4F:AA", "d_cm": 93}
+{"t": 3252625, "src": "92:1E", "dst": "4F:AA", "d_cm": 89}
+{"t": 3254625, "src": "92:1E", "dst": "4F:AA", "d_cm": 77}
+{"t": 3255625, "src": "92:1E", "dst": "4F:AA", "d_cm": 73}
+{"t": 3256625, "src": "92:1E", "dst": "4F:AA", "d_cm": 72}
 ```
 
 

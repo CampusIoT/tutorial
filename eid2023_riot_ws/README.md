@@ -170,16 +170,11 @@ Check the version of the shield.
 
 ![iks01a3](images/iks01a3.jpg)
 
-Shield Nucleo IKS01A1 (sensors are LSM6DS0, LIS3MDL, LPS25HB, HTS221)
-* https://www.st.com/en/ecosystems/x-nucleo-iks01a1.html
-
-Shield Nucleo IKS01A2 (sensors are LSM6DSL, LSM303AGR, LPS22HB, HTS221)
-* https://www.st.com/en/ecosystems/x-nucleo-iks01a2.html 
-
-Shield Nucleo IKS01A3 (sensors are LSM6DSO, LIS2MDL, LIS2DW12, LPS22HH, HTS221, STTS751)
-* https://stm32python.gitlab.io/fr-version-lora/micro_python_iks01a3.html
-* https://www.st.com/en/ecosystems/x-nucleo-iks01a3.html
-
+* Shield Nucleo [IKS01A1](https://www.st.com/en/ecosystems/x-nucleo-iks01a1.html) (sensors are LSM6DS0, LIS3MDL, LPS25HB, HTS221)
+* Shield [Nucleo IKS01A2](https://www.st.com/en/ecosystems/x-nucleo-iks01a2.html) (sensors are LSM6DSL, LSM303AGR, LPS22HB, HTS221)
+* Shield [Nucleo IKS01A3](https://www.st.com/en/ecosystems/x-nucleo-iks01a3.html) (sensors are LSM6DSO, LIS2MDL, LIS2DW12, LPS22HH, HTS221, STTS751)
+* Board [B-L475E-IOT01A](https://www.st.com/en/evaluation-tools/b-l475e-iot01a.html) (sensors are MP34DT01, HTS221, LIS3MDL, LSM6DSL, LPS22HB, VL53L0X)
+* Board [B-U585I-IOT02A]([https://www.st.com/en/evaluation-tools/b-l475e-iot01a.html](https://www.st.com/en/evaluation-tools/b-u585i-iot02a.html) (sensors are MP34DT01 microphones, IIS2MDCTR gyroscope, ISM330DHCX magnetometer, LPS22HH barometer, HTS221 humidity and temperature, VL53L5 time-of-flight, and VEML6030 ambient light)
 
 For HTS221 (capacitive digital relative humidity and temperature)
 ```bash
@@ -247,7 +242,6 @@ For MAG3110 breakout (plug in an I2C connector of the Grove Basic Shield)
 cd ~/github/RIOT-OS/RIOT/tests/driver_mag3110
 make BOARD=$BOARD
 ```
-
 
 
 ## Lesson #4: SAUL ([[S]ensor [A]ctuator [U]ber [L]ayer](https://doc.riot-os.org/group__drivers__saul.html))

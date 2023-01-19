@@ -69,13 +69,17 @@ ls -al
 * STM Nucleo STM32 F446RE, F401RE, F411RE, L152RE, L073RZ, L053R8 ...
 * [STM STM32F746G-DISCO](https://www.st.com/en/evaluation-tools/32f746gdiscovery.html)
 * [STM P-Nucleo STM32WB55](https://www.st.com/en/evaluation-tools/p-nucleo-wb55.html)
-* [STM B-L072Z-LRWAN1](https://www.st.com/en/evaluation-tools/b-l072z-lrwan1.html)
 * [STM B-L475E-IOT01A](https://www.st.com/en/evaluation-tools/b-l475e-iot01a.html)
 * [STM B-U585I-IOT02A](https://www.st.com/en/evaluation-tools/b-u585i-iot02a.html)
-* Seeedstudio LoRa E5 [Dev](https://stm32python.gitlab.io/fr-version-lora/lora-e5-dev.html)/[Mini]() (STM32WL55 included) requires a STLink programmer
-* [IMST iM880a](https://github.com/CampusIoT/tutorial/tree/master/im880a)
 * [Sparkfun Raspberry RP2040](https://www.sparkfun.com/products/18721)
 * [Espressif ESP32 Wroom Dev Kit](https://www.espressif.com/en/products/devkits)
+
+### MCU Boards with a LoRa transceiver
+
+* [STM B-L072Z-LRWAN1](https://www.st.com/en/evaluation-tools/b-l072z-lrwan1.html)
+* [IMST iM880a](https://github.com/CampusIoT/tutorial/tree/master/im880a)
+* Seeedstudio LoRa E5 [Dev](https://stm32python.gitlab.io/fr-version-lora/lora-e5-dev.html)/[Mini]() (STM32WL55 included) requires a STLink programmer
+* [STM NUCLEO-WL55JC](https://www.st.com/en/evaluation-tools/nucleo-wl55jc.html) (STM32WL55 included)
 
 ### Sensors and Actuators
 
@@ -93,7 +97,8 @@ ls -al
 
 #### LoRa/LoRaWAN
 
-* Shield LoRa [SX1272](https://os.mbed.com/components/SX1272MB2xAS/) and [SX1276](https://os.mbed.com/components/SX1276MB1xAS/)
+* Shield Semtech LoRa [SX1272MB2DAS](https://os.mbed.com/components/SX1272MB2xAS/) with SX1272 (868MHz only)
+* Shield Semtech LoRa [SX1276MB1MAS](https://os.mbed.com/components/SX1276MB1xAS/) with SX1276 (433MHz and 868MHz)
 
 #### Ultra Wide Band
 
@@ -237,6 +242,14 @@ Error reading OS pin state
 22.500ºC                                                                       
 ``` 
 
+For MAG3110 breakout (plug in an I2C connector of the Grove Basic Shield) 
+```bash
+cd ~/github/RIOT-OS/RIOT/tests/driver_mag3110
+make BOARD=$BOARD
+```
+
+
+
 ## Lesson #4: SAUL ([[S]ensor [A]ctuator [U]ber [L]ayer](https://doc.riot-os.org/group__drivers__saul.html))
 
 Keep the Nucleo IKS01Ax Shield onto your Nucleo board
@@ -323,13 +336,10 @@ TODO
 ## Lesson #6: LoRa/LoRaWAN communications
 
 * https://riot-os.github.io/riot-course/slides/05-lorawan-with-riot/#1
-* https://stm32python.gitlab.io/fr-version-lora/lora.html 
-* https://stm32python.gitlab.io/fr-version-lora/lora-e5-dev.html 
-* https://stm32python.gitlab.io/fr-version-lora/lora-e5-mini.html 
 
 Login on [CampusIoT LoRa Network Server](https://lns.campusiot.imag.fr/#/organizations/5/applications/258)
 
-The username is GuestSandbox and the password is given during the workshop.
+The username is `GuestSandbox` and the password is given during the workshop.
 
 The Organisation is `SANDBOX`.
 Several endpoints has been already provisioned in this [application](https://lns.campusiot.imag.fr/#/organizations/5/applications/258).
@@ -352,6 +362,149 @@ EID_0A ABCDEF120000000A  ABCDEF1200FFFFFF CAFEBABECAFEBABE0123456789ABCDEF
 
 Show the LoRa trafic on the [local gateway console](https://lns.campusiot.imag.fr/#/organizations/5/gateways/353036201a003200/frames)
 
+For NUCLEO-WL55JC1 boards (868 MHz)
+```bash
+cd ~/github/RIOT-OS/RIOT/tests/pkg_semtech-loramac/
+make BOARD=nucleo-wl55jc LORA_DRIVER=sx126x_stm32wl flash term
+```
+
+For NUCLEO-WL55JC2 boards (433 MHz)
+```bash
+cd ~/github/RIOT-OS/RIOT/tests/pkg_semtech-loramac/
+make BOARD=nucleo-wl55jc LORA_DRIVER=sx126x_stm32wl REGION=EU433 flash term
+```
+
+For Seeedstudio LoRa E5 board Dev and Mini (868 MHz)
+```bash
+cd ~/github/RIOT-OS/RIOT/tests/pkg_semtech-loramac/
+make BOARD=lora-e5-dev LORA_DRIVER=sx126x_stm32wl flash term
+```
+
+For Nucleo Lxxx/Fxxx boards with the Semtech [SX1272MB2DAS](https://os.mbed.com/components/SX1272MB2xAS/) LoRa shield (868 MHz only)
+```bash
+cd ~/github/RIOT-OS/RIOT/tests/pkg_semtech-loramac/
+make BOARD=$BOARD LORA_DRIVER=sx1272 flash term
+```
+
+For Nucleo Lxxx/Fxxx boards with the Semtech [SX1276MB1MAS](https://os.mbed.com/components/SX1276MB1xAS/) LoRa shield (868 MHz)
+> HF antenna should be mounted
+```bash
+cd ~/github/RIOT-OS/RIOT/tests/pkg_semtech-loramac/
+make BOARD=$BOARD LORA_DRIVER=sx1276 flash term
+```
+
+For Nucleo Lxxx/Fxxx boards with the Semtech [SX1276MB1MAS](https://os.mbed.com/components/SX1276MB1xAS/) LoRa shield (433 MHz)
+> LF antenna should be mounted
+```bash
+cd ~/github/RIOT-OS/RIOT/tests/pkg_semtech-loramac/
+make BOARD=$BOARD LORA_DRIVER=sx1276 REGION=EU433 flash term
+```
+
+For iM880 boards (868 MHz)
+```bash
+cd ~/github/RIOT-OS/RIOT/tests/pkg_semtech-loramac/
+make BOARD=im880b LORA_DRIVER=sx1272 flash term
+```
+
+For [ST B-L072Z-LRWAN1 LoRa discovery board](https://www.st.com/en/evaluation-tools/b-l072z-lrwan1.html) (868 MHz only)
+```bash
+cd ~/github/RIOT-OS/RIOT/tests/pkg_semtech-loramac/
+make BOARD=b-l072z-lrwan1 LORA_DRIVER=sx1276 flash term
+```
+
+> Default region is `EU868` (863-870 MHz). See [LoRaWAN Regional Parameters](https://lora-alliance.org/resource_hub/rp2-1-0-3-lorawan-regional-parameters/) for more information about countries regions.
+
+> For testing purpose, it is possible to disable the duty-cycle restriction implemented in the MAC layer with the `DISABLE_LORAMAC_DUTYCYCLE` macro:
+```
+CFLAGS=-DDISABLE_LORAMAC_DUTYCYCLE LORA_REGION=EU868 LORA_DRIVER=sx1272 make ...
+```
+
+Show the help
+```
+> loramac
+> loramac get
+> loramac set
+```
+
+Set the device EUI, the application EUI and application key of your LoRaWAN endpoint :
+```
+> loramac set deveui ABCDEF1200000001
+> loramac set appeui ABCDEF1200FFFFFF
+> loramac set appkey CAFEBABECAFEBABE0123456789ABCDEF
+```
+
+Save the device LoRaWAN configuration (EUIs and keys) in EEPROM (if provided by the microcontroller):
+```
+> loramac save
+```
+
+Switch the default datarate index (from 0 to 7 for `EU868`). Datarate `5` is for `SF7BW125`:
+```
+> loramac set dr 5
+``` 
+
+<!-- Switch the default txpower index (from 0 to 16). -->
+
+Join a network using the OTAA procedure:
+```
+> loramac join otaa
+Join procedure succeeded!
+```
+
+Get the allocated DevAddr:
+```
+> loramac get devaddr
+FC00AC12
+```
+> The NetID of CampusIoT is `C0002B`, so endpoints devaddrs are between `FC00AC00` and `FC00AFFF`. [More NetIDs](https://www.thethingsnetwork.org/docs/lorawan/prefix-assignments/)
+
+Switch to adaptive data rate (the LoRa network server will adapt the datarate and the txpower according the link budget after the next transmission):
+```
+> loramac set adr on
+```
+
+Send confirmable data on port 2 (cnf and port are optional):
+```
+> loramac tx This\ is\ RIOT! cnf 2
+```
+
+<!-- Get Datarate -->
+<!-- Get TxPower -->
+
+Perform a Link Check command (will be triggered in the next transmission):
+```
+> loramac link_check
+```
+
+Send unconfirmable data on port 3:
+```
+> loramac tx This\ is\ RIOT! uncnf 3
+```
+
+In the [endpoint console](https://lns.campusiot.imag.fr/#/organizations/5/applications/258), enqueue a downlink message [encoded in base64](https://www.rapidtables.com/web/tools/base64-encode.html) `RWNsaXBzZSBJb1QgRGF5cyAyMDIz`
+
+![Downlink](images/downlink.png)
+
+Send confirmable data on port 4:
+```
+> loramac tx This\ is\ RIOT! cnf 4
+Data received: Eclipse IoT Days 2023, port: 14
+```
+
+Switch the default datarate index (from 0 to 7 for `EU868`). Datarate `0` is for `SF12BW125`:
+```
+> loramac set dr 0
+``` 
+
+Send unconfirmable data on port 5:
+```
+> loramac tx This\ is\ RIOT! uncnf 5
+Data received: Eclipse IoT Days 2023, port: 15
+```
+
+<!-- Get Datarate -->
+<!-- Get TxPower -->
+> The LoRa network server adapts automatically the datarate.
 
 ## Lesson #7: UWB Ranging and positioning
 

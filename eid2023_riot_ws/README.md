@@ -33,7 +33,14 @@ Installing building tools for ARM7 architecture since the boards used for the tu
 * [Putty for Windows](https://www.putty.org/)
 * `minicom`, `tio`, `pyterm` on MacOS/Linux
 
-TODO
+#### Console with `tio`
+
+Open the serial console of the board
+```bash
+brew install tio
+tio -L
+tio -b 115200 -m INLCRNL /dev/tty.usbserial-142xxx
+```
 
 ## Introduction about RIOT
 

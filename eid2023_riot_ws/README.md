@@ -28,6 +28,8 @@ Installing building tools for ARM7 architecture since the boards used for the tu
 
 > On MacOS, use `brew` for the installation.
 
+> You can also install [STM32CubeProgrammer software for all STM32](https://www.st.com/en/development-tools/stm32cubeprog.html)
+
 ### Applications for Serial Console
 
 * [Putty for Windows](https://www.putty.org/)

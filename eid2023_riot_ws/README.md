@@ -370,7 +370,7 @@ TODO
 
 Login on [CampusIoT LoRa Network Server](https://lns.campusiot.imag.fr/#/organizations/5/applications/258)
 
-The username is `GuestSandbox` and the password is given during the workshop.
+The username is `GuestSandbox` and the password is given during the workshop (`vC9pP4iC8aI4uI7m`).
 
 The Organisation is `SANDBOX`.
 Several endpoints has been already provisioned in this [application](https://lns.campusiot.imag.fr/#/organizations/5/applications/258).

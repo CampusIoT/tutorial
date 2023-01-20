@@ -252,6 +252,34 @@ cd ~/github/RIOT-OS/RIOT/tests/driver_mag3110
 make BOARD=$BOARD
 ```
 
+For `a3g4250d` gyro
+```bash
+cd ~/github/RIOT-OS/RIOT/tests/driver_l3gxxxx
+gmake BOARD=$BOARD DRIVER=a3g4250d flash term
+```
+
+```
+main(): This is RIOT! (Version: 2023.04-devel-158-gd11a3)
+L3GXXXX gyroscope driver test application
+
+Initializing L3GXXXX sensor
+[OK]
+
+gyro [dps] x:   +84, y:  +126, z:  +223
+gyro [dps] x:   +14, y:    +4, z:    +8
+gyro [dps] x:    +0, y:    +0, z:    +0
+gyro [dps] x:    +0, y:    +0, z:    +0
+gyro [dps] x:    +0, y:    +0, z:    +0
+gyro [dps] x:    +0, y:    +0, z:    +0
+gyro [dps] x:    +0, y:    +0, z:    +0
+gyro [dps] x:    +0, y:    +0, z:    +0
+gyro [dps] x:    +0, y:    +0, z:    +0
+gyro [dps] x:    +0, y:    +0, z:    +0
+gyro [dps] x:    +0, y:    +0, z:   +24
+gyro [dps] x:   +16, y:    -3, z:   +13
+gyro [dps] x:    +8, y:    +0, z:   -26
+gyro [dps] x:    +1, y:    +0, z:   +27
+```
 
 ## Lesson #4: SAUL ([[S]ensor [A]ctuator [U]ber [L]ayer](https://doc.riot-os.org/group__drivers__saul.html))
 

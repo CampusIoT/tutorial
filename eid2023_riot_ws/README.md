@@ -205,37 +205,49 @@ H: 54.8%, T: 25.4°C
 H: 57.4%, T: 26.0°C
 ```
 
-### For LPS22HH (MEMS pressure sensor, 260-1260 hPa absolute digital output barometer)
+### For LPS22HH
+LPS22HH is a MEMS pressure sensor, 260-1260 hPa absolute digital output barometer
+
 ```bash
 cd ~/github/RIOT-OS/RIOT/tests/driver_lpsxxx
 make BOARD=$BOARD DRIVER=lps22hh flash term
 ```
 
-### For LPS22HB (MEMS pressure sensor, 260-1260 hPa absolute digital output barometer)
+### For LPS22HB
+LPS22HB is a MEMS pressure sensor, 260-1260 hPa absolute digital output barometer
+
 ```bash
 cd ~/github/RIOT-OS/RIOT/tests/driver_lpsxxx
 make BOARD=$BOARD DRIVER=lps22hb flash term
 ```
 
-### For LPS25HB (MEMS pressure sensor, 260-1260 hPa absolute digital output barometer)
+### For LPS25HB
+LPS25HB is MEMS pressure sensor, 260-1260 hPa absolute digital output barometer
+
 ```bash
 cd ~/github/RIOT-OS/RIOT/tests/driver_lpsxxx
 make BOARD=$BOARD DRIVER=lps25hb flash term
 ```
 
-### For LSM6DSL (MEMS 3D accelerometer (±2/±4/±8/±16 g) and 3D gyroscope (±125/±245/±500/±1000/±2000 dps))
+### For LSM6DSL
+LSM6DSL is a MEMS 3D accelerometer (±2/±4/±8/±16 g) and 3D gyroscope (±125/±245/±500/±1000/±2000 dps)
+
 ```bash
 cd ~/github/RIOT-OS/RIOT/tests/driver_lsm6dsl
 make BOARD=$BOARD flash term
 ```
 
-### For LIS3MDL (MEMS 3D magnetometer (±4/ ±8/ ±12/ 16 gauss))
+### For LIS3MDL 
+LIS3MDL is a MEMS 3D magnetometer (±4/ ±8/ ±12/ 16 gauss)
+
 ```bash
 cd ~/github/RIOT-OS/RIOT/tests/driver_lis3mdl
 make BOARD=$BOARD flash term
 ```
 
-### For NXP LM75 temperature sensor (on `lora-e5-dev` boards)
+### For NXP LM75 
+NXP LM75 is a temperature sensor (available on `lora-e5-dev` boards)
+
 ```bash
 cd ~/github/RIOT-OS/RIOT/tests/driver_lm75
 make BOARD=lora-e5-dev DRIVER=lm75a

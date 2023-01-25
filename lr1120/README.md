@@ -393,4 +393,8 @@ INFO: ###### ===== NEW LINK ADR EVENT ==== ######
 WARN: No LR-FHSS datarates are available
 ```
 
+## TODO
+* [ ] LoRa 2.4 GHz emitter / receiver
+* [ ] LoRa 2.4 GHz ranging
+* [ ] SBand SatCom
 

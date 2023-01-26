@@ -243,6 +243,17 @@ AppKey 101010101012345610101010101FFFFF
 
 Start a Node-RED server and deploy the following flow : https://github.com/Lora-net/SWSD001/tree/master/apps/examples/application_server
 
+
+```bash
+cd SWSD001/
+cd apps/examples/application_server
+cp modem.json flows.json
+npm install @semtech-wsp-apps/node-red-contrib-loracloud-utils
+docker run -it -p 1880:1880 -v $PWD:/data --name app_nodered nodered/node-red:latest-minimal
+```
+
+Browse the Nodered console http://localhost:1880
+
 ### LoRaWAN class A endpoint
 
 ```bash
@@ -391,6 +402,37 @@ INFO: LoRa Basics Modem version: 03.02.04
   *************************************
 INFO: ###### ===== NEW LINK ADR EVENT ==== ######
 WARN: No LR-FHSS datarates are available
+```
+
+### LoRa Basics Modem LoRaWAN Class B example
+
+```bash
+cd lorawan_class_b
+TODO
+```
+
+### LoRa Basics Modem LoRaWAN Class C device with multicast
+```bash
+cd lorawan_multicast_class_c
+TODO
+```
+
+### LoRa Basics Modem LoRaWAN Class B device with multicast
+```bash
+cd lorawan_multicast_class_b
+TODO
+```
+
+## Other examples
+
+```
+almanac_update
+application_server
+dm_info
+full_almanac_update
+large_file_upload
+stream
+tx_rx_continuous
 ```
 
 ## TODO

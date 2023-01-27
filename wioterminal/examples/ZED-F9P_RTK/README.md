@@ -4,7 +4,7 @@
 
 * Wio Terminal
 * Grove Cable
-* ZED-F9P module : we use the [Mikrobus one](https://www.digikey.fr/fr/products/detail/mikroelektronika/MIKROE-4456/13662957)
+* ZED-F9P module : we use the [GNSS RTK CLICK](https://www.mikroe.com/gnss-rtk-click) with [Mikrobus one](https://www.digikey.fr/fr/products/detail/mikroelektronika/MIKROE-4456/13662957)
 * GPS outdoor antenna : we use [this one](https://www.digikey.fr/fr/products/detail/u-blox/ANN-MB-00-00/9817928).
 
 * A Wifi access point (for the NTRIPServer)

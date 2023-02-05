@@ -1,0 +1,117 @@
+/*
+ * Protocol buffer for Telemetry message from IoT endpoints
+ * Author: Didier DONSEZ, Université Grenoble Alpes, 2023
+ */ 
+
+syntax = "proto3";
+
+package iot.dt;
+
+enum Alert {
+  ALERT_LOW_BATTERY = 0;
+  ALERT_NOT_CONFIGURED = 1;
+  ALERT_CLOCK_NOT_SYNC = 2;
+  ALERT_ENCLOSURE_TAMPERED = 3;
+}
+
+// see https://docs.mydevices.com/docs/lorawan/cayenne-lpp
+
+message DigitalInput {
+    bool value = 1;
+}
+
+message AnalogInput {
+    int32 value = 1;
+}
+
+message Illuminance {
+    int32 value = 1;
+}
+
+message Presence {
+    bool value = 1;
+}
+
+// 0.1°C Signed
+message Temperature {
+    sint32 value = 1;
+}
+
+// 0.5 %
+message Humidity {
+    int32 value = 1;
+}
+
+// 0.1 hPa
+message Barometer {
+    int32 value = 1;
+}
+
+// 0.001 G Signed per axis
+message Accelerometer {
+    sint32 x = 1;
+    sint32 y = 2;
+    sint32 z = 3;
+}
+
+// 0.01 °/s Signed MSB per axis
+message Gyrometer {
+    sint32 x = 1;
+    sint32 y = 2;
+    sint32 z = 3;
+}
+
+// 0.01 μT Signed MSB per axis
+message Magnetometer {
+    sint32 x = 1;
+    sint32 y = 2;
+    sint32 z = 3;
+}
+
+// Latitude : 0.0001 °, Longitude : 0.0001 °, Altitude : 0.01 meter
+message GNSSLocation {
+    sint32 latitude = 1;
+    sint32 longitude = 2;
+    optional sint32 altitude = 3;
+    optional int32 satellites = 4;
+    // for https://en.wikipedia.org/wiki/Dilution_of_precision_(navigation)
+    optional int32 hdop = 5;
+    optional int32 vdop = 6;
+    optional int32 tdop = 7;
+}
+
+// TO ADD
+// [ ] Counter
+// [ ] Concentration in ppm/ppb (CO2 ...)
+// [ ] Acidity PH level
+// [ ] Wind (speed, direction, burst ...)
+// [ ] Noise level (dBm)
+// [ ] RSSI level (dBm)
+// [ ] SNR level (dBm)
+
+
+message Measurement {
+    optional DigitalInput digitalInput = 1;
+    optional AnalogInput analogInput = 2;
+    optional Illuminance illuminance = 3;
+    optional Presence presence = 4;
+    optional Humidity humidity = 5;
+    optional Barometer barometer = 6;
+    optional Accelerometer accelerometer = 7;
+    optional Gyrometer gyrometer = 8;
+    optional Magnetometer magnetometer = 9;
+    optional GNSSLocation gnssLocation = 10;
+}
+
+message Telemetry {
+
+  message Channel {
+    int32 channelId = 1;
+    Measurement measurement = 2;
+  }
+
+  repeated Alert alerts = 1;
+  repeated Channel channels = 2;
+  optional int32 timestamp = 3; // GPS epoch in seconds
+}
+

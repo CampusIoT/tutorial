@@ -554,3 +554,14 @@ make BOARD=$BOARD flash term
 ```
 
 
+### Encoding payload
+
+#### LPP Cayenne
+
+
+#### CBOR
+
+
+#### Protobuf
+
+[See ../protobuf](../protobuf)

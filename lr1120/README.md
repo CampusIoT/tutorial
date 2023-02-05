@@ -91,7 +91,8 @@ First, change the WIFI_DEMO_TO_RUN macro in `main_wifi.h`.
  * @brief Wi-Fi channels to scan
  *
  * It is expressed as 16 bits mask of channels
- *
+ * 
+ * 0x0421 = channels 1 - 6 - 11
  */
 #define WIFI_CHANNEL_MASK ( 0x0421 )
 

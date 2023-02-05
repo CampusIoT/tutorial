@@ -189,18 +189,18 @@ The GNSS assisted example needs the almanac to be up-to-date. If the almanacs ar
 To update the almanacs consider using the [LR1110 EVK Demo Application](https://github.com/Lora-net/lr1110_evk_demo_app) and the python program `AlmanacUpdate` as described [here](https://github.com/Lora-net/lr1110_evk_demo_app#almanacupdate-usage). This process can be followed for both LR1110 and LR1120.
 
 
-Change the assistance position into `main_gnss.h`
+Change the [assistance position](https://www.openstreetmap.org/search?query=LIG%20grenoble#map=19/45.19030/5.76679) into `main_gnss.h`
 
 ```c
 /**
  * @brief Assistance position latitude
  */
-#define GNSS_ASSISTANCE_POSITION_LATITUDE ( 45.1 )
+#define GNSS_ASSISTANCE_POSITION_LATITUDE ( 45.19030 )
 
 /**
  * @brief Assistance position longitude
  */
-#define GNSS_ASSISTANCE_POSITION_LONGITUDE ( 5.7 )
+#define GNSS_ASSISTANCE_POSITION_LONGITUDE ( 5.76679 )
 ```
 
 
@@ -243,6 +243,17 @@ AppKey 101010101012345610101010101FFFFF
 ### Application server setup
 
 Start a Node-RED server and deploy the following flow : https://github.com/Lora-net/SWSD001/tree/master/apps/examples/application_server
+
+
+```bash
+cd SWSD001/
+cd apps/examples/application_server
+cp modem.json flows.json
+npm install @semtech-wsp-apps/node-red-contrib-loracloud-utils
+docker run -it -p 1880:1880 -v $PWD:/data --name app_nodered nodered/node-red:latest-minimal
+```
+
+Browse the Nodered console http://localhost:1880
 
 ### LoRaWAN class A endpoint
 
@@ -394,4 +405,39 @@ INFO: ###### ===== NEW LINK ADR EVENT ==== ######
 WARN: No LR-FHSS datarates are available
 ```
 
+### LoRa Basics Modem LoRaWAN Class B example
+
+```bash
+cd lorawan_class_b
+TODO
+```
+
+### LoRa Basics Modem LoRaWAN Class C device with multicast
+```bash
+cd lorawan_multicast_class_c
+TODO
+```
+
+### LoRa Basics Modem LoRaWAN Class B device with multicast
+```bash
+cd lorawan_multicast_class_b
+TODO
+```
+
+## Other examples
+
+```
+almanac_update
+application_server
+dm_info
+full_almanac_update
+large_file_upload
+stream
+tx_rx_continuous
+```
+
+## TODO
+* [ ] LoRa 2.4 GHz emitter / receiver
+* [ ] LoRa 2.4 GHz ranging
+* [ ] SBand SatCom
 

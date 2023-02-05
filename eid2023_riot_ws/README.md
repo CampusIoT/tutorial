@@ -28,12 +28,21 @@ Installing building tools for ARM7 architecture since the boards used for the tu
 
 > On MacOS, use `brew` for the installation.
 
+> You can also install [STM32CubeProgrammer software for all STM32](https://www.st.com/en/development-tools/stm32cubeprog.html)
+
 ### Applications for Serial Console
 
 * [Putty for Windows](https://www.putty.org/)
 * `minicom`, `tio`, `pyterm` on MacOS/Linux
 
-TODO
+#### Console with `tio`
+
+Open the serial console of the board
+```bash
+brew install tio
+tio -L
+tio -b 115200 -m INLCRNL /dev/tty.usbserial-142xxx
+```
 
 ## Introduction about RIOT
 
@@ -170,57 +179,75 @@ Check the version of the shield.
 
 ![iks01a3](images/iks01a3.jpg)
 
-Shield Nucleo IKS01A1 (sensors are LSM6DS0, LIS3MDL, LPS25HB, HTS221)
-* https://www.st.com/en/ecosystems/x-nucleo-iks01a1.html
+* Shield Nucleo [IKS01A1](https://www.st.com/en/ecosystems/x-nucleo-iks01a1.html) (sensors are LSM6DS0, LIS3MDL, LPS25HB, HTS221)
+* Shield [Nucleo IKS01A2](https://www.st.com/en/ecosystems/x-nucleo-iks01a2.html) (sensors are LSM6DSL, LSM303AGR, LPS22HB, HTS221)
+* Shield [Nucleo IKS01A3](https://www.st.com/en/ecosystems/x-nucleo-iks01a3.html) (sensors are LSM6DSO, LIS2MDL, LIS2DW12, LPS22HH, HTS221, STTS751)
+* Board [B-L475E-IOT01A](https://www.st.com/en/evaluation-tools/b-l475e-iot01a.html) (sensors are MP34DT01, HTS221, LIS3MDL, LSM6DSL, LPS22HB, VL53L0X)
+* Board [B-U585I-IOT02A]([https://www.st.com/en/evaluation-tools/b-l475e-iot01a.html](https://www.st.com/en/evaluation-tools/b-u585i-iot02a.html) (sensors are MP34DT01 microphones, IIS2MDCTR gyroscope, ISM330DHCX magnetometer, LPS22HH barometer, HTS221 humidity and temperature, VL53L5 time-of-flight, and VEML6030 ambient light)
 
-Shield Nucleo IKS01A2 (sensors are LSM6DSL, LSM303AGR, LPS22HB, HTS221)
-* https://www.st.com/en/ecosystems/x-nucleo-iks01a2.html 
-
-Shield Nucleo IKS01A3 (sensors are LSM6DSO, LIS2MDL, LIS2DW12, LPS22HH, HTS221, STTS751)
-* https://stm32python.gitlab.io/fr-version-lora/micro_python_iks01a3.html
-* https://www.st.com/en/ecosystems/x-nucleo-iks01a3.html
-
-
-For HTS221 (capacitive digital relative humidity and temperature)
+### For HTS221 (capacitive digital relative humidity and temperature)
 ```bash
 cd ~/github/RIOT-OS/RIOT/tests/driver_hts221
 make BOARD=$BOARD flash term
 ```
 
-For LPS22HH (MEMS pressure sensor, 260-1260 hPa absolute digital output barometer)
+```
+main(): This is RIOT! (Version: 2023.04-devel-158-gd11a3)
+Init HTS221 on I2C_DEV(0)
+H: 39.2%, T: 23.5°C
+H: 39.2%, T: 23.5°C
+H: 39.2%, T: 23.5°C
+H: 39.2%, T: 23.5°C
+H: 42.6%, T: 25.1°C
+...
+H: 49.1%, T: 26.2°C
+H: 54.8%, T: 25.4°C
+H: 57.4%, T: 26.0°C
+```
+
+### For LPS22HH
+LPS22HH is a MEMS pressure sensor, 260-1260 hPa absolute digital output barometer
+
 ```bash
 cd ~/github/RIOT-OS/RIOT/tests/driver_lpsxxx
 make BOARD=$BOARD DRIVER=lps22hh flash term
 ```
 
-For LPS22HB (MEMS pressure sensor, 260-1260 hPa absolute digital output barometer)
+### For LPS22HB
+LPS22HB is a MEMS pressure sensor, 260-1260 hPa absolute digital output barometer
+
 ```bash
 cd ~/github/RIOT-OS/RIOT/tests/driver_lpsxxx
 make BOARD=$BOARD DRIVER=lps22hb flash term
 ```
 
-For LPS25HB (MEMS pressure sensor, 260-1260 hPa absolute digital output barometer)
+### For LPS25HB
+LPS25HB is MEMS pressure sensor, 260-1260 hPa absolute digital output barometer
+
 ```bash
 cd ~/github/RIOT-OS/RIOT/tests/driver_lpsxxx
 make BOARD=$BOARD DRIVER=lps25hb flash term
 ```
 
-For LSM6DSL (MEMS 3D accelerometer (±2/±4/±8/±16 g) and 3D gyroscope (±125/±245/±500/±1000/±2000 dps))
+### For LSM6DSL
+LSM6DSL is a MEMS 3D accelerometer (±2/±4/±8/±16 g) and 3D gyroscope (±125/±245/±500/±1000/±2000 dps)
+
 ```bash
 cd ~/github/RIOT-OS/RIOT/tests/driver_lsm6dsl
 make BOARD=$BOARD flash term
 ```
 
-For LIS3MDL (MEMS 3D magnetometer (±4/ ±8/ ±12/ 16 gauss))
+### For LIS3MDL 
+LIS3MDL is a MEMS 3D magnetometer (±4/ ±8/ ±12/ 16 gauss)
+
 ```bash
 cd ~/github/RIOT-OS/RIOT/tests/driver_lis3mdl
 make BOARD=$BOARD flash term
 ```
 
-> TODO : test for `drivers/lsm303agr`
+### For NXP LM75 
+NXP LM75 is a temperature sensor (available on `lora-e5-dev` boards)
 
-
-For `lora-e5-dev` boards, test the NXP LM75 temperature sensor
 ```bash
 cd ~/github/RIOT-OS/RIOT/tests/driver_lm75
 make BOARD=lora-e5-dev DRIVER=lm75a
@@ -242,13 +269,44 @@ Error reading OS pin state
 22.500ºC                                                                       
 ``` 
 
-For MAG3110 breakout (plug in an I2C connector of the Grove Basic Shield) 
+### For MAG3110 breakout (plug in an I2C connector of the Grove Basic Shield) 
+
 ```bash
 cd ~/github/RIOT-OS/RIOT/tests/driver_mag3110
 make BOARD=$BOARD
 ```
 
+### For `a3g4250d` gyro (on DIP extension board)
+```bash
+cd ~/github/RIOT-OS/RIOT/tests/driver_l3gxxxx
+gmake BOARD=$BOARD DRIVER=a3g4250d flash term
+```
 
+```
+main(): This is RIOT! (Version: 2023.04-devel-158-gd11a3)
+L3GXXXX gyroscope driver test application
+
+Initializing L3GXXXX sensor
+[OK]
+
+gyro [dps] x:   +84, y:  +126, z:  +223
+gyro [dps] x:   +14, y:    +4, z:    +8
+gyro [dps] x:    +0, y:    +0, z:    +0
+gyro [dps] x:    +0, y:    +0, z:    +0
+gyro [dps] x:    +0, y:    +0, z:    +0
+gyro [dps] x:    +0, y:    +0, z:    +0
+gyro [dps] x:    +0, y:    +0, z:    +0
+gyro [dps] x:    +0, y:    +0, z:    +0
+gyro [dps] x:    +0, y:    +0, z:    +0
+gyro [dps] x:    +0, y:    +0, z:    +0
+gyro [dps] x:    +0, y:    +0, z:   +24
+gyro [dps] x:   +16, y:    -3, z:   +13
+gyro [dps] x:    +8, y:    +0, z:   -26
+gyro [dps] x:    +1, y:    +0, z:   +27
+```
+
+
+> TODO : test for `drivers/lsm303agr`
 
 ## Lesson #4: SAUL ([[S]ensor [A]ctuator [U]ber [L]ayer](https://doc.riot-os.org/group__drivers__saul.html))
 
@@ -257,6 +315,33 @@ Keep the Nucleo IKS01Ax Shield onto your Nucleo board
 ```bash
 cd ~/github/RIOT-OS/RIOT/tests/saul
 make BOARD=$BOARD flash term
+```
+
+
+```
+main(): This is RIOT! (Version: 2023.04-devel-158-gd11a3)
+SAUL test application
+
+Dev: LED(green)	Type: ACT_SWITCH
+Data:	              0 
+
+Dev: Button(B1 User)	Type: SENSE_BTN
+Data:	              0 
+
+##########################
+
+```
+Push the button
+
+```
+Dev: LED(green)	Type: ACT_SWITCH
+Data:	              0 
+
+Dev: Button(B1 User)	Type: SENSE_BTN
+Data:	              1 
+
+##########################
+
 ```
 
 Edit `Makefile` in order to add the modules related to the sensors available onto the shield.
@@ -268,9 +353,6 @@ USEMODULE += hts221
 USEMODULE += lsm6dsl
 USEMODULE += lm75
 USEMODULE += stts751
-
-USEMODULE += lpsxxx
-# set the correct sub driver
 USEMODULE += lps25hb
 ...
 ```
@@ -280,8 +362,28 @@ cd ~/github/RIOT-OS/RIOT/tests/saul
 make BOARD=$BOARD flash term
 ```
 
+```
+##########################
+main(): This is RIOT! (Version: 2023.04-devel-158-gd11a3)
+SAUL test application
+
+Dev: LED(green)	Type: ACT_SWITCH
+Data:	              0 
+
+Dev: Button(B1 User)	Type: SENSE_BTN
+Data:	              0 
+
+Dev: hts221	Type: SENSE_TEMP
+Data:	           24.0 °C
+
+Dev: hts221	Type: SENSE_HUM
+Data:	           41.9 %
+
+```
+
 
 For `lora-e5-dev` boards
+
 ```bash
 cd ~/github/RIOT-OS/RIOT/tests/saul
 make BOARD=lora-e5-dev
@@ -315,7 +417,36 @@ make BOARD=$BOARD flash term
 ```
 
 ```
-TODO
+##########################
+main(): This is RIOT! (Version: 2023.04-devel-158-gd11a3)
+
+RIOT ADC peripheral driver test
+
+This test will sample all available ADC lines once every 100ms with
+a 10-bit resolution and print the sampled results to STDIO
+
+
+Successfully initialized ADC_LINE(0)
+Successfully initialized ADC_LINE(1)
+Successfully initialized ADC_LINE(2)
+Successfully initialized ADC_LINE(3)
+Successfully initialized ADC_LINE(4)
+Successfully initialized ADC_LINE(5)
+Successfully initialized ADC_LINE(6)
+ADC_LINE(0): 1023
+ADC_LINE(1): 531
+ADC_LINE(2): 96
+ADC_LINE(3): 100
+ADC_LINE(4): 112
+ADC_LINE(5): 120
+ADC_LINE(6): 82
+ADC_LINE(0): 1023
+ADC_LINE(1): 529
+ADC_LINE(2): 98
+ADC_LINE(3): 120
+ADC_LINE(4): 133
+ADC_LINE(5): 120
+ADC_LINE(6): 82
 ```
 
 
@@ -422,8 +553,11 @@ CFLAGS=-DDISABLE_LORAMAC_DUTYCYCLE LORA_REGION=EU868 LORA_DRIVER=sx1272 make ...
 Show the help
 ```
 > loramac
+Usage: loramac <get|set|join|tx|link_check>
 > loramac get
+Usage: loramac get <deveui|appeui|appkey|appskey|nwkskey|devaddr|class|dr|adr|public|netid|tx_power|rx2_freq|rx2_dr|ul_cnt|ch_mask>
 > loramac set
+Usage: loramac set <deveui|appeui|appkey|appskey|nwkskey|devaddr|class|dr|adr|public|netid|tx_power|rx2_freq|rx2_dr|ul_cnt|ch_mask> <value>
 ```
 
 Set the device EUI, the application EUI and application key of your LoRaWAN endpoint :
@@ -448,8 +582,16 @@ Switch the default datarate index (from 0 to 7 for `EU868`). Datarate `5` is for
 Join a network using the OTAA procedure:
 ```
 > loramac join otaa
+Join procedure failed!
+> loramac join otaa
+Cannot join: dutycycle restriction
+```
+Retry later !
+```
+> loramac join otaa
 Join procedure succeeded!
 ```
+
 
 Get the allocated DevAddr:
 ```

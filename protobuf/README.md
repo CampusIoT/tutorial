@@ -84,6 +84,7 @@ make BOARD=$BOARD flash term
 
 
 ## More
+* [Convert JSON to Protobuf and back](https://github.com/iamazeem/proto-convert)
 * https://blog.basyskom.com/2020/protobuf-for-iot/
 * https://embeddedproto.com/a-simple-arduino-iot-example-with-protobuf/
 * https://itnext.io/iot-telemetry-collection-using-google-protocol-buffers-cloud-functions-pub-sub-and-mongodb-atlas-d5e4ff7ef50e

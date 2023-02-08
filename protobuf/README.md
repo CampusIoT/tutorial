@@ -21,6 +21,7 @@ which protoc
 protoc --encode=Telemetry telemetry.proto < telemetry.text  > binary.data
 hexdump -C binary.data
 protoc --decode Telemetry telemetry.proto < binary.data
+protoc --decode_raw < binary.data
 ```
 
 ## Codec library generation

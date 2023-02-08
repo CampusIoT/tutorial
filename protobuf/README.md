@@ -14,7 +14,16 @@ which protoc
  
 > Version is `libprotoc 3.20.1`
 
-## Codec generation
+
+## Encoding and Decoding
+
+```bash
+protoc --encode=Telemetry telemetry.proto < telemetry.text  > binary.data
+hexdump -C binary.data
+protoc --decode Telemetry telemetry.proto < binary.data
+```
+
+## Codec library generation
 
 See the `[telemetry.proto](./telemetry.proto)` description
 

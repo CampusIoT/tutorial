@@ -83,6 +83,15 @@ cd ~/github/RIOT-OS/RIOT/tests/pkg_nanopb
 make BOARD=$BOARD flash term
 ```
 
+```bash
+BOARD=im880b
+export RIOTBASE=~/github/RIOT-OS/RIOT
+make BOARD=$BOARD flash term
+```
+
+```bash
+cat bin/$BOARD/application_telemetry/telemetry.pb.h
+```
 
 ## More
 * [Convert JSON to Protobuf and back](https://github.com/iamazeem/proto-convert)

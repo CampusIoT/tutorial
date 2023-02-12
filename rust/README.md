@@ -12,3 +12,9 @@
 * https://github.com/stm32-rs/stm32-rs
 * https://medium.com/digitalfrontiers/rust-on-a-stm32-microcontroller-90fac16f6342
 * https://jonathanklimt.de/electronics/programming/embedded-rust/rust-on-stm32-2/
+
+## RIOT
+* https://doc.riot-os.org/using-rust.html
+
+## FreeRTOS
+* https://github.com/lobaro/FreeRTOS-rust

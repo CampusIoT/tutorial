@@ -1,8 +1,18 @@
 # Google Coral Dev Board
 
-https://www.mouser.fr/datasheet/2/963/Coral-Dev-Board-datasheet-1605708.pdf
+The Google Coral Dev Board is a Quad-core symmetric Cortex-A53 processors (with GPU and VPU) and an Edge TPU coprocessor as low-power ML acceleror (4 TOPS, 2 TOPS per watt). Network interfaces include Gigabit Ethernet, WiFi and Bluetooh 4.2 (including BLE). The board had a MicroSD slot and connectors for camera, audio, external stereo speakers, video (HDMI), USB-C and USB Micro-B for serial console. GPIO are available on the 40-pin I/O header.
 
-https://github.com/google-coral
+![coral-devboard](./images/coral-devboard-01.jpg)
 
-https://colab.research.google.com/github/google-coral/tutorials/blob/master/run_colab_on_devboard.ipynb
+## Getting started
+TODO
+
+## ML
+TODO
+
+## References 
+* https://www.mouser.fr/datasheet/2/963/Coral-Dev-Board-datasheet-1605708.pdf
+* https://github.com/google-coral
+* https://github.com/google-coral/tutorials
+* https://colab.research.google.com/github/google-coral/tutorials/blob/master/run_colab_on_devboard.ipynb
 

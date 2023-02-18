@@ -44,6 +44,8 @@ Browse the live demo http://192.168.100.2:4664/
 
 You can switch between CPU mode and TPU mode using key `n`.
 
+![demo](images/coral-devboard-test-01.png)
+
 ### Run a model
 
 https://coral.ai/docs/dev-board/get-started/#run-pycoral
@@ -232,8 +234,12 @@ https://coral.ai/docs/edgetpu/tflite-python/
 
 https://coral.ai/examples/
 
-
 ## Misc
+
+### Pinout
+
+![Devboard Pinout](images/coral-devboard-03-header.png)
+
 ### Enclosure
 * https://storage.googleapis.com/site_and_emails_static_assets/Files/Coral-Camera-and-Dev-Board-base.zip
 * https://www.thingiverse.com/thing:3561461

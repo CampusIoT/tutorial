@@ -230,6 +230,14 @@ TODO
 https://coral.ai/docs/edgetpu/tflite-python/
 
 
+### Shutdown the board
+
+```bash
+sudo shutdown now
+```
+
+
+
 ### More
 
 https://coral.ai/examples/

@@ -25,6 +25,7 @@ cat /etc/mendel_version
 ps -ax
 df -h
 ip addr
+nmcli connection show
 ls /usr/bin/edge*
 ```
 
@@ -77,6 +78,25 @@ python3 examples/detect_image.py \
   --output ${HOME}/grace_hopper_processed.bmp
 ```
 
+```console
+----INFERENCE TIME----
+Note: The first inference is slow because it includes loading the model into Edge TPU memory.
+36.48 ms
+23.87 ms
+14.87 ms
+12.39 ms
+15.41 ms
+-------RESULTS--------
+tie
+  id:     31
+  score:  0.83984375
+  bbox:   BBox(xmin=227, ymin=419, xmax=292, ymax=541)
+person
+  id:     0
+  score:  0.8046875
+  bbox:   BBox(xmin=2, ymin=4, xmax=513, ymax=595)
+```
+
 ![Grace Hopper](https://raw.githubusercontent.com/google-coral/test_data/master/grace_hopper.bmp)
 ![Grace Hopper Processed](images/grace_hopper_processed.bmp)
 
@@ -90,9 +110,31 @@ python3 examples/movenet_pose_estimation.py \
   --input test_data/squat.bmp
 ```
 
-![Squat](https://raw.githubusercontent.com/google-coral/test_data/master/squat.bmp)
+```console
+[[0.33184516 0.5776564  0.49981618]
+ [0.31955463 0.589947   0.6350124 ]
+ [0.3113609  0.56536585 0.70056206]
+ [0.31955463 0.5776564  0.43016967]
+ [0.31955463 0.5080099  0.29907033]
+ [0.42197597 0.5776564  0.6350124 ]
+ [0.41378227 0.4178791  0.49981618]
+ [0.50391304 0.7128526  0.19664899]
+ [0.5121068  0.5407847  0.49981618]
+ [0.42197597 0.6964652  0.49981618]
+ [0.42197597 0.6677872  0.15568045]
+ [0.59814066 0.38920113 0.75382113]
+ [0.6145281  0.2867798  0.43016967]
+ [0.6595935  0.5858501  0.6350124 ]
+ [0.6759809  0.42197597 0.75382113]
+ [0.8480488  0.5121068  0.6350124 ]
+ [0.88901734 0.3400389  0.70056206]]
+Done. Results saved at movenet_result.jpg
+```
 
-#### movenet_pose_estimation
+![Squat](https://raw.githubusercontent.com/google-coral/test_data/master/squat.bmp)
+![Squat processed](images/movenet_result.jpg)
+
+#### small_object_detection
 
 ```bash
 bash examples/install_requirements.sh small_object_detection.py

@@ -6,3 +6,7 @@ https://www.seeedstudio.com/LoRa-E5-Dev-Kit-p-4868.html
 
 ![LoRa-E5](./images/lora-e5.jpg)
 
+## Misc
+
+### Cases
+* https://www.thingiverse.com/thing:5478136

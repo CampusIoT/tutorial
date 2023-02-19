@@ -8,7 +8,7 @@ The [firmware development platform](https://github.com/google-coral/coralmicro) 
 
 ![Coral Dev Board Micro](images/coral-devboard-micro-01.jpg)
 
-![Coral Dev Board Micro](images/micro-callouts.jpg)
+![Coral Dev Board Micro](images/micro-callouts.png)
 
 ![Coral Dev Board Micro Firmware Stack](images/coralmicro-sw-stack.png)
 

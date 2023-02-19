@@ -9,6 +9,8 @@ TODO
 
 ### Install Mendel Linux on the eMMC from a MicroSD
 
+[Mendel Linux](https://coral.googlesource.com/docs/+/refs/heads/master/ReadMe.md) is a lightweight derivative of Debian Linux that runs on a number of Coral development boards, such as the Dev Board and SoM.
+
 https://coral.ai/docs/dev-board/get-started/#flash-the-board
 
 * https://coral.googlesource.com/docs/+/refs/heads/master/GettingStarted.md
@@ -19,15 +21,59 @@ https://coral.ai/docs/dev-board/get-started/#flash-the-board
 
 https://coral.ai/docs/dev-board/get-started/#connect-via-mdt
 
+```bash
+> mdt version
+MDT version 1.5.2
+> mdt help
 
+Usage: mdt <subcommand> [<options>]
+
+Where <subcommand> may be one of the following:
+    help              - this command, gets help on another command.
+    devices           - lists all detected devices.
+    wait-for-device   - waits for a device to be discovered on the network
+    get               - gets an MDT variable value
+    set               - sets an MDT variable value
+    clear             - clears an MDT variable
+    genkey            - generates an SSH key for connecting to a device
+    pushkey           - pushes an SSH public key to a device
+    setkey            - imports a PEM-format SSH private key into the MDT
+                        keystore
+    resetkeys         - removes all keys from the given board and resets key
+                        authentication to factory defaults
+    shell             - opens an interactive shell to a device
+    exec              - runs a shell command and returns the output and the
+                        exit code
+    install           - installs a Debian package using mdt-install-package on
+                        the device
+    push              - pushes a file (or files) to the device
+    pull              - pulls a file (or files) from the device
+    reboot            - reboots a device
+    reboot-bootloader - reboots a device into the bootloader
+    version           - prints which version of MDT this is
+
+Use "mdt help <subcommand>" for more details.
+```
+
+
+Check the Mendel version
 ```bash
 cat /etc/mendel_version
+```
+
+### Networking
+
+Connect the board to your local network using WiFi or/and Ethernet.
+
+```bash
 ps -ax
 df -h
 ip addr
 nmcli connection show
-ls /usr/bin/edge*
+ip addr | grep 'inet '
 ```
+
+> Ping the board for your host from the Wifi or Ethernet network : it's slower than throught the 192.162.100.2 address (OTG USB port).
 
 Change hostname
 ```bash
@@ -38,13 +84,21 @@ sudo vi /etc/hostname
 
 ### Run the Mobilnet demo
 
+```bash
+ls /usr/bin/edge*
+```
+
+
 https://coral.ai/docs/dev-board/get-started/#run-demo
 
 Browse the live demo http://192.168.100.2:4664/
 
 You can switch between CPU mode and TPU mode using key `n`.
 
+The performances are : ~70 fps with TPU versus ~3 fps with CPU.
+
 ![demo](images/coral-devboard-test-01.png)
+![demo](images/coral-devboard-test-02-cpu.png)
 
 ### Run a model
 
@@ -158,20 +212,55 @@ python3 examples/small_object_detection.py \
 
 https://colab.research.google.com/github/google-coral/tutorials/blob/master/run_colab_on_devboard.ipynb
 
-> If the Jupyter installation fails, try `sudo apt install libffi-dev`
+> If the Jupyter installation fails, try `sudo apt-get install libffi-dev`
 
+```bash
+sudo apt-get update
+
+sudo apt-get install libffi-dev
+sudo apt-get install python3-dev
+
+pip3 install jupyter
+source $HOME/.profile
+jupyter --version
+```
+
+```bash
+pip3 install jupyter_http_over_ws
+jupyter serverextension enable --py jupyter_http_over_ws
+jupyter notebook \
+  --NotebookApp.allow_origin='https://colab.research.google.com' \
+  --port=8888 \
+  --NotebookApp.port_retries=0
+```
+
+On host, forward the Jupyter port (`8888`):
+```bash
+ssh -N -L 8888:localhost:8888 mendel@192.168.100.2 -i ~/.config/mdt/keys/mdt.key
+```
+
+Open http://localhost:8888 in a browser on the host computer.
+
+
+Install the `edgetpu-examples` package.
 
 ```bash
 echo "deb https://packages.cloud.google.com/apt coral-edgetpu-stable main" | sudo tee /etc/apt/sources.list.d/coral-edgetpu.list
 echo "deb https://packages.cloud.google.com/apt coral-cloud-stable main" | sudo tee /etc/apt/sources.list.d/coral-cloud.list
-curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -sudo apt-get update 
+curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
+sudo apt-get update 
 sudo apt-get dist-upgrade
 sudo apt-get install edgetpu-examples
 ls -al /usr/share/edgetpu/examples/models
 ls -al /usr/share/edgetpu/examples/images
+cat /usr/share/edgetpu/examples/models/inat_bird_labels.txt
 ```
 
-Create a new notebook, add the following program into a cell and run it
+```bash
+mkdir ~/notebooks
+```
+
+Create a new notebook into the `~/notebooks` directory, add the following program into a cell and run it
 
 ```python
 from edgetpu.classification.engine import ClassificationEngine
@@ -180,10 +269,15 @@ from PIL import Image
 
 # Prepare labels.
 labels = dataset_utils.read_label_file('/usr/share/edgetpu/examples/models/inat_bird_labels.txt')
+# labels = dataset_utils.read_label_file('/home/mendel/coral/pycoral/test_data/inat_bird_labels.txt')
+
 # Initialize engine.
 engine = ClassificationEngine('/usr/share/edgetpu/examples/models/mobilenet_v2_1.0_224_inat_bird_quant_edgetpu.tflite')
+# engine = ClassificationEngine('/home/mendel/coral/pycoral/test_data/mobilenet_v2_1.0_224_inat_bird_quant_edgetpu.tflite')
+
 # Run inference.
 img = Image.open('/usr/share/edgetpu/examples/images/parrot.jpg')
+# img = Image.open('/home/mendel/coral/pycoral/test_data/parrot.jpg')
 for result in engine.classify_with_image(img, top_k=3):
  print('---------------------------')
  print(labels[result[0]])
@@ -199,6 +293,29 @@ Score :  0.6796875
 Platycercus elegans (Crimson Rosella)
 Score :  0.12109375
 ```
+
+You can test more models with the following repositories :
+
+```bash
+cd ~/coral
+git clone https://github.com/google-coral/tutorials.git
+cd tutorials
+ls -al
+```
+
+> For running a notebook, you should edit it before in order to replace `pip` by `pip3` and `apt-get install` by `sudo apt-get install -y` 
+
+
+More programs to test:
+
+```bash
+cd ~/coral
+git clone https://github.com/google-coral/test_data.git
+cd test_data
+ls -al
+```
+
+
 
 ## Coral Camera 
 

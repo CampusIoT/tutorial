@@ -258,7 +258,10 @@ Start up scripts
 
 ## Misc
 
+### Enclosures
+
 * [3mm PMMA Enclosure](./sipeed_maix_bit_enclosure.svg) by Germain Lemasson, FabMSTIC
+* https://www.thingiverse.com/search?q=sipeed&page=1&type=things&sort=relevant
 
 ## Références
 

@@ -305,6 +305,7 @@ ls -al
 
 > For running a notebook, you should edit it before in order to replace `pip` by `pip3` and `apt-get install` by `sudo apt-get install -y` 
 
+Open 
 
 More programs to test:
 
@@ -314,8 +315,6 @@ git clone https://github.com/google-coral/test_data.git
 cd test_data
 ls -al
 ```
-
-
 
 ## Coral Camera 
 
@@ -354,12 +353,16 @@ sudo shutdown now
 ```
 
 
-
-### More
-
-https://coral.ai/examples/
-
 ## Misc
+
+### More examples
+
+* https://coral.ai/examples/
+* https://github.com/google-coral/project-birdfeeder
+* Worker safety https://github.com/google-coral/demo-manufacturing
+* https://github.com/google-coral/project-cloud-monitor
+* https://github.com/google-coral/project-banana-robo (required a L298N H-Bridge DC motor driver)
+* https://github.com/google-coral/project-teachable
 
 ### Pinout
 

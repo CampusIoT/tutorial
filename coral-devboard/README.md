@@ -317,17 +317,30 @@ cd test_data
 ls -al
 ```
 
+
+## Coral Environmental Sensor Board
+
+* https://coral.ai/products/environmental/
+
 ## Coral Camera 
 
 The Coral camera is a Omnivision OV5645 camera (5 megapixels).
 
 * https://fr.aliexpress.com/item/1005003709936187.html
 * https://coral.ai/products/camera/
+* https://coral.ai/docs/dev-board/camera/#run-a-demo-with-the-camera
 * https://coral.ai/docs/dev-board/camera/#view-on-a-monitor
 
-## Coral Environmental Sensor Board
+## USB camera (ie Logitech C920 HD Pro)
 
-* https://coral.ai/products/environmental/
+* https://github.com/google-coral/project-teachable/issues/3
+* https://github.com/cz172638/v4l-utils
+* https://github.com/google-coral/examples-camera
+
+
+## USB thermal camera (ie Lynred)
+
+TODO
 
 ## LoRaWAN modem
 
@@ -344,6 +357,15 @@ TODO
 ## LSTM
 
 https://colab.research.google.com/github/google-coral/tutorials/blob/master/train_lstm_timeseries_ptq_tf2.ipynb
+
+
+Install Python libraries
+```bash
+pip3 install pandas
+```
+
+
+Open the `train_lstm_timeseries_ptq_tf2.ipynb` notebook in Jupyter
 
 ### Run inference on the Edge TPU with Python
 
@@ -366,9 +388,11 @@ TODO
 
 TODO
 
-### Battery pack
+### Battery pack (4x NCR18650B 3.7V 3400mAh)
 
 TODO
+
+https://fr.aliexpress.com/item/4000337670572.html
 
 ## Misc
 

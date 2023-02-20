@@ -75,19 +75,19 @@ ip addr | grep 'inet '
 
 > Ping the board for your host from the Wifi or Ethernet network : it's slower than throught the 192.162.100.2 address (OTG USB port).
 
-Change hostname
+You can change the hostname (for instance: `coral-devboard-001`)
 ```bash
 sudo vi /etc/hostname
 ```
+The change will be effective after the reboot.
 
-> NB: you can connect with SSH using : `ssh -i ~/.config/mdt/keys/mdt.key mendel@192.168.100.2`
+> NB: you can connect with SSH using : `ssh -i ~/.config/mdt/keys/mdt.key mendel@192.168.100.2` or `ssh -i ~/.config/mdt/keys/mdt.key mendel@coral-erods-01.local`
 
 ### Run the Mobilnet demo
 
 ```bash
 ls /usr/bin/edge*
 ```
-
 
 https://coral.ai/docs/dev-board/get-started/#run-demo
 
@@ -153,6 +153,7 @@ person
   bbox:   BBox(xmin=2, ymin=4, xmax=513, ymax=595)
 ```
 
+[Grace Hopper: Mother of COBOL](https://en.wikipedia.org/wiki/Grace_Hopper)
 ![Grace Hopper](https://raw.githubusercontent.com/google-coral/test_data/master/grace_hopper.bmp)
 ![Grace Hopper Processed](images/grace_hopper_processed.bmp)
 
@@ -340,6 +341,9 @@ TODO
 
 * https://coral.ai/docs/edgetpu/models-intro/#compatibility-overview
 
+## LSTM
+
+https://colab.research.google.com/github/google-coral/tutorials/blob/master/train_lstm_timeseries_ptq_tf2.ipynb
 
 ### Run inference on the Edge TPU with Python
 
@@ -352,6 +356,19 @@ https://coral.ai/docs/edgetpu/tflite-python/
 sudo shutdown now
 ```
 
+## Coral DevBoard in production
+
+### Monit
+
+TODO
+
+### Watchdog
+
+TODO
+
+### Battery pack
+
+TODO
 
 ## Misc
 

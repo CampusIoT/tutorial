@@ -333,10 +333,34 @@ The Coral camera is a Omnivision OV5645 camera (5 megapixels).
 
 ## USB camera (ie Logitech C920 HD Pro)
 
+* https://coral.ai/docs/dev-board/camera/#connect-a-usb-camera
 * https://github.com/google-coral/project-teachable/issues/3
 * https://github.com/cz172638/v4l-utils
 * https://github.com/google-coral/examples-camera
 
+```bash
+cd ~/coral
+git clone https://github.com/google-coral/examples-camera.git
+cd examples-camera
+v4l2-ctl --list-devices
+v4l2-ctl --list-formats-ext --device /dev/video1
+```
+
+This demo draws a box around any detected human faces.
+```bash
+edgetpu_detect \
+--source /dev/video1:YUY2:800x600:24/1  \
+--model ${DEMO_FILES}/ssd_mobilenet_v2_face_quant_postprocess_edgetpu.tflite
+```
+
+Run the face detection model with a streaming server
+```bash
+edgetpu_detect_server \
+--source /dev/video1:YUY2:800x600:24/1  \
+--model ${DEMO_FILES}/ssd_mobilenet_v2_face_quant_postprocess_edgetpu.tflite
+```
+
+Open http://192.168.100.2:4664/
 
 ## USB thermal camera (ie Lynred)
 

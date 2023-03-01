@@ -1,4 +1,4 @@
-FROM nodered/node-red-docker
+FROM nodered/node-red
 MAINTAINER CampusIoT didier.donsez@gmail.com
 
 RUN npm install node-red-admin
@@ -8,6 +8,8 @@ RUN npm install node-red-contrib-web-worldmap
 # RUN npm install node-red-node-geofence
 
 RUN npm install node-red-contrib-influxdb
+RUN npm install node-red-contrib-aws
+
 # RUN npm install node-red-node-mongodb
 
 # RUN npm install node-red-contrib-gpsd

@@ -418,6 +418,12 @@ TODO
 
 https://fr.aliexpress.com/item/4000337670572.html
 
+### Power Profiling
+
+[Power Profiler Kit II](https://www.mouser.fr/datasheet/2/297/Power_Profiler_Kit_II_PB_v1_0-1928294.pdf)
+
+Source mode includes built-in programmable regulator with a 0.8V to 5V output range and up to 1A current supply
+
 ## Misc
 
 ### More examples

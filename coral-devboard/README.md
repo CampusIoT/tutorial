@@ -372,6 +372,10 @@ Connect the [LoRaWAN E5 modem](https://wiki.seeedstudio.com/Grove_LoRa_E5_New_Ve
 
 TODO
 
+## GPIO
+
+https://learn.adafruit.com/circuitpython-on-google-coral-linux-blinka/digital-i-o
+
 ## Machine Learning with Edge TPU
 
 TODO

@@ -58,6 +58,11 @@ https://coral.ai/docs/dev-board-micro/poe-datasheet/
 
 ### Battery packs
 
+
+### Power Profiling
+
+[Power Profiler Kit II](https://www.mouser.fr/datasheet/2/297/Power_Profiler_Kit_II_PB_v1_0-1928294.pdf)
+
 ## Misc
 
 ### Enclosures & Cases

@@ -169,25 +169,49 @@ TODO:
 
 ## Getting started with Zephyr
 
+TODO
+
+### References
 * https://github.com/RT-LOC/zephyr-dwm1001
 * https://github.com/foldedtoad/dwm1001
 
 ## Getting started with Apache MyNewT
 
+TODO
+
+### References
 * https://github.com/Decawave/uwb-core
 
 ## Getting started with Arduino
 
+TODO
+
+### References
 https://github.com/thotro/arduino-dw1000
 
 ## Getting started with ROS
 
+TODO
+
+### References
 * https://forum.qorvo.com/t/robot-localization-using-dwm1001-for-ros-2/11992
 * https://github.com/TIERS/ros-dwm1001-uwb-localization
 * https://repositorio-aberto.up.pt/bitstream/10216/145742/2/593212.pdf
 * https://researchrepository.wvu.edu/cgi/viewcontent.cgi?article=12337&context=etd
 * https://github.com/TIERS/uwb-drone-dataset/blob/master/ros_nodes/dwm1001_interface/src/dwm1001_apiCommands.py
-* 
+
+## Geeting started with Walt
+
+TODO
+
+### References
+* https://walt-project.liglab.fr/
+
+## UWB Location solvers
+* Two-Way-Ranging Solver (Location Engine)
+* [VULoc: Accurate UWB Localization for Countless Targets without Synchronization](https://dl.acm.org/doi/pdf/10.1145/3550286)
+* https://www.researchgate.net/publication/345942851_Active-Passive_Two-Way_Ranging_Using_UWB
+
 ## References
 * https://www.pozyx.io/pozyx-academy/how-does-ultra-wideband-work
 * https://github.com/Decawave
@@ -200,6 +224,7 @@ https://github.com/thotro/arduino-dw1000
 * https://github.com/TIERS/dynamic-uwb-firmware
 * https://github.com/TIERS/active-passive-uwb-ros
 * https://github.com/TIERS/uwb-collaborative-sensing
+* https://github.com/irit-rmess/DecaDuino
 
 ### Video
 * [MDEK Quick Start Guide](https://www.youtube.com/watch?v=hI8EaU5nOmI) 

@@ -322,7 +322,7 @@ ls -al
 
 * https://coral.ai/products/environmental/
 
-## Coral Camera 
+## Coral Camera (Currently out of stock)
 
 The Coral camera is a Omnivision OV5645 camera (5 megapixels).
 
@@ -331,23 +331,78 @@ The Coral camera is a Omnivision OV5645 camera (5 megapixels).
 * https://coral.ai/docs/dev-board/camera/#run-a-demo-with-the-camera
 * https://coral.ai/docs/dev-board/camera/#view-on-a-monitor
 
+
+```
+> snapshot
+Cannot find ov5645 CSI camera, check that your camera is connected
+> snapshot --help
+usage: Take camera snapshots [-h] [--prefix PREFIX] [--oneshot]
+                             [--format {jpg,bmp,png}]
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --prefix PREFIX, -p PREFIX
+                        Filename prefix
+  --oneshot             One shot vs. interactive mode
+  --format {jpg,bmp,png}, -f {jpg,bmp,png}
+                        Format to save, default is JPEG
+```
+
 ## USB camera (ie Logitech C920 HD Pro)
+
+> Disadvantages of USB camera (versus MIPI camera) are additional CPU load and power consumption.
 
 * https://coral.ai/docs/dev-board/camera/#connect-a-usb-camera
 * https://github.com/google-coral/project-teachable/issues/3
 * https://github.com/cz172638/v4l-utils
 * https://github.com/google-coral/examples-camera
 
+List devices
+```bash
+v4l2-ctl --list-devices
+```
+
+```
+i.MX6S_CSI (platform:30a90000.csi1_bridge):
+	/dev/video0
+
+HD Pro Webcam C920 (usb-xhci-hcd.1.auto-1):
+	/dev/video1
+```
+
+
+```bash
+v4l2-ctl --list-formats-ext --device /dev/video1
+```
+
+```
+ioctl: VIDIOC_ENUM_FMT
+	Type: Video Capture
+
+	[0]: 'YUYV' (YUYV 4:2:2)
+		Size: Discrete 640x480
+			Interval: Discrete 0.033s (30.000 fps)
+      ...
+	[1]: 'H264' (H.264, compressed)
+      ...
+	[2]: 'MJPG' (Motion-JPEG, compressed)
+      ...
+		Size: Discrete 1920x1080
+			Interval: Discrete 0.033s (30.000 fps)
+      ...
+```
+
 ```bash
 cd ~/coral
 git clone https://github.com/google-coral/examples-camera.git
 cd examples-camera
-v4l2-ctl --list-devices
-v4l2-ctl --list-formats-ext --device /dev/video1
+sh download_models.sh
+ls -al all_models
 ```
 
 This demo draws a box around any detected human faces.
 ```bash
+DEMO_FILES=./all_models
 edgetpu_detect \
 --source /dev/video1:YUY2:800x600:24/1  \
 --model ${DEMO_FILES}/ssd_mobilenet_v2_face_quant_postprocess_edgetpu.tflite
@@ -356,7 +411,7 @@ edgetpu_detect \
 Run the face detection model with a streaming server
 ```bash
 edgetpu_detect_server \
---source /dev/video1:YUY2:800x600:24/1  \
+--source /dev/video1:YUYVll:800x600:24/1  \
 --model ${DEMO_FILES}/ssd_mobilenet_v2_face_quant_postprocess_edgetpu.tflite
 ```
 
@@ -378,7 +433,7 @@ TODO
 
 * https://coral.ai/docs/edgetpu/models-intro/#compatibility-overview
 
-## LSTM
+### LSTM
 
 https://colab.research.google.com/github/google-coral/tutorials/blob/master/train_lstm_timeseries_ptq_tf2.ipynb
 
@@ -394,6 +449,13 @@ Open the `train_lstm_timeseries_ptq_tf2.ipynb` notebook in Jupyter
 ### Run inference on the Edge TPU with Python
 
 https://coral.ai/docs/edgetpu/tflite-python/
+
+
+### Preconpiled models
+
+https://coral.ai/models/all/
+
+### Train your model on TPU
 
 
 ### Shutdown the board

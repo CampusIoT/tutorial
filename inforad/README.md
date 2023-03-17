@@ -1,5 +1,7 @@
 # INFORAD K0 and K1 GNSS USB Stick
 
+![Inforad K1](images/inforad-k1.jpg)
+
 ## Spec
 ```
 Récepteur GPS: SiRFStar III , 20 canaux

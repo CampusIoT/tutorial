@@ -25,6 +25,11 @@ https://github.com/google-coral/coralmicro
 
 https://coral.ai/docs/dev-board-micro/arduino/#1-gather-requirements
 
+Select the following examples in  section called "Examples for Dev Board Micro" in the examples menu
+
+* `File > Examples > TensorFlow > DetectFaces`.
+* `File > Examples > TensorFlow > DetectObjects`.
+
 ## UART communication
 
 > `UART6_TX` and `UART6_RX` are configured for serial port communication and should not be used for other

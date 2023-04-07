@@ -5,3 +5,4 @@ SenseCAP A1101 - LoRaWAN Vision AI Sensor is a TinyML Edge AI enabled smart imag
 * https://www.seeedstudio.com/SenseCAP-A1101-LoRaWAN-Vision-AI-Sensor-p-5367.html
 * https://wiki.seeedstudio.com/Train-Deploy-AI-Model-A1101/
 * https://docs.roboflow.com/
+* https://www.hackster.io/Makerming/tinyml-gesture-recognition-with-sensecap-a1101-vision-ai-b3fb62

@@ -13,6 +13,11 @@ Elle est utilisable avec l’environnement de ST (via un port série) ou en stan
 
 ST fournit le firmware du benchmark [ULPBench](https://www.eembc.org/ulpmark/) pour ses cartes.
 
+
+## Mesure de la consommation
+
+[Note en anglais](notes_st_powershied_lpm01a.md)
+
 ## Mesure de la consommation d'une carte Nucleo en mode standalone
 
 A rédiger

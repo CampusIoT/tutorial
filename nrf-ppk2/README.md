@@ -31,6 +31,7 @@ Press `Start`
 Envoy the chart !
 
 ![PPK2](images/nrf-ppk2-03.png)
+(study from [sx1302 driver](https://github.com/thingsat/riot_modules/tree/main/tests/driver_sx1302#power-consumption-study))
 
 ## Using GPIO level for debugging
 

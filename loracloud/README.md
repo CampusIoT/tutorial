@@ -14,11 +14,12 @@ La LoRa Alliance a publié ce [white paper à propos de la géolocalisation LoRa
 
 Créez un compte utilisateur sur LoRaCloud https://www.loracloud.com/
 
-Créez un Token pour l'utilisation de l'API https://www.loracloud.com/portal/geolocation/token_management
+Créez un token pour l'utilisation de l'API https://www.loracloud.com/portal/geolocation/token_management
 
-Testez les scripts suivants en utilisant le Token créé.
+Testez les scripts suivants en utilisant le token créé.
 
 ```bash
+export GLS_TOKEN='Your GLS Token'
 ./singleframe.sh > singleframe.result.json
 cat singleframe.result.json
 ```
@@ -40,6 +41,7 @@ cat singleframe.result.json
 ```
 
 ```bash
+export GLS_TOKEN='Your GLS Token'
 ./multiframes.sh > multiframes.result.json
 cat multiframes.result.json
 ```

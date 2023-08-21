@@ -36,3 +36,6 @@ Envoy the chart !
 ## Using GPIO level for debugging
 
 TODO
+
+## API
+* https://github.com/IRNAS/ppk2-api-python

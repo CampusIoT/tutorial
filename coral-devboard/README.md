@@ -322,6 +322,17 @@ ls -al
 
 * https://coral.ai/products/environmental/
 
+Onboard sensors:
+* Humidity and temperature sensor : Texas Instruments HDC2010 (I2C address: 0x40)
+* Ambient light sensor : Texas Instruments OPT3002 (I2C address: 0x45)
+* Barometric pressure sensor : Bosch Sensortec BMP280 (I2C address: 0x76)
+
+* 28x32 OLED display is driven by the SSD1306 control chip, connected with the SPI interface
+
+* Secure cryptoprocessor (ATECC608A) with an EEPROM that can store up to 16 keys (256-bit) (I2C address: 0x30)
+
+![Coral Env Pinout](images/coral-env-pinout.png)
+
 ## Coral Camera (Currently out of stock)
 
 The Coral camera is a Omnivision OV5645 camera (5 megapixels).

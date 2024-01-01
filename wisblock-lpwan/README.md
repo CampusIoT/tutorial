@@ -21,6 +21,7 @@ La plateforme RAK Wireless WisBlock LPWAN est conçue pour permettre aux dévelo
 
 https://docs.rakwireless.com/Product-Categories/WisBlock/RAK11310/Quickstart/#prerequisites
 
+https://docs.rakwireless.com/Product-Categories/WisBlock/Quickstart/#description
 
 ## Montage de la carte WisBlock
 
@@ -28,11 +29,35 @@ Montage du [RAK11310](https://docs.rakwireless.com/Product-Categories/WisBlock/R
 
 Montage du [RAK1910](https://docs.rakwireless.com/Product-Categories/WisBlock/RAK1910/Quickstart/#hardware-setup)
 
+Montage [de la batterie LiPo et du panneau solaire](https://docs.rakwireless.com/Product-Categories/WisBlock/RAK11310/Quickstart/#battery-and-solar-connection)
+
+![wisblock with rak11300 and rak1910](images/wisblock-rak11300+rak1910.jpg)
+
+
 ## Configuration de l'IDE Arduino
 
 https://docs.rakwireless.com/Knowledge-Hub/Learn/Installation-of-Board-Support-Package-in-Arduino-IDE/
 
 Copy this URL https://raw.githubusercontent.com/RAKwireless/RAKwireless-Arduino-BSP-Index/main/package_rakwireless_index.json and paste it on the field as shown in Figure 11. If there are other URLs already there, just add it on the next line. After adding the URL, click OK.
+
+
+## Chargement d'un firmware
+
+Le module RAK11300 doit être mis dans un état particulier pour charger un nouveau firmware.
+
+Maintenez appuyé le bouton `bootselect` du module RAK11300 puis maintenez appuyé le bouton `reset` de la carte Wisblock pendant 2 secondes au moins; Relachez les 2 boutons. Le volume `RPI_RP2` est monté dans le système de fichiers.
+
+> Les firmwares pour le module RAK11300 sont au [format `.uf2`](https://github.com/microsoft/uf2). Ils peuvent être copiés dans le volume `RPI_RP2` pour le chargement d'un nouveau firmware.
+
+## Upgrading the Firmware `RAK11300-AT-Command-Firmware`
+
+https://docs.rakwireless.com/Product-Categories/WisBlock/RAK11310/Quickstart/#upgrading-the-firmware
+
+https://github.com/RAKWireless/RAK11300-AT-Command-Firmware/tree/main
+
+https://github.com/RAKWireless/RAK11300-AT-Command-Firmware/blob/main/AT-Command.md
+
+Baud rate is 115200
 
 ## Communication LoRaWAN
 
@@ -54,6 +79,9 @@ Sending frame now...
 ```
 
 [Le croquis](https://github.com/RAKWireless/WisBlock/blob/master/examples/RAK11300/communications/LoRa/LoRaWAN/LoRaWAN_OTAA_ABP/LoRaWAN_OTAA_ABP.ino)
+
+> A noter: dans l'image ci-dessus, un `DevEUI` commençant par l'`OUI` (`AC:1F:09`) de RAK Wireless est inscrit sur l'étiquette du module (ainsi qu'un QRCode). Vous pouvez utiliser cette valeur de `DevEUI` pour changer les valeurs de la variable `nodeDeviceEUI` et en profiter pour changer la valeur de la variable `nodeAppKey` qui contient la clé secrète `AppKey` de l'équipement. 
+
 
 ## Communication LoRaP2P
 
@@ -79,11 +107,9 @@ Choisissez le croquis d'exemple  `File > Examples > RAK WisBlock Examples > RAK1
 
 ## Lecture du niveau de batterie
 
-
 Ajoutez la bibliothèque https://github.com/olikraus/u8g2 
 
 Choisissez le croquis d'exemple  `File > Examples > RAK WisBlock Examples > RAK11300 > Power > RAK11300 Battery Level Detect`
-
 
 
 [Le croquis]()
@@ -94,11 +120,51 @@ Branchez le module [RAK1910 : GNSS GPS Location Module u-Blox MAX-7Q](https://st
 
 Choisissez le croquis d'exemple  `File > Examples > RAK WisBlock Examples > RAK11300 > Sensors > RAK1910_GPS_UBLOX7`
 
-[Le croquis]()
+[Le croquis](https://github.com/RAKWireless/WisBlock/tree/master/examples/common/sensors/RAK1910_GPS_UBLOX7)
+
+
+```
+GPS uart init ok!
+ CHARS=179 SENTENCES=0 CSUM ERR=0
+ CHARS=356 SENTENCES=0 CSUM ERR=0
+ ...
+(N):LAT=48.985922 (E):LON=2.327283 SAT=5 PREC=277 CHARS=60361 SENTENCES=134 CSUM ERR=0
+(N):LAT=48.985918 (E):LON=2.327282 SAT=5 PREC=277 CHARS=60768 SENTENCES=136 CSUM ERR=0
+(N):LAT=48.985914 (E):LON=2.327275 SAT=5 PREC=277 CHARS=61175 SENTENCES=138 CSUM ERR=0
+
+```
 
 ## RTC
 
 ## SD Card
+
+## LoRaWAN GPS Tracker
+
+Modifiez le croquis suivant pour le module RAK11300
+https://github.com/RAKWireless/WisBlock/tree/master/examples/RAK4630/solutions/GPS_Tracker
+
+
+https://docs.rakwireless.com/Product-Categories/WisBlock/RAK1910/Quickstart/#payload-decoding-of-lorawan-gps-tracker
+
+```javascript
+function Decode(fport, bytes)
+{
+  var longitude_int, latitude_int;
+  var decoded = {"latitude":"","longitude":""};
+
+  if (fport === 2) {
+    if(bytes[0]==9) // check if the header byte is 9.
+    {
+      latitude_int = (bytes[1] << 24) | (bytes[2] << 16) | (bytes[3] << 8) | (bytes[4]);
+      decoded.latitude = latitude_int / 100000;
+      longitude_int = (bytes[6] << 24) | (bytes[7] << 16) | (bytes[8] << 8) | (bytes[9]);
+      decoded.longitude = longitude_int / 100000;
+      return decoded;
+    }
+  }
+}
+```
+
 
 ## Exercice
 

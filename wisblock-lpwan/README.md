@@ -17,6 +17,12 @@ La plateforme RAK Wireless WisBlock LPWAN est conçue pour permettre aux dévelo
 * [Battery Connector Cable](https://store.rakwireless.com/products/battery-connector-cable)
 * [Solar Panel Connector Cable](https://store.rakwireless.com/products/solar-panel-connector-cable)
 
+En option
+* [RAK1906 Environment Sensor BOSCH BME680](https://docs.rakwireless.com/Product-Categories/WisBlock/RAK1906/Quickstart/)
+* [RAK1904 WisBlock 3-Axis Acceleration Sensor Module](https://docs.rakwireless.com/Product-Categories/WisBlock/RAK1904)
+
+
+
 ## Getting started
 
 https://docs.rakwireless.com/Product-Categories/WisBlock/RAK11310/Quickstart/#prerequisites
@@ -138,6 +144,11 @@ GPS uart init ok!
 
 ## SD Card
 
+
+## [RAK1906 Environment Sensor BOSCH BME680](https://docs.rakwireless.com/Product-Categories/WisBlock/RAK1906/Quickstart/)
+
+## [RAK1904 WisBlock 3-Axis Acceleration Sensor Module](https://docs.rakwireless.com/Product-Categories/WisBlock/RAK1904)
+
 ## LoRaWAN GPS Tracker
 
 Modifiez le croquis suivant pour le module RAK11300
@@ -165,10 +176,13 @@ function Decode(fport, bytes)
 }
 ```
 
+## Helium Mapper
+
+[Make a Helium Mapper with the WisBlock](https://news.rakwireless.com/make-a-helium-mapper-with-the-wisblock/)
 
 ## Exercice
 
-Assemblez les exemples ci-dessus pour transmettre en LoRaWAN ABP la position GNSS et le niveau de batterie.
+Assemblez les exemples ci-dessus pour transmettre en LoRaWAN ABP la position GNSS et les valeurs environementales ([RAK1906](https://docs.rakwireless.com/Product-Categories/WisBlock/RAK1906/Quickstart/)) ainsi que le niveau de batterie.
 
 Faites varier la taille des messages, le DR et le TxPower périodiquement.
 

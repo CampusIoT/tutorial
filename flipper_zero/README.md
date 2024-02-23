@@ -5,6 +5,11 @@
 
 The CPU model is a [STM32WB55RG](https://www.st.com/en/microcontrollers-microprocessors/stm32wb55rg.html) which it is partially supported by RIOT.
 
+## Project ideas
+
+* CAN Bus commander
+* LoRaWAN Field Test Device (LoRa SPI module + GNSS UART module)
+
 ## Useful links
 
 * https://flipperzero.one

@@ -211,6 +211,7 @@ Cmd list:
 * https://flipperzero.one
 * https://github.com/flipperdevices/flipperzero-firmware
 * [Awesome links](https://github.com/djsime1/awesome-flipperzero)
+* [Xtreme firmware](https://flipper-xtre.me/)
 
 ### PCBs
 

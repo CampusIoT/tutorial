@@ -15,4 +15,4 @@ The CPU model is a [STM32WB55RG](https://www.st.com/en/microcontrollers-micropro
 * https://flipperzero.one
 * https://github.com/flipperdevices/flipperzero-firmware
 
-![Flipper Zero](./images/flipper_zero.jpg)
+![Flipper Zero](./images/flipper_zero-01.jpg)

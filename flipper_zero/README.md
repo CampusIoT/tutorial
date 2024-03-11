@@ -8,6 +8,9 @@ The CPU model is a [STM32WB55RG](https://www.st.com/en/microcontrollers-micropro
 
 ![Flipper Zero](./images/flipper_zero-01.jpg)
 
+## Getting started
+* [CLI](https://docs.flipper.net/development/cli)
+
 ## Project ideas
 
 * CAN Bus commander

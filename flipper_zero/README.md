@@ -12,7 +12,13 @@ The CPU model is a [STM32WB55RG](https://www.st.com/en/microcontrollers-micropro
 
 ### [CLI](https://docs.flipper.net/development/cli)
 
-Open https://lab.flipper.net/cli in Chrome
+Use `minicom`, `tio` or Putty with baudrate 230400 bps.
+
+```bash
+tio -b 230400 -m INLCRNL /dev/tty.usbmodemflip_Oldishol1
+```
+
+Or open https://lab.flipper.net/cli in Chrome
 
 ```console
 

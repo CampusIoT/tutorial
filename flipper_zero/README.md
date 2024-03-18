@@ -205,7 +205,7 @@ Cmd list:
 * CAN Bus commander
 * LoRaWAN Field Test Device (LoRa SPI/UART module + GNSS UART/I2C module) extension board
 * Mikrobus x2 (SPI,I2C,UART) + Grove extension board
-* [Air Quality](https://airqualitystation.github.io/) extension board: PMS7003 connector + BME680 (temperature, humidity) + Mikrobus for GNSS Module
+* [Air Quality](https://airqualitystation.github.io/#flipper-zero-with-bme680-and-pms7003) extension board: PMS7003 connector + BME680 (temperature, humidity) + Mikrobus for GNSS Module
 
 ## References
 

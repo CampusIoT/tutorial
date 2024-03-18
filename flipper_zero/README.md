@@ -203,8 +203,9 @@ Cmd list:
 ## Project ideas
 
 * CAN Bus commander
-* LoRaWAN Field Test Device (LoRa SPI/UART module + GNSS UART/I2C module)
+* LoRaWAN Field Test Device (LoRa SPI/UART module + GNSS UART/I2C module) extension board
 * Mikrobus x2 (SPI,I2C,UART) + Grove extension board
+* [Air Quality](https://airqualitystation.github.io/) extension board: PMS7003 connector + BME680 (temperature, humidity) + Mikrobus for GNSS Module
 
 ## References
 

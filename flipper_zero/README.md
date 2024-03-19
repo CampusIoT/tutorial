@@ -199,7 +199,138 @@ Cmd list:
 >: 
 ```
 
+## Development
 
+### Install micro Flipper Build Tool (`ufbt`)
+
+```bash
+python3 -m pip install --upgrade ufbt
+ufbt --help
+```
+
+```
+Configuration variables:
+
+VERBOSE: Print full commands (yes|no)
+    default: False
+    actual: False
+
+FORCE: Force target action (for supported targets) (yes|no)
+    default: False
+    actual: False
+
+OTHER_ELF: Path to prebuilt ELF file to debug ( /path/to/OTHER_ELF )
+    default: 
+    actual: 
+
+OPENOCD_OPTS: Options to pass to OpenOCD
+    default: 
+    actual: 
+
+BLACKMAGIC: Blackmagic probe location
+    default: auto
+    actual: auto
+
+SWD_TRANSPORT: SWD interface adapter type (auto|cmsis-dap|stlink|blackmagic_usb|blackmagic_wifi)
+    default: auto
+    actual: auto
+
+SWD_TRANSPORT_SERIAL: SWD interface adapter serial number
+    default: auto
+    actual: auto
+
+APPID: Application id
+    default: 
+    actual: 
+
+UFBT_APP_DIR: Application dir to work with ( /path/to/UFBT_APP_DIR )
+    default: 
+    actual: /Users/donsez/github
+
+FLIP_PORT: CDC Port of Flipper to use, if multiple are connected
+    default: auto
+    actual: auto
+
+STRICT_FAP_IMPORT_CHECK: Enable strict import check for .faps (yes|no)
+    default: True
+    actual: True
+
+
+TASKS:
+    (* - not supported yet)
+
+    launch:
+        Upload and start application over USB
+    vscode_dist:
+        Configure application in current directory for development in VSCode.
+    create:
+        Copy application template to current directory. Set APPID=myapp to create an app with id 'myapp'.
+
+Building:
+    faps:
+        Build all FAP apps
+    fap_{APPID}, launch APPSRC={APPID}:
+        Build FAP app with appid={APPID}; upload & start it over USB
+    cdb:
+        regenerate "compile_commands.json" file (for IDE integration)
+
+Flashing & debugging:
+    flash, *jflash:
+        Flash firmware to target using SWD probe. See also SWD_TRANSPORT, SWD_TRANSPORT_SERIAL
+    flash_usb, flash_usb_full:
+        Install firmware using self-update package
+    debug, debug_other, blackmagic:
+        Start GDB
+    devboard_flash:
+        Update WiFi dev board. 
+        Supports ARGS="..." to pass extra arguments to the update script, e.g. ARGS="-c dev"
+
+Other:
+    cli:
+        Open a Flipper CLI session over USB
+    lint:
+        run linter for C code
+    format:
+        reformat C code
+
+How to create a new application:
+    1. Create a new directory for your application and cd into it.
+    2. Run `ufbt vscode_dist create APPID=myapp`
+    3. In VSCode, open the folder and start editing.
+    4. Run `ufbt launch` to build and upload your application.
+
+How to open a shell with toolchain environment and other build tools:
+    In your shell, type "eval `ufbt -s env`".
+
+How to update uFBT SDK:
+    Run "ufbt update" to fetch latest SDK.
+    You can also specify branch, target and/or channel options. See "ufbt update -h" for details.
+
+Use scons -H for help about SCons built-in command-line options.
+```
+
+### Build a FAP
+
+```bash
+git clone git@github.com:ezod/flipperzero-gps.git
+cd flipperzero-gps/
+git submodule init
+git submodule update
+ufbt faps
+ufbt launch
+```
+
+Rum the application `apps/GPIO/gps_nmea.fap`.
+
+![Flipper GPS](images/flipper_gps.jpg)
+
+### Develop applications
+
+* https://github.com/DroomOne/Flipper-Plugin-Tutorial
+* https://brodan.biz/blog/a-visual-guide-to-flipper-zero-gui-components/
+* https://github.com/jamisonderek/flipper-zero-tutorials/blob/main/youtube/README.md
+* https://github.com/jamisonderek/flipper-zero-tutorials
+        
 ## Project ideas
 
 * CAN Bus commander

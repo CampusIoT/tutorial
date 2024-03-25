@@ -345,6 +345,7 @@ Rum the application `apps/GPIO/gps_nmea.fap`.
 * [Awesome links](https://github.com/djsime1/awesome-flipperzero)
 * [Xtreme firmware](https://flipper-xtre.me/)
 * [NMEA GNSS](https://github.com/ezod/flipperzero-gps)
+* [Wifi Devboard (Kicad)](https://github.com/justcallmekoko/ESP32Marauder/tree/master/PCBs/FlipperZero/WiFi-Devboard-Pro)
 
 ### PCBs
 

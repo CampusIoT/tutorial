@@ -338,6 +338,8 @@ Rum the application `apps/GPIO/gps_nmea.fap`.
 * Mikrobus x2 (SPI,I2C,UART) + Grove extension board
 * [Air Quality](https://airqualitystation.github.io/#flipper-zero-with-bme680-and-pms7003) extension board: PMS7003 connector + BME680 (temperature, humidity) + Mikrobus for GNSS Module
 
+![Protoboard](images/flipper_lora2g4.jpg)
+
 ## References
 
 * https://flipperzero.one

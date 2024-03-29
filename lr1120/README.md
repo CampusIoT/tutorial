@@ -5,6 +5,8 @@
 
 Check the model of your LR1120 shield. Mine is [`LR1120MB1DIS` (868 MHz for the SubGhz interface)](https://fr.semtech.com/products/wireless-rf/lora-edge/lr1120dvk1tcks)
 
+But we have designed this [Mikrobus board for LR1120](https://github.com/thingsat/lr1120_mikrobus/tree/main?tab=readme-ov-file#semtech-lr1120-mikrobus-board)
+
 Two Github repositories are available:
 * [SWSD003: LR11xx SDK](https://github.com/Lora-net/SWSD003)
 * [SWSD001: LoRa Basics Modem SDK](https://github.com/Lora-net/SWSD001)
@@ -44,7 +46,8 @@ For instance :
 #define LORA_SYNCWORD 0x34  // 0x12 Private Network, 0x34 Public Network
 ```
 
-### Ping Pong
+### [Ping Pong](https://github.com/Lora-net/SWSD003/tree/master/lr11xx/apps/ping_pong)
+The application will automatically set the device in Ping-Pong mode.
 
 ```bash
 cd apps/ping_pong/
@@ -53,7 +56,37 @@ make RADIO_SHIELD=LR1120MB1DIS
 cp build/ping_pong.bin  /Volumes/NODE_L476RG/
 ```
 
-###  Spectral scan
+### [LR-FHSS](https://github.com/Lora-net/SWSD003/tree/master/lr11xx/apps/lrfhss)
+
+The application will automatically configure the device to transmit packets in LR-FHSS.
+
+```bash
+cd apps/lrfhss/
+cd makefile/
+make RADIO_SHIELD=LR1120MB1DIS
+cp build/lrfhss.bin  /Volumes/NODE_L476RG/
+```
+### [CAD (Collision Avoidance Detection)](https://github.com/Lora-net/SWSD003/tree/master/lr11xx/apps/cad)
+The chip performs the CAD operation in LoRa.
+
+```bash
+cd apps/cad/
+cd makefile/
+make RADIO_SHIELD=LR1120MB1DIS
+cp build/cad.bin  /Volumes/NODE_L476RG/
+```
+
+### [sub-GHz band LoRa based Round-Trip Time of Flight (ranging)](https://github.com/Lora-net/SWSD003/tree/master/lr11xx/apps/rttof)
+
+```bash
+cd apps/rttof/
+cd makefile/
+make RADIO_SHIELD=LR1120MB1DIS
+cp build/rttof.bin  /Volumes/NODE_L476RG/
+```
+###  [Spectral scan](https://github.com/Lora-net/SWSD003/tree/master/lr11xx/apps/spectral_scan)
+
+The application implements Spectral-Scan operation by setting the device in Rx continuous mode and regularly reading instantaneous RSSI one frequency channel after the other.
 
 ```bash
 cd apps/spectral_scan/
@@ -61,6 +94,11 @@ cd makefile/
 make RADIO_SHIELD=LR1120MB1DIS
 cp build/spectral_scan.bin  /Volumes/NODE_L476RG/
 ```
+
+### [Spectrum Display](https://github.com/Lora-net/SWSD003/tree/master/lr11xx/apps/spectrum_display)
+
+The application implements Spectrum-Display operation by setting the device in Rx continuous mode and regularly reading instantaneous RSSI one frequency channel after the other.
+
 
 ### Wifi Scan
 
@@ -434,6 +472,9 @@ full_almanac_update
 large_file_upload
 stream
 tx_rx_continuous
+cad
+lrfhss
+spectrum_display
 ```
 
 ## TODO

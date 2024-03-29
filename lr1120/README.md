@@ -47,6 +47,7 @@ For instance :
 ```
 
 ### [Ping Pong](https://github.com/Lora-net/SWSD003/tree/master/lr11xx/apps/ping_pong)
+
 The application will automatically set the device in Ping-Pong mode.
 
 ```bash
@@ -67,6 +68,7 @@ make RADIO_SHIELD=LR1120MB1DIS
 cp build/lrfhss.bin  /Volumes/NODE_L476RG/
 ```
 ### [CAD (Collision Avoidance Detection)](https://github.com/Lora-net/SWSD003/tree/master/lr11xx/apps/cad)
+
 The chip performs the CAD operation in LoRa.
 
 ```bash
@@ -77,6 +79,8 @@ cp build/cad.bin  /Volumes/NODE_L476RG/
 ```
 
 ### [sub-GHz band LoRa based Round-Trip Time of Flight (ranging)](https://github.com/Lora-net/SWSD003/tree/master/lr11xx/apps/rttof)
+
+The sample code is used to perform a sub-GHz band LoRa based Round-Trip Time of Flight (ranging) measurement between two devices : a RTToF manager and a RTToF subordinate. 
 
 ```bash
 cd apps/rttof/

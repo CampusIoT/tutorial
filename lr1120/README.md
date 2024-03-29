@@ -67,9 +67,9 @@ cd makefile/
 make RADIO_SHIELD=LR1120MB1DIS
 cp build/lrfhss.bin  /Volumes/NODE_L476RG/
 ```
-### [CAD (Collision Avoidance Detection)](https://github.com/Lora-net/SWSD003/tree/master/lr11xx/apps/cad)
+### [CAD (Channel Activity Detection)](https://github.com/Lora-net/SWSD003/tree/master/lr11xx/apps/cad)
 
-The chip performs the CAD operation in LoRa.
+The chip performs the CAD (Channel Activity Detection) operation in LoRa.
 
 ```bash
 cd apps/cad/

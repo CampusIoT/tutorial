@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # Log data from serial port
 
-# Author: Diego Herranz
+# Author: Diego Herranz (origin), Didier Donsez (updates)
 
 import argparse
 import serial

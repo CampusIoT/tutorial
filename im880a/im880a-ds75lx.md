@@ -3,6 +3,7 @@
 La carte d'essai IMST iM880a DS75LX est une carte de prototypage du module iM880a.
 
 Il comporte :
+* un [STM32L152](https://www.st.com/resource/en/datasheet/stm32l152c6.pdf)
 * un support double batterie AAA
 * un capteur de temperature SPI [Maxim DS75LX](./docs/DS75LX.pdf)
 * deux connecteurs X1 et X2 (2x  16 broches) qui donnent accès à l'ensemble des broches du module iM880a (UART, JTAG, SPI, I2C, GPIO)
@@ -21,25 +22,30 @@ Vous pouvez inclure ce fichier `pinmap.h` pour utiliser les GPIO des headers X1 
 
 #define IM880_PINMAP 	1
 
-#define PIN_X1_1  GPIO(0,14)  // P1 @ module SWCLK JTCK
-#define PIN_X1_2  GPIO(0,13)  // P2 @ module SWDAT JTMS
-#define PIN_X1_3  GPIO(1,3)   // P3 @ module JTDO
-#define PIN_X1_4  GPIO(0,15)  // P4 @ module JTDI
+#define PIN_X1_1  GPIO(0,14)  // P1 @ module SWCLK JTCK PA14 FT
+#define PIN_X1_2  GPIO(0,13)  // P2 @ module SWDAT JTMS PA13 FT
+#define PIN_X1_3  GPIO(1,3)   // P3 @ module JTDO       PB3  FT
+#define PIN_X1_4  GPIO(0,15)  // P4 @ module JTDI       PA15 FT
 
-#define PIN_X1_7  GPIO(0,11)  // P5 @ module
-#define PIN_X1_8  GPIO(0,12)  // P6 @ module
+#define PIN_X1_7  GPIO(0,11)  // P5 @ module  PA11 FT
+#define PIN_X1_8  GPIO(0,12)  // P6 @ module  PA12 FT
 
-#define PIN_X1_10 GPIO(1,14)  // P7 @ module
-#define PIN_X1_9  GPIO(1,15)  // P8 @ module
-#define PIN_X1_12 GPIO(1,13)  // P9 @ module
-#define PIN_X1_11 GPIO(1,12)  // P10 @ module
+#define PIN_X1_10 GPIO(1,14)  // P7 @ module  PB14 FT
+#define PIN_X1_9  GPIO(1,15)  // P8 @ module  PB15 FT
+#define PIN_X1_12 GPIO(1,13)  // P9 @ module  PB13 FT
+#define PIN_X1_11 GPIO(1,12)  // P10 @ module PB12 FT
 
-#define PIN_X2_7  GPIO(0,8)  // P11 @ module
-#define PIN_X2_6  GPIO(1,8)  // P12 @ module
-#define PIN_X2_5  GPIO(1,9)  // P13 @ module
-#define PIN_X2_14 GPIO(0,1)  // P14 @ module
-#define PIN_X2_3  GPIO(0,0)  // P15 @ module
-#define PIN_X2_17 GPIO(0,3)  // P17 @ module
+#define PIN_X2_7  GPIO(0,8)  // P11 @ module  PA8  FT
+#define PIN_X2_6  GPIO(1,8)  // P12 @ module  PB8  FT
+#define PIN_X2_5  GPIO(1,9)  // P13 @ module  PB9  FT
+#define PIN_X2_14 GPIO(0,1)  // P14 @ module  PA1  FT 
+#define PIN_X2_3  GPIO(0,0)  // P15 @ module  PA0  FT
+#define PIN_X2_17 GPIO(0,3)  // P17 @ module  PA3  TC
+#define PIN_X2_9 GPIO(0,9)   // P17 @ module  PA9  FT USART1_RX
+#define PIN_X2_10 GPIO(0,10) // P17 @ module  PA10 FT USART1_TX
+
+// TC : Standard 3.3 V I/O
+// FT : 5 V tolerant I/O
 
 #endif
 

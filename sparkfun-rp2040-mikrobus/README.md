@@ -65,3 +65,65 @@ fi
 * https://datasheets.raspberrypi.com/pico/raspberry-pi-pico-python-sdk.pdf
 * https://www.raspberrypi.com/documentation/microcontrollers/micropython.html
 * https://docs.edgeimpulse.com/docs/development-platforms/officially-supported-mcu-targets/raspberry-pi-rp2040
+
+
+## For SX1280 Lambda80 Module
+
+```h
+#if BOARD_RPI2040_SPARKFUN == 1
+
+/*
+    GPIO 02: SCK
+    GPIO 03: MOSI (COPI)
+    GPIO 04: MISO (CIPO)
+    GPIO 05: CS
+
+    GPIO 06: SDA
+    GPIO 07/23: SCL
+
+    GPIO 0: TX
+    GPIO 01: RX
+
+    GPIO 13: RST
+    GPIO 16: PWM
+    GPIO 17: INT
+    GPIO 26: AN
+
+*/
+// SPI
+#define PIN_SPI_MISO  (4u)
+#define PIN_SPI_MOSI  (3u)
+#define PIN_SPI_SCK   (2u)
+    
+#define NSS       5                                   //select pin on LoRa device
+#define SCK       2                                  //SCK on SPI3
+#define MISO      3                                  //MISO on SPI3 
+#define MOSI      4                                  //MOSI on SPI3 
+
+#define AN_0      26
+#define RESET_0   13
+#define PWM_0     16
+#define INT_0     17
+
+#if defined(MODULE_SX1280_LAMBDA80)
+
+/*
+Lambda80C module
+AN  <-> DIO1
+INT <-> Busy
+PWM <-> DIO2
+*/
+#define DIO1  AN_0                                //DIO1 pin on LoRa device, used for RX and TX done 
+//#define DIO2  PWM_0                               //DIO2 pin on LoRa device, normally not used so set to -1 
+#define DIO2  -1                                //DIO2 pin on LoRa device, normally not used so set to -1 
+#define RFBUSY  INT_0                               //busy line
+#define NRESET  RESET_0                     //reset pin on LoRa device
+
+#else
+#error Unknown module
+#endif
+
+#else
+#error Unknown board
+#endif
+```

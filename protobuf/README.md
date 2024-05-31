@@ -14,6 +14,12 @@ which protoc
  
 > Version is `libprotoc 3.20.1`
 
+### Linux
+```bash
+sudo apt install -y protobuf-compiler
+protoc --version
+which protoc
+```
 
 ## Encoding and Decoding
 
@@ -26,7 +32,7 @@ protoc --decode_raw < binary.data
 
 ## Codec library generation
 
-See the `[telemetry.proto](./telemetry.proto)` description
+See the [`telemetry.proto`](./telemetry.proto) description
 
 ```bash
 cd ~/github/campusiot/tutorial/protobuf

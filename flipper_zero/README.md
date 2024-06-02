@@ -324,13 +324,14 @@ Rum the application `apps/GPIO/gps_nmea.fap`.
 
 ![Flipper GPS](images/flipper_gps.jpg)
 
-### LoRa & LoRaWAN
-
+### :satellite: LoRa, LR-FHSS & LoRaWAN :satellite:
 
 * [Flipper Add-On SubGhz (SX1262 + extra CC1101)](https://electroniccats.com/store/flipper-add-on-subghz/) ([app](https://github.com/ElectronicCats/flipper-SX1262-LoRa/wiki))
+* Protoboard with [SubHGz LoRa LoRa E5 Mini board](../lora-e5)
+* Protoboard with [SubHGz LoRa RN2483 module](../rn2483)
+* Protoboard with LoRa 2.4 GHz SX1280 module (cf picture below)
 
 ![Protoboard with LoRa 2.4 GHz SX1280 module](images/flipper_lora2g4.jpg)
-
 
 ### Develop applications
 
@@ -341,10 +342,10 @@ Rum the application `apps/GPIO/gps_nmea.fap`.
         
 ## Project ideas
 
-* CAN Bus commander
-* LoRaWAN Field Test Device (LoRa SPI/UART module + GNSS UART/I2C module) extension board
+* :car: CAN Bus commander
+* :satellite: LoRaWAN Field Test Device (LoRa SPI/UART module + GNSS UART/I2C module) extension board
 * Mikrobus x2 (SPI,I2C,UART) + Grove extension board
-* [Air Quality](https://airqualitystation.github.io/#flipper-zero-with-bme680-and-pms7003) extension board: PMS7003 connector + BME680 (temperature, humidity) + Mikrobus for GNSS Module
+* :cloud: [Air Quality](https://airqualitystation.github.io/#flipper-zero-with-bme680-and-pms7003) extension board: PMS7003 connector + BME680 (temperature, humidity) + Mikrobus for GNSS Module
 
 
 ## References

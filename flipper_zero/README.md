@@ -326,9 +326,10 @@ Rum the application `apps/GPIO/gps_nmea.fap`.
 
 ### :satellite: LoRa, LR-FHSS & LoRaWAN :satellite:
 
-* [Flipper Add-On SubGhz (SX1262 + extra CC1101)](https://electroniccats.com/store/flipper-add-on-subghz/) ([app](https://github.com/ElectronicCats/flipper-SX1262-LoRa/wiki))
-* Protoboard with [SubHGz LoRa LoRa E5 Mini board](../lora-e5)
-* Protoboard with [SubHGz LoRa RN2483 module](../rn2483)
+* [Flipper Add-On SubGHz (SX1272 + extra CC1101)](https://electroniccats.com/store/flipper-add-on-subghz/) ([app](https://github.com/ElectronicCats/flipper-SX1262-LoRa/wiki))
+* Protoboard with [Seedstudio Wio E5 Mini board](../lora-e5)
+* Protoboard with [Seedstudio Grove Wio E5 Mini board](../lora-e5)
+* Protoboard with [SubGHz LoRa RN2483 module](../rn2483)
 * Protoboard with LoRa 2.4 GHz SX1280 module (cf picture below)
 
 ![Protoboard with LoRa 2.4 GHz SX1280 module](images/flipper_lora2g4.jpg)

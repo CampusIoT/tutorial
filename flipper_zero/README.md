@@ -329,6 +329,7 @@ Rum the application `apps/GPIO/gps_nmea.fap`.
 * [Flipper Add-On SubGHz (SX1272 + extra CC1101)](https://electroniccats.com/store/flipper-add-on-subghz/) ([app](https://github.com/ElectronicCats/flipper-SX1262-LoRa/wiki))
 * Protoboard with [Seedstudio Wio E5 Mini board](../lora-e5)
 * Protoboard with [Seedstudio Grove Wio E5 Mini board](../lora-e5)
+* Protoboard with [RAK3272-SiP Breakout Board](https://store.rakwireless.com/products/wisduo-breakout-board-rak3272-sip?variant=41727627362502)
 * Protoboard with [SubGHz LoRa RN2483 module](../rn2483)
 * Protoboard with LoRa 2.4 GHz SX1280 module (cf picture below)
 

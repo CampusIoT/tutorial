@@ -324,6 +324,14 @@ Rum the application `apps/GPIO/gps_nmea.fap`.
 
 ![Flipper GPS](images/flipper_gps.jpg)
 
+### LoRa & LoRaWAN
+
+
+* [Flipper Add-On SubGhz (SX1262 + extra CC1101)](https://electroniccats.com/store/flipper-add-on-subghz/) ([app](https://github.com/ElectronicCats/flipper-SX1262-LoRa/wiki))
+
+![Protoboard with LoRa 2.4 GHz SX1280 module](images/flipper_lora2g4.jpg)
+
+
 ### Develop applications
 
 * https://github.com/DroomOne/Flipper-Plugin-Tutorial
@@ -338,7 +346,6 @@ Rum the application `apps/GPIO/gps_nmea.fap`.
 * Mikrobus x2 (SPI,I2C,UART) + Grove extension board
 * [Air Quality](https://airqualitystation.github.io/#flipper-zero-with-bme680-and-pms7003) extension board: PMS7003 connector + BME680 (temperature, humidity) + Mikrobus for GNSS Module
 
-![Protoboard](images/flipper_lora2g4.jpg)
 
 ## References
 

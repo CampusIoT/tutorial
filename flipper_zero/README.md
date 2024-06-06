@@ -324,6 +324,17 @@ Rum the application `apps/GPIO/gps_nmea.fap`.
 
 ![Flipper GPS](images/flipper_gps.jpg)
 
+### :satellite: LoRa, LR-FHSS & LoRaWAN :satellite:
+
+* [Flipper Add-On SubGHz (SX1272 + extra CC1101)](https://electroniccats.com/store/flipper-add-on-subghz/) ([app](https://github.com/ElectronicCats/flipper-SX1262-LoRa/wiki))
+* Protoboard with [Seedstudio Wio E5 Mini board](../lora-e5)
+* Protoboard with [Seedstudio Grove Wio E5 Mini board](../lora-e5)
+* Protoboard with [RAK3272-SiP Breakout Board](https://store.rakwireless.com/products/wisduo-breakout-board-rak3272-sip?variant=41727627362502)
+* Protoboard with [SubGHz LoRa RN2483 module](../rn2483)
+* Protoboard with LoRa 2.4 GHz SX1280 module (cf picture below)
+
+![Protoboard with LoRa 2.4 GHz SX1280 module](images/flipper_lora2g4.jpg)
+
 ### Develop applications
 
 * https://github.com/DroomOne/Flipper-Plugin-Tutorial
@@ -333,13 +344,14 @@ Rum the application `apps/GPIO/gps_nmea.fap`.
         
 ## Project ideas
 
-* CAN Bus commander
-* LoRaWAN Field Test Device (LoRa SPI/UART module + GNSS UART/I2C module) extension board
+* :car: CAN Bus commander
+* :satellite: LoRaWAN Field Test Device (LoRa SPI/UART module + GNSS UART/I2C module) extension board
 * Mikrobus x2 (SPI,I2C,UART) + Grove extension board
-* [Air Quality](https://airqualitystation.github.io/#flipper-zero-with-bme680-and-pms7003) extension board: PMS7003 connector + BME680 (temperature, humidity) + Mikrobus for GNSS Module
+* :cloud: [Air Quality](https://airqualitystation.github.io/#flipper-zero-with-bme680-and-pms7003) extension board: PMS7003 connector + BME680 (temperature, humidity) + Mikrobus for GNSS Module
 
 ![Protoboard](images/flipper_lora2g4.jpg)
 ![Protoboard + RAK3172](images/flipper+rak3172.jpg)
+
 ## References
 
 * https://flipperzero.one
@@ -353,6 +365,8 @@ Rum the application `apps/GPIO/gps_nmea.fap`.
 
 * [flipperzero-protoboards-kicad](https://github.com/lomalkin/flipperzero-protoboards-kicad)
 * [Flipper-Zero-module-PCB](https://github.com/Didgitalpunk/Flipper-Zero-module-PCB)
+* [ElectronicCats/flipper-shields](https://github.com/ElectronicCats/flipper-shields) : SubGiga (CC1011) LoRa (SX1262), MagSpoof, ModBus or RS485, CanBus
+
 
 
 🐬🐬🐬🐬🐬🐬🐬🐬🐬🐬🐬🐬🐬🐬🐬🐬🐬🐬🐬🐬🐬🐬🐬🐬🐬🐬🐬🐬🐬🐬🐬🐬🐬🐬

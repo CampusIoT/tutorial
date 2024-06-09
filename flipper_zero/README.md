@@ -338,6 +338,16 @@ Rum the application `apps/GPIO/gps_nmea.fap`.
 
 ![Flipper GPS](images/flipper_gps.jpg)
 
+### Flipper Zero scripting
+
+* https://developer.flipper.net/flipperzero/doxygen/js.html
+
+Modules
+* [js_serial](https://developer.flipper.net/flipperzero/doxygen/js_serial.html)
+
+[Examples](https://github.com/flipperdevices/flipperzero-firmware/tree/release/applications/system/js_app/examples/apps/Scripts)
+
+
 ### :satellite: LoRa, LR-FHSS & LoRaWAN :satellite:
 
 * [Flipper Add-On SubGHz (SX1272 + extra CC1101)](https://electroniccats.com/store/flipper-add-on-subghz/) ([app](https://github.com/ElectronicCats/flipper-SX1262-LoRa/wiki))

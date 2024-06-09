@@ -309,7 +309,7 @@ How to update uFBT SDK:
 Use scons -H for help about SCons built-in command-line options.
 ```
 
-### Build a FAP
+### Build a FAP (exemple [flipperzero-gps](https://github.com/ezod/flipperzero-gps))
 
 ```bash
 git clone git@github.com:ezod/flipperzero-gps.git
@@ -341,6 +341,7 @@ Rum the application `apps/GPIO/gps_nmea.fap`.
 * https://brodan.biz/blog/a-visual-guide-to-flipper-zero-gui-components/
 * https://github.com/jamisonderek/flipper-zero-tutorials/blob/main/youtube/README.md
 * https://github.com/jamisonderek/flipper-zero-tutorials
+* https://github.com/cool4uma/UART_Terminal
         
 ## Project ideas
 

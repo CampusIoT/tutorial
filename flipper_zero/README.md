@@ -367,6 +367,7 @@ Rum the application `apps/GPIO/gps_nmea.fap`.
 * [flipperzero-protoboards-kicad](https://github.com/lomalkin/flipperzero-protoboards-kicad)
 * [Flipper-Zero-module-PCB](https://github.com/Didgitalpunk/Flipper-Zero-module-PCB)
 * [ElectronicCats/flipper-shields](https://github.com/ElectronicCats/flipper-shields) : SubGiga (CC1011) LoRa (SX1262), MagSpoof, ModBus or RS485, CanBus
+* [FlipperProtoBoards](https://github.com/MakeItHackin/FlipperProtoBoards)
 
 
 

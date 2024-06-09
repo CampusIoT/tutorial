@@ -198,6 +198,14 @@ Cmd list:
 
 >: 
 ```
+## [BadUSB](https://docs.flipper.net/bad-usb) : USB device emulator
+
+Flipper Zero can act as a [BadUSB](https://docs.flipper.net/bad-usb) device, recognized by computers as a Human Interface Device (HID), such as a keyboard. A BadUSB device can change system settings, open backdoors, retrieve data, initiate reverse shells, or do anything that can be achieved with physical access.
+
+[BadUsbScriptFormat](https://github.com/flipperdevices/flipperzero-firmware/blob/dev/documentation/file_formats/BadUsbScriptFormat.md)
+
+[Example: demo_macos](https://github.com/flipperdevices/flipperzero-firmware/blob/dev/applications/main/bad_usb/resources/badusb/demo_macos.txt)
+
 
 ## Development
 

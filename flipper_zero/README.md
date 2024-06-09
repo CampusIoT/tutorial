@@ -317,6 +317,12 @@ How to update uFBT SDK:
 Use scons -H for help about SCons built-in command-line options.
 ```
 
+### Build a FAP (example [DS18B20 temp sensor](https://github.com/flipperdevices/flipperzero-firmware/tree/dev/applications/examples/example_thermo))
+
+```bash
+TODO
+```
+
 ### Build a FAP (exemple [flipperzero-gps](https://github.com/ezod/flipperzero-gps))
 
 ```bash

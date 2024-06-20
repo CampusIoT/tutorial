@@ -363,18 +363,32 @@ Modules
 Launch [GPIO > UART Terminal](https://lab.flipper.net/apps/uart_terminal) with [Seedstudio Wio E5 Mini board](../wio-lora-e5)
 
 Pinout: Grove cable on Flipper GPIO
-* Red on 3V3 (9)
-* Black on GND (11)
-* White on TX (13)
-* Yellow on RX (14)
+* `Red` on `3V3` (9)
+* `Black` on `GND` (11)
+* `White` on `TX` (13)
+* `Yellow` on `RX` (14)
 
 Set baudrate at 9600
 
-Send AT command `ÀT+ID`
+Send AT command `ÀT+ID` for testing the UART connection
+
+Register the endpoint on a LoRa Network Server using `DevEUI`, `AppEUI` and a secure AES Key `AppKey`.
+> `1234567890ABCDEF1234567890ABCDEF` is not secure !
+
+Update the AppKey value into the JS script [`wio-lora-e5.js`](wio-lora-e5.js)
+
+Upload the JS script [`wio-lora-e5.js`](wio-lora-e5.js) into the directory `/ext/apps/Scripts` of the Flipper Zero using https://lab.flipper.net/archive
+
+Launch the JS script [`wio-lora-e5.js`](wio-lora-e5.js)
+
+Enqueue a confirmed downlink message `SGVsbG8gRmxpcHBlcg==` (`Hello Flipper`)) on port=10 just after join accept.
+
 
 [More AT Commands](../wio-lora-e5/AT.md)
 
 ![flipper_wio-lora-e5](images/flipper_wio-lora-e5.jpg)
+
+
 
 #### More
 

@@ -1,5 +1,17 @@
-https://wiki.seeedstudio.com/LoRa_E5_Dev_Board/
+# AT Commands with Wio LoRa E5
 
+[Specifications](https://files.seeedstudio.com/products/317990687/res/LoRa-E5%20AT%20Command%20Specification_V1.0%20.pdf)
+
+* `<LF>` means the newline character. `<CR>` means carriage return
+▪ Default UART configuration `"9600, 8, n,1"` (8 bits data, no parity, 1 stop bit)
+
+```bash
+tio 
+```
+
+
+
+```
 2CF7F12024900138
 
 AT+ID
@@ -91,3 +103,4 @@ AT+MSGHEX=018806765EF2960A0003E8
 +MSG: FPENDING
 +MSG: RXWIN1, RSSI -101, SNR -16.0
 +MSG: Done
+```

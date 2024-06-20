@@ -10,8 +10,13 @@ The CPU model is a [STM32WB55RG](https://www.st.com/en/microcontrollers-micropro
 
 ## Getting started
 
+### [Force Reboot](https://docs.flipper.net/basics/reboot)
+
+Hold for 5 sec return key and left arrow key
+
 ### Update with latest firmware
 
+From My Flipper : https://lab.flipper.net/
 
 ### Install extra apps
 Browse [catalog](https://lab.flipper.net) and install:

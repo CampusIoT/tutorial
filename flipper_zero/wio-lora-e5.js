@@ -28,6 +28,11 @@ function send(cmdline, nb_line, timeout) {
     receive(nb_line, timeout);
 }
 
+print("-------------------"); // for debug
+print("Flipper LoRaWAN FTD"); // for debug
+print("-------------------"); // for debug
+delay(5000); // one second for debug
+
 send("AT+ID", 5, 1000);
 delay(1000); // one second for debug
 

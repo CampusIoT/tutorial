@@ -57,6 +57,8 @@ delay(1000); // one second for debug
 send("AT+KEY=APPKEY,"+APPKEY, 2, 1000);
 delay(1000); // one second for debug
 
+// TODO loop on JOIN if OTAA join procedure failed
+
 send("AT+JOIN", 7, 10000);
 delay(1000); // one second for debug
 
@@ -64,6 +66,8 @@ delay(10000); // one minute for duty cycle
 
 send("AT+PORT=10", 2, 1000);
 delay(1000); // one second for debug
+
+// TODO loop on CMSG
 
 send("AT+CMSG=HELLO", 9, 1000);
 

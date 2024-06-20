@@ -388,6 +388,79 @@ Launch the JS script [`wio-lora-e5.js`](wio-lora-e5.js)
 
 Enqueue a confirmed downlink message `SGVsbG8gRmxpcHBlcg==` (`Hello Flipper`)) on port=10 just after join accept.
 
+Open [CLI](https://lab.flipper.net/cli) and run `log`. 
+```
+>: log
+Current log level: info
+Use <log ?> to list available log levels
+Press CTRL+C to stop...
+30666465 [I][Loader] Starting JS Runner
+30666468 [I][AnimationManager] Unload animation 'L1_Tv_128x47'
+30666475 [W][ViewPort] ViewPort lockup: see applications/services/gui/view_port.c:185
+30666521 [I][JS modules] Loading external module /ext/apps_data/js_app/plugins/js_serial.fal
+30666574 [I][Elf] Total size of loaded sections: 4576
+30668624 [I][JS] +ID: DevAddr, FC:00:AF:F1 
+30668664 [I][JS] +ID: DevEui, 2C:F7:F1:20:32:30:84:63 
+30668704 [I][JS] +ID: AppEui, 80:00:00:00:00:00:00:06 
+30669841 [I][JS] +MODE: LWOTAA 
+30670868 [I][JS] +DR: DR5 
+30670900 [I][JS] +DR: EU868 DR5  SF7  BW125K  
+30671933 [I][JS] +POWER: 14 
+30674961 [I][JS] +ADR: ON 
+30677991 [I][JS] +CLASS: A 
+30681197 [I][JS] +KEY: APPKEY 1234567890ABCDEF1234567890ABCDEF 
+30682289 [I][JS] +JOIN: Start 
+30682305 [I][JS] +JOIN: NORMAL 
+30683293 [I][JS] +JOIN: Join failed 
+30683307 [I][JS] +JOIN: Done 
+30694390 [I][JS] +JOIN: Start 
+30694406 [I][JS] +JOIN: NORMAL 
+30701212 [I][JS] +JOIN: Network joined 
+30711244 [I][JS] +JOIN: NetID C0002B DevAddr FC:00:AF:54 
+30712200 [I][JS] +JOIN: Done 
+30712206 [I][JS] +PORT: 10 
+30712236 [I][JS] +CMSG: Start 
+30712253 [I][JS] +CMSG: Wait ACK 
+30713351 [I][JS] +CMSG: FPENDING 
+30713373 [I][JS] +CMSG: ACK Received 
+30713409 [I][JS] +CMSG: RXWIN1, RSSI -76, SNR 13.0 
+30713423 [I][JS] +CMSG: Done 
+30733484 [I][JS] +CMSG: Start 
+30733502 [I][JS] +CMSG: Wait ACK 
+30734609 [I][JS] +CMSG: FPENDING 
+30734631 [I][JS] +CMSG: ACK Received 
+30734668 [I][JS] +CMSG: RXWIN1, RSSI -79, SNR 13.0 
+30734681 [I][JS] +CMSG: Done 
+30794744 [I][JS] +CMSG: Start 
+30794761 [I][JS] +CMSG: Wait ACK 
+30795885 [I][JS] +CMSG: FPENDING 
+30795907 [I][JS] +CMSG: ACK Received 
+30795960 [I][JS] +CMSG: PORT: 10; RX: "48656C6C6F20466C6970706572" 
+30795997 [I][JS] +CMSG: RXWIN1, RSSI -81, SNR 14.0 
+30796011 [I][JS] +CMSG: Done 
+30836070 [I][JS] +CMSG: Start 
+30836088 [I][JS] +CMSG: Wait ACK 
+30837211 [I][JS] +CMSG: FPENDING 
+30837233 [I][JS] +CMSG: ACK Received 
+30837287 [I][JS] +CMSG: PORT: 11; RX: "48656C6C6F20466C6970706572" 
+30837329 [I][JS] +CMSG: RXWIN1, RSSI -78, SNR 14.0 
+30837337 [I][JS] +CMSG: Done 
+30877397 [I][JS] +CMSG: Start 
+30877414 [I][JS] +CMSG: Wait ACK 
+30878528 [I][JS] +CMSG: FPENDING 
+30878549 [I][JS] +CMSG: ACK Received 
+30878603 [I][JS] +CMSG: PORT: 12; RX: "48656C6C6F20466C6970706572" 
+30878639 [I][JS] +CMSG: RXWIN1, RSSI -78, SNR 14.0 
+30878653 [I][JS] +CMSG: Done 
+30918712 [I][JS] +CMSG: Start 
+30918731 [I][JS] +CMSG: Wait ACK 
+30919821 [I][JS] +CMSG: ACK Received 
+30919858 [I][JS] +CMSG: RXWIN1, RSSI -85, SNR 14.0 
+30919872 [I][JS] +CMSG: Done 
+```
+
+
+
 
 [More AT Commands](../wio-lora-e5/AT.md)
 

@@ -30,8 +30,8 @@ function receive(nb_line, timeout, sentence) {
 }
 
 function send(cmdline, nb_line, timeout, sentence) {
-    print(cmdline); // for debug
-    //console.log(cmdline); // for debug
+    print(cmdline);
+    console.log(cmdline); // for debug
     serial.write(cmdline, [0x0d, 0x0a]);
     return receive(nb_line, timeout, sentence);
 }

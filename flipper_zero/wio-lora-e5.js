@@ -15,14 +15,14 @@ serial.setup("usart", 9600);
 
 
 function receive(nb_line, timeout, sentence) {
-    let res  = false;
     let line;
+    let res;
     for(let i=0; i<nb_line; i++) {
         line = serial.readln(timeout);
         if(line) {
             console.log(line);
             if(sentence && line.indexOf(sentence) >= 0){
-                res = true;
+                res = line;
             }
         }
     }
@@ -41,7 +41,10 @@ print("Flipper LoRaWAN FTD"); // for debug
 print("-------------------"); // for debug
 delay(2000); // one second for debug
 
-send("AT+ID", 5, 1000);
+let line;
+
+line = send("AT+ID", 5, 1000, "DevEui");
+print(line);
 delay(1000); // one second for debug
 
 send("AT+MODE=LWOTAA", 3, 1000);
@@ -65,11 +68,14 @@ delay(1000); // one second for debug
 // loop on JOIN if OTAA join procedure failed
 let joined = false;
 while(!joined) {
-    joined = send("AT+JOIN", 7, 10000, "+JOIN: Network joined");
-    delay(1000); // one second for debug
+    let line = send("AT+JOIN", 7, 10000, "+JOIN: Network joined");
+    if(line) {
+        joined = true;
+    }
     if(!joined) {
-        print("Join failed : retry later !");
+        print("Join failed: retry later!");
         // retry until joined
+        // TODO increment TxPower and decrement DR.
         delay(10000); // 10 sec for duty cycle
     } else {
         print("Network joined");
@@ -85,10 +91,15 @@ delay(1000); // one second for debug
 let cpt = 1;
 while(true) {
     print("Msg #"+to_string(cpt)); // for debug
-    send("AT+CMSG=FTD_"+to_string(cpt), 9, 1000);
+    let rssi = send("AT+CMSG=FTD_"+to_string(cpt), 10, 1000, "RSSI");
     // TODO check if the message has been succesfully sent
-    // TODO print Downlink message
+    // TODO print downlink message
     // TODO retry immediatly when lower DR and higher TxPower if unconfirmed
+    if(rssi) {
+        print("DN Cnf "+rssi);
+    } else {
+        print("DN Cnf not received");
+    }
     cpt++;
 
     // TODO change TxPower and Data in unconfirmed

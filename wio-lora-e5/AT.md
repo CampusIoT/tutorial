@@ -6,13 +6,19 @@
 ▪ Default UART configuration `"9600, 8, n,1"` (8 bits data, no parity, 1 stop bit)
 
 ```bash
-tio 
+brew install tio
+tio -l
+tio -b 9600 -m INLCRNL /dev/tty.usbXXX
 ```
 
 
 
 ```
 2CF7F12024900138
++INFO: Input timeout
++ID: DevAddr, 32:30:84:63
++ID: DevEui, 2C:F7:F1:20:32:30:84:63
++ID: AppEui, 80:00:00:00:00:00:00:06
 
 AT+ID
 +ID: DevAddr, 24:90:01:38
@@ -34,6 +40,16 @@ AT+MSGHEX=67020010
 AT+MSGHEX=03670110056700FF
 AT+MSGHEX=0167FFD7067104D2FB2E0000
 AT+MSGHEX=018806765EF2960A0003E8
+
+```
+
+Cayenne LPP
+* https://cayennelpp.eu/
+* https://pypi.org/project/pycayennelpp/
+* https://github.com/myDevicesIoT/CayenneLPP-Node
+* https://packagist.org/packages/power-lan/cayenne-lpp
+
+```
 
 1: {
     gpsLocation : {

@@ -15,6 +15,9 @@ Les cartes sont livrées avec un firmware par défaut qui est un modem AT LoRa (
 
 [Specifications](https://files.seeedstudio.com/products/317990687/res/LoRa-E5%20AT%20Command%20Specification_V1.0%20.pdf)
 
+[Exemple de commandes](AT.md)
+
+
 ## Développement
 
 ### STM32 Cube
@@ -26,6 +29,11 @@ https://my.st.com/content/my_st_com/en/products/embedded-software/mcu-mpu-embedd
 https://stm32python.gitlab.io/fr-version-lora/lora.html
 
 ## Misc
+
+### Flipper Zero
+[Wio Grove E5 on Flipper Zero](../flipper_zero#satellite-lora-lr-fhss--lorawan-satellite)
+
+![Wio Grove E5 on Flipper Zero](../flipper_zero/images/flipper_wio-lora-e5.jpg)
 
 ### Cases
 * https://www.thingiverse.com/thing:5478136

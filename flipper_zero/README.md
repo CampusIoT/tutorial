@@ -10,6 +10,16 @@ The CPU model is a [STM32WB55RG](https://www.st.com/en/microcontrollers-micropro
 
 ## Getting started
 
+### Update with latest firmware
+
+
+### Install extra apps
+Browse [catalog](https://lab.flipper.net) and install:
+* [UART Terminal](https://lab.flipper.net/apps/uart_terminal)
+* [GPS NMEA](https://lab.flipper.net/apps/gps_nmea)
+* [Temp sensors reader](https://lab.flipper.net/apps/unitemp)
+* [[J305] Geiger Counter](https://lab.flipper.net/apps/flipper_geiger)
+  
 ### [CLI](https://docs.flipper.net/development/cli)
 
 Use `minicom`, `tio` or Putty with baudrate 230400 bps.
@@ -349,6 +359,24 @@ Modules
 
 
 ### :satellite: LoRa, LR-FHSS & LoRaWAN :satellite:
+
+Launch [GPIO > UART Terminal](https://lab.flipper.net/apps/uart_terminal) with [Seedstudio Wio E5 Mini board](../wio-lora-e5)
+
+Pinout: Grove cable on Flipper GPIO
+* Red on 3V3 (9)
+* Black on GND (11)
+* White on TX (13)
+* Yellow on RX (14)
+
+Set baudrate at 9600
+
+Send AT command `ÀT+ID`
+
+[More AT Commands](../wio-lora-e5/AT.md)
+
+![flipper_wio-lora-e5](images/flipper_wio-lora-e5.jpg)
+
+#### More
 
 * [Flipper Add-On SubGHz (SX1272 + extra CC1101)](https://electroniccats.com/store/flipper-add-on-subghz/) ([app](https://github.com/ElectronicCats/flipper-SX1262-LoRa/wiki))
 * Protoboard with [Seedstudio Wio E5 Mini board](../lora-e5)

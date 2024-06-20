@@ -459,14 +459,9 @@ Press CTRL+C to stop...
 30919872 [I][JS] +CMSG: Done 
 ```
 
-
-
-
 [More AT Commands](../wio-lora-e5/AT.md)
 
 ![flipper_wio-lora-e5](images/flipper_wio-lora-e5.jpg)
-
-
 
 #### More
 

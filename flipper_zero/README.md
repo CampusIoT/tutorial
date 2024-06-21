@@ -381,7 +381,7 @@ Send AT command `ÀT+ID` for testing the UART connection
 
 Usages:
 * LoRa Radio Coverage 
-* Strastospheric balloon :balloon: recovery
+* [Strastospheric balloon :balloon: recovery](https://gricad-gitlab.univ-grenoble-alpes.fr/thingsat/public/-/blob/master/balloons/README.md#sounding-balloons-flights)
 
 Register the endpoint on a LoRa Network Server (or private/public LoRaWAN operators) using `DevEUI`, `AppEUI` and a secure AES Key `AppKey`.
 > `1234567890ABCDEF1234567890ABCDEF` is not secure !
@@ -470,6 +470,9 @@ Press CTRL+C to stop...
 ![Flipper LoRaWAN FTD](images/flipper_wio-lora-e5-01.jpg)
 ![Flipper LoRaWAN FTD](images/flipper_wio-lora-e5-02.jpg)
 ![Flipper LoRaWAN FTD and stratospheric balloon](images/flipper_wio-lora-e5-03.jpg)
+![Flipper LoRaWAN FTD and stratospheric balloon]([images/flipper_wio-lora-e5-03.jpg](https://gricad-gitlab.univ-grenoble-alpes.fr/thingsat/public/-/raw/master/balloons/2024-05-24/media/multi-frequencies-rx-station-02.jpg))
+
+
 
 #### More
 

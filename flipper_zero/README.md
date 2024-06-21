@@ -377,7 +377,13 @@ Set baudrate at 9600
 
 Send AT command `ÀT+ID` for testing the UART connection
 
-Register the endpoint on a LoRa Network Server using `DevEUI`, `AppEUI` and a secure AES Key `AppKey`.
+#### LoRaWAN Field Test Device
+
+Usages:
+* LoRa Radio Coverage
+* Strastospheric balloon recovery
+
+Register the endpoint on a LoRa Network Server (or private/public LoRaWAN operators) using `DevEUI`, `AppEUI` and a secure AES Key `AppKey`.
 > `1234567890ABCDEF1234567890ABCDEF` is not secure !
 
 Update the AppKey value into the JS script [`lorawan-ftd.js`](lorawan-ftd.js)
@@ -461,8 +467,9 @@ Press CTRL+C to stop...
 
 [More AT Commands](../wio-lora-e5/AT.md)
 
-![flipper_wio-lora-e5](images/flipper_wio-lora-e5-01.jpg)
-![flipper_wio-lora-e5](images/flipper_wio-lora-e5-02.jpg)
+![Flipper LoRaWAN FTD](images/flipper_wio-lora-e5-01.jpg)
+![Flipper LoRaWAN FTD](images/flipper_wio-lora-e5-02.jpg)
+![Flipper LoRaWAN FTD and stratospheric balloon](images/flipper_wio-lora-e5-03.jpg)
 
 #### More
 

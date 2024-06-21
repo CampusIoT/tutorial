@@ -106,6 +106,10 @@ delay(1000); // one second for debug
 let cpt = 1;
 while(true) {
     print("Msg #"+to_string(cpt)); // for debug
+
+    let dr_line = send("AT+DR", 4, 1000, " DR");
+    print(dr_line);
+
     let rssi = send("AT+CMSG=FTD_"+to_string(cpt), 10, 1000, "RSSI");
     // TODO check if the message has been succesfully sent
     // TODO print downlink message

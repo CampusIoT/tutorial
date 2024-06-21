@@ -363,7 +363,7 @@ Modules
 [Examples](https://github.com/flipperdevices/flipperzero-firmware/tree/release/applications/system/js_app/examples/apps/Scripts)
 
 
-### :satellite: LoRa, LR-FHSS & LoRaWAN :satellite:
+### :satellite: :rocket: LoRa, LR-FHSS & LoRaWAN :satellite: :rocket:
 
 Launch [GPIO > UART Terminal](https://lab.flipper.net/apps/uart_terminal) with [Seedstudio Wio Grove E5 board](../wio-lora-e5)
 
@@ -380,8 +380,8 @@ Send AT command `ÀT+ID` for testing the UART connection
 #### LoRaWAN Field Test Device
 
 Usages:
-* LoRa Radio Coverage
-* Strastospheric balloon recovery
+* LoRa Radio Coverage 
+* Strastospheric balloon :balloon: recovery
 
 Register the endpoint on a LoRa Network Server (or private/public LoRaWAN operators) using `DevEUI`, `AppEUI` and a secure AES Key `AppKey`.
 > `1234567890ABCDEF1234567890ABCDEF` is not secure !
@@ -478,8 +478,8 @@ Press CTRL+C to stop...
 * Protoboard with [RAK3272-SiP Breakout Board](https://store.rakwireless.com/products/wisduo-breakout-board-rak3272-sip?variant=41727627362502)
 * Protoboard with [SubGHz LoRa RN2483 module](../rn2483)
 * Protoboard with SX126x/LR11x0 modules for LoRa + LR-FHSS communications
-* Protoboard with [Echostar Mobile](https://echostarmobile.com/) Module (SatIoT S-Band)
-* Protoboard with [Kineis](https://www.kineis.com/) Module (SatIoT)
+* Protoboard with [Echostar Mobile](https://echostarmobile.com/) Module (SatIoT S-Band) :rocket:
+* Protoboard with [Kineis](https://www.kineis.com/) Module (SatIoT) :rocket:
 * Protoboard with LoRa 2.4 GHz SX1280 module (cf picture below)
 
 

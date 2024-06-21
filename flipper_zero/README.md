@@ -365,7 +365,7 @@ Modules
 
 ### :satellite: LoRa, LR-FHSS & LoRaWAN :satellite:
 
-Launch [GPIO > UART Terminal](https://lab.flipper.net/apps/uart_terminal) with [Seedstudio Wio E5 Mini board](../wio-lora-e5)
+Launch [GPIO > UART Terminal](https://lab.flipper.net/apps/uart_terminal) with [Seedstudio Wio Grove E5 board](../wio-lora-e5)
 
 Pinout: Grove cable on Flipper GPIO
 * `Red` on `3V3` (9)
@@ -380,11 +380,11 @@ Send AT command `ÀT+ID` for testing the UART connection
 Register the endpoint on a LoRa Network Server using `DevEUI`, `AppEUI` and a secure AES Key `AppKey`.
 > `1234567890ABCDEF1234567890ABCDEF` is not secure !
 
-Update the AppKey value into the JS script [`wio-lora-e5.js`](wio-lora-e5.js)
+Update the AppKey value into the JS script [`lorawan-ftd.js`](lorawan-ftd.js)
 
-Upload the JS script [`wio-lora-e5.js`](wio-lora-e5.js) into the directory `/ext/apps/Scripts` of the Flipper Zero using https://lab.flipper.net/archive
+Upload the JS script [`lorawan-ftd.js`](lorawan-ftd.js) into the directory `/ext/apps/Scripts` of the Flipper Zero using https://lab.flipper.net/archive
 
-Launch the JS script [`wio-lora-e5.js`](wio-lora-e5.js)
+Launch the JS script [`lorawan-ftd.js`](lorawan-ftd.js)
 
 Enqueue a confirmed downlink message `SGVsbG8gRmxpcHBlcg==` (`Hello Flipper`)) on port=10 just after join accept.
 
@@ -461,7 +461,8 @@ Press CTRL+C to stop...
 
 [More AT Commands](../wio-lora-e5/AT.md)
 
-![flipper_wio-lora-e5](images/flipper_wio-lora-e5.jpg)
+![flipper_wio-lora-e5](images/flipper_wio-lora-e5-01.jpg)
+![flipper_wio-lora-e5](images/flipper_wio-lora-e5-02.jpg)
 
 #### More
 

@@ -1,11 +1,26 @@
 /*
- * Simple LoRaWAN Field Test Device with WIo LoRa E5 for Flipper Zero
+ * Simple LoRaWAN Field Test Device with Seeedstudio Wio Grove E5 for Flipper Zero
  * Copyright : 2024, Université Grenoble Alpes
  * Author : Didier DONSEZ
  */ 
 
-// JS API https://developer.flipper.net/flipperzero/doxygen/js_serial.html
-// https://github.com/cesanta/mjs/blob/master/README.md
+/*
+* References
+* https://wiki.seeedstudio.com/Grove_LoRa_E5_New_Version/
+* JS API https://developer.flipper.net/flipperzero/doxygen/js_serial.html
+* https://github.com/cesanta/mjs/blob/master/README.md
+*/
+
+/*
+Pinout: Grove cable on Flipper GPIO
+* `Red` on `3V3` (9)
+* `Black` on `GND` (11)
+* `White` on `TX` (13)
+* `Yellow` on `RX` (14)
+
+Set baudrate at 9600
+*/
+
 
 let APPKEY = "1234567890ABCDEF1234567890ABCDEF";
 let PORT = 10;
@@ -96,6 +111,7 @@ while(true) {
     // TODO print downlink message
     // TODO retry immediatly when lower DR and higher TxPower if unconfirmed
     if(rssi) {
+        // TODO parse RSSI and SNR and get DN FCnt
         print("DN Cnf "+rssi);
     } else {
         print("DN Cnf not received");

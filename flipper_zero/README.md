@@ -469,8 +469,8 @@ Press CTRL+C to stop...
 
 ![Flipper LoRaWAN FTD](images/flipper_wio-lora-e5-01.jpg)
 ![Flipper LoRaWAN FTD](images/flipper_wio-lora-e5-02.jpg)
-![Flipper LoRaWAN FTD and stratospheric balloon](images/flipper_wio-lora-e5-03.jpg)
-![Flipper LoRaWAN FTD and stratospheric balloon](https://gricad-gitlab.univ-grenoble-alpes.fr/thingsat/public/-/raw/master/balloons/2024-05-24/media/multi-frequencies-rx-station-02.jpg)
+![Flipper LoRaWAN FTD and stratospheric balloon recovery](images/flipper_wio-lora-e5-03.jpg)
+![Flipper LoRaWAN FTD and stratospheric balloon recovery](images/multi-frequencies-rx-station-02.jpg)
 
 
 

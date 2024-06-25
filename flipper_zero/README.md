@@ -397,7 +397,30 @@ Enqueue a confirmed downlink message `SGVsbG8gRmxpcHBlcg==` (`Hello Flipper`)) o
 Open [CLI](https://lab.flipper.net/cli) and run `log`. 
 ```
 >: log
-Current log level: info
+
+              _.-------.._                    -,
+          .-"```"--..,,_/ /`-,               -,  \ 
+       .:"          /:/  /'\  \     ,_...,  `. |  |
+      /       ,----/:/  /`\ _\~`_-"`     _;
+     '      / /`"""'\ \ \.~`_-'      ,-"'/ 
+    |      | |  0    | | .-'      ,/`  /
+   |    ,..\ \     ,.-"`       ,/`    /
+  ;    :    `/`""\`           ,/--==,/-----,
+  |    `-...|        -.___-Z:_______J...---;
+  :         `                           _-'
+ _L_  _     ___  ___  ___  ___  ____--"`___  _     ___
+| __|| |   |_ _|| _ \| _ \| __|| _ \   / __|| |   |_ _|
+| _| | |__  | | |  _/|  _/| _| |   /  | (__ | |__  | |
+|_|  |____||___||_|  |_|  |___||_|_\   \___||____||___|
+
+Welcome to Flipper Zero Command Line Interface!
+Read the manual: https://docs.flipper.net/development/cli
+Run `help` or `?` to list available commands
+
+Firmware version: 0.103.1 0.103.1 (e8e9384e built on 19-06-2024)
+
+>: log
+CCurrent log level: info
 Use <log ?> to list available log levels
 Press CTRL+C to stop...
 30666465 [I][Loader] Starting JS Runner

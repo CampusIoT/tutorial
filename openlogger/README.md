@@ -1,4 +1,4 @@
-# OpenLog
+# OpenLogger
 
 https://learn.sparkfun.com/tutorials/openlog-hookup-guide
 

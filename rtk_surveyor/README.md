@@ -17,6 +17,7 @@ https://docs.centipede.fr/docs/Rover_rtklib_android/
 > NB: Eduroam filters NTRIP traffic (TCP 2101). Switch on your 4G phone connection.
 
 ![Bluetooth GNSS](bluetooth_gnss-01.png)
+![Bluetooth GNSS](bluetooth_gnss-03.png)
 ![Bluetooth GNSS](bluetooth_gnss-02.png)
 ![Surveyor Belledone](surveyor-01.jpg)
 

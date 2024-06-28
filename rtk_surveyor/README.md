@@ -15,3 +15,9 @@ https://docs.centipede.fr/docs/Rover_rtklib_android/
 > NB: you should setup your Android phone in [Developer Mode](https://developer.android.com/studio/debug/dev-options?hl=fr) : Go to the Settings screen. Select About Phone. Press Build Number seven times until you are now a developer! is visible.
 
 > NB: Eduroam filters NTRIP traffic (TCP 2101). Switch on your 4G phone connection.
+
+![Bluetooth GNSS](bluetooth_gnss.png)
+![Surveyor Belledone](surveyor-01.jpg)
+
+
+

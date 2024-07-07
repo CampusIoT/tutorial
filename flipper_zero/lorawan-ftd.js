@@ -22,6 +22,7 @@ Set baudrate at 9600
 */
 
 let notify = require("notification");
+let notif = false;
 
 let APPKEY = "1234567890ABCDEF1234567890ABCDEF";
 let PORT = 10;
@@ -114,7 +115,9 @@ while(!joined) {
         delay(10000); // 10 sec for duty cycle
     } else {
         print("Network joined");
-        notify.success();
+        if(notif) {
+            notify.success();
+        }
     }
 }
 
@@ -139,7 +142,9 @@ while(true) {
     if(rssi) {
         // TODO parse RSSI and SNR and get DN FCnt
         print("DN Cnf "+rssi);
-        notify.success();
+        if(notif) {
+            notify.success();
+        }
     } else {
         print("DN Cnf not received");
         dec_dr();

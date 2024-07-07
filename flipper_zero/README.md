@@ -362,6 +362,9 @@ Modules
 
 [Examples](https://github.com/flipperdevices/flipperzero-firmware/tree/release/applications/system/js_app/examples/apps/Scripts)
 
+### NFC
+
+![Flipper reading Skipass](images/flipper_skipass.jpg)
 
 ### :satellite: :rocket: LoRa, LR-FHSS & LoRaWAN :satellite: :rocket:
 
@@ -494,8 +497,7 @@ Press CTRL+C to stop...
 ![Flipper LoRaWAN FTD](images/flipper_wio-lora-e5-02.jpg)
 ![Flipper LoRaWAN FTD and stratospheric balloon recovery](images/flipper_wio-lora-e5-03.jpg)
 ![Flipper LoRaWAN FTD and stratospheric balloon recovery](images/multi-frequencies-rx-station-02.jpg)
-
-
+![Balloon trackers](images/multi-frequencies-rx-station-02.jpg)
 
 #### More
 

@@ -362,6 +362,12 @@ Modules
 
 [Examples](https://github.com/flipperdevices/flipperzero-firmware/tree/release/applications/system/js_app/examples/apps/Scripts)
 
+### Flipper MicroPython
+
+Install [MicroPython app](https://lab.flipper.net/apps/upython)
+
+Browse [uPython examples](https://github.com/ofabel/mp-flipper/tree/master/examples)
+
 ### NFC
 
 ![Flipper reading Skipass](images/flipper_skipass.jpg)
@@ -539,6 +545,9 @@ Press CTRL+C to stop...
 * [Xtreme firmware](https://flipper-xtre.me/)
 * [NMEA GNSS](https://github.com/ezod/flipperzero-gps)
 * [Wifi Devboard (Kicad)](https://github.com/justcallmekoko/ESP32Marauder/tree/master/PCBs/FlipperZero/WiFi-Devboard-Pro)
+
+### Extensions
+* [Video Game Module for Flipper Zero](https://shop.flipperzero.one/products/video-game-module-for-flipper-zero) : includes a RPI Pico RP2040.
 
 ### PCBs
 

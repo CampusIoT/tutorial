@@ -1,7 +1,7 @@
 # 🐬🐬🐬🐬🐬 Flipper Zero 🐬🐬🐬🐬🐬
 
 ## Description
-[Flipper 🐬 Zero](https://flipperzero.one) is an useful endpoint with with 128x64 px LCD screen (ST7567), a SDCard slot, and multi Comm/RF interfaces : IrDA, BLE 5.4, NFC (ST25R3916), RFID 125KHz (including [animal microchips](https://docs.flipper.net/rfid/animal-microchips)), SubGHz radio (CC1101), iButton ...) . An extension port enables for [prototyping extensions](https://shop.flipperzero.one/products/proto-boards).
+[Flipper 🐬 Zero](https://flipperzero.one) is an useful endpoint with with 128x64 px LCD screen (ST7567), a SDCard slot, and multi Comm/RF interfaces : IrDA, BLE 5.4, NFC (ST25R3916), RFID 125KHz (including [animal microchips](https://docs.flipper.net/rfid/animal-microchips)), SubGHz radio (CC1101), iButton ...) . An extension port enables for extension modules (such [Video Game modules](https://docs.flipper.net/video-game-module)) and [prototyping extensions](https://shop.flipperzero.one/products/proto-boards).
 
 The CPU model is a [STM32WB55RG](https://www.st.com/en/microcontrollers-microprocessors/stm32wb55rg.html) which it is partially supported by [RIOT](https://api.riot-os.org/group__boards__p-nucleo-wb55.html).
 

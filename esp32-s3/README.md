@@ -21,4 +21,4 @@ TBC
 ## References
 * https://github.com/espressif/esp-box/blob/master/docs/hardware_overview/esp32_s3_box_3/hardware_overview_for_box_3.md
 
-
+![](ESP32-S3_DevKitC-1_pinlayout_v1.1.jpg)

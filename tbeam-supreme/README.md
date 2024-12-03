@@ -38,10 +38,13 @@ schematic : https://github.com/Xinyuan-LilyGO/LilyGo-LoRa-Series/blob/master/sch
 
 ## Firmware
 
-* https://github.com/Xinyuan-LilyGO/LilyGo-LoRa-Series
+### meshtastic
+
 * https://github.com/meshtastic/firmware
 
 ### Arduino
+
+* https://github.com/Xinyuan-LilyGO/LilyGo-LoRa-Series
 
 ```
 ./examples/

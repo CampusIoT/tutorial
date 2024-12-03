@@ -40,7 +40,11 @@ schematic : https://github.com/Xinyuan-LilyGO/LilyGo-LoRa-Series/blob/master/sch
 
 ### meshtastic
 
+Meshtastic is an off-grid messaging system using inexpensive hardware to create your mesh. Radios forward messages to the next node to distribute them over the network. Communicate kilometers/miles between nodes. Internet-connected relay nodes enable the conversation to move online too.
+
 * https://github.com/meshtastic/firmware
+
+[meshtastic](../meshtastic)
 
 ### Arduino
 

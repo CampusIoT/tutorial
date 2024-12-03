@@ -2,6 +2,10 @@
 
 https://lilygo.cc/products/t-beam-supreme-meshtastic
 
+https://www.passion-radio.fr/materiel-wifi/sx-1262-433-2825.html
+
+https://www.passion-radio.fr/materiel-wifi/tbeam-sx1262-2823.html
+
 
 ## Fiche technique
 

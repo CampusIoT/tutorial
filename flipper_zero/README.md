@@ -542,6 +542,7 @@ Press CTRL+C to stop...
 * https://flipperzero.one
 * https://github.com/flipperdevices/flipperzero-firmware
 * [Awesome links](https://github.com/djsime1/awesome-flipperzero)
+* [ML on Flipper](https://github.com/zap8600/ai-on-fz)
 * [Xtreme firmware](https://flipper-xtre.me/)
 * [NMEA GNSS](https://github.com/ezod/flipperzero-gps)
 * [Wifi Devboard (Kicad)](https://github.com/justcallmekoko/ESP32Marauder/tree/master/PCBs/FlipperZero/WiFi-Devboard-Pro)

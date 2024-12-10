@@ -7,6 +7,10 @@
 
 ## Dev env
 
+### FreeRTOS
+
+https://github.com/espressif/esp-box
+
 ### Arduino
 
 TBC
@@ -14,6 +18,12 @@ TBC
 ### RIOT OS
 
 TBC
+
+### ThreadX
+
+
+### Zephyr
+
 
 ### MicroPython
 

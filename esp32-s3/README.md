@@ -6,6 +6,13 @@
 * [ESP32-S3 Arduino](https://www.digikey.fr/fr/products/detail/arduino/ABX00087/20371539)
 * [ESP32-S3-Korvo-1](https://www.mouser.fr/ProductDetail/Espressif-Systems/ESP32-S3-Korvo-1)
 
+
+## Boards
+
+### [ESP32-S3-DEVKITC-1](https://docs.espressif.com/projects/esp-dev-kits/en/latest/esp32s3/esp32-s3-devkitc-1/user_guide.html#getting-started)
+
+![](https://docs.espressif.com/projects/esp-dev-kits/en/latest/esp32s3/_images/ESP32-S3-DevKitC-1_v2-annotated-photo.png)
+
 ## Dev env
 
 ### FreeRTOS

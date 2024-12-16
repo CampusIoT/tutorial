@@ -17,6 +17,9 @@ Ajouter l'URL `https://dl.espressif.com/dl/package_esp32_index.json` dans `Prefe
 
 Choisissez `ESP32S3 Dev Module` dans `Tool` > `Board` > `esp32`.
 
+Branchez le cable Micro-USB dans le connecteur UART de la carte ESP32S3.
+
+
 ## Dev env
 
 ### FreeRTOS

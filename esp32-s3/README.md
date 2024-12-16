@@ -13,6 +13,10 @@
 
 ![](https://docs.espressif.com/projects/esp-dev-kits/en/latest/esp32s3/_images/ESP32-S3-DevKitC-1_v2-annotated-photo.png)
 
+Ajouter l'URL `https://dl.espressif.com/dl/package_esp32_index.json` dans `Preferences` > `Additional Boards Manager URLs`
+
+Choisissez `ESP32S3 Dev Module` dans `Tool` > `Board` > `esp32`.
+
 ## Dev env
 
 ### FreeRTOS

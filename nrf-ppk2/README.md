@@ -74,10 +74,20 @@ The life expectancy is `2500/0.06 = 41666 hours` -> 4.75 years
 
 TODO
 
+## Documentation
+
+* [PPK2 User Guide](https://infocenter.nordicsemi.com/pdf/PPK2_User_Guide_v1.0.1.pdf)
+
 ## API
 
 * https://github.com/IRNAS/ppk2-api-python
 
-## Documentation
+## Boards consumptions
 
-* [PPK2 User Guide](https://infocenter.nordicsemi.com/pdf/PPK2_User_Guide_v1.0.1.pdf)
+* STM32 Boards
+* [ESP32](https://diyi0t.com/reduce-the-esp32-power-consumption/)
+* Sony Spresense
+
+## Alternatives
+
+* [x-nucleo-lpm01a](../x-nucleo-lpm01a)

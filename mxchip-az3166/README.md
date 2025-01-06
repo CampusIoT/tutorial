@@ -30,4 +30,4 @@ Sensors
 * ST LSM6DSL : 3D digital accelerometer and gyroscope
 
 ![mxchip-az3166](media/mxchip-az3166-01.jpg)
-
+![pinout](media/az3166_pin_io.jpg)

@@ -6,6 +6,7 @@
 * https://docs.google.com/presentation/d/1ayCS_kEJaZaK10ZhFyCe2oNvr9sY4N8ieIZUfd-B3m0
 * https://github.com/Eclipse-SDV-Hackathon-Chapter-Two/challenge-threadx-and-beyond
 * https://github.com/MXCHIP/mbed-wifi-example
+* https://testdocs.zerynth.com/latest/reference/boards/az3166/docs/
 
 ## Features
 

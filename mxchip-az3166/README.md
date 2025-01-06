@@ -14,7 +14,7 @@
 * Micro USB
 * 3.3V DC-DC, maximum current 1.5A
 * Codec, with microphone and earphone socket
-* OLED, 128x64
+* OLED, 128x64 ([SSD1306](https://cdn-shop.adafruit.com/datasheets/SSD1306.pdf))
 * 2 user button
 * 1 RGB light
 * 3 working status indicator

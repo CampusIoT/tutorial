@@ -28,3 +28,5 @@ Sensors
 * ST LIS2MDL : magnetometer
 * ST LSM6DSL : 3D digital accelerometer and gyroscope
 
+![mxchip-az3166](media/mxchip-az3166-01.jpg)
+

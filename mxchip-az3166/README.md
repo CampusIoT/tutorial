@@ -30,4 +30,35 @@ Sensors
 * ST LSM6DSL : 3D digital accelerometer and gyroscope
 
 ![mxchip-az3166](media/mxchip-az3166-01.jpg)
-![pinout](media/az3166_pin_io.jpg)
+![pinout](media/az3167_pin_io.jpg)
+
+## Console
+
+```bash
+tio -b 115200 -m INLCRNL /dev/tty.usbmodemXXXX
+```
+
+```
+************************************************
+** MXChip - Microsoft IoT Developer Kit **
+************************************************
+AP mode Wi-Fi AZ-c8934688xxxx started .
+Soft AP AZ-c8934688xxxx is running...
+Connect and visit "http://192.168.0.1/" to config the Wi-Fi settings.
+
+************************************************
+** MXChip - Microsoft IoT Developer Kit **
+************************************************
+You can 1. press Button A and reset to enter configuration mode.
+        2. press Button B and reset to enter AP mode.
+
+0) Freebox-xxxxxx	Signal: -43	Enc type: 4
+1) FreeWifi_secure	Signal: -44	Enc type: 4
+
+Wi-Fi Freebox-xxxxxx connected.
+Time from pool.ntp.org, now is (UTC): Mon Jan  6 21:28:00 2025
+
+>>> Failed to send telemetry data: Http fault.
+>>> Failed to send telemetry data: Http fault.
+```
+

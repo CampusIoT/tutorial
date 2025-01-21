@@ -1,6 +1,6 @@
 # Zynqberry Zero
 
-La Zynqberry Zero embarque une puce SoC Zynq-7010 de chez Xilinx avec un processeur 2 coeurs ARM Cortex-A9 ainsi qu'une matrice FPGA pour le support à la conception de circuits logiques complexes.
+La Zynqberry Zero est une carte de développement au format Raspberry Pi Zero qui embarque une puce SoC AMD Zynq™ 7010 (ex Xilink)  avec un processeur 2 coeurs ARM Cortex-A9 ainsi qu'une matrice FPGA pour le support à la conception de circuits logiques complexes.
 
 https://adaptivesupport.amd.com/s/question/0D52E00007IPet1SAD/microzed-chronicles-zynq-berry-zero?language=en_US
 

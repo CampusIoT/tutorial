@@ -7,3 +7,6 @@
 
 TODO
 
+See https://www.printables.com/model/764904-simple-stm32-nucleo-144-case
+
+

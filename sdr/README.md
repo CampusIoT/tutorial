@@ -6,6 +6,7 @@
 * [RTL2838UHIDIR (RTL SDR DBV Key)](https://www.passion-radio.fr/recepteurs-sdr/rtl-sdr-r820t2-248.html)
 * [HackRF One](https://www.passion-radio.fr/emetteur-sdr/hackrf-sdr-75.html)
 * [PlutoSDR](https://www.passion-radio.fr/emetteur-sdr/pluto-sdr-788.html)
+* [RTL SDR](https://www.rtl-sdr.com/)
 
 ## GNU Radio
 

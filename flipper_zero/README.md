@@ -372,6 +372,14 @@ Browse [uPython examples](https://github.com/ofabel/mp-flipper/tree/master/examp
 
 ![Flipper reading Skipass](images/flipper_skipass.jpg)
 
+### Bluetooth and Wi-Fi Pen Testing with ESP32 Marauder
+
+Flash the ESP32 Marauder firmware on the [WiFi Devboard for Flipper Zero](https://shop.flipperzero.one/products/wifi-devboard)
+
+You can use https://github.com/SkeletonMan03/FZEasyMarauderFlash from your Linux/Mac host
+
+https://github.com/justcallmekoko/ESP32Marauder/wiki/getting-started
+
 ### :satellite: :rocket: LoRa, LR-FHSS & LoRaWAN :satellite: :rocket:
 
 Launch [GPIO > UART Terminal](https://lab.flipper.net/apps/uart_terminal) with [Seedstudio Wio Grove E5 board](../wio-lora-e5)

@@ -50,6 +50,9 @@ Select the following examples in  section called "Examples for Dev Board Micro" 
 * [Classify Images](https://github.com/google-coral/coralmicro/blob/main/examples/classify_images/classify_images.cc) with `mobilenet_v1_1.0_224_quant_edgetpu.tflite` ([labels](https://github.com/tflite-soc/tensorflow-models/blob/master/mobilenet-v1/labels_mobilenet_quant_v1_224.txt))
 * [Classify Speech](https://github.com/google-coral/coralmicro/blob/main/examples/classify_speech/classify_speech.cc)
 
+
+See also [Pretrained models](https://tfhub.dev/s?deployment-format=coral).
+
 ## Communications
 
 ### UART communication

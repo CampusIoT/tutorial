@@ -102,6 +102,20 @@ TODO
 
 ## Add-ons
 
+### Environmental Sensor Board
+
+https://coral.ai/products/environmental#tech-specs
+
+| Function | Detail |
+|--------- |-------- |  
+| Display	| 128x32 OLED display |
+| Security	| Microchip ECC608 crypto chip with Google keys| 
+| Humidity	| HDC2010 humidity sensor| 
+| Light	| OPT3002 ambient light sensor| 
+| Barometric	| BMP280 barometric pressure sensor| 
+| Connections	| Four Grove connectors, UART, I2C, PWM| 
+| Power	| 3.3/5V analog| 
+
 ### Wifi Add-ons
 
 https://coral.ai/docs/dev-board-micro/wireless-datasheet/

@@ -1,8 +1,12 @@
-# CampusIoT :: Tutoriel sur le Semtech LR1110
+# CampusIoT :: Tutoriel sur le Semtech LR1110TRK1BKS
 
 Le composant LR1110 de Semtech est un transmetteur LoRa (rx tx) qui a également la capacité de "sniffer" les réseaux WiFi environnants et les signaux des constellations GNSS (GPS/ BeiDou).
 
 Il offre la possibilité des réaliser des endpoints dédiés à la géolocalisation avec une faible consommation énergétique.
+
+https://www.semtech.fr/products/wireless-rf/lora-edge/lr1110trk1bks
+
+![LR1110TRK1BKS](lr1110trk1bks.jpg)
 
 ## LR1110 LoRa Edge 
 

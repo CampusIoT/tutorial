@@ -42,13 +42,16 @@ disk
 
 ## Baudrate and SDCard
 
+Il est recommandé que le port console soit configuré à 9600 bauds pour éviter la perte de caratères lors de l'écriture sur la carte SD.
+
+Pour les firmwares avec RIOT OS, il faut redéfinir dans le Makefile `STDIO_UART_BAUDRATE` avec `CFLAGS += -DSTDIO_UART_BAUDRATE=9600`
+
 N.A.:
 > J'ai lu en détail la doc (et lu le code), et il faut pas trop en demander à ce logger.
 > Il y a un buffer de 512 octets en Rx et un de 255 octets pour l'écriture sur le sdcard. 
 > J'ai regardé les benchmark des sdcards, même avec une bonne sdcard, au delà de 9600 bauds, on risque de perdre des données.
 > Si on va plus vite sur le port série, il faut limiter le nombre de messages.
 Pas catastrophique, mais il faut le prendre en compte.
-
 
 
 

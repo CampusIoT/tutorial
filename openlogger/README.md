@@ -61,7 +61,20 @@ Pas catastrophique, mais il faut le prendre en compte.
 
 Baudrate is 9600
 
+|OpenLog | GPS | Battery 3.6V |
+| ------ | ---- | -------- | 
+| `VCC` | `3.3V` | `RED` |
+| `GND` | `GND` | `BLACK` |
+| `RXI` | `TX` | `NC` |
+
+> Warning: Do not power with LiPo cells : Voltage is too high (3.7V to 4.2V) ! High risk to destroy the GNSS module and the OpenLog
+
 ![](adafruit_ultimate_gps_openlog.jpg)
+![](https://cdn-learn.adafruit.com/assets/assets/000/031/842/large1024/gps_746_topkit.jpg?1461187930)
+
+
+
+
 
 
 

@@ -59,6 +59,8 @@ Pas catastrophique, mais il faut le prendre en compte.
 
 [Adafruit Ultimate GPS](https://learn.adafruit.com/adafruit-ultimate-gps)
 
+The chipset is MTK3339
+
 Baudrate is 9600
 
 |OpenLog | GPS | Battery 3.6V |

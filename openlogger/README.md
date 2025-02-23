@@ -53,6 +53,17 @@ N.A.:
 > Si on va plus vite sur le port série, il faut limiter le nombre de messages.
 Pas catastrophique, mais il faut le prendre en compte.
 
+## OpenLog and GNSS modules
+
+### Adafruit Ultimate GPS
+
+[Adafruit Ultimate GPS](https://learn.adafruit.com/adafruit-ultimate-gps)
+
+Baudrate is 9600
+
+![](adafruit_ultimate_gps_openlog.jpg)
+
+
 
 
 

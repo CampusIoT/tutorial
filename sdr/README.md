@@ -73,4 +73,4 @@ https://wiki.gnuradio.org/index.php?title=Reading_and_Writing_Binary_Files
 ## Books
 
 * Travis F. Collins, Robin Getz, Di Pu, Alexander M. Wyglinski, [Software-Defined Radio for Engineers](docs/SDR4Engineers.pdf)
-* Jean-Michel Friedt, Herve Boeglen, Communication Systems Engineering with GNU Radio: A Hands-on Approach, [ISBN: 978-1-394-21889-9](https://www.wiley.com/en-us/Communication+Systems+Engineering+with+GNU+Radio%3A+A+Hands-on+Approach-p-9781394218899), October 2024, 352 pages
+* Jean-Michel Friedt, Herve Boeglen, Communication Systems Engineering with GNU Radio: A Hands-on Approach, [ISBN: 978-1-394-21889-9](https://www.wiley.com/en-us/Communication+Systems+Engineering+with+GNU+Radio%3A+A+Hands-on+Approach-p-9781394218899), October 2024, 352 pages + ([repo of flowcharts](https://gitlab.xlim.fr/gnuradio_book/flowcharts))

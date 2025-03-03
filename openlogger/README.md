@@ -42,12 +42,41 @@ disk
 
 ## Baudrate and SDCard
 
+Il est recommandé que le port console soit configuré à 9600 bauds pour éviter la perte de caratères lors de l'écriture sur la carte SD.
+
+Pour les firmwares avec RIOT OS, il faut redéfinir dans le Makefile `STDIO_UART_BAUDRATE` avec `CFLAGS += -DSTDIO_UART_BAUDRATE=9600`
+
 N.A.:
 > J'ai lu en détail la doc (et lu le code), et il faut pas trop en demander à ce logger.
 > Il y a un buffer de 512 octets en Rx et un de 255 octets pour l'écriture sur le sdcard. 
 > J'ai regardé les benchmark des sdcards, même avec une bonne sdcard, au delà de 9600 bauds, on risque de perdre des données.
 > Si on va plus vite sur le port série, il faut limiter le nombre de messages.
 Pas catastrophique, mais il faut le prendre en compte.
+
+## OpenLog and GNSS modules
+
+### Adafruit Ultimate GPS
+
+[Adafruit Ultimate GPS](https://learn.adafruit.com/adafruit-ultimate-gps)
+
+The chipset is MTK3339
+
+Baudrate is 9600
+
+|OpenLog | GPS | Battery 3.6V |
+| ------ | ---- | -------- | 
+| `VCC` | `3.3V` | `RED` |
+| `GND` | `GND` | `BLACK` |
+| `RXI` | `TX` | `NC` |
+
+> Warning: Do not power with LiPo cells : Voltage is too high (3.7V to 4.2V) ! High risk to destroy the GNSS module and the OpenLog
+
+![](adafruit_ultimate_gps_openlog.jpg)
+![](https://cdn-learn.adafruit.com/assets/assets/000/031/842/large1024/gps_746_topkit.jpg?1461187930)
+
+
+
+
 
 
 

@@ -136,3 +136,7 @@ mqtt subscribe -v -h $MQTT_BROKER -p $MQTT_PORT -u $MQTT_USERNAME -P $MQTT_PASSW
 
 * ATAK : [Android Tactical Awareness Kit](https://en.wikipedia.org/wiki/Android_Team_Awareness_Kit) ([more ...](https://freetakteam.github.io/FreeTAKServer-User-Docs/)), [Comparing Meshtastic, Beartooth MkII, and goTenna Pro Radios for ATAK (video)](https://www.youtube.com/watch?v=b8bVSwhYt8U)
 * CoT : [Cursor on Target](https://pmc.ncbi.nlm.nih.gov/articles/PMC3615829/)
+
+## Projets
+* https://gricad-gitlab.univ-grenoble-alpes.fr/Projets-INFO4/24-25/18/docs
+

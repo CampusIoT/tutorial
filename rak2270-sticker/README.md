@@ -12,6 +12,13 @@ The firmware of developer version can be customized using [Arduino boards and li
 
 https://docs.rakwireless.com/product-categories/software-apis-and-libraries/rui3/overview/
 
+[RAK2270 Sticker Tracker](https://github.com/RAKWireless/RAK2270-Sticker-Tracker/blob/main/Hardware/Schematic_RAK2270_VD_2024_0731.pdf) includes:
+* a SHTC3/NC temperature and humidity sensor,
+* a LIS3DH 3-axis accelerometer
+* 2 ECC : ATECC608A-SSHDA/NC and ATECC608A-MAHDA/NC
+* a AT24CM02-SSHM EEPROM
+* a BMX160/NC low power 9-axis sensor that provides precise acceleration and angular rate (gyroscopic) and geomagnetic measurement in each spatial direction.
+
 ## Programming probe
 
 Plug the programming probe (2x5 pins) into the USB UART adapter : `3V3` (brown), `GND` (grey), `TXD` (purple), `RXD` (blue)
@@ -57,6 +64,9 @@ Read https://docs.rakwireless.com/product-categories/software-apis-and-libraries
 Edit the `Additional Board Manager URLs` into `Preferences` by adding `https://raw.githubusercontent.com/RAKWireless/RAKwireless-Arduino-BSP-Index/main/package_rakwireless.com_rui_index.json`
 
 Install `RAKWireless RUI STM32` Boards (`Tools` Menu > `Boards Manager`).
+
+
+### LoRaWAN OTAA
 
 Open the sketch `File > Examples > RAK WisBlock RUI examples >  Example > LoRaWAN_OTAA`
 
@@ -131,8 +141,74 @@ Something received!
 48454c4c4fa
 ```
 
-> Remark: `48454c4c4f` + `0a` is `HELLO`
+> Remark: `48454c4c4f` + `0a` is `HELLO\n`
 
-Exercices:
-* [ ] add library to get the temperature and the battery level and send them using the LPP format.
-* [ ] add LinkCheck every 10 uplinks
+### Scan IC2 components 
+
+Open and load the [skech for scanning available I2C components](i2c_scanner/i2c_scanner.ino)
+
+```
+Scanning...
+I2C device found at address 0x19  !
+done
+```
+
+> `0x19` is `00011001b`
+
+### Scan IC2 components using 
+
+Install `Adafruit LIS3DH` library using `Tools > Manage Libraries ...`
+
+Open the example `File > Adafruit LIS3DH > acceldemo`
+
+Change the I2C address to `0x19` into to following line: 
+
+```c
+  if (! lis.begin(0x19)) {   // change this to 0x19 for alternative i2c address
+```
+
+Load then open the serial console.
+
+###  Exercices
+
+Extend the LoRaWAN OTAA example by:
+
+* [ ] adding LinkCheck every 10 uplinks
+* [ ] adding library to get temperature (SHTC3/NC)and send them using the LPP format.
+* [ ] adding library to get 3-axis acceleration (LIS3DH) and send them using the LPP format.
+* [ ] adding library to get the battery level and add it to the LPP message as an analog data channel.
+
+
+#### Hints
+
+Filling a Cayenne Low Power Payload: 
+```c
+    int16_t t = 245;
+    uint8_t h = 70;
+    uint32_t pre = 70;
+    uint16_t batt = 3300;
+
+    /** Cayenne Low Power Payload */
+    uint8_t data_len = 0;
+    collected_data[data_len++] = 0x01;	//Data Channel: 1
+    collected_data[data_len++] = 0x67;	//Type: Temperature Sensor
+    collected_data[data_len++] = (uint8_t) (t >> 8);
+    collected_data[data_len++] = (uint8_t) t;
+    collected_data[data_len++] = 0x02;	//Data Channel: 2
+    collected_data[data_len++] = 0x68;	//Type: Humidity Sensor
+    collected_data[data_len++] = (uint8_t) h;
+    collected_data[data_len++] = 0x03;	//Data Channel: 3
+    collected_data[data_len++] = 0x73;	//Type: Barometer
+    collected_data[data_len++] = (uint8_t) ((pre & 0x0000FF00) >> 8);
+    collected_data[data_len++] = (uint8_t) (pre & 0x000000FF);
+    collected_data[data_len++] = 0x04;  //Data Channel: 4
+    collected_data[data_len++] = 0x02;  //Type: Analog Input
+    collected_data[data_len++] = (uint8_t)(batt >> 8);
+    collected_data[data_len++] = (uint8_t)batt;
+  
+    Serial.println("Data Packet:");
+    for (int i = 0; i < data_len; i++) {
+        Serial.printf("0x%02X ", collected_data[i]);
+    }
+    Serial.println("");
+```

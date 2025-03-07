@@ -94,6 +94,10 @@ https://meshtastic.org/docs/software/integrations/mqtt/nodered/
 
 https://meshtastic.org/docs/hardware/devices/
 
+* [RAK Meshtastic products](https://store.rakwireless.com/collections/meshtastic)
+  * [WisMesh Pocket V2](https://store.rakwireless.com/products/wismesh-pocket)
+  * [WisMesh Repeater](https://store.rakwireless.com/products/wismesh-meshtastic-solar-repeater?index=6&variant=44485612765382)
+
 ### @Fablab FabMaSTIC
 
 * WisBlock with RAK11300 RP2040 SX1262 https://store.rakwireless.com/products/wisduo-lpwan-module-rak11300

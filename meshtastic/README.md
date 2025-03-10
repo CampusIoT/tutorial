@@ -1,18 +1,11 @@
 # Meshtastic
 
-Meshtastic is an off-grid messaging system using inexpensive hardware to create your mesh. Radios forward messages to the next node to distribute them over the network. Communicate kilometers/miles between nodes. Internet-connected relay nodes enable the conversation to move online too.
+Meshtastic is an off-grid messaging system using [affortable LoRa endpoints](https://meshtastic.org/docs/hardware/devices) for building dynamic mesh networks over kilometers. LoRa endpoints (aka nodes) [forward messages to the next node](https://meshtastic.org/blog/why-meshtastic-uses-managed-flood-routing/) to distribute them over the network. Messages can be encrypted using [AES256-CTR](https://meshtastic.org/docs/overview/encryption/) expect from radio-amateur bands. Internet-connected relay nodes enable the conversation to move online too using MQTT brokers.
 
 https://meshtastic.org
 
-## LoRa parameters
 
-LoRa physical layer : Meshtastic SyncWord is `0x2B`.
-
-Meshtastic adopts CSMA/CA, similar as to what is used in WiFi. This means that all transmitters must perform Channel Activity Detection (CAD)
-
-The amount of slot times to wait is randomly picked from a contention window (CW)
-
-## Routing
+## Message Routing
 
 When you send a message on your Meshtastic companion app, it is relayed to the radio using Bluetooth, Wi-Fi/Ethernet or serial connection. That message is then broadcasted by the radio. If it hasn't received a confirmation from any other device after a certain timeout, it will retransmit the message up to three times.
 
@@ -23,7 +16,32 @@ For each message a radio rebroadcasts, it marks the "hop limit" down by one. Whe
 The radio will store a small amount of packets (around 30) in its memory for when it's not connected to a client app. If it's full, it will replace the oldest packets with newly incoming text messages only.
 
 Be sure to also check out this blog post about why the current protocol is used: https://meshtastic.org/blog/why-meshtastic-uses-managed-flood-routing/
+
 While simplistic, it has been proven to be successful, e.g. at DEFCON with a mesh of over 700 nodes. Doing proper listen-before-talk with collision avoidance is already half of the work to get a mesh going.
+
+## Physical layer
+
+The physical layer of Meshtastic uses the LoRa modulation.
+
+The SyncWord for Meshtastic LoRa frames is `0x2B` in order to separate the traffic with LoRaWAN endpoints (SyncWord = `0x34`)
+
+Meshtastic adopts CSMA/CA, similar as to what is used in WiFi. This means that all transmitters must perform Channel Activity Detection (CAD). The amount of slot times to wait is randomly picked from a contention window (CW)
+
+## Message format
+
+![Mestastic Full Frame Format](Mestastic_Full_Frame_Format.png)
+
+## Payload encoding
+
+Message payloads are serialized using Protobuf. `.proto` definitions are listed [here](https://github.com/meshtastic/protobufs/tree/master/meshtastic) and documented [here](https://buf.build/meshtastic/protobufs/docs/main:meshtastic#) 
+
+## Payload encryption
+
+https://meshtastic.org/docs/overview/encryption
+
+Message payloads can be encrypted using [AES256-CTR](https://meshtastic.org/docs/overview/encryption/).
+
+> NB: encryption is not allowed on radio-amateur bands
 
 ## Bands in Europe
 
@@ -45,6 +63,26 @@ There is one frequency slot defined with the standard radio preset LongFast. Aft
 
 It is worth noting that 868 MHz is generally the most popular frequency band for Meshtastic in Europe.
 
+### 2400-2483 MHz
+
+TODO
+
+### Radio-amateur bands
+
+TODO
+
+## Supported Devices
+
+https://meshtastic.org/docs/hardware/devices/
+
+### @Fablab FabMaSTIC
+
+* WisBlock with RAK11300 RP2040 SX1262 https://store.rakwireless.com/products/wisduo-lpwan-module-rak11300
+* https://lilygo.cc/products/t-beam-supreme-meshtastic
+* https://www.passion-radio.fr/materiel-wifi/sx-1262-433-2825.html
+* https://www.passion-radio.fr/materiel-wifi/tbeam-sx1262-2823.html
+* [Seeedstudio Wio-WM1110](https://wiki.seeedstudio.com/Wio-WM/Introduction/) https://meshtastic.org/docs/hardware/devices/seeed-studio/wm1110/
+
 
 ## Firmware
 
@@ -65,21 +103,19 @@ ls -al /dev/tty.*
 PORT=/dev/ttyUSB0
 PORT=/dev/tty.usbmodem48CA435B98B41
 meshtastic --port $PORT --info
-```
 
 meshtastic --export-config --port $PORT > example_config.yaml
 
 meshtastic --port /dev/ttyUSB0 --seriallog
+
 meshtastic -t meshtastic.local --seriallog log.txt
+
 meshtastic --set-ringtone "LeisureSuit:d=16,o=6,b=56:f.5,f#.5,g.5,g#5,32a#5,f5,g#.5,a#.5,32f5,g#5,32a#5,g#5,8c#.,a#5,32c#,a5,a#.5,c#.,32a5,a#5,32c#,d#,8e,c#.,f.,f.,f.,f.,f,32e,d#,8d,a#.5,e,32f,e,32f,c#,d#.,c#"
+```
 
-
-Meshtastic Web is a Meshtastic client that runs directly in your browser. There are three ways of accessing the app:
-
-    Served directly from an ESP32 based node via meshtastic.local or the device's IP Address.1
+Meshtastic Web is a Meshtastic client that runs directly in your browser. There are three ways of accessing the app: Served directly from an ESP32 based node via meshtastic.local or the device's IP Address.1
 
 https://github.com/lyusupov/SoftRF/wiki/Prime-Edition-MkIII#quick-start
-
 
 ## Integrations
 
@@ -90,32 +126,22 @@ https://github.com/lyusupov/SoftRF/wiki/Prime-Edition-MkIII#quick-start
 
 https://meshtastic.org/docs/software/integrations/mqtt/nodered/
 
-## Supported Devices
 
-https://meshtastic.org/docs/hardware/devices/
+## Misc
 
-### @Fablab FabMaSTIC
-
-* WisBlock with RAK11300 RP2040 SX1262 https://store.rakwireless.com/products/wisduo-lpwan-module-rak11300
-* https://lilygo.cc/products/t-beam-supreme-meshtastic
-* https://www.passion-radio.fr/materiel-wifi/sx-1262-433-2825.html
-* https://www.passion-radio.fr/materiel-wifi/tbeam-sx1262-2823.html
-* [Seeedstudio Wio-WM1110](https://wiki.seeedstudio.com/Wio-WM/Introduction/) https://meshtastic.org/docs/hardware/devices/seeed-studio/wm1110/
-
-
-## Meshtastic site planner
+### Meshtastic site planner
 
 https://site.meshtastic.org/
 
-## Mesh-metrics
+### Mesh-metrics
 
 https://github.com/cordelster/mesh-metrics
 
-## Meshtastic routing simulator (Discrete Event)
+### Meshtastic routing simulator (Discrete Event)
 
 https://github.com/meshtastic/Meshtasticator
 
-## meshtastic-map
+### meshtastic-map
 
 https://github.com/liamcottle/meshtastic-map
 
@@ -138,6 +164,7 @@ mqtt subscribe -v -h $MQTT_BROKER -p $MQTT_PORT -u $MQTT_USERNAME -P $MQTT_PASSW
 * ATAK : [Android Tactical Awareness Kit](https://en.wikipedia.org/wiki/Android_Team_Awareness_Kit) ([more ...](https://freetakteam.github.io/FreeTAKServer-User-Docs/)), [Comparing Meshtastic, Beartooth MkII, and goTenna Pro Radios for ATAK (video)](https://www.youtube.com/watch?v=b8bVSwhYt8U)
 * CoT : [Cursor on Target](https://pmc.ncbi.nlm.nih.gov/articles/PMC3615829/)
 
-## Projets
-* https://gricad-gitlab.univ-grenoble-alpes.fr/Projets-INFO4/24-25/18/docs
+## Projects @ UGA
 
+* https://gricad-gitlab.univ-grenoble-alpes.fr/Projets-INFO4/24-25/18/docs
+* https://gricad-gitlab.univ-grenoble-alpes.fr/thingsat/public/-/blob/master/balloons/2025-05/README.md

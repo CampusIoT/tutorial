@@ -1,4 +1,4 @@
-# CampusIoT :: LoRaServer :: Tutorial :us:
+# OBSOLETE CampusIoT :: LoRaServer :: Tutorial :us:
 
 ## Architecture and components of LoRaServer
 [Loraserver.io](https://www.loraserver.io/) is an open-source LoRaWAN network server.

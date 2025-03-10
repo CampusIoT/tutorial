@@ -1,4 +1,4 @@
-# CampusIoT :: LoRaServer > Partie 1 :: Tutoriel :fr:
+# OBSOLETE CampusIoT :: LoRaServer > Partie 1 :: Tutoriel :fr:
 
 ## Objectif
 L'objectif de ce tutoriel est de mettre en place de manière sécurisée un réseau privé LoRaWAN au moyen du serveur [Loraserver.io](https://www.loraserver.io/).

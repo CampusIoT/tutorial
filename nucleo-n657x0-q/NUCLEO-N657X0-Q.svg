@@ -59,7 +59,7 @@
   </font>
  </defs>
  <defs class="TextShapeIndex">
-  <g ooo:slide="id1" ooo:id-list="id3 id4 id5 id6 id7 id8 id9 id10 id11 id12 id13 id14 id15 id16 id17 id18 id19 id20 id21 id22 id23 id24 id25 id26 id27 id28 id29 id30 id31 id32 id33 id34 id35 id36 id37 id38 id39"/>
+  <g ooo:slide="id1" ooo:id-list="id3 id4 id5 id6 id7 id8 id9 id10 id11 id12 id13 id14 id15 id16 id17 id18 id19 id20 id21 id22 id23 id24 id25 id26 id27 id28 id29 id30 id31 id32 id33 id34 id35 id36 id37 id38 id39 id40 id41 id42 id43"/>
  </defs>
  <defs class="EmbeddedBulletChars">
   <g id="bullet-char-template-57356" transform="scale(0.00048828125,-0.00048828125)">
@@ -154,20 +154,20 @@
       </g>
       <g class="com.sun.star.drawing.CustomShape">
        <g id="id11">
-        <rect class="BoundingBox" stroke="none" fill="none" x="1795" y="13495" width="1262" height="1263"/>
-        <path fill="none" stroke="rgb(255,0,0)" stroke-width="10" stroke-linejoin="round" d="M 3051,14126 C 3051,14235 3022,14343 2967,14438 2912,14533 2833,14612 2738,14667 2643,14722 2535,14751 2426,14751 2316,14751 2208,14722 2113,14667 2018,14612 1939,14533 1884,14438 1829,14343 1800,14235 1800,14126 1800,14016 1829,13908 1884,13813 1939,13718 2018,13639 2113,13584 2208,13529 2316,13500 2425,13500 2535,13500 2643,13529 2738,13584 2833,13639 2912,13718 2967,13813 3022,13908 3051,14016 3051,14126 Z "/>
+        <rect class="BoundingBox" stroke="none" fill="none" x="1795" y="13595" width="1262" height="1263"/>
+        <path fill="none" stroke="rgb(255,0,0)" stroke-width="10" stroke-linejoin="round" d="M 3051,14226 C 3051,14335 3022,14443 2967,14538 2912,14633 2833,14712 2738,14767 2643,14822 2535,14851 2426,14851 2316,14851 2208,14822 2113,14767 2018,14712 1939,14633 1884,14538 1829,14443 1800,14335 1800,14226 1800,14116 1829,14008 1884,13913 1939,13818 2018,13739 2113,13684 2208,13629 2316,13600 2425,13600 2535,13600 2643,13629 2738,13684 2833,13739 2912,13818 2967,13913 3022,14008 3051,14116 3051,14226 Z "/>
        </g>
       </g>
       <g class="com.sun.star.drawing.CustomShape">
        <g id="id12">
-        <rect class="BoundingBox" stroke="none" fill="none" x="6996" y="13495" width="1262" height="1263"/>
-        <path fill="none" stroke="rgb(255,0,0)" stroke-width="10" stroke-linejoin="round" d="M 8252,14126 C 8252,14235 8223,14343 8168,14438 8113,14533 8034,14612 7939,14667 7844,14722 7736,14751 7627,14751 7517,14751 7409,14722 7314,14667 7219,14612 7140,14533 7085,14438 7030,14343 7001,14235 7001,14126 7001,14016 7030,13908 7085,13813 7140,13718 7219,13639 7314,13584 7409,13529 7517,13500 7627,13500 7736,13500 7844,13529 7939,13584 8034,13639 8113,13718 8168,13813 8223,13908 8252,14016 8252,14126 Z "/>
+        <rect class="BoundingBox" stroke="none" fill="none" x="6996" y="13595" width="1262" height="1263"/>
+        <path fill="none" stroke="rgb(255,0,0)" stroke-width="10" stroke-linejoin="round" d="M 8252,14226 C 8252,14335 8223,14443 8168,14538 8113,14633 8034,14712 7939,14767 7844,14822 7736,14851 7627,14851 7517,14851 7409,14822 7314,14767 7219,14712 7140,14633 7085,14538 7030,14443 7001,14335 7001,14226 7001,14116 7030,14008 7085,13913 7140,13818 7219,13739 7314,13684 7409,13629 7517,13600 7627,13600 7736,13600 7844,13629 7939,13684 8034,13739 8113,13818 8168,13913 8223,14008 8252,14116 8252,14226 Z "/>
        </g>
       </g>
       <g class="com.sun.star.drawing.CustomShape">
        <g id="id13">
-        <rect class="BoundingBox" stroke="none" fill="none" x="6244" y="1995" width="2013" height="1012"/>
-        <path fill="none" stroke="rgb(255,0,0)" stroke-width="10" stroke-linejoin="round" d="M 6416,2000 L 6417,2000 C 6388,2000 6359,2008 6333,2022 6308,2037 6287,2058 6272,2083 6258,2109 6250,2138 6250,2167 L 6250,2834 6250,2834 C 6250,2863 6258,2892 6272,2918 6287,2943 6308,2964 6333,2979 6359,2993 6388,3001 6417,3001 L 8084,3001 8084,3001 C 8113,3001 8142,2993 8168,2979 8193,2964 8214,2943 8229,2918 8243,2892 8251,2863 8251,2834 L 8251,2166 8251,2167 8251,2167 C 8251,2138 8243,2109 8229,2083 8214,2058 8193,2037 8168,2022 8142,2008 8113,2000 8084,2000 L 6416,2000 Z "/>
+        <rect class="BoundingBox" stroke="none" fill="none" x="6244" y="2195" width="2013" height="1012"/>
+        <path fill="none" stroke="rgb(255,0,0)" stroke-width="10" stroke-linejoin="round" d="M 6416,2200 L 6417,2200 C 6388,2200 6359,2208 6333,2222 6308,2237 6287,2258 6272,2283 6258,2309 6250,2338 6250,2367 L 6250,3034 6250,3034 C 6250,3063 6258,3092 6272,3118 6287,3143 6308,3164 6333,3179 6359,3193 6388,3201 6417,3201 L 8084,3201 8084,3201 C 8113,3201 8142,3193 8168,3179 8193,3164 8214,3143 8229,3118 8243,3092 8251,3063 8251,3034 L 8251,2366 8251,2367 8251,2367 C 8251,2338 8243,2309 8229,2283 8214,2258 8193,2237 8168,2222 8142,2208 8113,2200 8084,2200 L 6416,2200 Z "/>
        </g>
       </g>
       <g class="com.sun.star.drawing.CustomShape">
@@ -184,8 +184,8 @@
       </g>
       <g class="TextShape">
        <g id="id16">
-        <rect class="BoundingBox" stroke="none" fill="none" x="1500" y="11250" width="7001" height="1751"/>
-        <text class="SVGTextShape"><tspan class="TextParagraph"><tspan class="TextPosition" x="2545" y="11781"><tspan font-family="Helvetica, sans-serif" font-size="529px" font-weight="700" fill="rgb(0,0,0)" stroke="none" style="white-space: pre">NUCLEO-N657X0-Q</tspan></tspan></tspan></text>
+        <rect class="BoundingBox" stroke="none" fill="none" x="1500" y="3300" width="7001" height="1751"/>
+        <text class="SVGTextShape"><tspan class="TextParagraph"><tspan class="TextPosition" x="2054" y="3916"><tspan font-family="Helvetica, sans-serif" font-size="635px" font-weight="700" fill="rgb(0,0,0)" stroke="none" style="white-space: pre">NUCLEO-N657X0-Q</tspan></tspan></tspan></text>
        </g>
       </g>
       <g class="Group">
@@ -322,14 +322,14 @@
       </g>
       <g class="TextShape">
        <g id="id36">
-        <rect class="BoundingBox" stroke="none" fill="none" x="1750" y="13000" width="1251" height="603"/>
-        <text class="SVGTextShape"><tspan class="TextParagraph"><tspan class="TextPosition" x="2033" y="13396"><tspan font-family="Helvetica, sans-serif" font-size="353px" font-weight="400" fill="rgb(0,0,0)" stroke="none" style="white-space: pre">user</tspan></tspan></tspan></text>
+        <rect class="BoundingBox" stroke="none" fill="none" x="1850" y="13100" width="1251" height="603"/>
+        <text class="SVGTextShape"><tspan class="TextParagraph"><tspan class="TextPosition" x="2133" y="13496"><tspan font-family="Helvetica, sans-serif" font-size="353px" font-weight="400" fill="rgb(0,0,0)" stroke="none" style="white-space: pre">user</tspan></tspan></tspan></text>
        </g>
       </g>
       <g class="TextShape">
        <g id="id37">
-        <rect class="BoundingBox" stroke="none" fill="none" x="6850" y="13000" width="1501" height="954"/>
-        <text class="SVGTextShape"><tspan class="TextParagraph"><tspan class="TextPosition" x="7210" y="13396"><tspan font-family="Helvetica, sans-serif" font-size="353px" font-weight="400" fill="rgb(0,0,0)" stroke="none" style="white-space: pre">reset</tspan></tspan></tspan></text>
+        <rect class="BoundingBox" stroke="none" fill="none" x="6850" y="13100" width="1501" height="954"/>
+        <text class="SVGTextShape"><tspan class="TextParagraph"><tspan class="TextPosition" x="7210" y="13496"><tspan font-family="Helvetica, sans-serif" font-size="353px" font-weight="400" fill="rgb(0,0,0)" stroke="none" style="white-space: pre">reset</tspan></tspan></tspan></text>
        </g>
       </g>
       <g class="TextShape">
@@ -348,6 +348,32 @@
        <g id="id39">
         <rect class="BoundingBox" stroke="none" fill="none" x="11100" y="12897" width="4501" height="954"/>
         <text class="SVGTextShape"><tspan class="TextParagraph"><tspan class="TextPosition" x="11688" y="13293"><tspan font-family="Helvetica, sans-serif" font-size="353px" font-weight="400" fill="rgb(0,0,0)" stroke="none" style="white-space: pre">© FabMaSTIC, 2025 </tspan></tspan></tspan></text>
+       </g>
+      </g>
+      <g class="Group">
+       <g class="com.sun.star.drawing.CustomShape">
+        <g id="id40">
+         <rect class="BoundingBox" stroke="none" fill="none" x="3996" y="9345" width="2011" height="3011"/>
+         <path fill="none" stroke="rgb(255,0,0)" stroke-width="10" stroke-linejoin="round" d="M 5001,12350 L 4001,12350 4001,9350 6001,9350 6001,12350 5001,12350 Z "/>
+        </g>
+       </g>
+       <g class="com.sun.star.drawing.CustomShape">
+        <g id="id41">
+         <rect class="BoundingBox" stroke="none" fill="none" x="3696" y="10545" width="512" height="512"/>
+         <path fill="none" stroke="rgb(255,0,0)" stroke-width="10" stroke-linejoin="round" d="M 4202,10801 C 4202,10844 4190,10888 4168,10926 4146,10964 4115,10995 4077,11017 4039,11039 3995,11051 3952,11051 3908,11051 3864,11039 3826,11017 3788,10995 3757,10964 3735,10926 3713,10888 3701,10844 3701,10801 3701,10757 3713,10713 3735,10675 3757,10637 3788,10606 3826,10584 3864,10562 3908,10550 3952,10550 3995,10550 4039,10562 4077,10584 4115,10606 4146,10637 4168,10675 4190,10713 4202,10757 4202,10801 Z "/>
+        </g>
+       </g>
+       <g class="com.sun.star.drawing.CustomShape">
+        <g id="id42">
+         <rect class="BoundingBox" stroke="none" fill="none" x="5797" y="10546" width="512" height="512"/>
+         <path fill="none" stroke="rgb(255,0,0)" stroke-width="10" stroke-linejoin="round" d="M 6303,10802 C 6303,10845 6291,10889 6269,10927 6247,10965 6216,10996 6178,11018 6140,11040 6096,11052 6053,11052 6009,11052 5965,11040 5927,11018 5889,10996 5858,10965 5836,10927 5814,10889 5802,10845 5802,10802 5802,10758 5814,10714 5836,10676 5858,10638 5889,10607 5927,10585 5965,10563 6009,10551 6053,10551 6096,10551 6140,10563 6178,10585 6216,10607 6247,10638 6269,10676 6291,10714 6303,10758 6303,10802 Z "/>
+        </g>
+       </g>
+      </g>
+      <g class="TextShape">
+       <g id="id43">
+        <rect class="BoundingBox" stroke="none" fill="none" x="10000" y="3300" width="7001" height="1751"/>
+        <text class="SVGTextShape"><tspan class="TextParagraph"><tspan class="TextPosition" x="10554" y="3916"><tspan font-family="Helvetica, sans-serif" font-size="635px" font-weight="700" fill="rgb(0,0,0)" stroke="none" style="white-space: pre">NUCLEO-N657X0-Q</tspan></tspan></tspan></text>
        </g>
       </g>
      </g>

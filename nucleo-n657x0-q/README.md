@@ -5,9 +5,9 @@
 
 ## Enclosure
 
-TODO
+Laser-cutter enclosure : [`.odg`](NUCLEO-N657X0-Q.odg), [`.svg`](NUCLEO-N657X0-Q.svg)
 
-See
+See also
 * https://makerworld.com/fr/models/223372
 * https://www.printables.com/model/764904-simple-stm32-nucleo-144-case
 

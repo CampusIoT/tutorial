@@ -16,9 +16,10 @@ Sélectionnez le port auquel est connecté la carte dans `Tools > Port`.
 
 ### Pratique
 
-| Fabricant | Module | Baudrate |
-| --------- | ------ | -------- |
-|  [Adafruit Ultimate GPS Featherwing](https://learn.adafruit.com/adafruit-ultimate-gps-featherwing) | MTK3333 |  9600 |
+| Fabricant | Module | Baudrate | Commentaires |
+| --------- | ------ | -------- | ------------ |
+|  [Adafruit Ultimate GPS Featherwing](https://learn.adafruit.com/adafruit-ultimate-gps-featherwing) | MTK3333 |  9600 | |
+|[SparkFun GPS Breakout - XA1110](https://learn.sparkfun.com/tutorials/sparkfun-gps-breakout---xa1110-qwiic-hookup-guide)| | 9600 (réglable à 4800-115200) | Mode ballon activable|
 
 
 #### Visualisation des trames NMEA0183
@@ -135,11 +136,30 @@ Code source à fournir : https://forum.arduino.cc/t/pps-from-ultimate-gps-synch-
 
 ## Partie 2: RTK
 
-### Installation
+Dans cette partie, vous manipulerez un [rover GNSS RTK de Sparfun](https://learn.sparkfun.com/tutorials/sparkfun-rtk-surveyor-hookup-guide/all) en extérieur pour obtenir un positionnement centimétrique comme un arpenteur professionnel.
+
+### Matériel nécessaire
+
+* 1 téléphone Android (pas trop vieux) avec une connectivité Internet.
+* 1 [Sparkfun Surveyor RTK](https://learn.sparkfun.com/tutorials/sparkfun-rtk-surveyor-hookup-guide/all)
+* 1 perche telescopique
+* 1 niveau à bulle
+
+### Montage du [Sparkfun Surveyor RTK](https://learn.sparkfun.com/tutorials/sparkfun-rtk-surveyor-hookup-guide/all)
+
+![SparkFun_RTK_Surveying_Kit](../rtk_surveyor/17370-SparkFun_RTK_Surveying_Kit-02.jpg)
+![SparkFun_RTK_Surveying_Kit](../rtk_surveyor/17369-GPS_RTK_Surveyor_-_Enclosed-09.jpeg)
+![SparkFun_RTK_Surveying_Kit](../rtk_surveyor/17369-GPS_RTK_Surveyor_-_Enclosed-10.jpeg)
+![SparkFun_RTK_Surveying_Kit](../rtk_surveyor/niveau-mat-rtk.png)
+
+
+### Installation de l'application
 
 Installez l’application Bluetooth GNSS sur votre téléphone Android depuis le [Play Store](https://play.google.com/store/apps/details?id=com.clearevo.bluetooth_gnss&hl=fr)
 
-### Configuration
+### Configuration de l'application
+
+Configurez l'application
 
 ![Bluetooth GNSS](../rtk_surveyor/bluetooth_gnss-01.png)
 ![Bluetooth GNSS](../rtk_surveyor/bluetooth_gnss-03.png)
@@ -148,6 +168,3 @@ Installez l’application Bluetooth GNSS sur votre téléphone Android depuis le
 ### Pratique
 
 ![Surveyor Belledone](../rtk_surveyor/surveyor-01.jpg)
-
-
-

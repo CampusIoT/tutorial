@@ -2,6 +2,16 @@
 
 ## Partie 1: GNSS
 
+### Matériel
+
+* 1 PC ou 1 Mac
+* 1 module GNSS UART
+
+| Fabricant | Module | Baudrate | Commentaires |
+| --------- | ------ | -------- | ------------ |
+|  [Adafruit Ultimate GPS Featherwing](https://learn.adafruit.com/adafruit-ultimate-gps-featherwing) | Mediatek MTK3333 |  9600 | |
+|[SparkFun GPS Breakout - XA1110](https://learn.sparkfun.com/tutorials/sparkfun-gps-breakout---xa1110-qwiic-hookup-guide)| Mediatek MTK3333 | 9600 (réglable à 4800-115200) | Mode ballon activable |
+
 ### Installation
 
 Installez l'[IDE Arduino](https://www.arduino.cc/en/software) (2.3.4 ou plus) sur votre PC (Windows ou Mac) ou Mac
@@ -15,12 +25,6 @@ Sélectionnez votre carte (`ESP32S3 Dev Module` ou `ESP32C3 Dev Module`) dans `T
 Sélectionnez le port auquel est connecté la carte dans `Tools > Port`.
 
 ### Pratique
-
-| Fabricant | Module | Baudrate | Commentaires |
-| --------- | ------ | -------- | ------------ |
-|  [Adafruit Ultimate GPS Featherwing](https://learn.adafruit.com/adafruit-ultimate-gps-featherwing) | MTK3333 |  9600 | |
-|[SparkFun GPS Breakout - XA1110](https://learn.sparkfun.com/tutorials/sparkfun-gps-breakout---xa1110-qwiic-hookup-guide)| | 9600 (réglable à 4800-115200) | Mode ballon activable|
-
 
 #### Visualisation des trames NMEA0183
 

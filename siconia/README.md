@@ -140,6 +140,10 @@ La batterie du Siconia est soudée sur le PCB. Il est possible de désouder cell
 
 La carte comporte un emplacement pour un connecteur UFL qui peut être ajouté pour raccorder le Siconia à des antennes de meilleur gain. (voir photo ci-dessous)
 
+![](images/siconia-extbat-01.jpg)
+![](images/siconia-extbat-02.jpg)
+
+
 ## Annexe
 
 ### Caractéristiques techniques

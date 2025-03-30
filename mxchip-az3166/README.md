@@ -10,11 +10,11 @@
 
 ## Features
 
-* EMW3166 (ST STM32F412 + Broadcom BCM43362) Wi-Fi module with 256K SRAM，1M+2M Byte SPI Flash
+* EMW3166 (ST STM32F412(RG?) + Broadcom BCM43362) Wi-Fi module with 256K SRAM，1M+2M Byte SPI Flash
 * DAP Link emulator
 * Micro USB
 * 3.3V DC-DC, maximum current 1.5A
-* Codec, with microphone and earphone socket
+* Codec, with microphone and earphone socket ([NAU88C10](https://www.nuvoton.com/export/resource-files/en-us--DS_NAU88C10_DataSheet_EN_Rev2.1.pdf))
 * OLED, 128x64 ([SSD1306](https://cdn-shop.adafruit.com/datasheets/SSD1306.pdf))
 * 2 user button
 * 1 RGB light
@@ -30,9 +30,9 @@ Sensors
 * ST LSM6DSL : 3D digital accelerometer and gyroscope
 
 ![mxchip-az3166](media/mxchip-az3166-01.jpg)
-![pinout](media/az3167_pin_io.jpg)
+![pinout](media/az3166_pin_io.jpg)
 
-## Console
+## Defaut demo
 
 ```bash
 tio -b 115200 -m INLCRNL /dev/tty.usbmodemXXXX
@@ -62,3 +62,13 @@ Time from pool.ntp.org, now is (UTC): Mon Jan  6 21:28:00 2025
 >>> Failed to send telemetry data: Http fault.
 ```
 
+## Notes for Eclipse ThreadX
+* https://github.com/eclipse-threadx/getting-started/blob/master/MXChip/AZ3166/readme.md
+
+## Notes for Zephyr
+
+* https://docs.zephyrproject.org/latest/boards/mxchip/az3166_iotdevkit/doc/index.html
+ 
+## Notes for RIOT OS
+
+* https://github.com/fcgdam/RIOT_TTGOESP32_LORA_V1/tree/master/examples/RIOT_TTGO_OLED

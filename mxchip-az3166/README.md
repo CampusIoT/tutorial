@@ -36,6 +36,8 @@ Sensors
 
 [factory_firmware.bin](factory_firmware.bin)
 
+> The firmware can be flashed using the mass storage `AZ3166` ot [STM32CubeProgrammer](https://www.st.com/en/development-tools/stm32cubeprog.html)
+
 ```bash
 tio -b 115200 -m INLCRNL /dev/tty.usbmodemXXXX
 ```
@@ -65,13 +67,39 @@ Time from pool.ntp.org, now is (UTC): Mon Jan  6 21:28:00 2025
 ```
 
 ## Notes for Eclipse ThreadX (previouly Azure RTOS)
+
 * https://github.com/eclipse-threadx/getting-started/blob/master/MXChip/AZ3166/readme.md
-* https://github.com/MicrosoftDocs/azure-docs/blob/main/articles/iot/tutorial-devkit-mxchip-az3166-iot-hub.md
+* https://github.com/MicrosoftDocs/azure-docs/blob/main/articles/iot/tutorial-devkit-mxchip-az3166-iot-hub.
+
+```bash
+cd ~/github/eclipse-threadx/getting-started/MXChip/AZ3166/tools
+./rebuild.sh
+```
 
 ## Notes for Zephyr
 
 * https://docs.zephyrproject.org/latest/boards/mxchip/az3166_iotdevkit/doc/index.html
+
+### Toolchain install (with Docker)
+
+```bash
+docker pull zephyrprojectrtos/zephyr-build:latest
+```
  
 ## Notes for RIOT OS
 
+### Drivers
+
+```makefile
+
+TODO
+
+```
+
+
 * https://github.com/fcgdam/RIOT_TTGOESP32_LORA_V1/tree/master/examples/RIOT_TTGO_OLED
+
+
+## Expension boards
+
+The AZ3166 had a 2x40 pin edge connector (40 pins on 51 mm). Ref to determined.

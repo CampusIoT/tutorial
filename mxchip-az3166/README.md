@@ -34,6 +34,8 @@ Sensors
 
 ## Defaut demo
 
+[factory_firmware.bin](factory_firmware.bin)
+
 ```bash
 tio -b 115200 -m INLCRNL /dev/tty.usbmodemXXXX
 ```
@@ -62,8 +64,9 @@ Time from pool.ntp.org, now is (UTC): Mon Jan  6 21:28:00 2025
 >>> Failed to send telemetry data: Http fault.
 ```
 
-## Notes for Eclipse ThreadX
+## Notes for Eclipse ThreadX (previouly Azure RTOS)
 * https://github.com/eclipse-threadx/getting-started/blob/master/MXChip/AZ3166/readme.md
+* https://github.com/MicrosoftDocs/azure-docs/blob/main/articles/iot/tutorial-devkit-mxchip-az3166-iot-hub.md
 
 ## Notes for Zephyr
 

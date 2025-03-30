@@ -30,6 +30,16 @@ Sensors
 * ST LSM6DSL : 3D digital accelerometer and gyroscope
 
 ![mxchip-az3166](media/mxchip-az3166-01.jpg)
+
+## Pinout 
+
+* 2 analog pins (PA4 and PA5)
+* 11 digital pins (PB3, PB6, PC13, PB10, PB2, PB7, PB13, PB14, PB15, PB8, PB9)
+* I2C pins (PB8 and PB9)
+* SPI pins (PB13, PB14, and PB15)
+* 2 button pins (PA4 and PA10)
+* 1 PWM pin (PB3)
+
 ![pinout](media/az3166_pin_io.jpg)
 
 ## Defaut demo
@@ -65,6 +75,14 @@ Time from pool.ntp.org, now is (UTC): Mon Jan  6 21:28:00 2025
 >>> Failed to send telemetry data: Http fault.
 >>> Failed to send telemetry data: Http fault.
 ```
+
+## Notes for Arduino
+
+* https://jeremylindsayni.wordpress.com/category/arduino/
+* https://www.hanselman.com/blog/did-i-leave-the-garage-door-open-a-nocode-project-with-azure-iot-central-and-the-mxchip-devkit
+* https://github.com/Azure/iot-central-firmware/tree/master/MXCHIP
+* 
+
 
 ## Notes for Eclipse ThreadX (previouly Azure RTOS)
 
@@ -102,4 +120,11 @@ TODO
 
 ## Expension boards
 
-The AZ3166 had a 2x40 pin edge connector (40 pins on 51 mm). Ref to determined.
+The AZ3166 had a 2x40 pin edge connector (40 pins on 51 mm) like Microbit boards https://microbit.org
+
+* https://kitronik.co.uk/products/5601b-edge-connector-breakout-board-for-bbc-microbit-pre-built
+* https://www.sparkfun.com/sparkfun-qwiic-micro-bit-breakout-with-headers.html
+* https://cdn.sparkfun.com/assets/f/d/1/6/5/Micro_Bit_Breakout.zip
+* https://fr.aliexpress.com/item/4000151701085.html
+
+

@@ -120,7 +120,7 @@ TODO
 
 ## Expension boards
 
-The AZ3166 had a 2x40 pin edge connector (40 pins on 51 mm) like Microbit boards https://microbit.org
+The AZ3166 had a 2x40 pin edge connector (40 pins on 51 mm) like [Microbit boards](https://github.com/microbit-foundation/microbit-v2-hardware/blob/main/V2.21/MicroBit_V2.2.1_nRF52820%20schematic.PDF) https://microbit.org
 
 * https://kitronik.co.uk/products/5601b-edge-connector-breakout-board-for-bbc-microbit-pre-built
 * https://www.sparkfun.com/sparkfun-qwiic-micro-bit-breakout-with-headers.html

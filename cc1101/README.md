@@ -42,9 +42,13 @@ Module sans fil CC1101 de qualité industrielle Émetteur-récepteur de transmis
 
 ### Arduino
 
-https://github.com/jgromes/RadioLib
+* [RadioLib](https://github.com/jgromes/RadioLib)
+  * https://jgromes.github.io/RadioLib/class_c_c1101.html
+  * https://github.com/jgromes/RadioLib/wiki/Default-configuration#cc1101
+  * https://github.com/jgromes/RadioLib/tree/master/examples/CC1101
 
 ### RIOT
 
-https://doc.riot-os.org/group__drivers__cc110x.html
+* https://doc.riot-os.org/group__drivers__cc110x.html
+* https://github.com/RIOT-OS/RIOT/tree/master/tests/drivers/cc110x
 

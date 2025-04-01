@@ -103,3 +103,7 @@ TODO
 ## Expension boards
 
 The AZ3166 had a 2x40 pin edge connector (40 pins on 51 mm). Ref to determined.
+
+
+* https://gricad-gitlab.univ-grenoble-alpes.fr/thingsat/seed/-/blob/main/seed_protoboard_v2/README.md?ref_type=heads
+* https://gricad-gitlab.univ-grenoble-alpes.fr/thingsat/seed/-/tree/main/seed_lora-e5-mini?ref_type=heads#seed-wio-e5-mini

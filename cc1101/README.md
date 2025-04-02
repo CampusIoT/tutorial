@@ -1,6 +1,26 @@
 # CC1101
 
- Module sans fil CC1101 de qualité industrielle Émetteur-récepteur de transmission numérique 433MHz classe NRF905 SI4432 Interface SMA
+https://www.ti.com/lit/ds/symlink/cc1101.pdf
+
+CC1101 is a low-cost sub-1 GHz transceiver
+designed for very low-power wireless appli-
+cations. The circuit is mainly intended for the
+ISM (Industrial, Scientific and Medical) and
+SRD (Short Range Device) frequency bands
+at 315, 433, 868, and 915 MHz, but can easily
+be programmed for operation at other
+frequencies in the 300-348 MHz, 387-464 MHz
+and 779-928 MHz bands.
+The RF transceiver is integrated with a highly
+configurable baseband modem. The modem
+supports various modulation formats and has
+a configurable data rate up to 600 kbps.
+
+## Modules
+
+Module sans fil CC1101 de qualité industrielle Émetteur-récepteur de transmission numérique 433MHz classe NRF905 SI4432 Interface SMA
+
+* https://fr.aliexpress.com/item/1005004333776584.html
 
 * Fréquence de fonctionnement:(Module:387-464MHZ)
 * Tension de fonctionnement: 1.8-3.6V
@@ -18,6 +38,17 @@
 *  Puissance de sortie programmable, pour toutes les fréquences de support jusqu'à + 10 dBm
 * La fonction WOR peut être réglée en veille, la proportion recevant le temps de commutation de la minuterie d'état pour réduire la consommation d'énergie
 
-## Modules
+## API
 
-* https://fr.aliexpress.com/item/1005004333776584.html
+### Arduino
+
+* [RadioLib](https://github.com/jgromes/RadioLib)
+  * https://jgromes.github.io/RadioLib/class_c_c1101.html
+  * https://github.com/jgromes/RadioLib/wiki/Default-configuration#cc1101
+  * https://github.com/jgromes/RadioLib/tree/master/examples/CC1101
+
+### RIOT
+
+* https://doc.riot-os.org/group__drivers__cc110x.html
+* https://github.com/RIOT-OS/RIOT/tree/master/tests/drivers/cc110x
+

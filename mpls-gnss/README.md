@@ -5,7 +5,8 @@
 ### Matériel
 
 * 1 PC ou 1 Mac
-* 1 module GNSS UART
+* 1 module GNSS UART (Grove ou Mikrobus)
+* 1 platine support ESP32-Wroom-32U avec connecteur Grove et emplacements Mikrobus
 
 | Fabricant | Module | Baudrate | Commentaires |
 | --------- | ------ | -------- | ------------ |
@@ -23,7 +24,7 @@ Ajoutez la définition des cartes ESP32 `[https://dl.espressif.com/dl/package_es
 
 Installez la bibliothéque `TinyGPSPlusPlus` depuis le gestionnaire de bibliothèques `Tools > Manage Libraries ...`.
 
-Sélectionnez votre carte (`ESP32S3 Dev Module` ou `ESP32C3 Dev Module`) dans `Tools > Board > esp32`.
+Sélectionnez votre carte `ESP32 Dev Module` dans `Tools > Board > esp32`.
 
 Sélectionnez le port auquel est connecté la carte dans `Tools > Port`.
 
@@ -129,6 +130,8 @@ Ouvrez la console série.
 
 ##### `FullExample`
 
+https://github.com/thingsat/tinygs_2g4station/blob/main/Firmware/Arduino/TinyGPSPlus_FullExample/README.md
+
 Modifiez la valeur `GPSBaud` dans la ligne `static const uint32_t GPSBaud = 4800;` en fonction du module GNSS que vous avez à vous disposition.
 
 Modifiez la ligne `static const double LONDON_LAT = 51.508131, LONDON_LON = -0.128002;` par la ligne `static const double LONDON_LAT = 44.910101, LONDON_LON = 5.782137;` qui est l'[emplacement du Murtel](https://www.openstreetmap.org/relation/109753#map=19/44.910101/5.782137).
@@ -140,6 +143,61 @@ Ouvrez la console série.
 #### Récupération sur signal PPS du module GNSS
 
 Code source à fournir : https://forum.arduino.cc/t/pps-from-ultimate-gps-synch-with-arduino-uno/336683/4
+
+#### Utilisation de l'interface I2C du module GNSS Sparkfun XA1110
+
+Installez la bibliothéque [`SparkFun I2C GPS Reading and Control`](https://github.com/sparkfun/SparkFun_I2C_GPS_Arduino_Library/) via le gestionnaire de bibliothèques. 
+
+Ouvrez les exemples suivants dans le menu d'exemples `Examples > `SparkFun I2C GPS Reading and Control`.
+
+* Example1-BasicReadings
+* Example2-TinyGPS
+* Example3-MoreGPSInfo
+* Example4-LibraryOptions
+* Example5-ConfigureGPS
+
+##### `Example5-ConfigureGPS`
+
+
+```
+1) Set update rate to 10Hz
+2) Set update rate to 1Hz
+3) Enable PPS LED
+4) Turn off all sentences but RMC&GGA
+5) Enable high altitude balloon mode
+6) Set serial baud rate to 57600bps
+7) Enable DGPS/SBAS
+8) Enable/Disable Debugging
+9) Reset module
+a) Query version information
+s) Set baud rate:
+--  0 : 4800
+--  1 : 9600
+--  2 : 14400
+--  3 : 19200
+--  4 : 38400
+--  5 : 57600
+--  6 : 115200
+```
+
+`a` affiche les informations sur le module GNSS I2C
+```
+Querying GPS version: .done!
+Firmware version: AXN_5.1.1_3333
+Build ID: 8530
+Model: XA1110
+```
+
+`3` active le clignotement de la LED du PPS
+```
+Packet 285: Command successful
+```
+
+`5` active le mode ballon
+```
+Packet 886: Command successful
+```
+
 
 ## Partie 2: RTK
 

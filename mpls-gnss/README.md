@@ -6,14 +6,18 @@
 
 * 1 PC ou 1 Mac
 * 1 module GNSS UART
+* 1 microcontrolleur supporté par l'environnement Arduino
 
 | Fabricant | Module | Baudrate | Commentaires |
 | --------- | ------ | -------- | ------------ |
 |  [Adafruit Ultimate GPS Featherwing](https://learn.adafruit.com/adafruit-ultimate-gps-featherwing) | Mediatek MTK3333 |  9600 | |
 |[SparkFun GPS Breakout - XA1110](https://learn.sparkfun.com/tutorials/sparkfun-gps-breakout---xa1110-qwiic-hookup-guide)| Mediatek MTK3333 | 9600 (réglable à 4800-115200) | [Mode ballon activable](https://github.com/sparkfun/SparkFun_I2C_GPS_Arduino_Library/blob/a0c84da4f4e7064b858fdd25729e7e3f2f1f21bc/examples/Example5-ConfigureGPS/Example5-ConfigureGPS.ino#L130), [MikroBus](https://gricad-gitlab.univ-grenoble-alpes.fr/Drakkar-LIG/waltor/-/tree/jeremie/kicad/jeremie/kicad/XA1110_MikroBus?ref_type=heads) |
+|  | u-blox NEO-6M | 4800, 9600(default), 19200, 38400, 57600, 115200, 230400 | disponible sur de nombreuses platines chinoises bon marché|
 
+## Banchement
 
-![](XA1110_MikroBus-3D_Top.png)
+![Grove GPS on the TinyGS 2G4 station](esp32+grove-gps.jpg)
+![Mikrobus GPS on the TinyGS 2G4 station](esp32+xa1110-mikrobus.jpg)
 
 ### Installation
 

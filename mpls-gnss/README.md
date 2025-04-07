@@ -134,7 +134,7 @@ https://github.com/thingsat/tinygs_2g4station/blob/main/Firmware/Arduino/TinyGPS
 
 Modifiez la valeur `GPSBaud` dans la ligne `static const uint32_t GPSBaud = 4800;` en fonction du module GNSS que vous avez à vous disposition.
 
-Modifiez la ligne `static const double LONDON_LAT = 51.508131, LONDON_LON = -0.128002;` par la ligne `static const double LONDON_LAT = 44.910101, LONDON_LON = 5.782137;` qui est l'[emplacement du Murtel](https://www.openstreetmap.org/relation/109753#map=19/44.910101/5.782137).
+Modifiez la ligne `static const double POI_LAT = 51.508131, POI_LON = -0.128002;` par la ligne `static const double POI_LAT = 44.910101, POI_LON = 5.782137;` qui est l'[emplacement du Murtel](https://www.openstreetmap.org/relation/109753#map=19/44.910101/5.782137).
 
 Compilez et chargez le programme sur la carte.
 
@@ -142,7 +142,50 @@ Ouvrez la console série.
 
 #### Récupération sur signal PPS du module GNSS
 
-Code source à fournir : https://forum.arduino.cc/t/pps-from-ultimate-gps-synch-with-arduino-uno/336683/4
+https://github.com/thingsat/tinygs_2g4station/tree/main/Firmware/Arduino/PPS_ISR
+
+```c
+#define PPS_PIN     13 // INT_1
+//#define PPS_LED   12
+
+void setup () {
+  Serial.begin(115200);
+  
+  pinMode(PPS_PIN, INPUT);
+
+#ifdef PPS_LED
+  pinMode(PPS_LED, OUTPUT);
+  // Check to make sure LED is working
+  digitalWrite(PPS_LED, HIGH);
+  delay(1000);
+  digitalWrite(PPS_LED, LOW);
+#endif
+
+  Serial.println(__DATE__);
+  Serial.println(__TIME__);
+  
+  // Attach an interrupt to interrupt #1, calls program "pps_interrupt", happens on rising (low to high)
+  attachInterrupt(1, pps_interrupt, RISING);
+}
+
+void loop () {  
+  delay(10000);
+}
+
+static int cpt = 0;
+
+void pps_interrupt(){
+  Serial.print(".");
+  if(cpt++ % 50 == 0) {
+    Serial.println();
+  }
+#ifdef PPS_LED
+  digitalWrite(PPS_LED, HIGH);
+  delay(100);
+  digitalWrite(PPS_LED, LOW);
+#endif
+}
+```
 
 #### Utilisation de l'interface I2C du module GNSS Sparkfun XA1110
 

@@ -106,7 +106,7 @@ Les phrases NMEA commencent par 1 caractère de préambule `$` et par un identif
 | GB | Global Positioning System (GPS) 🇺🇸 |
 | GA | Galileo Positioning System 🇪🇺 |
 | GB | BDS ([BeiDou System](https://fr.wikipedia.org/wiki/Syst%C3%A8me_de_positionnement_par_satellites#Le_syst%C3%A8me_chinois_Beidou)) 🇨🇳 | 
-| GI | [NavIC (IRNSS)](https://fr.wikipedia.org/wiki/Indian_Regional_Navigation_Satellite_System) |
+| GI | [NavIC (IRNSS)](https://fr.wikipedia.org/wiki/Indian_Regional_Navigation_Satellite_System) 🇮🇳 |
 | GL | GLONASS Receiver 🇷🇺 |
 | GQ | [QZSS](https://fr.wikipedia.org/wiki/Quasi-Zenith_Satellite_System) 🇯🇵|
 | GN | Global Navigation Satellite System (GNSS)  |

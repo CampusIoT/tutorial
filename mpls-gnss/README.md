@@ -98,8 +98,30 @@ $GPGGA,045252.000,3014.4273,N,09749.0628,W,1,09,1.3,206.9,M,-22.5,M,,0000*6F
 ```
 
 Commentaires:
-* les phrases `GPRMC` ...
-* les phrases `GPGGA` ...
+
+Les phrases NMEA commencent par un Talker Id en 2 lettres
+
+| Talker Id | System | 
+| --------- |------- | 
+| GB | Global Positioning System (GPS) 🇺🇸 |
+| GA | Galileo Positioning System 🇪🇺 |
+| GB | BDS ([BeiDou System](https://fr.wikipedia.org/wiki/Syst%C3%A8me_de_positionnement_par_satellites#Le_syst%C3%A8me_chinois_Beidou)) 🇨🇳 | 
+| GI | [NavIC (IRNSS)](https://fr.wikipedia.org/wiki/Indian_Regional_Navigation_Satellite_System) |
+| GL | GLONASS Receiver 🇷🇺 |
+| GQ | [QZSS](https://fr.wikipedia.org/wiki/Quasi-Zenith_Satellite_System) 🇯🇵|
+| GN | Global Navigation Satellite System (GNSS)  |
+
+> Remarque : L’identifiant de locuteur « GN » est utilisé lorsque les données de la phrase proviennent d’une combinaison de plusieurs systèmes satellitaires. Les identifiants de locuteur propres à un système satellitaire ne sont utilisés que lorsque les données de la phrase proviennent d’un seul système de navigation par satellite. Les descriptions et remarques dans les définitions des phrases fournissent des indications sur l’utilisation des identifiants de locuteur des récepteurs de systèmes de navigation par satellite, lorsque cela est nécessaire.
+
+Les phrases NMEA continuent avec 3 lettres pour désigner une option
+
+| Option | Description |
+| ------ |----------- |
+|GGA |Donnéees de temps, position et type de positionnement (fix). |
+|GSA |Mode de fonctionnement du récepteur GNSS, satellites actifs utilisés dans la solution de positionnement et valeurs DOP. |
+|GSV |Nombre de satellites GPS visibles, identifiants des satellites, élévation, azimut et valeurs SNR.|
+|RMC |Données de temps, date, position, cap et vitesse. Les informations de navigation minimales recommandées.|
+|VTG |Informations de cap et de vitesse par rapport au sol.|
 
 #### Décodage des trames NMEA0183 avec la bibliothèque TinyGPS d'Arduino
 

@@ -99,9 +99,9 @@ $GPGGA,045252.000,3014.4273,N,09749.0628,W,1,09,1.3,206.9,M,-22.5,M,,0000*6F
 
 Commentaires:
 
-Les phrases NMEA commencent par un Talker Id en 2 lettres
+Les phrases NMEA commencent par 1 caractère de préambule `$` et par un identifiant de locuteur (Talker Id) en 2 lettres
 
-| Talker Id | System | 
+| Locuteur (Talker Id) | Systeme | 
 | --------- |------- | 
 | GB | Global Positioning System (GPS) 🇺🇸 |
 | GA | Galileo Positioning System 🇪🇺 |
@@ -111,7 +111,7 @@ Les phrases NMEA commencent par un Talker Id en 2 lettres
 | GQ | [QZSS](https://fr.wikipedia.org/wiki/Quasi-Zenith_Satellite_System) 🇯🇵|
 | GN | Global Navigation Satellite System (GNSS)  |
 
-> Remarque : L’identifiant de locuteur « GN » est utilisé lorsque les données de la phrase proviennent d’une combinaison de plusieurs systèmes satellitaires. Les identifiants de locuteur propres à un système satellitaire ne sont utilisés que lorsque les données de la phrase proviennent d’un seul système de navigation par satellite. Les descriptions et remarques dans les définitions des phrases fournissent des indications sur l’utilisation des identifiants de locuteur des récepteurs de systèmes de navigation par satellite, lorsque cela est nécessaire.
+> Remarque : L’identifiant de locuteur `GN` est utilisé lorsque les données de la phrase proviennent d’une combinaison de plusieurs systèmes satellitaires. Les identifiants de locuteur propres à un système satellitaire ne sont utilisés que lorsque les données de la phrase proviennent d’un seul système de navigation par satellite. Les descriptions et remarques dans les définitions des phrases fournissent des indications sur l’utilisation des identifiants de locuteur des récepteurs de systèmes de navigation par satellite, lorsque cela est nécessaire.
 
 Les phrases NMEA continuent avec 3 lettres pour désigner une option
 

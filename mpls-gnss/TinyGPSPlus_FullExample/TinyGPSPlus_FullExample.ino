@@ -6,8 +6,9 @@
    4800-baud serial GPS device hooked up on pins 4(rx) and 3(tx).
 */
 
-// RXTX for the UART Grove connector or Mikrobus 1 on TinyGS 2G4 ESP32 board
-static const int RXPin = 17, TXPin = 16;
+// RXTX for the UART Grove connector on TinyGS 2G4 ESP32 board
+// RXTX for Mikrobus 1 on TinyGS 2G4 ESP32 board
+static const int RXPin = 16, TXPin = 17;
 
 // XA1110 https://learn.sparkfun.com/tutorials/sparkfun-gps-breakout---xa1110-qwiic-hookup-guide/all
 static const uint32_t GPSBaud = 9600;

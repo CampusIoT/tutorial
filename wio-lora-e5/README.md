@@ -11,12 +11,13 @@ Elles existent sous 3 formes:
 
 ## Commandes AT
 
-Les cartes sont livrées avec un firmware par défaut qui est un modem AT LoRa (PHY) / LoRaWAN 
+Les cartes Wio 5 Mini, Dev et Grove sont livrées avec un firmware par défaut (aka factory firmware) qui est un modem AT LoRa (PHY) / LoRaWAN 
 
 [Specifications](https://files.seeedstudio.com/products/317990687/res/LoRa-E5%20AT%20Command%20Specification_V1.0%20.pdf)
 
 [Exemple de commandes](AT.md)
 
+> Note: vous pouvez [mettre à jour le firmware avec la nouvelle version](https://github.com/Seeed-Studio/LoRaWan-E5-Node) au moyen du STM32CubeProgrammer.
 
 ## Développement
 

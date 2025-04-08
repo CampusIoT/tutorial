@@ -155,21 +155,23 @@ Ouvrez la console série.
 
 ##### `FullExample`
 
-https://github.com/thingsat/tinygs_2g4station/blob/main/Firmware/Arduino/TinyGPSPlus_FullExample/README.md
+Ouvrez le [croquis `FullExample`](https://github.com/CampusIoT/tutorial/blob/master/mpls-gnss/TinyGPSPlus_FullExample/TinyGPSPlus_FullExample.ino)
 
 Modifiez la valeur `GPSBaud` dans la ligne `static const uint32_t GPSBaud = 4800;` en fonction du module GNSS que vous avez à vous disposition.
 
 Modifiez la ligne `static const double POI_LAT = 51.508131, POI_LON = -0.128002;` par la ligne `static const double POI_LAT = 44.910101, POI_LON = 5.782137;` qui est l'[emplacement du Murtel](https://www.openstreetmap.org/relation/109753#map=19/44.910101/5.782137).
 
-Compilez et chargez le programme sur la carte.
+Compilez et chargez le croquis sur la carte.
 
 Ouvrez la console série.
 
 #### Récupération sur signal PPS du module GNSS
 
-Ouvrez le croquis `GNSS_PPS_ISR`.
+Le module GNSS génère un signal à 1 Hz (PPS pour Pulse per Second) dont le front montant (`RISING`) lors du passage à la nouvelle seconde du temps (GPS).
 
-Compilez et chargez le croquis sur la carte.
+Ce signal peut être utilisé par le programme du microcontroleur pour synchroniser finement son horloge temps-réel (RTC).
+
+Ouvrez le [croquis `GNSS_PPS_ISR`](https://github.com/CampusIoT/tutorial/blob/master/mpls-gnss/GNSS_PPS_ISR/GNSS_PPS_ISR.ino).
 
 ```c
 /*
@@ -220,20 +222,24 @@ void pps_interrupt(){
 }
 ```
 
+Compilez et chargez le croquis sur la carte.
+
+Ouvrez la console série.
+
+
 #### Utilisation de l'interface I2C du module GNSS Sparkfun XA1110
 
 Installez la bibliothéque [`SparkFun I2C GPS Reading and Control`](https://github.com/sparkfun/SparkFun_I2C_GPS_Arduino_Library/) via le gestionnaire de bibliothèques. 
 
 Ouvrez les exemples suivants dans le menu d'exemples `Examples > `SparkFun I2C GPS Reading and Control`.
 
-* Example1-BasicReadings
-* Example2-TinyGPS
-* Example3-MoreGPSInfo
-* Example4-LibraryOptions
-* Example5-ConfigureGPS
+* `Example1-BasicReadings`
+* `Example2-TinyGPS`
+* `Example3-MoreGPSInfo`
+* `Example4-LibraryOptions`
+* `Example5-ConfigureGPS`
 
 ##### `Example5-ConfigureGPS`
-
 
 ```
 1) Set update rate to 10Hz
@@ -274,7 +280,6 @@ Packet 285: Command successful
 Packet 886: Command successful
 ```
 
-
 ## Partie 2: RTK
 
 Dans cette partie, vous manipulerez un [rover GNSS RTK de Sparfun](https://learn.sparkfun.com/tutorials/sparkfun-rtk-surveyor-hookup-guide/all) en extérieur pour obtenir un positionnement centimétrique comme un arpenteur professionnel.
@@ -309,3 +314,8 @@ Configurez l'application
 ### Pratique
 
 ![Surveyor Belledone](../rtk_surveyor/surveyor-01.jpg)
+
+## Pour aller plus loin
+
+* [ESP32 NTP Server](https://github.com/DennisSc/PPS-ntp-server/tree/master)
+

@@ -1,4 +1,4 @@
-# RAK Wireless WisBlock LPWAN
+# RAK Wireless WisBlock RAK11310 LPWAN 
 
 RAK Wireless WisBlock LPWAN est une plateforme IoT modulaire et empilable conçue pour fournir une connectivité réseau à longue portée et faible consommation d'énergie (LPWAN) pour diverses applications IoT. LPWAN est un type de technologie de réseau sans fil qui permet une communication à longue portée avec une faible consommation d'énergie, ce qui en fait la solution idéale pour les appareils IoT nécessitant une faible consommation d'énergie et une longue durée de vie de la batterie.
 

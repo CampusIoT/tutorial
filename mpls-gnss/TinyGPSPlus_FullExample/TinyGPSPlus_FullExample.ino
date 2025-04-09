@@ -7,11 +7,20 @@
 */
 
 // RXTX for the UART Grove connector on TinyGS 2G4 ESP32 board
+// * White on RX pin of the GNSS module
+// * Yellow on TX pin of the GNSS module
 // RXTX for Mikrobus 1 on TinyGS 2G4 ESP32 board
 static const int RXPin = 16, TXPin = 17;
 
+// INT of Mikrobus #1 is IO13
+static const int PPSPin = 13;
+
+#if ZED_F9P == 0
+static const uint32_t GPSBaud = 38400;
+#else
 // XA1110 https://learn.sparkfun.com/tutorials/sparkfun-gps-breakout---xa1110-qwiic-hookup-guide/all
 static const uint32_t GPSBaud = 9600;
+#endif
 
 // POI (Point of Interest) : CSUG
 static const double POI_LAT = 45.19262400425433;

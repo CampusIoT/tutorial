@@ -9,7 +9,7 @@ On Grenoble, Centipede reference stations are `CRO2` and `CHA2`.
 
 ## Bluetooth GNSS app (for Android)
 
-Install the [application Bluetooth GNSS on your Android smartphone)(https://play.google.com/store/apps/details?id=com.clearevo.bluetooth_gnss)
+Install the [application Bluetooth GNSS on your Android smartphone](https://play.google.com/store/apps/details?id=com.clearevo.bluetooth_gnss)
 
 * https://docs.centipede.fr/docs/Rover_rtklib_android/
 * http://jmfriedt.free.fr/glmf_altitude.pdf

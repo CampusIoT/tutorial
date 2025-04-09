@@ -314,6 +314,12 @@ Le rover utilise un smartphone pour l'affichage des données.
 
 Installez l’application Bluetooth GNSS sur votre téléphone Android depuis le [Play Store](https://play.google.com/store/apps/details?id=com.clearevo.bluetooth_gnss&hl=fr)
 
+> **N.B. :** Vous devez configurer votre téléphone Android en [mode développeur](https://developer.android.com/studio/debug/dev-options?hl=fr) :
+
+1. Accédez à l’écran **Paramètres**.  
+2. Sélectionnez **À propos du téléphone**.  
+3. Appuyez **sept fois** sur le **Numéro de build** jusqu’à ce que le message *« Vous êtes maintenant un développeur ! »* s’affiche.
+
 ### Configuration de l'application
 
 Configurez l'application

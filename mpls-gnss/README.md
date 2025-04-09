@@ -1,27 +1,41 @@
 # Ecole MPLS 2025 :: Atelier GNSS
 
+L'objectif de ce tutoriel est de comprendre les informations retournées par les modules GNSS et GNSS RTK.
+
 ## Partie 1: GNSS
 
 ### Matériel
 
 * 1 PC ou 1 Mac
 * 1 module GNSS UART (Grove ou Mikrobus)
-* 1 platine support ESP32-Wroom-32U avec connecteur Grove et emplacements Mikrobus
+* 1 [platine support](https://github.com/thingsat/tinygs_2g4station) pour ESP32-Wroom-32U avec connecteur Grove et emplacements Mikrobus
 
 | Fabricant | Module | Baudrate | Commentaires |
 | --------- | ------ | -------- | ------------ |
 |  [Adafruit Ultimate GPS Featherwing](https://learn.adafruit.com/adafruit-ultimate-gps-featherwing) | Mediatek MTK3333 |  9600 | |
 |[SparkFun GPS Breakout - XA1110](https://learn.sparkfun.com/tutorials/sparkfun-gps-breakout---xa1110-qwiic-hookup-guide)| Mediatek MTK3333 | 9600 (réglable à 4800-115200) | [Mode ballon activable](https://github.com/sparkfun/SparkFun_I2C_GPS_Arduino_Library/blob/a0c84da4f4e7064b858fdd25729e7e3f2f1f21bc/examples/Example5-ConfigureGPS/Example5-ConfigureGPS.ino#L130), [MikroBus](https://gricad-gitlab.univ-grenoble-alpes.fr/Drakkar-LIG/waltor/-/tree/jeremie/kicad/jeremie/kicad/XA1110_MikroBus?ref_type=heads), Connecteur U-FL pour une antenne externe |
 |  | [u-blox NEO-6M](https://www.u-blox.com/en/product/neo-6-series) | 4800, 9600(default), 19200, 38400, 57600, 115200, 230400 | disponible sur de nombreuses platines chinoises bon marché|
-| [Mikroe GNSS RTK Click](https://www.mikroe.com/gnss-rtk-click) | [u-blox ZED-F9P](https://www.u-blox.com/en/product/zed-f9p-module) | 38400 (default), 460800 | RTK |
-
+| [Mikroe GNSS RTK Click](https://www.mikroe.com/gnss-rtk-click) | [u-blox ZED-F9P](https://www.u-blox.com/en/product/zed-f9p-module) | 38400 (default), 460800 | RTK. La platine doit être alimentée en 5V |
 
 ## Banchement
 
+### Via le connecteur Grove UART
+
+Configurez les 2 cavaliers du connecteur `JmpRx1` du coté `Grove OUT`
+
+> Si votre platine GNSS ne dispose pas de connecteur Grove (comme dans le cas de l'Adafruit Ultimate GPS): branchez le fil blanc sur la broche `RX` et le fil jaune sur la branche `TX`
+
+> Si votre platine GNSS dispose d'une broche PPS (en sortie), vous pouvez la brancher sur la broche `13` de l'ESP32
+
 ![Grove GPS on the TinyGS 2G4 station](esp32+grove-gps.jpg)
+
+### Via l'emplacement Mikrobus #1
+
+Configurez les 2 cavaliers du connecteur `JmpRx1` du coté `MKBus Module_1`
+
 ![Mikrobus GPS on the TinyGS 2G4 station](esp32+xa1110-mikrobus.jpg)
 
-### Installation
+### Installation de l'IDE Arduino
 
 Installez l'[IDE Arduino](https://www.arduino.cc/en/software) (2.3.4 ou plus) sur votre PC (Windows ou Mac) ou Mac
 
@@ -223,17 +237,15 @@ void pps_interrupt(){
 #endif
 }
 ```
-
 Compilez et chargez le croquis sur la carte.
 
 Ouvrez la console série.
-
 
 #### Utilisation de l'interface I2C du module GNSS Sparkfun XA1110
 
 Installez la bibliothéque [`SparkFun I2C GPS Reading and Control`](https://github.com/sparkfun/SparkFun_I2C_GPS_Arduino_Library/) via le gestionnaire de bibliothèques. 
 
-Ouvrez les exemples suivants dans le menu d'exemples `Examples > `SparkFun I2C GPS Reading and Control`.
+Ouvrez les croquis suivants dans le menu `File > Examples > `SparkFun I2C GPS Reading and Control`.
 
 * `Example1-BasicReadings`
 * `Example2-TinyGPS`
@@ -242,6 +254,12 @@ Ouvrez les exemples suivants dans le menu d'exemples `Examples > `SparkFun I2C G
 * `Example5-ConfigureGPS`
 
 ##### `Example5-ConfigureGPS`
+
+Ouvrez le croquis `Example5-ConfigureGPS` dans le menu `File > Examples > `SparkFun I2C GPS Reading and Control`.
+
+Compilez et chargez le croquis sur la carte.
+
+Ouvrez la console série.
 
 ```
 1) Set update rate to 10Hz
@@ -282,6 +300,71 @@ Packet 285: Command successful
 Packet 886: Command successful
 ```
 
+#### Utilisation de l'interface I2C du module GNSS RTK ZED-F9P de u-Blox
+
+Installez la bibliothéque [`SparkFun u-Blox GNSS Arduino Library`](https://github.com/sparkfun/SparkFun_u-blox_GNSS_Arduino_Library) via le gestionnaire de bibliothèques. 
+
+##### Example1_GetPositionAccuracy
+
+Ouvrez le croquis `Example1_GetPositionAccuracy` dans le menu `File > Examples > `SparkFun u-Blox GNSS Arduino Library > ZED-F9P`.
+
+Compilez et chargez le croquis sur la carte.
+
+Ouvrez le console série.
+```
+Lat: 451921702 Long: 57355977 (degrees * 10^-7) Alt: 284288 (mm) 3D Positional Accuracy: 3096 (mm)
+Lat: 451921702 Long: 57355977 (degrees * 10^-7) Alt: 284288 (mm) 3D Positional Accuracy: 3096 (mm)
+Lat: 451921702 Long: 57355977 (degrees * 10^-7) Alt: 284288 (mm) 3D Positional Accuracy: 3096 (mm)
+Lat: 451921702 Long: 57355977 (degrees * 10^-7) Alt: 284288 (mm) 3D Positional Accuracy: 3096 (mm)
+Lat: 451921702 Long: 57355977 (degrees * 10^-7) Alt: 284288 (mm) 3D Positional Accuracy: 3096 (mm)
+...
+Lat: 451921762 Long: 57356013 (degrees * 10^-7) Alt: 281091 (mm) 3D Positional Accuracy: 2524 (mm)
+Lat: 451921768 Long: 57356009 (degrees * 10^-7) Alt: 281072 (mm) 3D Positional Accuracy: 2411 (mm)
+Lat: 451921770 Long: 57356005 (degrees * 10^-7) Alt: 281082 (mm) 3D Positional Accuracy: 2300 (mm)
+...
+Lat: 451921752 Long: 57355994 (degrees * 10^-7) Alt: 281621 (mm) 3D Positional Accuracy: 1641 (mm)
+Lat: 451921745 Long: 57355996 (degrees * 10^-7) Alt: 281697 (mm) 3D Positional Accuracy: 1598 (mm)
+Lat: 451921741 Long: 57355998 (degrees * 10^-7) Alt: 281744 (mm) 3D Positional Accuracy: 1562 (mm)
+Lat: 451921736 Long: 57356000 (degrees * 10^-7) Alt: 281782 (mm) 3D Positional Accuracy: 1532 (mm)
+...
+Lat: 451921767 Long: 57355959 (degrees * 10^-7) Alt: 281073 (mm) 3D Positional Accuracy: 1285 (mm)
+Lat: 451921767 Long: 57355959 (degrees * 10^-7) Alt: 281069 (mm) 3D Positional Accuracy: 1284 (mm)
+Lat: 451921766 Long: 57355960 (degrees * 10^-7) Alt: 281068 (mm) 3D Positional Accuracy: 1284 (mm)
+Lat: 451921765 Long: 57355961 (degrees * 10^-7) Alt: 281062 (mm) 3D Positional Accuracy: 1283 (mm)
+Lat: 451921762 Long: 57355962 (degrees * 10^-7) Alt: 281067 (mm) 3D Positional Accuracy: 1282 (mm)
+...
+```
+
+##### Example10_GetHighPrecisionPositionAndAccuracy
+
+Ouvrez le croquis `Example10_GetHighPrecisionPositionAndAccuracy` dans le menu `File > Examples > `SparkFun u-Blox GNSS Arduino Library > ZED-F9P`.
+
+Compilez et chargez le croquis sur la carte.
+
+Ouvrez le console série.
+```
+Lat (deg): 45.192160927, Lon (deg): 5.735626530
+Ellipsoid (m): 281.5781, Mean Sea Level(m): 234.1774, Accuracy (m): 0.8260
+Lat (deg): 45.192162438, Lon (deg): 5.735625510
+Ellipsoid (m): 281.5037, Mean Sea Level(m): 234.1030, Accuracy (m): 0.7335
+Lat (deg): 45.192163892, Lon (deg): 5.735624634
+Ellipsoid (m): 281.3831, Mean Sea Level(m): 233.9824, Accuracy (m): 0.6673
+...
+Lat (deg): 45.192168262, Lon (deg): 5.735619136
+Ellipsoid (m): 281.1934, Mean Sea Level(m): 233.7927, Accuracy (m): 0.4572
+Lat (deg): 45.192167647, Lon (deg): 5.735618387
+Ellipsoid (m): 281.3362, Mean Sea Level(m): 233.9354, Accuracy (m): 0.4348
+Lat (deg): 45.192167198, Lon (deg): 5.735617660
+Ellipsoid (m): 281.4437, Mean Sea Level(m): 234.0430, Accuracy (m): 0.4150
+...
+Lat (deg): 45.192165677, Lon (deg): 5.735605826
+Ellipsoid (m): 281.7930, Mean Sea Level(m): 234.3922, Accuracy (m): 0.2626
+Lat (deg): 45.192165707, Lon (deg): 5.735605575
+Ellipsoid (m): 281.7908, Mean Sea Level(m): 234.3900, Accuracy (m): 0.2620
+Lat (deg): 45.192165695, Lon (deg): 5.735605358
+Ellipsoid (m): 281.8010, Mean Sea Level(m): 234.4003, Accuracy (m): 0.2615
+```
+
 ## Partie 2: RTK
 
 Dans cette partie, vous manipulerez un [rover GNSS RTK de Sparfun](https://learn.sparkfun.com/tutorials/sparkfun-rtk-surveyor-hookup-guide/all) en extérieur pour obtenir un positionnement centimétrique comme un arpenteur professionnel.
@@ -301,7 +384,9 @@ Le rover peut assurer 2 roles :
 * celui de station de référence RTK quand il est positionné à un endroit fixe dont la poistion est précisément connue,
 * celui de rover qui se dépasse et marque des positions corrigés à partir des données (RTCM) envoyées par une base de réference RTK (qui peut être un autre rover fixe) 
 
-Le rover utilise un smartphone pour l'affichage des données.
+Le rover utilise un smartphone pour récupérer les données depuis un caster RTCM et pour l'affichage des données GNSS.
+
+> Remarque : Les [schémas électroniques](https://github.com/sparkfun/SparkFun_RTK_Surveyor) et le [micro-logiciel](https://github.com/sparkfun/SparkFun_RTK_Firmware) du Sparkfun RTK Surveyor sont en source ouverte et libre (open source)
 
 ### Montage du [Sparkfun Surveyor RTK](https://learn.sparkfun.com/tutorials/sparkfun-rtk-surveyor-hookup-guide/all)
 
@@ -310,7 +395,7 @@ Le rover utilise un smartphone pour l'affichage des données.
 ![SparkFun_RTK_Surveying_Kit](../rtk_surveyor/17369-GPS_RTK_Surveyor_-_Enclosed-10.jpeg)
 ![SparkFun_RTK_Surveying_Kit](../rtk_surveyor/niveau-mat-rtk.png)
 
-### Installation de l'application
+### Installation de l'application  Bluetooth GNSS pour Android
 
 Installez l’application Bluetooth GNSS sur votre téléphone Android depuis le [Play Store](https://play.google.com/store/apps/details?id=com.clearevo.bluetooth_gnss&hl=fr)
 
@@ -328,11 +413,26 @@ Configurez l'application
 ![Bluetooth GNSS](../rtk_surveyor/bluetooth_gnss-03.png)
 ![Bluetooth GNSS](../rtk_surveyor/bluetooth_gnss-02.png)
 
+### Installation de l'application SW Maps pour iPhone
+
+https://apps.apple.com/us/app/sw-maps/id6444248083
+
+https://docs.sparkfun.com/SparkFun_RTK_Firmware/gis_software_ios/#sw-maps
+
 ### Pratique
 
 ![Surveyor Belledone](../rtk_surveyor/surveyor-01.jpg)
 
 ## Pour aller plus loin
 
+### GNSS
+
 * [ESP32 NTP Server](https://github.com/DennisSc/PPS-ntp-server/tree/master)
+
+### RTK
+
+* [Fabriquer et installer sa base de référence RTK et contribuer à Centipede](https://docs.centipede.fr/docs/base/)
+* [Autres applications pour Smartphone Android](https://docs.sparkfun.com/SparkFun_RTK_Firmware/gis_software_android/)
+* [Autres applications pour Smartphone iOS](https://docs.sparkfun.com/SparkFun_RTK_Firmware/gis_software_ios/)
+* [Autres applications pour Windows](https://docs.sparkfun.com/SparkFun_RTK_Firmware/gis_software_windows/#qgis)
 

@@ -384,7 +384,13 @@ Le rover peut assurer 2 roles :
 * celui de station de référence RTK quand il est positionné à un endroit fixe dont la poistion est précisément connue,
 * celui de rover qui se dépasse et marque des positions corrigés à partir des données (RTCM) envoyées par une base de réference RTK (qui peut être un autre rover fixe) 
 
-Le rover utilise un smartphone pour récupérer les données depuis un caster RTCM et pour l'affichage des données GNSS.
+Le rover utilise un smartphone/tablette (connecté à Internet) pour récupérer les données depuis un caster RTCM et pour l'affichage des données GNSS.
+
+[CentipedeRTK](https://docs.centipede.fr/) est un réseau collaboratif de bases de référence GNSS ouvertes ([carte](https://map.centipede-rtk.org/index.php/view/map/?repository=cent&project=centipede#3.992131,44.673872,6.703008,45.990611|basesrtk,notdeclared,nearest_30km,nearest_50km|d%C3%A9faut,d%C3%A9faut,d%C3%A9faut,d%C3%A9faut|1,1,1,1)) et disponibles pour toute personne se trouvant dans la zone de couverture. Le réseau est étendu par des instituts publics, des particuliers, des acteurs privés comme les agriculteurs ou d’autres partenaires publics.
+
+Exercice: repérez une base RTK proche de votre domicile.
+
+Exercice: repérez une base RTK proche de La Mure.
 
 > Remarque : Les [schémas électroniques](https://github.com/sparkfun/SparkFun_RTK_Surveyor) et le [micro-logiciel](https://github.com/sparkfun/SparkFun_RTK_Firmware) du Sparkfun RTK Surveyor sont en source ouverte et libre (open source)
 
@@ -394,6 +400,40 @@ Le rover utilise un smartphone pour récupérer les données depuis un caster RT
 ![SparkFun_RTK_Surveying_Kit](../rtk_surveyor/17369-GPS_RTK_Surveyor_-_Enclosed-09.jpeg)
 ![SparkFun_RTK_Surveying_Kit](../rtk_surveyor/17369-GPS_RTK_Surveyor_-_Enclosed-10.jpeg)
 ![SparkFun_RTK_Surveying_Kit](../rtk_surveyor/niveau-mat-rtk.png)
+
+### Installation de l'application SW Maps pour iOS ou pour Android
+
+L'application SW Maps permet d'enregistrer un parcours et prendre des photos et les localiser avec une précision de l'ordre du centimêtre.
+
+Installez l'[application SW Maps](https://apps.apple.com/us/app/sw-maps/id6444248083) pour iOS
+
+Installez l'[application SW Maps](https://play.google.com/store/apps/details?id=np.com.softwel.swmaps&hl=fr) pour Android
+
+La precédure à suivre est [ici](https://docs.sparkfun.com/SparkFun_RTK_Firmware/gis_software_ios/#sw-maps).
+
+Cependant, voici un résumé:
+
+**1) Appariellez le Surveyor avec votre smartphone/tablette via le menu Bluetooth.**
+
+**2) Ouvrez l'application SW Maps+**
+
+**3) Selectionnez le menu GNSS Connection pour choisir le Surveyor à utiliser**
+
+![](SWMaps-GNSSConnection.jpg)
+
+**4) Selectionnez le menu NTRIP Client pour configurer le caster NTRIP à utiliser**
+
+Dans notre cas, c'est `caster.centipede.fr` sur le port `2101` et le point de montage (le plus proche) est `CHA2` (Chamrousse).
+
+> Note: plusieurs casters et [points de montage](https://map.centipede-rtk.org/index.php/view/map/?repository=cent&project=centipede#5.357680,44.716345,6.035399,45.048156|basesrtk,notdeclared|d%C3%A9faut,d%C3%A9faut|1,1) peuvent être ajoutés comme `AVR2` ou `ALPE`.
+
+![](SWMaps-NTRIPClient-centipede.jpg)
+
+![](SWMaps-NTRIPClient.jpg)
+
+**5) Vérifiez la précision de la position GNSS dans le menu Skyplot**
+
+![](SWMaps-Skyplot.jpg)
 
 ### Installation de l'application  Bluetooth GNSS pour Android
 
@@ -412,12 +452,6 @@ Configurez l'application
 ![Bluetooth GNSS](../rtk_surveyor/bluetooth_gnss-01.png)
 ![Bluetooth GNSS](../rtk_surveyor/bluetooth_gnss-03.png)
 ![Bluetooth GNSS](../rtk_surveyor/bluetooth_gnss-02.png)
-
-### Installation de l'application SW Maps pour iPhone
-
-https://apps.apple.com/us/app/sw-maps/id6444248083
-
-https://docs.sparkfun.com/SparkFun_RTK_Firmware/gis_software_ios/#sw-maps
 
 ### Pratique
 

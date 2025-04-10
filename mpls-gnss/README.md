@@ -6,6 +6,7 @@ L'objectif de ce tutoriel est de comprendre les informations retournées par les
 
 ### Matériel
 
+* 1 parapluie
 * 1 PC ou 1 Mac
 * 1 module GNSS UART (Grove ou Mikrobus)
 * 1 [platine support](https://github.com/thingsat/tinygs_2g4station) pour ESP32-Wroom-32U avec connecteur Grove et emplacements Mikrobus
@@ -371,6 +372,7 @@ Dans cette partie, vous manipulerez un [rover GNSS RTK de Sparfun](https://learn
 
 ### Matériel nécessaire
 
+* 1 parapluie
 * 1 téléphone Android (pas trop vieux) avec une connectivité Internet.
 * 1 [Sparkfun Surveyor RTK](https://learn.sparkfun.com/tutorials/sparkfun-rtk-surveyor-hookup-guide/all)
 * 1 perche telescopique (dont la longueur est connue)

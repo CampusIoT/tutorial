@@ -1,4 +1,4 @@
-# Ecole [MPLS](https://alpes-dauphine.maisons-pour-la-science.org/) 2025 :: Atelier GNSS
+# Ecole [MPLS](https://alpes-dauphine.maisons-pour-la-science.org/) 2025 :: Atelier GNSS (La Mure)
 
 L'objectif de ce tutoriel est de comprendre les informations retournées par les modules GNSS et GNSS RTK.
 

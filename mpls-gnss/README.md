@@ -408,6 +408,7 @@ Exercice: repérez une base RTK proche de La Mure.
 ![SparkFun_RTK_Surveying_Kit](../rtk_surveyor/17369-GPS_RTK_Surveyor_-_Enclosed-09.jpeg)
 ![SparkFun_RTK_Surveying_Kit](../rtk_surveyor/17369-GPS_RTK_Surveyor_-_Enclosed-10.jpeg)
 ![SparkFun_RTK_Surveying_Kit](../rtk_surveyor/niveau-mat-rtk.png)
+![Surveyor Belledone](../rtk_surveyor/surveyor-01.jpg)
 
 ### Installation de l'application SW Maps pour iOS ou pour Android
 
@@ -422,6 +423,10 @@ La precédure à suivre est [ici](https://docs.sparkfun.com/SparkFun_RTK_Firmwar
 Cependant, voici un résumé:
 
 **1) Appariellez le Surveyor avec votre smartphone/tablette via le menu Bluetooth.**
+
+La LED bleue passe de 1Hz à fixe
+
+Quand le fix GPS est obtenue, la LED orange s'allume
 
 **2) Ouvrez l'application SW Maps+**
 
@@ -444,6 +449,8 @@ Dans notre cas, c'est `caster.centipede.fr` sur le port `2101` et le point de mo
 
 **6) Vérifiez la précision de la position GNSS dans le menu Skyplot**
 
+> Quand les données RTCM recues du caster NTRIP sont recues et utilisées par le module GNSS RTK du Surveyor, la LED blanche s'allume (ainsi que la LED verte 10 cms.
+
 ![](SWMaps-Skyplot.jpg)
 
 **7) Démarrez l'enregistrement de votre parcours**
@@ -462,6 +469,12 @@ Son adresse NTRIP est `crtk.net` et le port est `2101`. Vous pouvez choisir un a
 
 ![](SWMaps-Millipede.jpg)
 
+**9) Inspectez quelques unes de stations de référence utilisées**
+
+* `CHA2` ([Chamrousse](http://gnssfr.unice.fr/#/metadata/marker=CHA2)
+* `AVR2` ([Avignonet](http://gnssfr.unice.fr/#/metadata/marker=AVR2)
+* `ALPE` ([Alpe d'Huez](http://gnssfr.unice.fr/#/metadata/marker=ALPE)
+
 ![CHA2](bs-cha2.jpg) ![AVR2](bs-avr2.jpg) ![ALPE](bs-alpe.jpg)
 
 ### Extra : Installation de l'application  Bluetooth GNSS (open source) pour Android
@@ -474,17 +487,13 @@ Installez l’application Bluetooth GNSS sur votre téléphone Android depuis le
 2. Sélectionnez **À propos du téléphone**.  
 3. Appuyez **sept fois** sur le **Numéro de build** jusqu’à ce que le message *« Vous êtes maintenant un développeur ! »* s’affiche.
 
-### Configuration de l'application
+### Configuration de l'application Bluetooth GNSS
 
 Configurez l'application
 
 ![Bluetooth GNSS](../rtk_surveyor/bluetooth_gnss-01.png)
 ![Bluetooth GNSS](../rtk_surveyor/bluetooth_gnss-03.png)
 ![Bluetooth GNSS](../rtk_surveyor/bluetooth_gnss-02.png)
-
-### Pratique
-
-![Surveyor Belledone](../rtk_surveyor/surveyor-01.jpg)
 
 ## Pour aller plus loin
 
@@ -498,4 +507,30 @@ Configurez l'application
 * [Autres applications pour Smartphone Android](https://docs.sparkfun.com/SparkFun_RTK_Firmware/gis_software_android/)
 * [Autres applications pour Smartphone iOS](https://docs.sparkfun.com/SparkFun_RTK_Firmware/gis_software_ios/)
 * [Autres applications pour Windows](https://docs.sparkfun.com/SparkFun_RTK_Firmware/gis_software_windows/#qgis)
+
+## Glossaire
+
+| Terme/Acronyme | Explication |
+| -------------- |------------ |
+| GNSS | |
+| RTK | |
+| NTRIP | |
+| RTCM | |
+| Rover | |
+| Base | |
+| Caster | |
+| NMEA 0813 | |
+| Centipede | |
+| UART | |
+| I2C | |
+| PPS | Pulse-per-second |
+| FSK |  |
+| LoRa |  |
+| LoRaWAN |  |
+| ESP-Now |  |
+
+
+
+
+
 

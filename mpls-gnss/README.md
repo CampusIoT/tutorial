@@ -380,21 +380,27 @@ Dans cette partie, vous manipulerez un [rover GNSS RTK de Sparfun](https://learn
 
 ### Explication
 
-Le [rover GNSS RTK de Sparfun](https://learn.sparkfun.com/tutorials/sparkfun-rtk-surveyor-hookup-guide/all) est bati autour d'un microcontroleur ESP32 et d'un module GNSS RTK [u-blox ZED-F9P](https://www.u-blox.com/en/product/zed-f9p-module).
+#### Rover et Base
 
-Le rover peut assurer 2 roles :
+Le [rover GNSS RTK de Sparfun](https://learn.sparkfun.com/tutorials/sparkfun-rtk-surveyor-hookup-guide/all) peut assurer 2 roles :
 * celui de station de référence RTK quand il est positionné à un endroit fixe dont la poistion est précisément connue,
 * celui de rover qui se dépasse et marque des positions corrigés à partir des données (RTCM) envoyées par une base de réference RTK (qui peut être un autre rover fixe) 
 
-Le rover utilise un smartphone/tablette (connecté à Internet) pour récupérer les données depuis un caster RTCM et pour l'affichage des données GNSS.
+Le rover utilise un smartphone/tablette (connecté à Internet) pour récupérer les données GNSS depuis un caster NTRIP quand il est rover et pour l'affichage des données GNSS.
+
+Le [rover GNSS RTK de Sparfun](https://learn.sparkfun.com/tutorials/sparkfun-rtk-surveyor-hookup-guide/all) est bati autour d'un microcontroleur ESP32 et d'un module GNSS RTK [u-blox ZED-F9P](https://www.u-blox.com/en/product/zed-f9p-module).
+
+> Remarque : Les [schémas électroniques](https://github.com/sparkfun/SparkFun_RTK_Surveyor) et le [micro-logiciel](https://github.com/sparkfun/SparkFun_RTK_Firmware) du Sparkfun RTK Surveyor sont en source ouverte et libre (open source)
+
+#### Centipède et Caster
 
 [CentipedeRTK](https://docs.centipede.fr/) est un réseau collaboratif de bases de référence GNSS ouvertes ([carte](https://map.centipede-rtk.org/index.php/view/map/?repository=cent&project=centipede#3.992131,44.673872,6.703008,45.990611|basesrtk,notdeclared,nearest_30km,nearest_50km|d%C3%A9faut,d%C3%A9faut,d%C3%A9faut,d%C3%A9faut|1,1,1,1)) et disponibles pour toute personne se trouvant dans la zone de couverture. Le réseau est étendu par des instituts publics, des particuliers, des acteurs privés comme les agriculteurs ou d’autres partenaires publics.
+
+![](https://docs.centipede.fr/assets/images/index/1.jpg)
 
 Exercice: repérez une base RTK proche de votre domicile.
 
 Exercice: repérez une base RTK proche de La Mure.
-
-> Remarque : Les [schémas électroniques](https://github.com/sparkfun/SparkFun_RTK_Surveyor) et le [micro-logiciel](https://github.com/sparkfun/SparkFun_RTK_Firmware) du Sparkfun RTK Surveyor sont en source ouverte et libre (open source)
 
 ### Montage du [Sparkfun Surveyor RTK](https://learn.sparkfun.com/tutorials/sparkfun-rtk-surveyor-hookup-guide/all)
 
@@ -419,13 +425,16 @@ Cependant, voici un résumé:
 
 **2) Ouvrez l'application SW Maps+**
 
-**3) Selectionnez le menu GNSS Connection pour choisir le Surveyor à utiliser**
+**3) Sélectionnez le menu GNSS Connection pour choisir le Surveyor à utiliser**
 
 ![](SWMaps-GNSSConnection.jpg)
 
-**4) Selectionnez le menu NTRIP Client pour configurer le caster NTRIP à utiliser**
+**4) Vérifiez la précision de la position GNSS sans correction RTK dans le menu Skyplot**
+![](SWMaps-Skyplot-no-rtk.jpg)
 
-Dans notre cas, c'est `caster.centipede.fr` sur le port `2101` et le point de montage (le plus proche) est `CHA2` (Chamrousse).
+**5) Sélectionnez le menu NTRIP Client pour configurer le caster NTRIP à utiliser**
+
+Dans notre cas, c'est `caster.centipede.fr` sur le port `2101` et le point de montage (le plus proche) est `CHA2` ([Chamrousse](http://gnssfr.unice.fr/#/metadata/marker=CHA2)).
 
 > Note: plusieurs casters et [points de montage](https://map.centipede-rtk.org/index.php/view/map/?repository=cent&project=centipede#5.357680,44.716345,6.035399,45.048156|basesrtk,notdeclared|d%C3%A9faut,d%C3%A9faut|1,1) peuvent être ajoutés comme `AVR2` ou `ALPE`.
 
@@ -433,11 +442,29 @@ Dans notre cas, c'est `caster.centipede.fr` sur le port `2101` et le point de mo
 
 ![](SWMaps-NTRIPClient.jpg)
 
-**5) Vérifiez la précision de la position GNSS dans le menu Skyplot**
+**6) Vérifiez la précision de la position GNSS dans le menu Skyplot**
 
 ![](SWMaps-Skyplot.jpg)
 
-### Installation de l'application  Bluetooth GNSS pour Android
+**7) Démarrez l'enregistrement de votre parcours**
+
+![](SWMaps-Record-track.jpg)
+
+**8) Ajoutez et sélectionnez un autre caster NTRIP via le menu NTRIP Client**
+
+> S'il vous reste un peu de temps
+
+[Mililpède](http://crtk.net:2101) est le nouveau caster de l'[association Centipède](https://www.linkedin.com/company/centipede-rtk/posts/?feedView=all).
+
+Son adresse NTRIP est `crtk.net` et le port est `2101`. Vous pouvez choisir un autre point de montage proche est `AVR2` ([Avignonet](http://gnssfr.unice.fr/#/metadata/marker=AVR2).
+
+![](SWMaps-Millipede-config.jpg)
+
+![](SWMaps-Millipede.jpg)
+
+![CHA2](bs-cha2.jpg) ![AVR2](bs-avr2.jpg) ![ALPE](bs-alpe.jpg)
+
+### Extra : Installation de l'application  Bluetooth GNSS (open source) pour Android
 
 Installez l’application Bluetooth GNSS sur votre téléphone Android depuis le [Play Store](https://play.google.com/store/apps/details?id=com.clearevo.bluetooth_gnss&hl=fr)
 

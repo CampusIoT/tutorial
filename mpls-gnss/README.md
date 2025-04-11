@@ -530,6 +530,7 @@ Configurez l'application
 ### GNSS
 
 * [ESP32 NTP Server](https://github.com/DennisSc/PPS-ntp-server/tree/master)
+* [Brouillages d’ondes : L’ANFR mène l’enquête !](https://www.anfr.fr/fileadmin/mediatheque/documents/brouillage/ANFR_25_ENQUETES-WEB-HD-2.pdf)
 
 ### RTK
 
@@ -542,29 +543,37 @@ Configurez l'application
 
 | Terme/Acronyme | Explication |
 | -------------- |------------ |
-| Constellation | |
-| GNSS | [Géolocalisation et Navigation par un Système de Satellites ou Global Navigation Satellite System](https://fr.wikipedia.org/wiki/Syst%C3%A8me_de_positionnement_par_satellites)|
+| Constellation | Ensemble de satellites réalisant une même service |
+| Constellation GNSS | Ensemble de satellites embarquant des horloges atomiques et diffusant des messages permettant le calcul du temps précis et de la position par des récepteurs GNSS |
+| GNSS | [Géolocalisation et Navigation par un Système de Satellites ou ***Global Navigation Satellite System***](https://fr.wikipedia.org/wiki/Syst%C3%A8me_de_positionnement_par_satellites)|
 | DGNSS | GNSS différentiel |
-| DOP ou GDOP | [Geometric dilution of precision (GDOP), ou Dilution of precision (DOP)](https://fr.wikipedia.org/wiki/Geometric_dilution_of_precision) |
-| HDOP | Horizontal Dilution of precision |
-| VDOP | Vertical Dilution of precision |
-| TDOP | Time Dilution of precision |
+| NMEA 0813 | Format de données textuel utilisé par des systèmes de navigation |
+| DOP ou GDOP | [***Geometric dilution of precision*** (GDOP) ou Dilution of precision (DOP)](https://fr.wikipedia.org/wiki/Geometric_dilution_of_precision) |
+| HDOP | ***Horizontal Dilution of precision*** |
+| VDOP | ***Vertical Dilution of precision*** |
+| TDOP | ***Time Dilution of precision*** |
+| Brouillage GPS | effets d'une énergie électromagnétique due à des émissions, rayonnements ou inductions qui dégrade, entrave ou interrompt le fonctionnement des récepteurs GPS. Exemple: Aéroport de Nantes-Atlantique (7,2 millions de passagers par an) le 21 avril 2017 |
+| Leurrage GPS | technique consistant à émettre de signaux GPS synthétiques pour fausser le calcul de temps et de la position par des récepteurs GPS. C'est un des risques cyber pour les entreprises et gouvernements |
+| ANRF | [Agence Nationale des fréquences](https://www.anfr.fr). [Elle est en charge de lutter contre le brouillage et le leurrage](https://www.anfr.fr/controler/traitement-des-brouillages/les-enquetes-de-lanfr) |
 | RTK | [Cinématique temps réel ou Real Time Kinematic](https://fr.wikipedia.org/wiki/Cin%C3%A9matique_temps_r%C3%A9el)|
-| NTRIP | Network and Transport of RTCM via Internet Protocol;  protocole de transmission des corrections RTCM via IP à des rovers RTK |
-| RTCM | format des données specifié par Radio Technical Commission for Maritime Services pour décrire les corrections différentielles des constellations GNSS |
-| Rover | |
-| Base | |
-| Caster | |
-| NMEA 0813 | |
-| Centipede | |
-| UART | |
-| I2C | |
-| PPS | Pulse-per-second |
-| FSK |  |
-| LoRa |  |
-| LoRaWAN |  |
+| NTRIP | ***Network and Transport of RTCM via Internet Protocol***;  protocole de transmission des corrections RTCM via IP à des rovers RTK |
+| RTCM | format des données specifié par ***Radio Technical Commission for Maritime Services*** pour décrire les corrections différentielles des constellations GNSS |
+| Rover | Equipement mobile consommant des messages RTCM afin d'améliorer la précision de la position calculée par le module GNSS RTK |
+| Base | Equipement fixe et dont la position est connue, produisant des messages RTCM consommés par des rovers|
+| Caster | Service diffusant vers des rovers les messages RTCM produits par une ou plusieurs bases |
+| Centipede | Service contributif et public de diffusion de messages RTCM |
+| UART | Interface série d'un microcontrôleur |
+| I2C | Bus de communication entre un microcontrôleur et des périphériques |
+| PPS | ***Pulse-per-second***; implusion généré à chaque seconde du temps GNSS |
+| UTC | Temps universel coordonné ou ***Universal Time Coordinated*** | 
+| GMT | temps moyen de Greenwich ou ***Greenwich Mean Time*** | 
+| IoT | Internet des Objets ou ***Internet of Things*** |
+| FSK |  Modulation radio pour des communications radio longue distance |
+| LoRa | Modulation radio pour des communications radio longue distance basse consommation d'énergie pour l'IoT |
+| LoRaWAN | Spécification d'un protocole de communication dans le réseau d'équipements IoT. Il s'appuie sur plusieurs modulations : FSK, LoRa, LR-FHSS |
+| Meshtastic | protocole de communication basé sur la modulation LoRa pour des réseaux maillés (***mesh***) d'équipements IoT|
 | ESP-Now | [Protocole de communication directe par Wifi entre des ESP32](https://www.espressif.com/en/solutions/low-power-solutions/esp-now) |
-| OpenStreetMap | |
+| OpenStreetMap | base de données géographique contributive et gratuite |
 
 
 

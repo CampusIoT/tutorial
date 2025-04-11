@@ -464,6 +464,9 @@ Dans notre cas, c'est `caster.centipede.fr` sur le port `2101` et le point de mo
 **7) Démarrez l'enregistrement de votre parcours**
 
 ![](SWMaps-Record-track.jpg)
+![](SWMaps-Record-track-01.jpg)
+![](SWMaps-Record-track-02.jpg)
+![](SWMaps-Record-track-03.jpg)
 
 A pied ou à vélo !
 

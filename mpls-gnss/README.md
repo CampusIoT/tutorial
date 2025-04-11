@@ -1,6 +1,14 @@
-# Ecole MPLS 2025 :: Atelier GNSS
+# Ecole [MPLS](https://alpes-dauphine.maisons-pour-la-science.org/) 2025 :: Atelier GNSS
 
 L'objectif de ce tutoriel est de comprendre les informations retournées par les modules GNSS et GNSS RTK.
+
+## Préinstallation
+
+Installez l'[IDE Arduino](https://www.arduino.cc/en/software) (2.3.4 ou plus) sur votre PC (Windows ou Mac) ou Mac
+
+Ajoutez la définition des cartes ESP32 `[https://dl.espressif.com/dl/package_esp32_index.json](https://github.com/espressif/arduino-esp32/tree/master/libraries)` dans les préférences `Preferences > URL of Board manager`
+
+Installez la bibliothéque `TinyGPSPlusPlus` depuis le gestionnaire de bibliothèques `Tools > Manage Libraries ...`.
 
 ## Partie 1: GNSS
 

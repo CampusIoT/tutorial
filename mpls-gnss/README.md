@@ -465,6 +465,14 @@ Dans notre cas, c'est `caster.centipede.fr` sur le port `2101` et le point de mo
 
 ![](SWMaps-Record-track.jpg)
 
+A pied ou à vélo !
+
+![](gnss-rtk-surveyor-backpack-01.jpg)
+![](gnss-rtk-surveyor-bike-01.jpg)
+![](gnss-rtk-surveyor-bike-02.jpg)
+
+> Vous pouvez contribuer les traces des chemins parcourus à la base de données ouvertes [OpenStreetMap](https://www.openstreetmap.org/diary/fr).
+
 **8) Ajoutez et sélectionnez un autre caster NTRIP via le menu NTRIP Client**
 
 > S'il vous reste un peu de temps
@@ -542,7 +550,7 @@ Configurez l'application
 | LoRa |  |
 | LoRaWAN |  |
 | ESP-Now | [Protocole de communication directe par Wifi entre des ESP32](https://www.espressif.com/en/solutions/low-power-solutions/esp-now) |
-
+| OpenStreetMap | |
 
 
 

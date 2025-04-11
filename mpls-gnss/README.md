@@ -512,8 +512,14 @@ Configurez l'application
 
 | Terme/Acronyme | Explication |
 | -------------- |------------ |
-| GNSS | |
-| RTK | |
+| Constellation | |
+| GNSS | [Géolocalisation et Navigation par un Système de Satellites ou Global Navigation Satellite System](https://fr.wikipedia.org/wiki/Syst%C3%A8me_de_positionnement_par_satellites)|
+| DGNSS | GNSS différentiel |
+| DOP ou GDOP | [Geometric dilution of precision (GDOP), ou Dilution of precision (DOP)](https://fr.wikipedia.org/wiki/Geometric_dilution_of_precision) |
+| HDOP | Horizontal Dilution of precision |
+| VDOP | Vertical Dilution of precision |
+| TDOP | Time Dilution of precision |
+| RTK | [Cinématique temps réel ou Real Time Kinematic](https://fr.wikipedia.org/wiki/Cin%C3%A9matique_temps_r%C3%A9el)|
 | NTRIP | |
 | RTCM | |
 | Rover | |
@@ -527,7 +533,7 @@ Configurez l'application
 | FSK |  |
 | LoRa |  |
 | LoRaWAN |  |
-| ESP-Now |  |
+| ESP-Now | [Protocole de communication directe par Wifi entre des ESP32](https://www.espressif.com/en/solutions/low-power-solutions/esp-now) |
 
 
 

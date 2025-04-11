@@ -405,10 +405,11 @@ Le [rover GNSS RTK de Sparfun](https://learn.sparkfun.com/tutorials/sparkfun-rtk
 [CentipedeRTK](https://docs.centipede.fr/) est un réseau collaboratif de bases de référence GNSS ouvertes ([carte](https://map.centipede-rtk.org/index.php/view/map/?repository=cent&project=centipede#3.992131,44.673872,6.703008,45.990611|basesrtk,notdeclared,nearest_30km,nearest_50km|d%C3%A9faut,d%C3%A9faut,d%C3%A9faut,d%C3%A9faut|1,1,1,1)) et disponibles pour toute personne se trouvant dans la zone de couverture. Le réseau est étendu par des instituts publics, des particuliers, des acteurs privés comme les agriculteurs ou d’autres partenaires publics.
 
 ![](https://docs.centipede.fr/assets/images/index/1.jpg)
+![](reseau-centipede-20250411.jpg)
 
-Exercice: repérez une base RTK proche de votre domicile.
+Exercice: repérez une base RTK [proche de votre domicile](https://map.centipede-rtk.org/index.php/view/map?repository=cent&project=centipede#-0.129991,42.888354,10.059828,46.578038|basesrtk,notdeclared|d%C3%A9faut,d%C3%A9faut|1,1).
 
-Exercice: repérez une base RTK proche de La Mure.
+Exercice: repérez une base RTK [proche de La Mure](https://map.centipede-rtk.org/index.php/view/map?repository=cent&project=centipede#-0.129991,42.888354,10.059828,46.578038|basesrtk,notdeclared|d%C3%A9faut,d%C3%A9faut|1,1).
 
 ### Montage du [Sparkfun Surveyor RTK](https://learn.sparkfun.com/tutorials/sparkfun-rtk-surveyor-hookup-guide/all)
 

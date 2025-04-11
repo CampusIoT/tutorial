@@ -468,9 +468,12 @@ Dans notre cas, c'est `caster.centipede.fr` sur le port `2101` et le point de mo
 ![](SWMaps-Record-track-02.jpg)
 ![](SWMaps-Record-track-03.jpg)
 
-A pied ou à vélo !
+#### A pied !
 
 ![](gnss-rtk-surveyor-backpack-01.jpg)
+
+#### A vélo !
+
 ![](gnss-rtk-surveyor-bike-01.jpg)
 ![](gnss-rtk-surveyor-bike-02.jpg)
 

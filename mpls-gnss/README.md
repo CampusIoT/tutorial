@@ -458,13 +458,18 @@ Dans notre cas, c'est `caster.centipede.fr` sur le port `2101` et le point de mo
 
 ![](SWMaps-NTRIPClient.jpg)
 
+
 **6) Vérifiez la précision de la position GNSS dans le menu Skyplot**
 
-> Quand les données RTCM recues du caster NTRIP sont recues et utilisées par le module GNSS RTK du Surveyor, la LED blanche s'allume (ainsi que la LED verte 10 cms.
+Quand les données RTCM recues du caster NTRIP sont recues et utilisées par le module GNSS RTK du Surveyor, la LED blanche s'allume (ainsi que la LED verte 10 cms.
+
+![](Surveyor-panel-01.jpg)
+
+**7) Vérifiez la précision de la position GNSS dans le menu Skyplot**
 
 ![](SWMaps-Skyplot.jpg)
 
-**7) Démarrez l'enregistrement de votre parcours**
+**8) Démarrez l'enregistrement de votre parcours**
 
 ![](SWMaps-Record-track.jpg)
 ![](SWMaps-Record-track-01.jpg)
@@ -482,7 +487,7 @@ Dans notre cas, c'est `caster.centipede.fr` sur le port `2101` et le point de mo
 
 > Vous pouvez contribuer les traces des chemins parcourus à la base de données ouvertes [OpenStreetMap](https://www.openstreetmap.org/diary/fr).
 
-**8) Ajoutez et sélectionnez un autre caster NTRIP via le menu NTRIP Client**
+**9) Ajoutez et sélectionnez un autre caster NTRIP via le menu NTRIP Client**
 
 > S'il vous reste un peu de temps
 
@@ -494,7 +499,7 @@ Son adresse NTRIP est `crtk.net` et le port est `2101`. Vous pouvez choisir un a
 
 ![](SWMaps-Millipede.jpg)
 
-**9) Inspectez quelques unes de stations de référence utilisées**
+**10) Inspectez quelques unes de stations de référence utilisées**
 
 * `CHA2` ([Chamrousse](http://gnssfr.unice.fr/#/metadata/marker=CHA2)
 * `AVR2` ([Avignonet](http://gnssfr.unice.fr/#/metadata/marker=AVR2)
@@ -545,8 +550,8 @@ Configurez l'application
 | VDOP | Vertical Dilution of precision |
 | TDOP | Time Dilution of precision |
 | RTK | [Cinématique temps réel ou Real Time Kinematic](https://fr.wikipedia.org/wiki/Cin%C3%A9matique_temps_r%C3%A9el)|
-| NTRIP | |
-| RTCM | |
+| NTRIP | Network and Transport of RTCM via Internet Protocol;  protocole de transmission des corrections RTCM via IP à des rovers RTK |
+| RTCM | format des données specifié par Radio Technical Commission for Maritime Services pour décrire les corrections différentielles des constellations GNSS |
 | Rover | |
 | Base | |
 | Caster | |

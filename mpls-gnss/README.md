@@ -564,9 +564,12 @@ Configurez l'application
 | Centipede | Service contributif et public de diffusion de messages RTCM |
 | UART | Interface série d'un microcontrôleur |
 | I2C | Bus de communication entre un microcontrôleur et des périphériques |
-| PPS | ***Pulse-per-second***; implusion généré à chaque seconde du temps GNSS |
-| UTC | Temps universel coordonné ou ***Universal Time Coordinated*** | 
-| GMT | temps moyen de Greenwich ou ***Greenwich Mean Time*** | 
+| PPS | ***Pulse-per-second***; implusion générée à chaque seconde du temps GNSS par le module GNSS. Cette impulse peut être utilisée par le micro-contrôleur pour synchroniser finement son horloge interne et pour dater finement des événements (arrivée d'un message ...) |
+| PPM | mesure de performance en stabilité d'un [oscillateur](https://fr.wikipedia.org/wiki/Oscillateur_(%C3%A9lectronique)). Elle est définie par la variation de la fréquence sur une durée et dans des conditions environnementales spécifiées |
+| UTC | Temps universel coordonné ou ***Universal Time Coordinated*** |
+| GMT | temps moyen de Greenwich ou ***Greenwich Mean Time*** |
+| 1/1/1970 00:00:00 UTC | [Date de début](https://fr.wikipedia.org/wiki/Epoch) du temps POSIX / UNIX. Aussi appelé ***epoch Unix***|
+| 6/1/1980 00:00:00 UTC| [Date de début](https://fr.wikipedia.org/wiki/Epoch) du temps GPS. Aussi appelé ***epoch GPS*** |
 | IoT | Internet des Objets ou ***Internet of Things*** |
 | FSK |  Modulation radio pour des communications radio longue distance |
 | LoRa | Modulation radio pour des communications radio longue distance basse consommation d'énergie pour l'IoT |
@@ -574,8 +577,3 @@ Configurez l'application
 | Meshtastic | protocole de communication basé sur la modulation LoRa pour des réseaux maillés (***mesh***) d'équipements IoT|
 | ESP-Now | [Protocole de communication directe par Wifi entre des ESP32](https://www.espressif.com/en/solutions/low-power-solutions/esp-now) |
 | OpenStreetMap | base de données géographique contributive et gratuite |
-
-
-
-
-

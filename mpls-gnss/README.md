@@ -418,6 +418,8 @@ Exercice: repérez une base RTK proche de La Mure.
 ![SparkFun_RTK_Surveying_Kit](../rtk_surveyor/niveau-mat-rtk.png)
 ![Surveyor Belledone](../rtk_surveyor/surveyor-01.jpg)
 
+Un fois monté, positionnez l'interrupteur SETUP sur Rover et mettez son tension le Surveyor (Position ON du bouton POWER).
+
 ### Installation de l'application SW Maps pour iOS ou pour Android
 
 L'application SW Maps permet d'enregistrer un parcours et prendre des photos et les localiser avec une précision de l'ordre du centimêtre.

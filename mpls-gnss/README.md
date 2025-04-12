@@ -565,13 +565,15 @@ Configurez l'application
 | Terme/Acronyme | Explication |
 | -------------- |------------ |
 | Constellation | Ensemble de satellites réalisant une même service |
-| Constellation GNSS | Ensemble de satellites embarquant des horloges atomiques et diffusant des messages permettant le calcul du temps précis et de la position par des récepteurs GNSS |
+| Constellation GNSS | Ensemble de satellites embarquant des horloges atomiques et diffusant des messages permettant le calcul du temps précis et de la position par des récepteurs GNSS. La constellation américaine GPS est constituée de 24 satellites placés sur 6 plans orbitaux en orbite moyenne (MEO) à environ 20000 Kms |
 | GNSS | [Géolocalisation et Navigation par un Système de Satellites ou ***Global Navigation Satellite System***](https://fr.wikipedia.org/wiki/Syst%C3%A8me_de_positionnement_par_satellites)|
 | DGNSS | GNSS différentiel |
 | RTK | [Cinématique temps réel ou Real Time Kinematic](https://fr.wikipedia.org/wiki/Cin%C3%A9matique_temps_r%C3%A9el)|
 | [Centrale inertielle](https://fr.wikipedia.org/wiki/Centrale_%C3%A0_inertie) | instrument de navigation capable d'intégrer les mouvements d'un mobile (accélération et vitesse angulaire) pour estimer son orientation (angles de roulis, de tangage et de cap), sa vitesse linéaire et sa position. |
 | IMU | Inertial Measurement Unit ou Centrale inertielle |
 | [MEMS](https://en.wikipedia.org/wiki/MEMS) | micro-electromechanical systems |
+| Paramêtres orbitaux | |
+| Ephémérides | Tables astronomiques par lesquelles on détermine, pour chaque jour, la valeur d'une grandeur caractéristique d'un objet céleste, comme un satellite artificiel de positionnement. Dans le cas des systèmes GNSS, ces tables sont diffusées périodiquement vers les récepteurs GNSS par les satellites eux-même. |
 | NMEA 0813 | Format de données textuel utilisé par des systèmes de navigation (GNSS, centrale inertielle ...) |
 | DOP ou GDOP | [***Geometric dilution of precision*** (GDOP) ou Dilution of precision (DOP)](https://fr.wikipedia.org/wiki/Geometric_dilution_of_precision) |
 | HDOP | ***Horizontal Dilution of precision*** |
@@ -579,6 +581,7 @@ Configurez l'application
 | TDOP | ***Time Dilution of precision*** |
 | Démarrage à froid | |
 | Démarrage à chaud | |
+| Fixe | |
 | Brouillage GPS | effets d'une énergie électromagnétique due à des émissions, rayonnements ou inductions qui dégrade, entrave ou interrompt le fonctionnement des récepteurs GPS. Exemple: Aéroport de Nantes-Atlantique (7,2 millions de passagers par an) le 21 avril 2017 |
 | Leurrage GPS | technique consistant à émettre de signaux GPS synthétiques pour fausser le calcul de temps et de la position par des récepteurs GPS. C'est un des risques cyber pour les entreprises et gouvernements |
 | ANRF | [Agence Nationale des fréquences](https://www.anfr.fr). [Elle est en charge de lutter contre le brouillage et le leurrage](https://www.anfr.fr/controler/traitement-des-brouillages/les-enquetes-de-lanfr) |
@@ -604,3 +607,9 @@ Configurez l'application
 | Meshtastic | protocole de communication basé sur la modulation LoRa pour des réseaux maillés (***mesh***) d'équipements IoT|
 | ESP-Now | [Protocole de communication directe par Wifi entre des ESP32](https://www.espressif.com/en/solutions/low-power-solutions/esp-now) |
 | OpenStreetMap | base de données géographique contributive et gratuite |
+
+## Comparison of satellite navigation orbits
+
+Source: Wikimedia
+
+![Comparison of satellite navigation orbits](https://upload.wikimedia.org/wikipedia/commons/b/b4/Comparison_satellite_navigation_orbits.svg)

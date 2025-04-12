@@ -1,5 +1,9 @@
 # Ecole [MPLS](https://alpes-dauphine.maisons-pour-la-science.org/) 2025 :: Atelier GNSS (La Mure)
 
+Auteur: Didier DONSEZ, GINP-UGA.
+
+> Ce support est sous licence [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/). Les exemples de croquis fournis ne sont pas couverts par cette licence. Veuillez vous référer à la licence de chacun.
+
 L'objectif de ce tutoriel est de comprendre les informations retournées par les modules GNSS et GNSS RTK.
 
 ## Préinstallation
@@ -564,23 +568,29 @@ Configurez l'application
 | Constellation GNSS | Ensemble de satellites embarquant des horloges atomiques et diffusant des messages permettant le calcul du temps précis et de la position par des récepteurs GNSS |
 | GNSS | [Géolocalisation et Navigation par un Système de Satellites ou ***Global Navigation Satellite System***](https://fr.wikipedia.org/wiki/Syst%C3%A8me_de_positionnement_par_satellites)|
 | DGNSS | GNSS différentiel |
-| NMEA 0813 | Format de données textuel utilisé par des systèmes de navigation |
+| RTK | [Cinématique temps réel ou Real Time Kinematic](https://fr.wikipedia.org/wiki/Cin%C3%A9matique_temps_r%C3%A9el)|
+| [Centrale inertielle](https://fr.wikipedia.org/wiki/Centrale_%C3%A0_inertie) | instrument de navigation capable d'intégrer les mouvements d'un mobile (accélération et vitesse angulaire) pour estimer son orientation (angles de roulis, de tangage et de cap), sa vitesse linéaire et sa position. |
+| IMU | Inertial Measurement Unit ou Centrale inertielle |
+| [MEMS](https://en.wikipedia.org/wiki/MEMS) | micro-electromechanical systems |
+| NMEA 0813 | Format de données textuel utilisé par des systèmes de navigation (GNSS, centrale inertielle ...) |
 | DOP ou GDOP | [***Geometric dilution of precision*** (GDOP) ou Dilution of precision (DOP)](https://fr.wikipedia.org/wiki/Geometric_dilution_of_precision) |
 | HDOP | ***Horizontal Dilution of precision*** |
 | VDOP | ***Vertical Dilution of precision*** |
 | TDOP | ***Time Dilution of precision*** |
+| Démarrage à froid | |
+| Démarrage à chaud | |
 | Brouillage GPS | effets d'une énergie électromagnétique due à des émissions, rayonnements ou inductions qui dégrade, entrave ou interrompt le fonctionnement des récepteurs GPS. Exemple: Aéroport de Nantes-Atlantique (7,2 millions de passagers par an) le 21 avril 2017 |
 | Leurrage GPS | technique consistant à émettre de signaux GPS synthétiques pour fausser le calcul de temps et de la position par des récepteurs GPS. C'est un des risques cyber pour les entreprises et gouvernements |
 | ANRF | [Agence Nationale des fréquences](https://www.anfr.fr). [Elle est en charge de lutter contre le brouillage et le leurrage](https://www.anfr.fr/controler/traitement-des-brouillages/les-enquetes-de-lanfr) |
-| RTK | [Cinématique temps réel ou Real Time Kinematic](https://fr.wikipedia.org/wiki/Cin%C3%A9matique_temps_r%C3%A9el)|
 | NTRIP | ***Network and Transport of RTCM via Internet Protocol***;  protocole de transmission des corrections RTCM via IP à des rovers RTK |
 | RTCM | format des données specifié par ***Radio Technical Commission for Maritime Services*** pour décrire les corrections différentielles des constellations GNSS |
 | Rover | Equipement mobile consommant des messages RTCM afin d'améliorer la précision de la position calculée par le module GNSS RTK |
 | Base | Equipement fixe et dont la position est connue, produisant des messages RTCM consommés par des rovers|
 | Caster | Service diffusant vers des rovers les messages RTCM produits par une ou plusieurs bases |
 | Centipede | Service contributif et public de diffusion de messages RTCM |
-| UART | Interface série d'un microcontrôleur |
-| I2C | Bus de communication entre un microcontrôleur et des périphériques |
+| UART | Interface série d'un microcontrôleur. Universelle. Les micro-contrôleurs ne disposent que peu d'interfaces UART (1 à 3). |
+| SPI | Bus de communication entre un microcontrôleur et des périphériques. Certains modules GNSS disposent d'une interface SPI. |
+| I2C | Bus de communication entre un microcontrôleur et des périphériques. Certains modules GNSS disposent d'une interface SPI. |
 | PPS | ***Pulse-per-second***; implusion générée à chaque seconde du temps GNSS par le module GNSS. Cette impulse peut être utilisée par le micro-contrôleur pour synchroniser finement son horloge interne et pour dater finement des événements (arrivée d'un message ...) |
 | PPM | mesure de performance en stabilité d'un [oscillateur](https://fr.wikipedia.org/wiki/Oscillateur_(%C3%A9lectronique)). Elle est définie par la variation de la fréquence sur une durée et dans des conditions environnementales spécifiées |
 | UTC | Temps universel coordonné ou ***Universal Time Coordinated*** |

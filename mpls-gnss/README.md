@@ -567,23 +567,29 @@ Configurez l'application
 | Constellation | Ensemble de satellites réalisant une même service |
 | Constellation GNSS | Ensemble de satellites embarquant des horloges atomiques et diffusant des messages permettant le calcul du temps précis et de la position par des récepteurs GNSS. La constellation américaine GPS est constituée de 24 satellites placés sur 6 plans orbitaux en orbite moyenne (MEO) à environ 20000 Kms |
 | GNSS | [Géolocalisation et Navigation par un Système de Satellites ou ***Global Navigation Satellite System***](https://fr.wikipedia.org/wiki/Syst%C3%A8me_de_positionnement_par_satellites)|
-| DGNSS | GNSS différentiel |
+| DGNSS | [GNSS différentiel](https://fr.wikipedia.org/wiki/GPS_diff%C3%A9rentiel) |
 | RTK | [Cinématique temps réel ou Real Time Kinematic](https://fr.wikipedia.org/wiki/Cin%C3%A9matique_temps_r%C3%A9el)|
-| [Centrale inertielle](https://fr.wikipedia.org/wiki/Centrale_%C3%A0_inertie) | instrument de navigation capable d'intégrer les mouvements d'un mobile (accélération et vitesse angulaire) pour estimer son orientation (angles de roulis, de tangage et de cap), sa vitesse linéaire et sa position. |
+| [Centrale inertielle](https://fr.wikipedia.org/wiki/Centrale_%C3%A0_inertie) | instrument de navigation capable d'intégrer les mouvements d'un mobile (accélération et vitesse angulaire) pour estimer son orientation (angles de roulis, de tangage et de cap), sa vitesse linéaire et sa position. Certains modules GNSS sont dotés d'une centrale inertielle afin de continuer à fournir une position malgré la perte (passage dans un tunnel) ou le leurrage des signaux GNSS.|
 | IMU | Inertial Measurement Unit ou Centrale inertielle |
 | [MEMS](https://en.wikipedia.org/wiki/MEMS) | micro-electromechanical systems |
 | Paramêtres orbitaux | |
 | Ephémérides | Tables astronomiques par lesquelles on détermine, pour chaque jour, la valeur d'une grandeur caractéristique d'un objet céleste, comme un satellite artificiel de positionnement. Dans le cas des systèmes GNSS, ces tables sont diffusées périodiquement vers les récepteurs GNSS par les satellites eux-même. |
+| TLE | [Two-line elements](https://fr.wikipedia.org/wiki/Param%C3%A8tres_orbitaux_%C3%A0_deux_lignes) |
 | NMEA 0813 | Format de données textuel utilisé par des systèmes de navigation (GNSS, centrale inertielle ...) |
 | DOP ou GDOP | [***Geometric dilution of precision*** (GDOP) ou Dilution of precision (DOP)](https://fr.wikipedia.org/wiki/Geometric_dilution_of_precision) |
 | HDOP | ***Horizontal Dilution of precision*** |
 | VDOP | ***Vertical Dilution of precision*** |
 | TDOP | ***Time Dilution of precision*** |
-| Démarrage à froid | |
-| Démarrage à chaud | |
-| Fixe | |
+| Démarrage à froid | A la mise sous tension, le module GNSS ne dispose pas d'éphérémides récentes. Il doit attendre la diffusion périodique de celles-ci pour pouvoir calculer la position de son mobile porteur. |
+| Démarrage à chaud | A la mise sous tension, le module GNSS dispose d'éphérémides récentes. Celles-ci sont sauvegardées dans une mémoire sauvegardée par une petite pile. |
+| Fixe | Après la mise sous tension, le module est en mesure de calculer et de fournir la position du mobile porteur. Cela se traduit parfois par le clignotement de la LED PPS (bleue sur les modules Sparkfun XA1110). |
 | Brouillage GPS | effets d'une énergie électromagnétique due à des émissions, rayonnements ou inductions qui dégrade, entrave ou interrompt le fonctionnement des récepteurs GPS. Exemple: Aéroport de Nantes-Atlantique (7,2 millions de passagers par an) le 21 avril 2017 |
 | Leurrage GPS | technique consistant à émettre de signaux GPS synthétiques pour fausser le calcul de temps et de la position par des récepteurs GPS. C'est un des risques cyber pour les entreprises et gouvernements |
+| Dispositif anti-leurrage | Système de détection du leurrage GNSS. Certains modules GNSS sont dotés de tels systèmes. |
+| dBm | [decibel-milliwatts](https://en.wikipedia.org/wiki/DBm)|
+| dBi | [dB(isotropic)](https://en.wikipedia.org/wiki/Decibel#Antenna_measurements)|
+| RSSI | [Received signal strength indicator](https://en.wikipedia.org/wiki/Received_signal_strength_indicator)|
+| SNR | [Signal-to-Noise Ratio](https://en.wikipedia.org/wiki/Signal-to-noise_ratio) |
 | ANRF | [Agence Nationale des fréquences](https://www.anfr.fr). [Elle est en charge de lutter contre le brouillage et le leurrage](https://www.anfr.fr/controler/traitement-des-brouillages/les-enquetes-de-lanfr) |
 | NTRIP | ***Network and Transport of RTCM via Internet Protocol***;  protocole de transmission des corrections RTCM via IP à des rovers RTK |
 | RTCM | format des données specifié par ***Radio Technical Commission for Maritime Services*** pour décrire les corrections différentielles des constellations GNSS |
@@ -601,11 +607,22 @@ Configurez l'application
 | 1/1/1970 00:00:00 UTC | [Date de début](https://fr.wikipedia.org/wiki/Epoch) du temps POSIX / UNIX. Aussi appelé ***epoch Unix***|
 | 6/1/1980 00:00:00 UTC| [Date de début](https://fr.wikipedia.org/wiki/Epoch) du temps GPS. Aussi appelé ***epoch GPS*** |
 | IoT | Internet des Objets ou ***Internet of Things*** |
-| FSK |  Modulation radio pour des communications radio longue distance |
-| LoRa | Modulation radio pour des communications radio longue distance basse consommation d'énergie pour l'IoT |
-| LoRaWAN | Spécification d'un protocole de communication dans le réseau d'équipements IoT. Il s'appuie sur plusieurs modulations : FSK, LoRa, LR-FHSS |
-| Meshtastic | protocole de communication basé sur la modulation LoRa pour des réseaux maillés (***mesh***) d'équipements IoT|
+| FSK |  Modulation radio pour des communications radio longue distance (***long range***) |
+| LoRa | Modulation radio pour des communications radio longue distance (***long range***) basse consommation d'énergie (***low power***) pour l'IoT |
+| LoRaWAN | Spécification d'un protocole de communication dans le réseau (***long range***) d'équipements (***low power***) IoT. Il s'appuie sur plusieurs modulations : FSK, LoRa, LR-FHSS |
+| Meshtastic | protocole de communication basé sur la modulation LoRa pour des réseaux maillés (***mesh***) d'équipements IoT |
 | ESP-Now | [Protocole de communication directe par Wifi entre des ESP32](https://www.espressif.com/en/solutions/low-power-solutions/esp-now) |
+| NB-IoT | |
+| LTE-M | |
+| RTLS | Real Time Locating System |
+| Ranging | télémétrie pour mesurer une distance entre 2 ou plusieurs objets fixes ou mobiles |
+| ToF | Time of Flight ou temps de vol|
+| TWR | Two-Way Ranging. télémétrie avec temps de vol |
+| TDOA | [Time difference of arrival](https://en.wikipedia.org/wiki/Time_of_arrival) |
+| AoA | Angle of Arrival |
+| Direction Finding | |
+| UWB | ultra-wideband. |
+| Beacon | |
 | OpenStreetMap | base de données géographique contributive et gratuite |
 
 ## Comparison of satellite navigation orbits

@@ -148,6 +148,23 @@ Les phrases NMEA continuent avec 3 lettres pour désigner une option
 |RMC |Données de temps, date, position, cap et vitesse. Les informations de navigation minimales recommandées.|
 |VTG |Informations de cap et de vitesse par rapport au sol.|
 
+
+> Remarque: lors que le module démarre, il peut envoyer plusieurs phrases propriétaires qui informe sur son fabricant, son modèle, sa version de micro-logiciel, sur le modèle de l'antenne, son statut ...
+
+> Dans le cas du module GNSS XA1110, vous pourrez observer les phrases suivantes :
+
+```
+$PMTK011,MTKGPS*08
+$PMTK010,001*2E
+$PGACK,EPE,H=9999000.000000,V=100000000.000000*3D
+$PMTK011,MTKGPS*08
+$PMTK010,002*2D
+$PGACK,EPE,H=9999000.000000,V=100000000.000000*3D
+...
+```
+
+
+
 #### Décodage des trames NMEA0183 avec la bibliothèque TinyGPS d'Arduino
 
 ##### `DeviceExample`

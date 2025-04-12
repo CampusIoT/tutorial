@@ -415,12 +415,13 @@ Les constellations GNSS transmettent leurs signaux sur 3 bandes de fréquence : 
 
 |Constellation | Bandes et fréquences |
 |-- |-- |
-| GPS | L1 (1 575,42 MHz), L2 (1 227,60 MHz) et L5 (1176,45 MHz) |
-| Galileo | E1 (1 575,42 MHz), E5 (1 176,45 MHz) et E6 (1 278,75 MHz) |
-| Beidou | B1 (1 561,098 MHz), B2 (1 207,14 MHz) et B3 (1 268,52 MHz) |
-| Glonass | L1 (1 598,06 MHz), L2 (1 242,94 MHz), L3 (1 202,025 MHz) |
-| QZSS | L1 (1 575,42 MHz), L2 (1 227,60 MHz), L5 (1176,45 MHz) et L6 (1 278,75 MHz) |
-| NavIC | L5 (1 176,45 MHz) et S (2 492,03 MHz) |
+| Global Positioning System (GPS) 🇺🇸 | L1 (1 575,42 MHz), L2 (1 227,60 MHz) et L5 (1176,45 MHz) |
+| Galileo Positioning System 🇪🇺 | E1 (1 575,42 MHz), E5 (1 176,45 MHz) et E6 (1 278,75 MHz) |
+| BDS ([BeiDou System](https://fr.wikipedia.org/wiki/Syst%C3%A8me_de_positionnement_par_satellites#Le_syst%C3%A8me_chinois_Beidou)) 🇨🇳 | B1 (1 561,098 MHz), B2 (1 207,14 MHz) et B3 (1 268,52 MHz) |
+| GLONASS 🇷🇺 | L1 (1 598,06 MHz), L2 (1 242,94 MHz), L3 (1 202,025 MHz) |
+| [QZSS](https://fr.wikipedia.org/wiki/Quasi-Zenith_Satellite_System) 🇯🇵 | L1 (1 575,42 MHz), L2 (1 227,60 MHz), L5 (1176,45 MHz) et L6 (1 278,75 MHz) |
+| [NavIC (IRNSS)](https://fr.wikipedia.org/wiki/Indian_Regional_Navigation_Satellite_System) 🇮🇳 | L5 (1 176,45 MHz) et S (2 492,03 MHz) |
+
 
 > Les récepteurs et antennes GNSS d'entrée de gamme n'écoutent qu'une fraction des canaux ci-dessous. 
 

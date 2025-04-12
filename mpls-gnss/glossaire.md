@@ -69,6 +69,10 @@ Auteur: Didier DONSEZ, GINP-UGA.
 | Direction Finding | |
 | UWB | ultra-wideband. |
 | Beacon | |
+| SDR | Software Defined Radio ou Radio Logicielle |
+| GNSS offloading | |
+| [Geofencing](https://fr.wikipedia.org/wiki/G%C3%A9orep%C3%A9rage) | Le géorepérage ou gardiennage virtuel (en anglais, geofence ou geofencing) est une fonction d'un logiciel de géolocalisation qui permet de surveiller à distance la position et le déplacement d'un objet et de prendre des mesures si la position ou le déplacement s'écarte de certaines valeurs fixées d'avance. |
+| [GPX](https://fr.wikipedia.org/wiki/GPX_(format_de_fichier)) | format de fichier permettant l'échange de coordonnées géographiques provenant d'un récepteur GNSS. Il est utilisé par les applications et les réseaux sociaux sportifs |
 | OpenStreetMap | base de données géographique contributive et gratuite |
 
 ## Comparison of satellite navigation orbits

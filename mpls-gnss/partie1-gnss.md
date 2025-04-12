@@ -392,8 +392,9 @@ Ellipsoid (m): 281.8010, Mean Sea Level(m): 234.4003, Accuracy (m): 0.2615
 Les données dites brutes GNSS (GNSS raw data) sont générées par le moteur de suivi et comprennent des mesures pour chaque satellite suivi. Il s’agit d’une copie des mesures utilisées en interne par la tâche principale de navigation du récepteur.
 
 Les utilisations possibles sont:
-*	pour l'enregistrement des données pour les calculs cinématiques post-traités (RTK)
+*	L'enregistrement des données pour les calculs cinématiques post-traités (RTK)
 *	Une sortie secondaire pour la fusion avec des capteurs externes supplémentaires
+*	Une sortie primaire pour la calcul de la position dans le cloud (***offloading***)
 *	Une sortie secondaire pour la génération ou la mise à jour de cartes dans le cloud
 
 La plupart des modules haut de gamme des fabricants (u-blox, quectel ...) peuvent fournir ces informations:
@@ -408,7 +409,22 @@ Par exemple, pour les modules u-blox (M8+, F9+, X20):
 
 L'[API developpeur GNSS brutes](https://developer.android.com/develop/sensors-and-location/sensors/gnss?hl=fr) d'Android donne accès à ces informations dans les équipements Android.
 
+## GNSS vraiment avancé : 
 
+Les constellations GNSS transmettent leurs signaux sur 3 bandes de fréquence : L1, L2, L5
+
+|Constellation | Bandes et fréquences |
+|-- |-- |
+| GPS : L1 (1 575,42 MHz), L2 (1 227,60 MHz) et L5 (1176,45 MHz) |
+| Galileo : E1 (1 575,42 MHz), E5 (1 176,45 MHz) et E6 (1 278,75 MHz) |
+| Beidou : B1 (1 561,098 MHz), B2 (1 207,14 MHz) et B3 (1 268,52 MHz) |
+| Glonass : L1 (1 598,06 MHz), L2 (1 242,94 MHz), L3 (1 202,025 MHz) |
+| QZSS : L1 (1 575,42 MHz), L2 (1 227,60 MHz), L5 (1176,45 MHz) et L6 (1 278,75 MHz) |
+| NavIC : L5 (1 176,45 MHz) et S (2 492,03 MHz) |
+
+Il est possible de recevoir ces signaux au moyen d'un récepteur SDR (Software Defined Radio) et de les démoduler et les décoder au moyen d'applications comme [https://wiki.gnuradio.org/index.php?title=Main_Page](GNU Radio).
+
+Pour exploirer, vous pouvez vous référer aux cours, articles et [livres]() de [Jean-Michel Friedt](http://jmfriedt.free.fr/).
 
 **Chapitre suivant: [Partie 2: GNSS RTK](partie2-rtk.md)**
 

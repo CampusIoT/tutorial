@@ -422,6 +422,8 @@ Les constellations GNSS transmettent leurs signaux sur 3 bandes de fréquence.
 | [QZSS](https://fr.wikipedia.org/wiki/Quasi-Zenith_Satellite_System) 🇯🇵 | L1 (1575,42 MHz), L2 (1227,60 MHz), L5 (1176,45 MHz) et L6 (1278,75 MHz) |
 | [NavIC (IRNSS)](https://fr.wikipedia.org/wiki/Indian_Regional_Navigation_Satellite_System) 🇮🇳 | L5 (1176,45 MHz) et S (2492,03 MHz) |
 
+![](https://upload.wikimedia.org/wikipedia/commons/9/9a/Gnss_bandwidth.svg)
+
 
 > Les récepteurs et antennes GNSS d'entrée de gamme n'écoutent qu'une fraction des canaux ci-dessous. 
 

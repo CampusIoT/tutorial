@@ -387,5 +387,28 @@ Lat (deg): 45.192165695, Lon (deg): 5.735605358
 Ellipsoid (m): 281.8010, Mean Sea Level(m): 234.4003, Accuracy (m): 0.2615
 ```
 
+## GNSS avancé : GNSS raw data
+
+Les données dites brutes GNSS (GNSS raw data) sont générées par le moteur de suivi et comprennent des mesures pour chaque satellite suivi. Il s’agit d’une copie des mesures utilisées en interne par la tâche principale de navigation du récepteur.
+
+Les utilisations possibles sont:
+*	pour l'enregistrement des données pour les calculs cinématiques post-traités (RTK)
+*	Une sortie secondaire pour la fusion avec des capteurs externes supplémentaires
+*	Une sortie secondaire pour la génération ou la mise à jour de cartes dans le cloud
+
+La plupart des modules haut de gamme des fabricants (u-blox, quectel ...) peuvent fournir ces informations:
+
+Par exemple, pour les modules u-blox (M8+, F9+, X20):
+
+| |  Basic raw data	| Full raw data |
+| -- |-- |-- |
+| GNSS raw data output	| Code phase	| Carrier phase |
+| Supported UBX messages	| UBX-RXM-SFRBX, RXM-MEASX	| UBX-RXM-SFRBX, RXM-MEASX, RXM-RAWX
+| RAW data elements	| Satellite Information, Code Phase [ms], Doppler [m/s, Hz]	Satellite Information| Code Phase [ms], Doppler [m/s, Hz], Pseudoranges [m], Carrier phase [cycles] |
+
+L'[API developpeur GNSS brutes](https://developer.android.com/develop/sensors-and-location/sensors/gnss?hl=fr) d'Android donne accès à ces informations dans les équipements Android.
+
+
+
 **Chapitre suivant: [Partie 2: GNSS RTK](partie2-rtk.md)**
 

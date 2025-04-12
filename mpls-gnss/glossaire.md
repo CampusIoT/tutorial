@@ -14,6 +14,7 @@ Auteur: Didier DONSEZ, GINP-UGA.
 | Constellation GNSS | Ensemble de satellites embarquant des horloges atomiques et diffusant des messages permettant le calcul du temps précis et de la position par des récepteurs GNSS. La constellation américaine GPS est constituée de 24 satellites placés sur 6 plans orbitaux en orbite moyenne (MEO) à environ 20000 Kms |
 | GNSS | [Géolocalisation et Navigation par un Système de Satellites ou ***Global Navigation Satellite System***](https://fr.wikipedia.org/wiki/Syst%C3%A8me_de_positionnement_par_satellites)|
 | DGNSS | [GNSS différentiel](https://fr.wikipedia.org/wiki/GPS_diff%C3%A9rentiel) |
+| [AGPS](https://fr.wikipedia.org/wiki/Assisted_GPS) | Le GPS assisté accélère de démarrage à froid en communiquant au récepteur GNSS les éphémérides téléchargées depuis Internet (3G, 4G ...) |
 | RTK | [Cinématique temps réel ou Real Time Kinematic](https://fr.wikipedia.org/wiki/Cin%C3%A9matique_temps_r%C3%A9el)|
 | [Centrale inertielle](https://fr.wikipedia.org/wiki/Centrale_%C3%A0_inertie) | instrument de navigation capable d'intégrer les mouvements d'un mobile (accélération et vitesse angulaire) pour estimer son orientation (angles de roulis, de tangage et de cap), sa vitesse linéaire et sa position. Certains modules GNSS sont dotés d'une centrale inertielle afin de continuer à fournir une position malgré la perte (passage dans un tunnel) ou le leurrage des signaux GNSS.|
 | IMU | Inertial Measurement Unit ou Centrale inertielle |

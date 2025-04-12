@@ -415,12 +415,14 @@ Les constellations GNSS transmettent leurs signaux sur 3 bandes de fréquence : 
 
 |Constellation | Bandes et fréquences |
 |-- |-- |
-| GPS : L1 (1 575,42 MHz), L2 (1 227,60 MHz) et L5 (1176,45 MHz) |
-| Galileo : E1 (1 575,42 MHz), E5 (1 176,45 MHz) et E6 (1 278,75 MHz) |
-| Beidou : B1 (1 561,098 MHz), B2 (1 207,14 MHz) et B3 (1 268,52 MHz) |
-| Glonass : L1 (1 598,06 MHz), L2 (1 242,94 MHz), L3 (1 202,025 MHz) |
-| QZSS : L1 (1 575,42 MHz), L2 (1 227,60 MHz), L5 (1176,45 MHz) et L6 (1 278,75 MHz) |
-| NavIC : L5 (1 176,45 MHz) et S (2 492,03 MHz) |
+| GPS | L1 (1 575,42 MHz), L2 (1 227,60 MHz) et L5 (1176,45 MHz) |
+| Galileo | E1 (1 575,42 MHz), E5 (1 176,45 MHz) et E6 (1 278,75 MHz) |
+| Beidou | B1 (1 561,098 MHz), B2 (1 207,14 MHz) et B3 (1 268,52 MHz) |
+| Glonass | L1 (1 598,06 MHz), L2 (1 242,94 MHz), L3 (1 202,025 MHz) |
+| QZSS | L1 (1 575,42 MHz), L2 (1 227,60 MHz), L5 (1176,45 MHz) et L6 (1 278,75 MHz) |
+| NavIC | L5 (1 176,45 MHz) et S (2 492,03 MHz) |
+
+> Les récepteurs et antennes GNSS d'entrée de gamme n'écoutent qu'une fraction des canaux ci-dessous. 
 
 Il est possible de recevoir ces signaux au moyen d'un récepteur SDR (Software Defined Radio) et de les démoduler et les décoder au moyen d'applications comme [https://wiki.gnuradio.org/index.php?title=Main_Page](GNU Radio).
 

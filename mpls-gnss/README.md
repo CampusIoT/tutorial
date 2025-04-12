@@ -19,3 +19,7 @@ Installez la biblioth√©que `TinyGPSPlusPlus` depuis le gestionnaire de biblioth√
 * [Partie 2: GNSS RTK](partie2-rtk.md)
 * [Bonus Track](bonus-track.md)
 * [Glossaire](glossaire.md)
+
+
+![](esp32+xa1110-mikrobus.jpg)
+![](gnss-rtk-surveyor-backpack-01.jpg)

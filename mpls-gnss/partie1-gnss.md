@@ -425,7 +425,7 @@ Les constellations GNSS transmettent leurs signaux sur 3 bandes de fréquence.
 
 > Les récepteurs et antennes GNSS d'entrée de gamme n'écoutent qu'une fraction des canaux ci-dessous. 
 
-Il est possible de recevoir ces signaux au moyen d'un récepteur SDR (Software Defined Radio) et de les démoduler et les décoder au moyen d'applications comme [https://wiki.gnuradio.org/index.php?title=Main_Page](GNU Radio).
+Il est possible de recevoir ces signaux au moyen d'un récepteur SDR (Software Defined Radio) et de les démoduler et les décoder au moyen d'applications comme [GNU Radio]([GNU Radio](https://wiki.gnuradio.org/index.php?title=Main_Page)).
 
 Pour exploirer, vous pouvez vous référer aux cours, articles et [livres]() de [Jean-Michel Friedt](http://jmfriedt.free.fr/).
 

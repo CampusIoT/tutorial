@@ -23,9 +23,11 @@ Moins anecdotique, le brouillage GNSS est largement utilisé dans les zones de c
 ![](gpsjam-01.png)
 
 ![](f5844c7----_690x387.avif)
+
 [Russian R-330Zh Zhitel electronic warfare system](https://www.pravda.com.ua/eng/news/2024/05/24/7457518/). Stock photo: open sources
 
 ![](electronic-warfare-1ruble.png)
+
 Source : Bank of Russia (cbr.ru)
 
 ### Leurrage GPS

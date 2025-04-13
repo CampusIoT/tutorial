@@ -14,6 +14,11 @@ Ajoutez la définition des cartes ESP32 `[https://dl.espressif.com/dl/package_es
 
 Installez la bibliothéque `TinyGPSPlusPlus` depuis le gestionnaire de bibliothèques `Tools > Manage Libraries ...`.
 
+Installez l'[application SW Maps](https://apps.apple.com/us/app/sw-maps/id6444248083) pour sur votre tablette/smartphone iOS
+
+Installez l'[application SW Maps](https://play.google.com/store/apps/details?id=np.com.softwel.swmaps&hl=fr) pour sur votre tablette/smartphone Android
+
+
 ## Sommaire
 * [Partie 1: GNSS](partie1-gnss.md)
 * [Partie 2: GNSS RTK](partie2-rtk.md)

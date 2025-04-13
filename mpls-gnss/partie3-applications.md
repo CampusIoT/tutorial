@@ -30,11 +30,20 @@ Le géorepérage ou gardiennage virtuel (en anglais, geofence ou geofencing) est
 
 #### [GPX](https://fr.wikipedia.org/wiki/GPX_(format_de_fichier))
 
-format de fichier permettant l'échange de coordonnées géographiques provenant d'un récepteur GNSS. Il est utilisé par les applications et les réseaux sociaux sportifs
+format de fichier permettant l'échange de coordonnées géographiques provenant d'un récepteur GNSS. Il est utilisé par les applications et les réseaux sociaux sportifs. 
+
+[Un exemple de fichier GPX de la randonnée Tour du Mont Aiguille](tour_du_mont_aiguille.gpx) (récupéré depuis https://www.alpes-isere.com)
+
+
+#### [KML](https://fr.wikipedia.org/wiki/Keyhole_Markup_Language)
+
+Format de fichier décrivant des caractéristiques géoréférencés (lieu des marques, des images, des polygones, des modèles 3D, des descriptions textuelles, etc.). Les fichiers KML peuvent être visualisés dans des applications comme Géoportail, Google Street View ...
+
+[Un exemple de fichier KML d'une randonnée facile depuis La Mure](meharieauparadis.kml) (récupéré depuis https://www.alpes-isere.com)
 
 #### [EXIF](https://fr.wikipedia.org/wiki/Exchangeable_image_file_format)
 
- Exchangeable image file format est une spécification de format de fichier pour les images. Il permet de décrire entre autre les coordonnées géographiques au sein du fichier image. Ces coordonnées peuvent être exploitées par des personnes malveillantes (vie privée, informations stratégiques ...) quand les images sont rendues publiques (réseaux sociaux ...).
+Exchangeable image file format (EXIF) est une spécification de format de fichier pour les images. Il permet de décrire entre autre les coordonnées géographiques au sein du fichier image.
 
 [ExifTool](https://exiftool.org/) est un outil en ligne de commande permettant la manipulation des données EXIF dans les fichiers image.
 
@@ -178,7 +187,7 @@ Les QRCode peuvent encoder des coordonnées géographiques. La lecture avec un s
 
 ### NFC
 
-Les étiquettes NFC peuvent encoder des coordonnées géographiques. La lecture avec un smatphone provoque l'ouverture de l'application de cartographie par défaut. 
+Les étiquettes NFC peuvent encoder des coordonnées géographiques dans des champs NDEF. La lecture avec un smatphone provoque l'ouverture de l'application de cartographie par défaut. 
 
 
 **Chapitre suivant : [Partie 4: GNSS et risques cyber](partie4-cyberrisk.md)**

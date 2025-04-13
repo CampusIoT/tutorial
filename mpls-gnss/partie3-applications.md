@@ -157,6 +157,8 @@ Exchangeable image file format (EXIF) est une spécification de format de fichie
 
 Des utilitaires convertissent les différents formats entre eux. [Par exemple](https://github.com/mapbox/togeojson).
 
+Les résultats de la conversion [meharieauparadis.geojson](meharieauparadis.geojson) et [tour_du_mont_aiguille.geojson](tour_du_mont_aiguille.geojson) peuvent être ouverts et visualisés avec [geojson.io](https://geojson.io)
+
 ### Codage des coordonnées
 
 #### [GeoCode](https://fr.wikipedia.org/wiki/Code_g%C3%A9ographique)

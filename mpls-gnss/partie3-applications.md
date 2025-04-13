@@ -169,7 +169,7 @@ fonction de hachage qui subdivise la surface terrestre selon une grille hiérarc
 
 > Exercice: retrouvez les geohash du Mutel et de celui de votre domicile avec https://geohash.softeng.co/ [Correction](https://geohash.softeng.co/spup7wfym)
 
-### [GeoHexGrid](https://www.redblobgames.com/grids/hexagons/implementation.html)
+#### [GeoHexGrid](https://www.redblobgames.com/grids/hexagons/implementation.html)
 
 fonction de hachage multi-niveau de coordonnées géographiques. La sphére terrestre est représentée comme une grille d'hexagones. A chaque niveau, chaque hexagone couvre une aire terrestre identique.
 

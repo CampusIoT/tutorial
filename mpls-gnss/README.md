@@ -8,6 +8,8 @@ L'objectif de ce tutoriel est de comprendre les informations retournées par les
 
 ## Préinstallation
 
+Apportez un parapluie, votre PC/Mac et un adaptateur USB-A <--> USB-C si votre machine n'a que des ports USB-C. Les cartes ESP32 disposent d'un connecteur microUSB.
+
 Installez l'[IDE Arduino](https://www.arduino.cc/en/software) (2.3.4 ou plus) sur votre PC (Windows ou Mac) ou Mac
 
 Ajoutez la définition des cartes ESP32 `[https://dl.espressif.com/dl/package_esp32_index.json](https://github.com/espressif/arduino-esp32/tree/master/libraries)` dans les préférences `Preferences > URL of Board manager`

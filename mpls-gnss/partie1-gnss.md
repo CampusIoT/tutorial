@@ -392,7 +392,7 @@ Ellipsoid (m): 281.8010, Mean Sea Level(m): 234.4003, Accuracy (m): 0.2615
 Les données dites brutes GNSS (GNSS raw data) sont générées par le moteur de suivi et comprennent des mesures pour chaque satellite suivi. Il s’agit d’une copie des mesures utilisées en interne par la tâche principale de navigation du récepteur.
 
 Les utilisations possibles sont:
-*	L'enregistrement des données pour les calculs cinématiques post-traités (RTK)
+*	L'enregistrement des données pour les calculs cinématiques post-traités (RTK) (avec des logiciels comme [RTKLib](https://www.rtklib.com/))
 *	Une sortie secondaire pour la fusion avec des capteurs externes supplémentaires
 *	Une sortie primaire pour la calcul de la position dans le cloud (***offloading***)
 *	Une sortie secondaire pour la génération ou la mise à jour de cartes dans le cloud

@@ -142,6 +142,9 @@ format de fichier permettant l'échange de coordonnées géographiques provenant
 }
 ```
 
+![](imag.geojson)
+
+
 > Exercice : ajoutez des Feature supplémentaires ([imag.geojson](imag.geojson), [mutel.geojson](mutel.geojson)) à la collection courante du GeoJSON en cours d'édition.
 
 > Exercice : exportez le GeoJSON au format KML 

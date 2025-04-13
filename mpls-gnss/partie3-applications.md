@@ -26,20 +26,19 @@ OpenStreetMap (aka OSM) est une base de données géographique contributive et g
 
 Le géorepérage ou gardiennage virtuel (en anglais, geofence ou geofencing) est une fonction d'un logiciel de géolocalisation qui permet de surveiller à distance la position et le déplacement d'un objet et de prendre des mesures si la position ou le déplacement s'écarte de certaines valeurs fixées d'avance.
 
-### Formatd de fichiers
+### Formats de fichiers
 
 #### [GPX](https://fr.wikipedia.org/wiki/GPX_(format_de_fichier))
 
 format de fichier permettant l'échange de coordonnées géographiques provenant d'un récepteur GNSS. Il est utilisé par les applications et les réseaux sociaux sportifs
-
-| POI | Point of Interest ou Point d'intéret |
-| ZOI | Zone of Interest ou Zone d'intéret |
 
 #### [EXIF](https://fr.wikipedia.org/wiki/Exchangeable_image_file_format)
 
  Exchangeable image file format est une spécification de format de fichier pour les images. Il permet de décrire entre autre les coordonnées géographiques au sein du fichier image. Ces coordonnées peuvent être exploitées par des personnes malveillantes (vie privée, informations stratégiques ...) quand les images sont rendues publiques (réseaux sociaux ...).
 
 [ExifTool](https://exiftool.org/) est un outil en ligne de commande permettant la manipulation des données EXIF dans les fichiers image.
+
+> Exercice: Consultez les informations EXIF présentes dans les photos prises lors de la randonnée RTK (avec SW Maps) en utilisant soit l'inspecteur d'images de votre PC/Mac, soit l'application https://exif.tools/ basée sur Exiftool.
 
 #### GeoJSON
 

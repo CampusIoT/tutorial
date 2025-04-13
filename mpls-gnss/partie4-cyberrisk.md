@@ -25,6 +25,9 @@ technique consistant à émettre de signaux GPS synthétiques pour fausser le ca
 
 Système de détection du leurrage GNSS. Certains modules GNSS sont dotés de tels systèmes. |
 
+### Fuite d'information géographique
+
+Comme vous l'avez vu dans le chapitre précedent, les informations EXIF peuvent contenir les coordonnées du lieu de prise d'une image. Ces coordonnées peuvent être exploitées par des personnes malveillantes (vie privée, informations stratégiques, braconage ...) quand les images sont rendues publiques (réseaux sociaux ...).
 
 
 **Chapitre suivant : [Bonus track](bonus-track.md)**

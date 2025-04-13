@@ -23,6 +23,8 @@ Auteur: Didier DONSEZ, GINP-UGA.
 | Ephémérides | Tables astronomiques par lesquelles on détermine, pour chaque jour, la valeur d'une grandeur caractéristique d'un objet céleste, comme un satellite artificiel de positionnement. Dans le cas des systèmes GNSS, ces tables sont diffusées périodiquement vers les récepteurs GNSS par les satellites eux-même. |
 | TLE | [Two-line elements](https://fr.wikipedia.org/wiki/Param%C3%A8tres_orbitaux_%C3%A0_deux_lignes) |
 | NMEA 0813 | Format de données textuel utilisé par des systèmes de navigation (GNSS, centrale inertielle ...) |
+| GNSS Raw Data| |
+| [RTKLib](https://www.rtklib.com/) | logiciel libre pour un positionnement GNSS standard et précis |
 | DOP ou GDOP | [***Geometric dilution of precision*** (GDOP) ou Dilution of precision (DOP)](https://fr.wikipedia.org/wiki/Geometric_dilution_of_precision) |
 | HDOP | ***Horizontal Dilution of precision*** |
 | VDOP | ***Vertical Dilution of precision*** |

@@ -20,7 +20,7 @@ OpenStreetMap (aka OSM) est une base de données géographique contributive et g
 
 [QGIS](https://fr.wikipedia.org/wiki/QGIS) est un logiciel SIG (système d'information géographique) libre.Vous povuez l'installer pour l'essayer.
 
-[Leaflet](https://leafletjs.com/index.html) est une bibliothèque Javascript libre pour construire des applications web incluant des cartes interactives
+[Leaflet](https://leafletjs.com/index.html) est une bibliothèque Javascript libre pour construire des applications web incluant des cartes interactives. Il existe des [dérivés](https://github.com/mapbox/leaflet-omnivore).
 
 ### [Geofencing](https://fr.wikipedia.org/wiki/G%C3%A9orep%C3%A9rage)
 
@@ -154,6 +154,8 @@ Exchangeable image file format (EXIF) est une spécification de format de fichie
 > Exercice : ajoutez des Feature supplémentaires ([imag.geojson](imag.geojson), [mutel.geojson](mutel.geojson)) à la collection courante du GeoJSON en cours d'édition.
 
 > Exercice : exportez le GeoJSON au format KML 
+
+Des utilitaires convertissent les différents formats entre eux. [Par exemple](https://github.com/mapbox/togeojson).
 
 ### Codage des coordonnées
 

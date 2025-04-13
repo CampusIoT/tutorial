@@ -158,4 +158,4 @@ Configurez l'application
 ![Bluetooth GNSS](../rtk_surveyor/bluetooth_gnss-02.png)
 
 
-**Chapitre suivant: [Bonus Track](bonus-track.md)**
+**Chapitre suivant: [GNSS et Applications](partie3-applications.md)**

@@ -69,14 +69,22 @@ Auteur: Didier DONSEZ, GINP-UGA.
 | AoA | Angle of Arrival |
 | Direction Finding | |
 | UWB | ultra-wideband. |
-| Beacon | |
+| Beacon | petit boîtier physique qui utilise la connexion Bluetooth Low Energy (BLE). Il émet à intervalle régulier des signaux qui sont lus directement par un smartphone ou une tablette quand celui-ci arrive à proximité des balises. |
 | SDR | Software Defined Radio ou Radio Logicielle |
 | GNSS offloading | |
+| ***GIS*** ou [SIG](https://fr.wikipedia.org/wiki/Syst%C3%A8me_d%27information_g%C3%A9ographique)  | Système d'information géographique: système d'information conçu pour recueillir, stocker, traiter, analyser, gérer et présenter tous les types de données spatiales et géographiques. Les applications sont par exemple, les cadastres, les réseaux d'eau, de gaz, d'électricité, les systèmes de gestion des batiments (BMS) ... |
+| [QGIS](https://fr.wikipedia.org/wiki/QGIS)| logiciel SIG (système d'information géographique) libre multiplate-forme|
 | [Geofencing](https://fr.wikipedia.org/wiki/G%C3%A9orep%C3%A9rage) | Le géorepérage ou gardiennage virtuel (en anglais, geofence ou geofencing) est une fonction d'un logiciel de géolocalisation qui permet de surveiller à distance la position et le déplacement d'un objet et de prendre des mesures si la position ou le déplacement s'écarte de certaines valeurs fixées d'avance. |
 | [GPX](https://fr.wikipedia.org/wiki/GPX_(format_de_fichier)) | format de fichier permettant l'échange de coordonnées géographiques provenant d'un récepteur GNSS. Il est utilisé par les applications et les réseaux sociaux sportifs |
+| [GeoJSON](https://fr.wikipedia.org/wiki/GeoJSON) | format ouvert d'encodage d'ensemble de données géospatiales simples utilisant la norme JSON  |
 | POI | Point of Interest ou Point d'intéret |
 | ZOI | Zone of Interest ou Zone d'intéret |
-| OpenStreetMap | base de données géographique contributive et gratuite |
+| [EXIF](https://fr.wikipedia.org/wiki/Exchangeable_image_file_format) | Exchangeable image file format est une spécification de format de fichier pour les images. Il permet de décrire entre autre les coordonnées géographiques au sein du fichier image. Ces coordonnées peuvent être exploitées par des personnes malveillantes (vie privée, informations stratégiques ...) quand les images sont rendues publiques (réseaux sociaux ...). |
+| [ExifTool](https://exiftool.org/)| Outil en ligne de commande permettant la manipulation des données EXIF dans les fichiers image |
+| [GeoCode](https://fr.wikipedia.org/wiki/Code_g%C3%A9ographique) | |
+| [GeoHash](https://fr.wikipedia.org/wiki/Geohash) | fonction de hachage qui subdivise la surface terrestre selon une grille hiérarchique. |
+| [HexGrid](https://www.redblobgames.com/grids/hexagons/implementation.html) | fonction de hachage multi-niveau de coordonnées géographiques. La sphére terrestre est représentée comme une grille d'hexagones. A chaque niveau, chaque hexagone couvre une aire terrestre identique. |
+| [OpenStreetMap](https://fr.wikipedia.org/wiki/OpenStreetMap) | base de données géographique contributive et gratuite |
 
 ## Comparison of satellite navigation orbits
 

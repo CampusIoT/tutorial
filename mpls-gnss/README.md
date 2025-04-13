@@ -17,6 +17,8 @@ Installez la biblioth√©que `TinyGPSPlusPlus` depuis le gestionnaire de biblioth√
 ## Sommaire
 * [Partie 1: GNSS](partie1-gnss.md)
 * [Partie 2: GNSS RTK](partie2-rtk.md)
+* [Partie 3: GNSS et Applications](partie3-applications.md)
+* [Partie 4: GNSS et risques cyber](partie4-cyberrisk.md)
 * [Bonus Track](bonus-track.md)
 * [Glossaire](glossaire.md)
 

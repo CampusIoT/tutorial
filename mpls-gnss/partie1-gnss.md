@@ -21,6 +21,8 @@ Auteur: Didier DONSEZ, GINP-UGA.
 |[SparkFun GPS Breakout - XA1110](https://learn.sparkfun.com/tutorials/sparkfun-gps-breakout---xa1110-qwiic-hookup-guide)| Mediatek MTK3333 | 9600 (réglable à 4800-115200) | [Mode ballon activable](https://github.com/sparkfun/SparkFun_I2C_GPS_Arduino_Library/blob/a0c84da4f4e7064b858fdd25729e7e3f2f1f21bc/examples/Example5-ConfigureGPS/Example5-ConfigureGPS.ino#L130), [MikroBus](https://gricad-gitlab.univ-grenoble-alpes.fr/Drakkar-LIG/waltor/-/tree/jeremie/kicad/jeremie/kicad/XA1110_MikroBus?ref_type=heads), Connecteur U-FL pour une antenne externe |
 |  | [u-blox NEO-6M](https://www.u-blox.com/en/product/neo-6-series) | 4800, 9600(default), 19200, 38400, 57600, 115200, 230400 | disponible sur de nombreuses platines chinoises bon marché|
 | [Mikroe GNSS RTK Click](https://www.mikroe.com/gnss-rtk-click) | [u-blox ZED-F9P](https://www.u-blox.com/en/product/zed-f9p-module) | 38400 (default), 460800 | RTK. La platine doit être alimentée en 5V |
+| [SparkFun RTK Postcard](https://www.sparkfun.com/sparkfun-rtk-postcard.html)| [Quectel LG290P](https://www.quectel.com/product/gnss-lg290p/#summary)| | RTK. 4 bandes|
+| [Mikrobus click for Quectel LC29H GNSS RTK modules](https://github.com/i2hm/micro_climate_station/tree/main/kicad/lc29h_mikrobus) | [Quectel LC29H](https://www.quectel.com/product/gnss-lc29h/) | | 3.3V |
 
 ## Banchement
 

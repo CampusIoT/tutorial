@@ -18,7 +18,7 @@ Le précision du calcul de la postion dépend du type de récepteur (professione
 
 La dilution de la précision (DOP) mesure la qualité de la géométrie des satellites 📐.	Une bonne répartition dans le ciel donne un faible DOP, donc une meilleure précision.
 
-La qualité du signal 📡 est impactée par les obstacles (arbres, montagnes, immeubles) qui masquent les satellites, par les réflexions des signaux sur des bâtiments ou des parois rocheuses (multi-trajet) et les conditions en haute atmosphère (ionosphère et troposphère)
+La qualité des signaux 📡 est impactée par les obstacles (arbres, montagnes, immeubles) qui masquent les satellites, par les réflexions des signaux sur des bâtiments ou des parois rocheuses (multi-trajet) et les conditions en haute atmosphère (ionosphère et troposphère)
 
 Le GNSS RTK mesure les conditions atmosphérique afin de calculer la correction à apporter sur le calcul de la postion.
 

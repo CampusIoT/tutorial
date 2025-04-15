@@ -10,6 +10,22 @@ Auteur: Didier DONSEZ, GINP-UGA.
 
 Dans cette partie, vous manipulerez un [rover GNSS RTK de Sparfun](https://learn.sparkfun.com/tutorials/sparkfun-rtk-surveyor-hookup-guide/all) en extérieur pour obtenir un positionnement centimétrique comme un arpenteur professionnel.
 
+### Précision de la position GNSS
+
+Le récepteur GNSS calcule la position (latitude, longitude, altitude) à partir des dates d'arrivée des différents satellites visibles et des paramêtres orbitaux de ces derniers.
+
+Le précision du calcul de la postion dépend du type de récepteur (professionel à grand public), du nombre de satellites visibles 🛰️, du nombre de constellations utilisées, de la géométrie des satellites et de la qualité des signaux
+
+La dilution de la précision (DOP) mesure la qualité de la géométrie des satellites 📐.	Une bonne répartition dans le ciel donne un faible DOP, donc une meilleure précision.
+
+La qualité du signal 📡 est impactée par les obstacles (arbres, montagnes, immeubles) qui masquent les satellites, par les réflexions des signaux sur des bâtiments ou des parois rocheuses (multi-trajet) et les conditions en haute atmosphère (ionosphère et troposphère)
+
+Le GNSS RTK mesure les conditions atmosphérique afin de calculer la correction à apporter sur le calcul de la postion.
+
+La ionosphère (située 50 à 1000 km d’altitude) qui contient des particules ionisées par le Soleil retarde les signaux GNSS. L'erreur est dite dispersive car elle dépend de la fréquence des signaux.	Le récepteur peut comparer plusieurs fréquences (ex : L1, L2, L5 ...) pour estimer l’erreur ionosphérique.
+
+La troposhère (située entre 0 à 15 km d’altitude) dans laquelle se trouve de la vapeur d'eau, ralentit les signaux de manière non dispersive (uniforme quelques soit la fréquence).
+
 ### Matériel nécessaire
 
 * 1 parapluie

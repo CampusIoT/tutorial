@@ -23,10 +23,8 @@ Dans cette partie, vous manipulerez un [rover GNSS RTK de Sparfun](https://learn
 #### Rover et Base
 
 Le [rover GNSS RTK de Sparfun](https://learn.sparkfun.com/tutorials/sparkfun-rtk-surveyor-hookup-guide/all) peut assurer 2 roles :
-* celui de station de référence RTK quand il est positionné à un endroit fixe dont la poistion est précisément connue,
-* celui de rover qui se dépasse et marque des positions corrigés à partir des données (RTCM) envoyées par une base de réference RTK (qui peut être un autre rover fixe) 
-
-Le rover utilise un smartphone/tablette (connecté à Internet) pour récupérer les données GNSS depuis un caster NTRIP quand il est rover et pour l'affichage des données GNSS.
+* celui de station de référence RTK quand il est positionné à un endroit fixe dont la position est précisément connue,
+* celui de rover RTK qui se dépasse et marque des positions corrigés à partir des données (RTCM) envoyées par une base de réference RTK (qui peut être un autre rover fixe) 
 
 Le [rover GNSS RTK de Sparfun](https://learn.sparkfun.com/tutorials/sparkfun-rtk-surveyor-hookup-guide/all) est bati autour d'un microcontroleur ESP32 et d'un module GNSS RTK [u-blox ZED-F9P](https://www.u-blox.com/en/product/zed-f9p-module).
 
@@ -36,11 +34,21 @@ Le [rover GNSS RTK de Sparfun](https://learn.sparkfun.com/tutorials/sparkfun-rtk
 
 #### Direct (ie sans caster NTRIP)
 
+La station de référence RTK diffuse via une communication radio (sans fil) les correctifs (RTCM) aux rovers à proximité de la base (ie à portée de la communication radio).
+
 ![](BaseStationRoverRadio.webp)
+
+[source: Sparkfun](https://www.sparkfun.com/rtk#boards)
 
 #### Avec caster NTRIP
 
+Quand les rovers ne sont pas à portée d'une station, il est possible d'opérer un service de diffusion (appelé caster NTRIP) des correctifs fournis par les stations. Le rover utilise un smartphone/tablette (connecté à Internet) ou un modem 4G interbe pour récupérer les correctifs d'une station depuis le caster NTRIP.
+
+L'accès au caster peut être payant afin de rémunérer l'opérateur qui installe et assure en condition opérationnelle un parc des stations RTK. Le parc des stations RTK peut être aussi géré de manière collaborative et contributive (comme dans le cas de Centipede).
+
 ![](PaidPermanentBase.webp)
+
+[source: Sparkfun](https://www.sparkfun.com/rtk#boards)
 
 #### Centipède et Caster
 

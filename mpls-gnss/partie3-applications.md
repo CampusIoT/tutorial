@@ -53,7 +53,9 @@ Exchangeable image file format (EXIF) est une spécification de format de fichie
 
 [GeoJSON](https://fr.wikipedia.org/wiki/GeoJSON) est un format ouvert d'encodage d'ensemble de données géospatiales simples utilisant la norme JSON. Il permet d'annoter des points d'intéret (Point of Interest (POI)) et des zones d'intéret (Zone of Interest (ZOI))
 
-> Exercice: recherchez le Mutel avec l'application [geojson.io](https://geojson.io/#map=11.91/44.908/5.77479) et utilisez les outils pour entourer le batiment et la piscine.
+> Exercice: recherchez la Gare du Temps avec l'application [geojson.io](https://geojson.io/#map=11.91/44.9121/5.7837) et utilisez les outils pour entourer le batiment.
+
+> Exercice: recherchez le Mutel avec l'application [geojson.io](https://geojson.io/#map=11.91/44.908/5.77479) et utilisez les outils pour ajouter le batiment et la piscine.
 
 ```geojson
 {
@@ -146,6 +148,46 @@ Exchangeable image file format (EXIF) est une spécification de format de fichie
         "type": "Polygon"
       },
       "id": 1
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "place": "La Gare du Temps",
+        "event": "Ecole TF de la MPLS",
+        "stroke": "#ff2600",
+        "stroke-width": 2,
+        "stroke-opacity": 1,
+        "fill": "#ff2600",
+        "fill-opacity": 0.5
+      },
+      "geometry": {
+        "coordinates": [
+          [
+            [
+              5.783628710937734,
+              44.912220837449524
+            ],
+            [
+              5.783672677971879,
+              44.912021985018555
+            ],
+            [
+              5.783778598554335,
+              44.91203684590036
+            ],
+            [
+              5.783737629272622,
+              44.912230037011426
+            ],
+            [
+              5.783628710937734,
+              44.912220837449524
+            ]
+          ]
+        ],
+        "type": "Polygon"
+      },
+      "id": 2
     }
   ]
 }
@@ -187,7 +229,9 @@ Les QRCode peuvent encoder des coordonnées géographiques. La lecture avec un s
 
 > Exercice: [Générez un QRCode](http://donsez.github.io/qrcodegen/) qui encode les coordonnées de l'entrée du Mutel (44.9063,5.7828).
 
-![](qrcode-geo-mutel.png) ![](qrcode-geo-imag.png)
+>  Exercice: [Générez un QRCode](http://donsez.github.io/qrcodegen/) qui encode les coordonnées de l'entrée de la Gare du Temps.
+
+![](qrcode-geo-garetemps.png)  ![](qrcode-geo-mutel.png) ![](qrcode-geo-imag.png)
 
 ### NFC
 

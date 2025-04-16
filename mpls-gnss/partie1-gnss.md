@@ -48,7 +48,7 @@ Configurez les 2 cavaliers du connecteur `JmpRx1` du coté `MKBus Module_1`
 
 Installez l'[IDE Arduino](https://www.arduino.cc/en/software) (2.3.4 ou plus) sur votre PC (Windows ou Mac) ou Mac
 
-Ajoutez la définition des cartes ESP32 `[https://dl.espressif.com/dl/package_esp32_index.json](https://github.com/espressif/arduino-esp32/tree/master/libraries)` dans les préférences `Preferences > URL of Board manager`
+Ajoutez la définition des cartes ESP32 [`https://dl.espressif.com/dl/package_esp32_index.json`](https://dl.espressif.com/dl/package_esp32_index.json) dans les préférences `Preferences > URL of Board manager`
 
 Installez la bibliothéque `TinyGPSPlusPlus` depuis le gestionnaire de bibliothèques `Tools > Manage Libraries ...`.
 

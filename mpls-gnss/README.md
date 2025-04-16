@@ -10,13 +10,21 @@ L'objectif de ce tutoriel est de comprendre les informations retournées par les
 
 Apportez un parapluie, votre PC/Mac et un adaptateur USB-A <--> USB-C si votre machine n'a que des ports USB-C. Les cartes ESP32 disposent d'un connecteur microUSB.
 
-Téléchargez et installez le driver CP210x pour la carte ESP32 https://www.silabs.com/developer-tools/usb-to-uart-bridge-vcp-drivers?tab=downloads
+Téléchargez et installez le [driver CP210x](https://www.silabs.com/developer-tools/usb-to-uart-bridge-vcp-drivers?tab=downloads) (présent sur la carte ESP32) pour votre système d'exploitation.
 
 Installez l'[IDE Arduino](https://www.arduino.cc/en/software) (2.3.4 ou plus) sur votre PC (Windows ou Mac) ou Mac
 
-Ajoutez la définition des cartes ESP32 `[https://dl.espressif.com/dl/package_esp32_index.json](https://github.com/espressif/arduino-esp32/tree/master/libraries)` dans les préférences `Preferences > URL of Board manager`
+Ajoutez la définition des cartes ESP32 `https://dl.espressif.com/dl/package_esp32_index.json` dans les préférences `Preferences > URL of Board manager`
+
+Cherchez et installez `exp32` (by Espressif Systems) depuis `Tools > Board > Board manager`, 
+
+Installez la bibliothéque `EspSoftwareSerial` depuis le gestionnaire de bibliothèques `Tools > Manage Libraries ...`.
 
 Installez la bibliothéque `TinyGPSPlusPlus` depuis le gestionnaire de bibliothèques `Tools > Manage Libraries ...`.
+
+Sélectionnez votre carte `ESP32 Dev Module` dans `Tools > Board > esp32`.
+
+Sélectionnez le port auquel est connecté la carte dans `Tools > Port`.
 
 Installez l'[application SW Maps](https://apps.apple.com/us/app/sw-maps/id6444248083) pour sur votre tablette/smartphone iOS
 

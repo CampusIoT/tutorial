@@ -46,9 +46,15 @@ Configurez les 2 cavaliers du connecteur `JmpRx1` du coté `MKBus Module_1`
 
 ### Installation de l'IDE Arduino
 
+Téléchargez et installez le [driver CP210x](https://www.silabs.com/developer-tools/usb-to-uart-bridge-vcp-drivers?tab=downloads) (présent sur la carte ESP32) pour votre système d'exploitation.
+
 Installez l'[IDE Arduino](https://www.arduino.cc/en/software) (2.3.4 ou plus) sur votre PC (Windows ou Mac) ou Mac
 
-Ajoutez la définition des cartes ESP32 [`https://dl.espressif.com/dl/package_esp32_index.json`](https://dl.espressif.com/dl/package_esp32_index.json) dans les préférences `Preferences > URL of Board manager`
+Ajoutez la définition des cartes ESP32 `https://dl.espressif.com/dl/package_esp32_index.json` dans les préférences `Preferences > URL of Board manager`
+
+Cherchez et installez `exp32` (by Espressif Systems) depuis `Tools > Board > Board manager`, 
+
+Installez la bibliothéque `EspSoftwareSerial` depuis le gestionnaire de bibliothèques `Tools > Manage Libraries ...`.
 
 Installez la bibliothéque `TinyGPSPlusPlus` depuis le gestionnaire de bibliothèques `Tools > Manage Libraries ...`.
 
@@ -128,7 +134,7 @@ Les phrases NMEA commencent par 1 caractère de préambule `$` et par un identif
 
 | Locuteur (Talker Id) | Systeme | 
 | --------- |------- | 
-| GB | Global Positioning System (GPS) 🇺🇸 |
+| GP | Global Positioning System (GPS) 🇺🇸 |
 | GA | Galileo Positioning System 🇪🇺 |
 | GB | BDS ([BeiDou System](https://fr.wikipedia.org/wiki/Syst%C3%A8me_de_positionnement_par_satellites#Le_syst%C3%A8me_chinois_Beidou)) 🇨🇳 | 
 | GI | [NavIC (IRNSS)](https://fr.wikipedia.org/wiki/Indian_Regional_Navigation_Satellite_System) 🇮🇳 |
@@ -142,11 +148,11 @@ Les phrases NMEA continuent avec 3 lettres pour désigner une option
 
 | Option | Description |
 | ------ |----------- |
-|GGA |Donnéees de temps, position et type de positionnement (fix). |
-|GSA |Mode de fonctionnement du récepteur GNSS, satellites actifs utilisés dans la solution de positionnement et valeurs DOP. |
-|GSV |Nombre de satellites GPS visibles, identifiants des satellites, élévation, azimut et valeurs SNR.|
-|RMC |Données de temps, date, position, cap et vitesse. Les informations de navigation minimales recommandées.|
-|VTG |Informations de cap et de vitesse par rapport au sol.|
+|`GGA` |Donnéees de temps, position et type de positionnement (fix). |
+|`GSA` |Mode de fonctionnement du récepteur GNSS, satellites actifs utilisés dans la solution de positionnement et valeurs DOP. |
+|`GSV` |Nombre de satellites GPS visibles, identifiants des satellites, élévation, azimut et valeurs SNR.|
+|`RMC` |Données de temps, date, position, cap et vitesse. Les informations de navigation minimales recommandées.|
+|`VTG` |Informations de cap et de vitesse par rapport au sol.|
 
 
 > Remarque: lors que le module démarre, il peut envoyer plusieurs phrases propriétaires qui informe sur son fabricant, son modèle, sa version de micro-logiciel, sur le modèle de l'antenne, son statut ...
@@ -173,7 +179,7 @@ Ouvrez l'exemple `DeviceExample` dans `Examples > TinyGPS++ > DeviceExample`
 
 Modifiez la valeur `GPSBaud` dans la ligne `static const uint32_t GPSBaud = 4800;` en fonction du module GNSS que vous avez à vous disposition.
 
-Compilez et chargez le programme sur la carte.
+Compilez et chargez le croquis sur la carte.
 
 Ouvrez la console série.
 
@@ -183,7 +189,7 @@ Ce code d’exemple suit l’élévation des satellites en utilisant des objets 
 
 Modifiez la valeur `GPSBaud` dans la ligne `static const uint32_t GPSBaud = 4800;` en fonction du module GNSS que vous avez à vous disposition.
 
-Compilez et chargez le programme sur la carte.
+Compilez et chargez le croquis sur la carte.
 
 Ouvrez la console série.
 
@@ -191,7 +197,7 @@ Ouvrez la console série.
 
 Modifiez la valeur `GPSBaud` dans la ligne `static const uint32_t GPSBaud = 4800;` en fonction du module GNSS que vous avez à vous disposition.
 
-Compilez et chargez le programme sur la carte.
+Compilez et chargez le croquis sur la carte.
 
 Ouvrez la console série.
 
@@ -250,7 +256,8 @@ $GNVTG,256.61,T,,M,0.03,N,0.06,K,N*2F
 ```
 
 
-> Remarque: si vous lisez le message suivant, vous devez modifier les branchements ou la position des cavaliers`
+> Remarque: si vous lisez le message suivant, vous devez modifier les branchements ou la position des cavaliers
+
 ```
 No GPS data received: check wiring
 **** ***** ********** *********** **** ********** ******** **** ****** ****** ***** ***   ******** ****** ***   0     0         0        

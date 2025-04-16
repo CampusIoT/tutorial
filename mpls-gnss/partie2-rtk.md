@@ -134,6 +134,8 @@ Quand les données RTCM recues du caster NTRIP sont recues et utilisées par le 
 **7) Vérifiez la précision de la position GNSS dans le menu Skyplot**
 
 ![](SWMaps-Skyplot.jpg)
+![](SWMaps-skyplot-03.jpg)
+![](SWMaps-skyplot-04.jpg)
 
 **8) Démarrez l'enregistrement de votre parcours**
 

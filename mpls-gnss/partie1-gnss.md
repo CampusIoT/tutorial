@@ -205,6 +205,14 @@ Compilez et chargez le croquis sur la carte.
 
 Ouvrez la console série.
 
+
+
+> Remarque: si vous lisez le message suivant, vous devez modifier les branchements ou la position des cavaliers`
+```
+No GPS data received: check wiring
+**** ***** ********** *********** **** ********** ******** **** ****** ****** ***** ***   ******** ****** ***   0     0         0        
+```
+
 #### Récupération sur signal PPS du module GNSS
 
 Le module GNSS génère un signal à 1 Hz (PPS pour Pulse per Second) dont le front montant (`RISING`) lors du passage à la nouvelle seconde du temps (GPS).

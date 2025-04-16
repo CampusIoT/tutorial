@@ -24,7 +24,7 @@ Auteur: Didier DONSEZ, GINP-UGA.
 | [Mikrobus click for Quectel LC29H GNSS RTK modules](https://github.com/i2hm/micro_climate_station/tree/main/kicad/lc29h_mikrobus) | [Quectel LC29H](https://www.quectel.com/product/gnss-lc29h/) | | RTK L1 et L5. La platine doit être alimentée en  3.3V |
 | [SparkFun RTK Postcard](https://www.sparkfun.com/sparkfun-rtk-postcard.html)| [Quectel LG290P](https://www.quectel.com/product/gnss-lg290p/#summary)| | RTK. 4 bandes|
 | [simpleRTK3B](https://fr.ardusimple.com/simplertk3b-receivers/)| Septentrio [Mosaic-X5](https://www.septentrio.com/en/products/gnss-receivers/gnss-receiver-modules/mosaic-x5) & [Mosaic-H](https://www.septentrio.com/en/products/gnss-receivers/gnss-receiver-modules/mosaic-h) | | RTK jusqu'à 7mm de précision. bandes L1, L2 et L5. Anti-brouillage et Anti-usurpation d'identité |
-
+| [mPCIe u-blox ZED-X20P](https://fr.ardusimple.com/product/mpcie-u-blox-zed-x20p/) | [u-blox ZED-X20P](https://www.u-blox.com/en/product/zed-x20p-module) | | RTK. bandes : L1, L2, L5, L6 ...|
 
 ## Banchement
 

@@ -22,7 +22,11 @@ OpenStreetMap (aka OSM) est une base de données géographique contributive et g
 
 [Leaflet](https://leafletjs.com/index.html) est une bibliothèque Javascript libre pour construire des applications web incluant des cartes interactives. Il existe des [dérivés](https://github.com/mapbox/leaflet-omnivore).
 
-### [Geofencing](https://fr.wikipedia.org/wiki/G%C3%A9orep%C3%A9rage)
+### [Géolocalisation](https://fr.wikipedia.org/wiki/G%C3%A9olocalisation)
+
+La géolocalisation (geotracking en anglais) est un procédé permettant de positionner un objet (valise ...), un véhicule (volé, livreur, sportif, skieur/randonneur ...), ou une personne (enfant, malade d'Alzheimer, [détenu à docimile](https://fr.wikipedia.org/wiki/D%C3%A9tention_%C3%A0_domicile) ...) sur un plan ou une carte à l'aide de ses coordonnées géographiques. Certains systèmes permettent également de connaître l'altitude (avion, drone, ballons stratosphériques, satellite LEO ...)
+
+#### [Geofencing](https://fr.wikipedia.org/wiki/G%C3%A9orep%C3%A9rage)
 
 Le géorepérage ou gardiennage virtuel (en anglais, geofence ou geofencing) est une fonction d'un logiciel de géolocalisation qui permet de surveiller à distance la position et le déplacement d'un objet et de prendre des mesures si la position ou le déplacement s'écarte de certaines valeurs fixées d'avance.
 
@@ -30,20 +34,20 @@ Le géorepérage ou gardiennage virtuel (en anglais, geofence ou geofencing) est
 
 #### [GPX](https://fr.wikipedia.org/wiki/GPX_(format_de_fichier))
 
-format de fichier permettant l'échange de coordonnées géographiques provenant d'un récepteur GNSS. Il est utilisé par les applications et les réseaux sociaux sportifs. 
+GPX est un format de fichier permettant l'échange de coordonnées géographiques provenant d'un récepteur GNSS. Il est utilisé par les applications et les réseaux sociaux sportifs. 
 
 [Un exemple de fichier GPX de la randonnée Tour du Mont Aiguille](tour_du_mont_aiguille.gpx) (récupéré depuis https://www.alpes-isere.com)
 
 
 #### [KML](https://fr.wikipedia.org/wiki/Keyhole_Markup_Language)
 
-Format de fichier décrivant des caractéristiques géoréférencés (lieu des marques, des images, des polygones, des modèles 3D, des descriptions textuelles, etc.). Les fichiers KML peuvent être visualisés dans des applications comme Géoportail, Google Street View ...
+Le format KML est un format de fichier décrivant des caractéristiques géoréférencés (lieu des marques, des images, des polygones, des modèles 3D, des descriptions textuelles, etc.). Les fichiers KML peuvent être visualisés dans des applications comme Géoportail, Google Street View ...
 
 [Un exemple de fichier KML d'une randonnée facile depuis La Mure](meharieauparadis.kml) (récupéré depuis https://www.alpes-isere.com)
 
 #### [EXIF](https://fr.wikipedia.org/wiki/Exchangeable_image_file_format)
 
-Exchangeable image file format (EXIF) est une spécification de format de fichier pour les images. Il permet de décrire entre autre les coordonnées géographiques au sein du fichier image.
+Le format Exchangeable image file format (EXIF) est une spécification de format de fichier pour les images. Il permet de décrire entre autre les coordonnées géographiques au sein du fichier image.
 
 [ExifTool](https://exiftool.org/) est un outil en ligne de commande permettant la manipulation des données EXIF dans les fichiers image.
 
@@ -207,13 +211,13 @@ Les résultats de la conversion [meharieauparadis.geojson](meharieauparadis.geoj
 
 #### [GeoHash](https://fr.wikipedia.org/wiki/Geohash)
 
-fonction de hachage qui subdivise la surface terrestre selon une grille hiérarchique. Chaque niveau contient 32 cellules (4x8 ou 8x4). Chaque cellule est codée avec un minuscule ou un chiffre. 
+GeoHash est une [fonction de hachage](https://fr.wikipedia.org/wiki/Fonction_de_hachage) qui subdivise la surface terrestre selon une grille hiérarchique. Chaque niveau contient 32 cellules (4x8 ou 8x4). Chaque cellule est codée avec un minuscule ou un chiffre. 
 
 > Exercice: retrouvez les geohash du Mutel et de celui de votre domicile avec https://geohash.softeng.co/ [Correction](https://geohash.softeng.co/spup7wfym)
 
 #### [GeoHexGrid](https://www.redblobgames.com/grids/hexagons/implementation.html)
 
-fonction de hachage multi-niveau de coordonnées géographiques. La sphére terrestre est représentée comme une grille d'hexagones. A chaque niveau, chaque hexagone couvre une aire terrestre identique.
+GeoHexGrid est une [fonction de hachage](https://fr.wikipedia.org/wiki/Fonction_de_hachage) multi-niveau de coordonnées géographiques. La sphére terrestre est représentée comme une grille d'hexagones. A chaque niveau, chaque hexagone couvre une aire terrestre identique.
 
 > Exercice: trouvez l'hexagone qui englobe la ville de La Mure et celui qui englobe le Mutel avec l'application [h3geo.org](https://h3geo.org). [Correction1](https://h3geo.org/#hex=861f932efffffff), [Correction 2](https://h3geo.org/#hex=891f932e89bffff).
 
@@ -237,5 +241,14 @@ Les QRCode peuvent encoder des coordonnées géographiques. La lecture avec un s
 
 Les étiquettes NFC peuvent encoder des coordonnées géographiques dans des champs NDEF. La lecture avec un smatphone provoque l'ouverture de l'application de cartographie par défaut. 
 
+## Mise en application du GNSS au collège et au lycée : le suivi de ballons strastosphériques
+
+Rapprochez-vous de [Planète Sciences](https://www.planete-sciences.org/occitanie/web/un-vol-de-ballon-tres-connecte/) pour embarquer des expériences de sciences physique ... !
+
+Rapprochez-vous de nous ([CSUG activités ballons](https://www.csug.fr/projets/ballons-stratospheriques/))
+
+![SEED_LoRa-E5-mini-3D_Front](https://gricad-gitlab.univ-grenoble-alpes.fr/thingsat/seed/-/raw/main/seed_lora-e5-mini/Pictures/SEED_LoRa-E5-mini-3D_Front.png)
+
+![](https://www.csug.fr/medias/photo/ballons-strato-1_1730899844859-jpg)
 
 **Chapitre suivant : [Partie 4: GNSS et risques cyber](partie4-cyberrisk.md)**

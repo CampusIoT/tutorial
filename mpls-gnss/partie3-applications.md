@@ -241,7 +241,7 @@ Les QRCode peuvent encoder des coordonnées géographiques. La lecture avec un s
 
 Les étiquettes NFC peuvent encoder des coordonnées géographiques dans des champs NDEF. La lecture avec un smatphone provoque l'ouverture de l'application de cartographie par défaut. 
 
-## Mise en application du GNSS au collège et au lycée : le suivi de ballons strastosphériques
+## Mise en application du GNSS au collège et au lycée : le suivi de ballons strastosphériques scientifiques
 
 Rapprochez-vous de [Planète Sciences](https://www.planete-sciences.org/occitanie/web/un-vol-de-ballon-tres-connecte/) pour embarquer des expériences de sciences physique ... !
 

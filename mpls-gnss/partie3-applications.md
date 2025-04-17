@@ -253,7 +253,7 @@ Matériel:
 * un module GNSS 🛰️📍 mode ballon 🎈
 * un caméra sport 📷
 * un pack batterie 🔋 dans un isolant thermique (-60°C) 🥶
-* votre expérience scientifique
+* votre expérience scientifique 🔬 ⚛️ 🧪
 
 Rapprochez-vous de [Planète Sciences](https://www.planete-sciences.org/occitanie/web/un-vol-de-ballon-tres-connecte/) pour embarquer des expériences de sciences physique ... !
 

@@ -59,6 +59,10 @@ Certains modules GNSS (encore plus chers) peuvent continuer à produire des coor
 
 Comme vous l'avez vu dans le chapitre précedent, les informations EXIF peuvent contenir les coordonnées géographiques du lieu de prise d'une image. Ces coordonnées peuvent être exploitées par des personnes malveillantes (vie privée, informations stratégiques, braconage, home jacking ...) quand les images sont rendues publiques (réseaux sociaux, blog ...).
 
+Exemple: Utilisation des geotag des photos publiées sur les réseaux sociaux : les braconniers géolocalisent les rhinocéros.
+
+![](braconnage.jpg)
+
 > Exercice : inspectez les photos prises par votre smartphone pour retrouver les coordonnées géographiques lors de la prise de vue. Vous pouvez utilisez ExifTool ou les "inspecteurs" de votre machine.
 
 > Exercice : Replacez les coordonnées géographiques par un geohash avec ExifTool.

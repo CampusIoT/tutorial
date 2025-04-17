@@ -67,6 +67,12 @@ Exemple: Réseaux sociaux sportifs : Anomaly Six, un sous-traitant gouvernementa
 
 ![](strava-01.png)
 
+
+Exemple: Agrégation des réseaux sociaux sportifs : l'agrégation mondiale ***heatmap*** des traces privées y compris celles de militaires en entraînement quotidien révèlent parfois les bases sensibles et secrètes en Syrie, Afghanistan, Niger, Base sous-marine de Brest ...
+D'autres types de fuite ont concerné les déplacements des chefs d'état (Biden, Poutine, Macron ...) avec les traces sportives des services de sécurité.
+
+![](strava-02.png)
+
 > Exercice : inspectez les photos prises par votre smartphone pour retrouver les coordonnées géographiques lors de la prise de vue. Vous pouvez utilisez ExifTool ou les "inspecteurs" de votre machine.
 
 > Exercice : Replacez les coordonnées géographiques par un geohash de niveau 7 avec ExifTool.

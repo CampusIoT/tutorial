@@ -241,14 +241,34 @@ Les QRCode peuvent encoder des coordonnées géographiques. La lecture avec un s
 
 Les étiquettes NFC peuvent encoder des coordonnées géographiques dans des champs NDEF. La lecture avec un smatphone provoque l'ouverture de l'application de cartographie par défaut. 
 
-## Mise en application du GNSS au collège et au lycée : le suivi de ballons strastosphériques scientifiques
+## Mise en application du GNSS au collège et au lycée : le suivi 📡📡📡📡📡 de ballons strastosphériques scientifiques 🎈🎈🎈🎈🎈🎈🎈🎈🎈🎈🎈🎈
+
+Objectif : Embarquer des expériences de sciences physique (température, humidité, pression atmosphérique, mesure UV, qualité de l'air, compteur Geiger) à 30 kms d'altitude.
+
+Matériel:
+* cutter et pistocolle (attention les doigts)
+* les caisses PU de poissonerie 🐟
+* du dusk tape
+* un traceur FSK/LoRa (LoRaWAN, Meshtastic, ...) 📡
+* un module GNSS 🛰️📍 mode ballon 🎈
+* un caméra sport 📷
+* un pack batterie 🔋 dans un isolant thermique (-60°C) 🥶
+* votre expérience scientifique
 
 Rapprochez-vous de [Planète Sciences](https://www.planete-sciences.org/occitanie/web/un-vol-de-ballon-tres-connecte/) pour embarquer des expériences de sciences physique ... !
+
+Contactez les radio-amateurs locaux.
 
 Rapprochez-vous de nous ([CSUG activités ballons](https://www.csug.fr/projets/ballons-stratospheriques/))
 
 ![SEED_LoRa-E5-mini-3D_Front](https://gricad-gitlab.univ-grenoble-alpes.fr/thingsat/seed/-/raw/main/seed_lora-e5-mini/Pictures/SEED_LoRa-E5-mini-3D_Front.png)
 
 ![](https://www.csug.fr/medias/photo/ballons-strato-1_1730899844859-jpg)
+
+![](https://gricad-gitlab.univ-grenoble-alpes.fr/thingsat/public/-/raw/master/balloons/2024-05-24/media/gondola_ready_to_fly.jpg)
+
+![](https://gricad-gitlab.univ-grenoble-alpes.fr/thingsat/public/-/raw/master/balloons/2024-05-24/media/balloon_inflating-03.jpg)
+
+![](https://gricad-gitlab.univ-grenoble-alpes.fr/thingsat/public/-/raw/master/balloons/2024-05-24/media/burst-02.jpg)
 
 **Chapitre suivant : [Partie 4: GNSS et risques cyber](partie4-cyberrisk.md)**

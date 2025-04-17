@@ -63,6 +63,11 @@ Exemple: Utilisation des geotag des photos publiées sur les réseaux sociaux : 
 
 ![](braconnage.jpg)
 
+Exemple: Réseaux sociaux sportifs : Anomaly Six, un sous-traitant gouvernemental discret, affirme surveiller les déplacements de milliards de téléphones dans le monde entier et démasquer des espions d’une simple pression sur un bouton.
+
+![](strava-01.png)
+
+
 > Exercice : inspectez les photos prises par votre smartphone pour retrouver les coordonnées géographiques lors de la prise de vue. Vous pouvez utilisez ExifTool ou les "inspecteurs" de votre machine.
 
 > Exercice : Replacez les coordonnées géographiques par un geohash avec ExifTool.

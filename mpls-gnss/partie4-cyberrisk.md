@@ -10,13 +10,18 @@ Auteur: Didier DONSEZ, GINP-UGA.
 
 En construction
 
-### Brouillage GPS
+### Brouillage GNSS
 
-effets d'une énergie électromagnétique due à des émissions, rayonnements ou inductions qui dégrade, entrave ou interrompt le fonctionnement des récepteurs GPS.
+Le brouillage GNSS est l'effet d'une énergie électromagnétique due à des émissions, rayonnements ou inductions qui dégrade, entrave ou interrompt le fonctionnement des récepteurs GNSS.
 
 A titre d'exemple, l'Aéroport de Nantes-Atlantique (7,2 millions de passagers par an) a été bloqué plusieurs heures le 21 avril 2017 à cause d'un brouilleur GPS laissé dans une voiture de service garée sur le parking de l'aéroport. Le détail page 7 de [Brouillages d’ondes : L’ANFR mène l’enquête !](https://www.anfr.fr/fileadmin/mediatheque/documents/brouillage/ANFR_25_ENQUETES-WEB-HD-2.pdf#page=8)
 
 Moins anecdotique, le brouillage GNSS est largement utilisé dans les zones de conflit ou des tensions frontalières avec des armements de guerre électronique (***electronic warfare***). 
+
+[Exemple de brouillage du GNSS des satellites](https://www.gps.gov/cgsic/meetings/2024/humphreys.pdf)
+
+![](humphreys-gnssjamming.png)
+
 
 > Exercice : consultez le site [gpsjam.org](https://gpsjam.org/?lat=43.71449&lon=44.58150&z=2.3&date=2025-04-11) qui élobore une carte des brouillages subis par les avions de ligne depuis [Février 2022](https://gpsjam.org/?lat=43.71449&lon=44.58150&z=2.3&date=2022-02-11). Zoomez sur la région de la Mer Baltique.
 
@@ -29,6 +34,7 @@ Moins anecdotique, le brouillage GNSS est largement utilisé dans les zones de c
 ![](electronic-warfare-1ruble.png)
 
 Source : Bank of Russia (cbr.ru)
+
 
 ### Leurrage GNSS
 
@@ -54,5 +60,10 @@ Certains modules GNSS (encore plus chers) peuvent continuer à produire des coor
 Comme vous l'avez vu dans le chapitre précedent, les informations EXIF peuvent contenir les coordonnées géographiques du lieu de prise d'une image. Ces coordonnées peuvent être exploitées par des personnes malveillantes (vie privée, informations stratégiques, braconage ...) quand les images sont rendues publiques (réseaux sociaux ...).
 
 > Exercice : inspectez les photos prises par votre smartphone pour retrouver les coordonnées géographiques lors de la prise de vue.
+
+### EU Cybersecurity Resilient Act (CRA)
+
+https://www.european-cyber-resilience-act.com/ 
+
 
 **Chapitre suivant : [Bonus track](bonus-track.md)**

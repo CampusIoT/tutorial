@@ -30,9 +30,9 @@ Moins anecdotique, le brouillage GNSS est largement utilisé dans les zones de c
 
 Source : Bank of Russia (cbr.ru)
 
-### Leurrage GPS
+### Leurrage GNSS
 
-technique consistant à émettre de signaux GPS synthétiques pour fausser le calcul de temps et de la position par des récepteurs GPS. C'est un des risques cyber pour les entreprises et gouvernements.
+Le leurrage GNSS (GNSS spoofing en anglais) est une technique consistant à émettre de signaux GPS synthétiques pour fausser le calcul de temps et de la position par des récepteurs GPS. C'est un des risques cyber pour les entreprises et gouvernements.
 
 > Des tricheurs au jeu Pokermon Go ont leurré le propre téléphone pour se téléporter et chasser des Pokermon sans bouger de leur fauteuil.
 
@@ -43,10 +43,16 @@ technique consistant à émettre de signaux GPS synthétiques pour fausser le ca
 
 ### Dispositif anti-leurrage
 
-Système de détection du leurrage GNSS. Certains modules GNSS (plus chers) sont dotés de tels systèmes.
+Système de détection du leurrage GNSS.
+
+Certains modules GNSS (plus chers) sont dotés de tels systèmes. 
+
+Certains modules GNSS (encore plus chers) peuvent continuer à produire des coordonnées géographiques en s'appuyant sur une centrale inertielle MEMS (IMU en anglais) malgré le brouillage ou le leurrage.
 
 ### Fuite d'information géographique
 
-Comme vous l'avez vu dans le chapitre précedent, les informations EXIF peuvent contenir les coordonnées du lieu de prise d'une image. Ces coordonnées peuvent être exploitées par des personnes malveillantes (vie privée, informations stratégiques, braconage ...) quand les images sont rendues publiques (réseaux sociaux ...).
+Comme vous l'avez vu dans le chapitre précedent, les informations EXIF peuvent contenir les coordonnées géographiques du lieu de prise d'une image. Ces coordonnées peuvent être exploitées par des personnes malveillantes (vie privée, informations stratégiques, braconage ...) quand les images sont rendues publiques (réseaux sociaux ...).
+
+> Exercice : inspectez les photos prises par votre smartphone pour retrouver les coordonnées géographiques lors de la prise de vue.
 
 **Chapitre suivant : [Bonus track](bonus-track.md)**

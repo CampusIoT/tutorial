@@ -35,6 +35,7 @@ Auteur: Didier DONSEZ, GINP-UGA.
 | Brouillage GPS | effets d'une énergie électromagnétique due à des émissions, rayonnements ou inductions qui dégrade, entrave ou interrompt le fonctionnement des récepteurs GPS. Exemple: Aéroport de Nantes-Atlantique (7,2 millions de passagers par an) le 21 avril 2017 |
 | Leurrage GPS | technique consistant à émettre de signaux GPS synthétiques pour fausser le calcul de temps et de la position par des récepteurs GPS. C'est un des risques cyber pour les entreprises et gouvernements |
 | Dispositif anti-leurrage | Système de détection du leurrage GNSS. Certains modules GNSS sont dotés de tels systèmes. |
+| [SAASM](https://en.wikipedia.org/wiki/Selective_availability_anti-spoofing_module) | |
 | dBm | [decibel-milliwatts](https://en.wikipedia.org/wiki/DBm)|
 | dBi | [dB(isotropic)](https://en.wikipedia.org/wiki/Decibel#Antenna_measurements)|
 | RSSI | [Received signal strength indicator](https://en.wikipedia.org/wiki/Received_signal_strength_indicator)|

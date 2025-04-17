@@ -36,6 +36,10 @@ technique consistant à émettre de signaux GPS synthétiques pour fausser le ca
 
 > Des tricheurs au jeu Pokermon Go ont leurré le propre téléphone pour se téléporter et chasser des Pokermon sans bouger de leur fauteuil.
 
+Exemple de leurrage GPS dans un réseau LoRaWAN (station de base et suiveur GPS) : Grenoble, 220m,14/02/2020 –> Svalbard, 8849m, 24/12/2019
+
+![](eclipseiot-days-jmfriedt-leurrage.png)
+
 ### Dispositif anti-leurrage
 
 Système de détection du leurrage GNSS. Certains modules GNSS sont dotés de tels systèmes. |
@@ -43,6 +47,5 @@ Système de détection du leurrage GNSS. Certains modules GNSS sont dotés de te
 ### Fuite d'information géographique
 
 Comme vous l'avez vu dans le chapitre précedent, les informations EXIF peuvent contenir les coordonnées du lieu de prise d'une image. Ces coordonnées peuvent être exploitées par des personnes malveillantes (vie privée, informations stratégiques, braconage ...) quand les images sont rendues publiques (réseaux sociaux ...).
-
 
 **Chapitre suivant : [Bonus track](bonus-track.md)**

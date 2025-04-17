@@ -36,13 +36,14 @@ technique consistant à émettre de signaux GPS synthétiques pour fausser le ca
 
 > Des tricheurs au jeu Pokermon Go ont leurré le propre téléphone pour se téléporter et chasser des Pokermon sans bouger de leur fauteuil.
 
-Exemple de leurrage GPS dans un réseau LoRaWAN (station de base et suiveur GPS) : Grenoble, 220m,14/02/2020 –> Svalbard, 8849m, 24/12/2019
+[Exemple de leurrage GPS dans un réseau LoRaWAN (station de base et suiveur GPS)](https://gitlab.com/EclipseIoTDaysGrenoble/archive/-/wikis/2020/Eclipse-IoTDay2020Grenoble-friedt.pdf) : Grenoble, 220m,14/02/2020 –> Svalbard, 8849m, 24/12/2019
 
 ![](eclipseiot-days-jmfriedt-leurrage.png)
 
+
 ### Dispositif anti-leurrage
 
-Système de détection du leurrage GNSS. Certains modules GNSS sont dotés de tels systèmes. |
+Système de détection du leurrage GNSS. Certains modules GNSS (plus chers) sont dotés de tels systèmes.
 
 ### Fuite d'information géographique
 

@@ -67,15 +67,14 @@ Exemple: Réseaux sociaux sportifs : Anomaly Six, un sous-traitant gouvernementa
 
 ![](strava-01.png)
 
-
 > Exercice : inspectez les photos prises par votre smartphone pour retrouver les coordonnées géographiques lors de la prise de vue. Vous pouvez utilisez ExifTool ou les "inspecteurs" de votre machine.
 
-> Exercice : Replacez les coordonnées géographiques par un geohash avec ExifTool.
+> Exercice : Replacez les coordonnées géographiques par un geohash de niveau 7 avec ExifTool.
 
 
 ### EU Cybersecurity Resilient Act (CRA)
 
-https://www.european-cyber-resilience-act.com/ 
+Le [règlement sur la cyberrésilience](https://www.european-cyber-resilience-act.com/ ) renforce les normes de cybersécurité des produits qui contiennent un composant numérique, exigeant des fabricants et des détaillants qu’ils garantissent la cybersécurité tout au long du cycle de vie de leurs produits. Des baby-moniteurs aux montres intelligentes, les produits et logiciels qui contiennent un composant numérique sont omniprésents dans notre vie quotidienne. Moins évident pour de nombreux utilisateurs est le risque de sécurité que ces produits et logiciels peuvent présenter.
 
 
 **Chapitre suivant : [Bonus track](bonus-track.md)**

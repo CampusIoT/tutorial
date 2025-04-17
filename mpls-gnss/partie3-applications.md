@@ -24,7 +24,7 @@ OpenStreetMap (aka OSM) est une base de données géographique contributive et g
 
 ### [Géolocalisation](https://fr.wikipedia.org/wiki/G%C3%A9olocalisation)
 
-La géolocalisation (geotracking en anglais) est un procédé permettant de positionner un objet (valise ...), un véhicule (volé, livreur ...), ou une personne (enfant, malade d'Alzheimer, [détenu à docimile](https://fr.wikipedia.org/wiki/D%C3%A9tention_%C3%A0_domicile), sportif, skieur/randonneur, travailleur isolé ...) sur un plan ou une carte à l'aide de ses coordonnées géographiques. Certains systèmes permettent également de connaître l'altitude (avion, drone, ballons stratosphériques, bouet, satellite LEO ...)
+La géolocalisation (geotracking en anglais) est un procédé permettant de positionner un objet (valise ...), un véhicule (volé, livreur ...), ou une personne (enfant, malade d'Alzheimer, [détenu à docimile](https://fr.wikipedia.org/wiki/D%C3%A9tention_%C3%A0_domicile), sportif, skieur/randonneur, travailleur isolé, animal de compagnie, chien de chasse ...) sur un plan ou une carte à l'aide de ses coordonnées géographiques. Certains systèmes permettent également de connaître l'altitude (avion, drone, ballons stratosphériques, bouet, satellite LEO ...)
 
 #### [Geofencing](https://fr.wikipedia.org/wiki/G%C3%A9orep%C3%A9rage)
 

@@ -111,7 +111,7 @@ $PGACK,EPE,H=9999000.000000,V=100000000.000000*3D
 
 Les phrases NMEA0183 se terminent enfin par un [checksum de 2 caractères](https://forum.arduino.cc/t/nmea-checksums-explained/1046083) préfixés par le caractère `*` pour détecter des erreurs de transmission.
 
-La bibliothèque TinyGPS que vous avez installée décodage les phrases NMEA0183 pour donner directement les coordonnées, la qualité du signal (DOP) et fournit des fonctions utilitaires (cap vers un point d'intérêt ([POI](https://fr.wikipedia.org/wiki/Point_d%27int%C3%A9r%C3%AAt_(topographie))) ...)
+La bibliothèque TinyGPS que vous avez installée simplifie le décodage des phrases NMEA0183 pour donner directement les coordonnées, la qualité du signal (DOP) et fournit des fonctions utilitaires (cap vers un point d'intérêt ([POI](https://fr.wikipedia.org/wiki/Point_d%27int%C3%A9r%C3%AAt_(topographie))) ...)
 
 ### Pratique
 

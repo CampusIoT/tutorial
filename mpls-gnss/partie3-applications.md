@@ -4,7 +4,7 @@ Auteur: Didier DONSEZ, GINP-UGA.
 
 > Ce support est sous licence [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/). Les exemples de croquis fournis ne sont pas couverts par cette licence. Veuillez vous référer à la licence de chacun.
 
-**[Sommaire](README.md)**
+**[Sommaire](README.md) | [Glossaire](glossaire.md)**
 
 ## Partie 3 : GNSS et applications
 

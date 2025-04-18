@@ -4,7 +4,7 @@ Auteur: Didier DONSEZ, GINP-UGA.
 
 > Ce support est sous licence [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/). Les exemples de croquis fournis ne sont pas couverts par cette licence. Veuillez vous référer à la licence de chacun.
 
-**[Sommaire](README.md)**
+**[Sommaire](README.md) | [Glossaire](glossaire.md)**
 
 ## Partie 1: GNSS
 
@@ -62,11 +62,64 @@ Sélectionnez votre carte `ESP32 Dev Module` dans `Tools > Board > esp32`.
 
 Sélectionnez le port auquel est connecté la carte dans `Tools > Port`.
 
+
+#### Le format NMEA0183
+
+Le format NMEA0183 est le format de données par défaut produites par tous les modules GNSS.
+Il décrit des phrases (*sentences* en anglais) NMEA0183 contenant les informations relatives au calcul des coordonnées géographiques.
+
+> Remarque : Le format NMEA0183 n'est pas le seul car il existe des formats propriétaires spécifiques aux fabricants de module.
+
+Les phrases NMEA commencent par 1 caractère de préambule `$` et par un identifiant de locuteur (Talker Id) en 2 lettres
+
+| Locuteur (Talker Id) | Systeme | 
+| --------- |------- | 
+| GP | Global Positioning System (GPS) 🇺🇸 |
+| GA | Galileo Positioning System 🇪🇺 |
+| GB | BDS ([BeiDou System](https://fr.wikipedia.org/wiki/Syst%C3%A8me_de_positionnement_par_satellites#Le_syst%C3%A8me_chinois_Beidou)) 🇨🇳 | 
+| GI | [NavIC (IRNSS)](https://fr.wikipedia.org/wiki/Indian_Regional_Navigation_Satellite_System) 🇮🇳 |
+| GL | GLONASS Receiver 🇷🇺 |
+| GQ | [QZSS](https://fr.wikipedia.org/wiki/Quasi-Zenith_Satellite_System) 🇯🇵|
+| GN | Global Navigation Satellite System (GNSS)  |
+
+> Remarque : L’identifiant de locuteur `GN` est utilisé lorsque les données de la phrase proviennent d’une combinaison de plusieurs systèmes satellitaires. Les identifiants de locuteur propres à un système satellitaire ne sont utilisés que lorsque les données de la phrase proviennent d’un seul système de navigation par satellite. Les descriptions et remarques dans les définitions des phrases fournissent des indications sur l’utilisation des identifiants de locuteur des récepteurs de systèmes de navigation par satellite, lorsque cela est nécessaire.
+
+Les phrases NMEA continuent avec 3 lettres pour désigner une option
+
+| Option | Description |
+| ------ |----------- |
+|`GGA` |Donnéees de temps, position et type de positionnement (fix). |
+|`GSA` |Mode de fonctionnement du récepteur GNSS, satellites actifs utilisés dans la solution de positionnement et valeurs DOP. |
+|`GSV` |Nombre de satellites GPS visibles, identifiants des satellites, élévation, azimut et valeurs SNR.|
+|`RMC` |Données de temps, date, position, cap et vitesse. Les informations de navigation minimales recommandées.|
+|`VTG` |Informations de cap et de vitesse par rapport au sol.|
+
+
+> Remarque: lors que le module démarre, il peut envoyer plusieurs phrases propriétaires qui informe sur son fabricant, son modèle, sa version de micro-logiciel, sur le modèle de l'antenne, son statut ...
+
+> Dans le cas du module GNSS XA1110 que vous utiliserez, vous pourrez observer les phrases suivantes :
+
+```
+$PMTK011,MTKGPS*08
+$PMTK010,001*2E
+$PGACK,EPE,H=9999000.000000,V=100000000.000000*3D
+$PMTK011,MTKGPS*08
+$PMTK010,002*2D
+$PGACK,EPE,H=9999000.000000,V=100000000.000000*3D
+...
+```
+
+Les phrases NMEA0183 se terminent enfin par un [checksum de 2 caractères](https://forum.arduino.cc/t/nmea-checksums-explained/1046083) préfixés par le caractère `*` pour détecter des erreurs de transmission.
+
+La bibliothèque TinyGPS que vous avez installée décodage les phrases NMEA0183 pour donner directement les coordonnées, la qualité du signal (DOP) et fournit des fonctions utilitaires (cap vers un point d'intérêt ([POI](https://fr.wikipedia.org/wiki/Point_d%27int%C3%A9r%C3%AAt_(topographie))) ...)
+
 ### Pratique
 
-#### Visualisation des trames NMEA0183
+#### Visualisation des phrases NMEA0183
 
-Ouvrez l'exemple `XXXX`
+Dans ce croquis, vous pourrez observer les phrases NMEA0183 produites par le module.
+
+Ouvrez le croquis `XXXX`
 
 ```c++
 // Test code for Ultimate GPS Using Hardware Serial
@@ -128,49 +181,6 @@ $GPRMC,045251.000,A,3014.4275,N,09749.0626,W,0.51,217.94,030913,,,A*7D
 $GPGGA,045252.000,3014.4273,N,09749.0628,W,1,09,1.3,206.9,M,-22.5,M,,0000*6F
 ```
 
-Commentaires:
-
-Les phrases NMEA commencent par 1 caractère de préambule `$` et par un identifiant de locuteur (Talker Id) en 2 lettres
-
-| Locuteur (Talker Id) | Systeme | 
-| --------- |------- | 
-| GP | Global Positioning System (GPS) 🇺🇸 |
-| GA | Galileo Positioning System 🇪🇺 |
-| GB | BDS ([BeiDou System](https://fr.wikipedia.org/wiki/Syst%C3%A8me_de_positionnement_par_satellites#Le_syst%C3%A8me_chinois_Beidou)) 🇨🇳 | 
-| GI | [NavIC (IRNSS)](https://fr.wikipedia.org/wiki/Indian_Regional_Navigation_Satellite_System) 🇮🇳 |
-| GL | GLONASS Receiver 🇷🇺 |
-| GQ | [QZSS](https://fr.wikipedia.org/wiki/Quasi-Zenith_Satellite_System) 🇯🇵|
-| GN | Global Navigation Satellite System (GNSS)  |
-
-> Remarque : L’identifiant de locuteur `GN` est utilisé lorsque les données de la phrase proviennent d’une combinaison de plusieurs systèmes satellitaires. Les identifiants de locuteur propres à un système satellitaire ne sont utilisés que lorsque les données de la phrase proviennent d’un seul système de navigation par satellite. Les descriptions et remarques dans les définitions des phrases fournissent des indications sur l’utilisation des identifiants de locuteur des récepteurs de systèmes de navigation par satellite, lorsque cela est nécessaire.
-
-Les phrases NMEA continuent avec 3 lettres pour désigner une option
-
-| Option | Description |
-| ------ |----------- |
-|`GGA` |Donnéees de temps, position et type de positionnement (fix). |
-|`GSA` |Mode de fonctionnement du récepteur GNSS, satellites actifs utilisés dans la solution de positionnement et valeurs DOP. |
-|`GSV` |Nombre de satellites GPS visibles, identifiants des satellites, élévation, azimut et valeurs SNR.|
-|`RMC` |Données de temps, date, position, cap et vitesse. Les informations de navigation minimales recommandées.|
-|`VTG` |Informations de cap et de vitesse par rapport au sol.|
-
-
-> Remarque: lors que le module démarre, il peut envoyer plusieurs phrases propriétaires qui informe sur son fabricant, son modèle, sa version de micro-logiciel, sur le modèle de l'antenne, son statut ...
-
-> Dans le cas du module GNSS XA1110, vous pourrez observer les phrases suivantes :
-
-```
-$PMTK011,MTKGPS*08
-$PMTK010,001*2E
-$PGACK,EPE,H=9999000.000000,V=100000000.000000*3D
-$PMTK011,MTKGPS*08
-$PMTK010,002*2D
-$PGACK,EPE,H=9999000.000000,V=100000000.000000*3D
-...
-```
-
-
-
 #### Décodage des trames NMEA0183 avec la bibliothèque TinyGPS d'Arduino
 
 ##### `DeviceExample`
@@ -203,16 +213,29 @@ Ouvrez la console série.
 
 ##### `FullExample`
 
+Ce [croquis `FullExample`](https://github.com/CampusIoT/tutorial/blob/master/mpls-gnss/TinyGPSPlus_FullExample/TinyGPSPlus_FullExample.ino) affiche toutes les secondes :
+
+* le nombre de satellites visibles/utilisés
+* le [HDOP](glossaire.md)
+* les coordonnées géographiques calculées par le module (latitude, longitude, altitude)
+* le nombre de millisecondes (age) depuis le dernier fixe
+* le distance (en km) vers un point d'intêret (POI) qui est par défaut l'emplacement du CSUG,
+* le [cap](https://fr.wikipedia.org/wiki/Cap_(navigation)) (heading en *anglais*) vers ce point d'intêret (en dégré et en graduation en [rose des vents](https://fr.wikipedia.org/wiki/Rose_des_vents) (*Compass rose* en anglais))
+* le nombre de caractéres récupérés via la liaison UART avec les modules
+* le nombre de [phrases NMEA erronées](https://forum.arduino.cc/t/nmea-checksums-explained/1046083)
+
 Ouvrez le [croquis `FullExample`](https://github.com/CampusIoT/tutorial/blob/master/mpls-gnss/TinyGPSPlus_FullExample/TinyGPSPlus_FullExample.ino)
 
 Modifiez la valeur `GPSBaud` dans la ligne `static const uint32_t GPSBaud = 4800;` en fonction du module GNSS que vous avez à vous disposition.
+
+Modifiez la valeur des broches `RXPin` et `TXPin` en fonction de votre micro-contrôleur.
+
 
 Modifiez la ligne `static const double POI_LAT = 51.508131, POI_LON = -0.128002;` par la ligne `static const double POI_LAT = 44.910101, POI_LON = 5.782137;` qui est l'[emplacement du Murtel](https://www.openstreetmap.org/relation/109753#map=19/44.910101/5.782137).
 
 Compilez et chargez le croquis sur la carte.
 
 Ouvrez la console série.
-
 
 Pour `DISPLAY_GNSS_LINES==1`
 
@@ -239,6 +262,13 @@ Sats HDOP  Latitude   Longitude   Fix  Date       Time     Date Alt    Course Sp
    
 ```
 
+> Commentaire: la premiere ligne indique que le module a acquis un signal de temps d'au moins 1 satellite
+
+> Commentaire: les 4 lignes suivantes indiquent que le module a acquis un signal de temps de 4 satellites et à pu calculer ses coordonnées
+
+> Commentaire: les lignes suivantes indiquent que le module a perdu les signaux de temps des satellites : les dernières coordonnées calculées sont affichées avec leur age (en millisecondes) soit ~1000 millisecondes de plus à chaque ligne.
+
+
 Pour `DISPLAY_NMEA0183_SENTENCES==1`
 
 ```
@@ -262,6 +292,15 @@ $GNVTG,256.61,T,,M,0.03,N,0.06,K,N*2F
 No GPS data received: check wiring
 **** ***** ********** *********** **** ********** ******** **** ****** ****** ***** ***   ******** ****** ***   0     0         0        
 ```
+
+> Exercice : calculez le [gisement](https://fr.wikipedia.org/wiki/Gisement_(navigation)) (bearing en anglais) et ajoutez le à l'affichage.
+
+#### Programmation par bloc
+
+En construction
+
+https://fr.vittascience.com/esp32
+
 
 #### Récupération sur signal PPS du module GNSS
 

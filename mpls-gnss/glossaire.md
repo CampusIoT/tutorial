@@ -81,7 +81,7 @@ Auteur: Didier DONSEZ, GINP-UGA.
 | [Geofencing](https://fr.wikipedia.org/wiki/G%C3%A9orep%C3%A9rage) | Le géorepérage ou gardiennage virtuel (en anglais, geofence ou geofencing) est une fonction d'un logiciel de géolocalisation qui permet de surveiller à distance la position et le déplacement d'un objet et de prendre des mesures si la position ou le déplacement s'écarte de certaines valeurs fixées d'avance. |
 | [GPX](https://fr.wikipedia.org/wiki/GPX_(format_de_fichier)) | format de fichier permettant l'échange de coordonnées géographiques provenant d'un récepteur GNSS. Il est utilisé par les applications et les réseaux sociaux sportifs |
 | [GeoJSON](https://fr.wikipedia.org/wiki/GeoJSON) | format ouvert d'encodage d'ensemble de données géospatiales simples utilisant la norme JSON  |
-| POI | Point of Interest ou Point d'intéret |
+| [POI](https://fr.wikipedia.org/wiki/Point_d%27int%C3%A9r%C3%AAt_(topographie)) | Point of Interest ou Point d'intéret |
 | ZOI | Zone of Interest ou Zone d'intéret |
 | [EXIF](https://fr.wikipedia.org/wiki/Exchangeable_image_file_format) | Exchangeable image file format est une spécification de format de fichier pour les images. Il permet de décrire entre autre les coordonnées géographiques au sein du fichier image. Ces coordonnées peuvent être exploitées par des personnes malveillantes (vie privée, informations stratégiques ...) quand les images sont rendues publiques (réseaux sociaux ...). |
 | [ExifTool](https://exiftool.org/)| Outil en ligne de commande permettant la manipulation des données EXIF dans les fichiers image |

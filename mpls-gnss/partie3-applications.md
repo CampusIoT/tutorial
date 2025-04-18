@@ -259,7 +259,7 @@ Rapprochez-vous de [Planète Sciences](https://www.planete-sciences.org/occitani
 
 Contactez les radio-amateurs locaux.
 
-Rapprochez-vous de nous ([CSUG activités ballons](https://www.csug.fr/projets/ballons-stratospheriques/))
+Rapprochez-vous de nous ([CSUG activités ballons](https://www.csug.fr/projets/ballons-stratospheriques/)) si vous êtes intéressés par des [cartes support pour nanosats et pour ballons](https://gricad-gitlab.univ-grenoble-alpes.fr/thingsat/seed#usage)
 
 ![SEED_LoRa-E5-mini-3D_Front](https://gricad-gitlab.univ-grenoble-alpes.fr/thingsat/seed/-/raw/main/seed_lora-e5-mini/Pictures/SEED_LoRa-E5-mini-3D_Front.png)
 

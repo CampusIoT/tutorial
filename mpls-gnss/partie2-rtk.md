@@ -4,7 +4,7 @@ Auteur: Didier DONSEZ, GINP-UGA.
 
 > Ce support est sous licence [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/). Les exemples de croquis fournis ne sont pas couverts par cette licence. Veuillez vous référer à la licence de chacun.
 
-**[Sommaire](README.md)**
+**[Sommaire](README.md) | [Glossaire](glossaire.md)**
 
 ## Partie 2: GNSS RTK
 
@@ -118,7 +118,7 @@ Quand le fix GPS est obtenue, la LED orange s'allume
 
 Dans notre cas, c'est `caster.centipede.fr` sur le port `2101` et le point de montage (le plus proche) est `CHA2` ([Chamrousse](http://gnssfr.unice.fr/#/metadata/marker=CHA2)).
 
-> Note: plusieurs casters et [points de montage](https://map.centipede-rtk.org/index.php/view/map/?repository=cent&project=centipede#5.357680,44.716345,6.035399,45.048156|basesrtk,notdeclared|d%C3%A9faut,d%C3%A9faut|1,1) peuvent être ajoutés comme `AVR2` ou `ALPE`.
+> Note: plusieurs casters et [points de montage](https://map.centipede-rtk.org/index.php/view/map/?repository=cent&project=centipede#5.357680,44.716345,6.035399,45.048156|basesrtk,notdeclared|d%C3%A9faut,d%C3%A9faut|1,1) peuvent être ajoutés comme `AVR2`, `ALPE` ou bien `SMH` (à 31 Kms).
 
 ![](SWMaps-NTRIPClient-centipede.jpg)
 

@@ -11,7 +11,7 @@ Auteur: Didier DONSEZ, GINP-UGA.
 ### GNSS
 * [GPS SPS specifications](https://www.gps.gov/technical/ps/1995-SPS-signal-specification.pdf)
 * [ESP32 NTP Server](https://github.com/DennisSc/PPS-ntp-server/tree/master)
-* [nmea2csv](https://github.com/Petrichor-Labs/nmea_data_convert) : utilitaire Python pour l'analyser des phrases GNSS
+* [nmea_data_convert](https://github.com/Petrichor-Labs/nmea_data_convert) : utilitaire Python pour la conversion des phrases GNSS vers des fichiers CSV ou SQL
 * [Brouillages d’ondes : L’ANFR mène l’enquête !](https://www.anfr.fr/fileadmin/mediatheque/documents/brouillage/ANFR_25_ENQUETES-WEB-HD-2.pdf)
 
 ### RTK

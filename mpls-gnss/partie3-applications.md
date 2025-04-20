@@ -10,6 +10,18 @@ Auteur: Didier DONSEZ, GINP-UGA.
 
 En construction
 
+### Navigation (terre, mer, air ...)
+
+Planification et replanification d'un trajet (navire marchand, avion de ligne, camion ...), d'une tournée (livreur, ordures et déchets, DAB ...) ... en fonction d'information géographique statiques et plus ou dynamiques (état des routes, fermeture de cols, traffic, bouchons, ZFE, courants maritimes, courants atmosphériques ...).
+
+### [Géolocalisation](https://fr.wikipedia.org/wiki/G%C3%A9olocalisation)
+
+La géolocalisation (geotracking en anglais) est un procédé permettant de positionner un objet (valise ...), un véhicule (volé, livreur ...), ou une personne (enfant, malade d'Alzheimer, [détenu à docimile](https://fr.wikipedia.org/wiki/D%C3%A9tention_%C3%A0_domicile), sportif, skieur/randonneur, travailleur isolé, animal de compagnie, chien de chasse ...) sur un plan ou une carte à l'aide de ses coordonnées géographiques. Certains systèmes permettent également de connaître l'altitude (avion, drone, ballons stratosphériques, bouet, satellite LEO ...)
+
+#### [Geofencing](https://fr.wikipedia.org/wiki/G%C3%A9orep%C3%A9rage)
+
+Le géorepérage ou gardiennage virtuel (en anglais, geofence ou geofencing) est une fonction d'un logiciel de géolocalisation qui permet de surveiller à distance la position et le déplacement d'un objet et de prendre des mesures si la position ou le déplacement s'écarte de certaines valeurs fixées d'avance.
+
 ### Système d'information géographique (SIG ou GIS)
 
 Un [Système d'information géographique](https://fr.wikipedia.org/wiki/Syst%C3%A8me_d%27information_g%C3%A9ographique) est un système d'information conçu pour recueillir, stocker, traiter, analyser, gérer et présenter tous les types de données spatiales et géographiques. Les applications sont par exemple, les cadastres, les réseaux d'eau, de gaz, d'électricité, les systèmes de gestion des batiments (BMS) ...
@@ -22,15 +34,11 @@ OpenStreetMap (aka OSM) est une base de données géographique contributive et g
 
 [Leaflet](https://leafletjs.com/index.html) est une bibliothèque Javascript libre pour construire des applications web incluant des cartes interactives. Il existe des [dérivés](https://github.com/mapbox/leaflet-omnivore).
 
-### [Géolocalisation](https://fr.wikipedia.org/wiki/G%C3%A9olocalisation)
+### Formats de fichiers d'échange
 
-La géolocalisation (geotracking en anglais) est un procédé permettant de positionner un objet (valise ...), un véhicule (volé, livreur ...), ou une personne (enfant, malade d'Alzheimer, [détenu à docimile](https://fr.wikipedia.org/wiki/D%C3%A9tention_%C3%A0_domicile), sportif, skieur/randonneur, travailleur isolé, animal de compagnie, chien de chasse ...) sur un plan ou une carte à l'aide de ses coordonnées géographiques. Certains systèmes permettent également de connaître l'altitude (avion, drone, ballons stratosphériques, bouet, satellite LEO ...)
+De [nombreux formats de fichier](https://fr.wikipedia.org/wiki/Formats_de_fichier_SIG) sont manipulés par les SIG. Ils permettent l'echange de données de type raster, vectorielle ou modèles numériques de terrain.
 
-#### [Geofencing](https://fr.wikipedia.org/wiki/G%C3%A9orep%C3%A9rage)
-
-Le géorepérage ou gardiennage virtuel (en anglais, geofence ou geofencing) est une fonction d'un logiciel de géolocalisation qui permet de surveiller à distance la position et le déplacement d'un objet et de prendre des mesures si la position ou le déplacement s'écarte de certaines valeurs fixées d'avance.
-
-### Formats de fichiers
+Voici quelques modèles (vectoriels) utilisés dans des applications grand public
 
 #### [GPX](https://fr.wikipedia.org/wiki/GPX_(format_de_fichier))
 
@@ -205,9 +213,19 @@ Des utilitaires convertissent les différents formats entre eux. [Par exemple](h
 
 Les résultats de la conversion [meharieauparadis.geojson](meharieauparadis.geojson) et [tour_du_mont_aiguille.geojson](tour_du_mont_aiguille.geojson) peuvent être ouverts et visualisés avec [geojson.io](https://geojson.io)
 
+#### Devoir à la maison: Edition du plan de masse de votre bâtiment
+
+Prenez une photo des écritaux des plans d'évacuation (un par étage en général) de votre bâtiment. Créez le(s) fichier(s) GeoJSON correspondant à ces photos. Convertissez les en fichiers KML pour les visualiser. Importez les dans l'outil QGIS. 
+
 ### Codage des coordonnées
 
 #### [GeoCode](https://fr.wikipedia.org/wiki/Code_g%C3%A9ographique)
+
+Code permettant de définir (ou d'identifier) un point, une zone, ou une entité à la surface. Exemple: code postal, [code INSEE](https://fr.wikipedia.org/wiki/Code_Insee) ...
+
+Le [géocodage inversé](https://fr.wikipedia.org/wiki/G%C3%A9ocodage_invers%C3%A9) (*reverse geocoding* en anglais) consiste à effectuer l'opération inverse du géocodage, c'est-à-dire d'attribuer une adresse à des coordonnées géographiques.
+
+Exercice: Testez le service de géocodage inversé [nominatim d'OpenstreetMap](https://nominatim.openstreetmap.org/ui/search.html?street=Bd+Frejus+Michon&city=La+Mure&county=France).
 
 #### [GeoHash](https://fr.wikipedia.org/wiki/Geohash)
 

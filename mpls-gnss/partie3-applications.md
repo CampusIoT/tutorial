@@ -263,21 +263,20 @@ Les étiquettes NFC peuvent encoder des coordonnées géographiques dans des cha
 
 ## Mise en application du GNSS au collège et au lycée : le suivi 📡📡📡📡📡 de ballons strastosphériques scientifiques 🎈🎈🎈🎈🎈🎈🎈🎈🎈🎈🎈🎈
 
-Objectif : Embarquer des expériences de sciences physique (température, humidité, pression atmosphérique, mesure UV, qualité de l'air, compteur Geiger) à 30 kms d'altitude.
+Objectif : Embarquer des expériences de sciences physique (température 🌡️, humidité ☁️, pression atmosphérique, mesure UV 🕶️, qualité de l'air 🏭, compteur Geiger ☢️, ultrasons (vitesse de propagation) 🔉, ...) à 30 kms d'altitude.
 
 Matériel:
 * cutter et pistocolle (attention les doigts)
 * les caisses PU de poissonerie 🐟
 * du dusk tape
-* un traceur FSK/LoRa (LoRaWAN, Meshtastic, ...) 📡
-* un module GNSS 🛰️📍 mode ballon 🎈
-* un caméra sport 📷
+* un traceur FSK/LoRa (LoRaWAN, Meshtastic, ...) 📡 avec un module GNSS 🛰️📍 mode ballon 🎈
+* un à trois caméras sport 📷
 * un pack batterie 🔋 dans un isolant thermique (-60°C) 🥶
-* votre expérience scientifique 🔬 ⚛️ 🧪
+* votre expérience scientifique 🔬 ⚛️ 🧪🧬
 
 Rapprochez-vous de [Planète Sciences](https://www.planete-sciences.org/occitanie/web/un-vol-de-ballon-tres-connecte/) pour embarquer des expériences de sciences physique ... !
 
-Contactez les radio-amateurs locaux.
+Contactez les radio-amateurs 📡 locaux.
 
 Rapprochez-vous de nous ([CSUG activités ballons](https://www.csug.fr/projets/ballons-stratospheriques/)) si vous êtes intéressés par des [cartes support pour nanosats et pour ballons](https://gricad-gitlab.univ-grenoble-alpes.fr/thingsat/seed#usage)
 

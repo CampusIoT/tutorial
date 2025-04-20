@@ -10,11 +10,13 @@ Auteur: Didier DONSEZ, GINP-UGA.
 
 En construction
 
-### Navigation (terre, mer, air ...)
+### Applications
+
+#### Navigation (terre, mer, air ...)
 
 Planification et replanification d'un trajet (navire marchand, avion de ligne, camion ...), d'une tournée (livreur, ordures et déchets, DAB ...) ... en fonction d'information géographique statiques et plus ou dynamiques (état des routes, fermeture de cols, traffic, bouchons, ZFE, courants maritimes, courants atmosphériques ...).
 
-### [Géolocalisation](https://fr.wikipedia.org/wiki/G%C3%A9olocalisation)
+#### [Géolocalisation](https://fr.wikipedia.org/wiki/G%C3%A9olocalisation)
 
 La géolocalisation (geotracking en anglais) est un procédé permettant de positionner un objet (valise ...), un véhicule (volé, livreur ...), ou une personne (enfant, malade d'Alzheimer, [détenu à docimile](https://fr.wikipedia.org/wiki/D%C3%A9tention_%C3%A0_domicile), sportif, skieur/randonneur, travailleur isolé, animal de compagnie, chien de chasse ...) sur un plan ou une carte à l'aide de ses coordonnées géographiques. Certains systèmes permettent également de connaître l'altitude (avion, drone, ballons stratosphériques, bouet, satellite LEO ...)
 
@@ -22,15 +24,15 @@ La géolocalisation (geotracking en anglais) est un procédé permettant de posi
 
 Le géorepérage ou gardiennage virtuel (en anglais, geofence ou geofencing) est une fonction d'un logiciel de géolocalisation qui permet de surveiller à distance la position et le déplacement d'un objet et de prendre des mesures si la position ou le déplacement s'écarte de certaines valeurs fixées d'avance.
 
-### Système d'information géographique (SIG ou GIS)
+### Systèmes d'information géographique (SIG ou GIS)
 
 Un [Système d'information géographique](https://fr.wikipedia.org/wiki/Syst%C3%A8me_d%27information_g%C3%A9ographique) est un système d'information conçu pour recueillir, stocker, traiter, analyser, gérer et présenter tous les types de données spatiales et géographiques. Les applications sont par exemple, les cadastres, les réseaux d'eau, de gaz, d'électricité, les systèmes de gestion des batiments (BMS) ...
 
-OpenStreetMap (aka OSM) est une base de données géographique contributive et gratuite. À la suite du temblement de terre en Haiti, le projet Humanitarian OpenStreetMap Team se forme pour répondre aux besoins des humanitaires et aider à la cartographie des pays en voie de développement. La base a aussi été la cible de vandales (notamment avec la guerre en Urkaine) pour passer des messages de haine et de propagande.
+OpenStreetMap (aka OSM) est une base de données géographique contributive et gratuite (open data). À la suite du temblement de terre en Haiti, le projet Humanitarian OpenStreetMap Team se forme pour répondre aux besoins des humanitaires et aider à la cartographie des pays en voie de développement. La base a aussi été la cible de vandales (notamment avec la guerre en Urkaine) pour passer des messages de haine et de propagande.
 
 > Exercice: recherchez le Mutel dans [www.openstreetmap.org](https://www.openstreetmap.org/relation/109753). [Correction](https://www.openstreetmap.org/search?lat=44.906582&lon=5.782365&zoom=19#map=19/44.906583/5.782365).
 
-[QGIS](https://fr.wikipedia.org/wiki/QGIS) est un logiciel SIG (système d'information géographique) libre.Vous povuez l'installer pour l'essayer.
+[QGIS](https://fr.wikipedia.org/wiki/QGIS) est un logiciel SIG (système d'information géographique) libre. Vous pouvez l'installer pour l'essayer.
 
 [Leaflet](https://leafletjs.com/index.html) est une bibliothèque Javascript libre pour construire des applications web incluant des cartes interactives. Il existe des [dérivés](https://github.com/mapbox/leaflet-omnivore).
 
@@ -215,7 +217,7 @@ Les résultats de la conversion [meharieauparadis.geojson](meharieauparadis.geoj
 
 #### Devoir à la maison: Edition du plan de masse de votre bâtiment
 
-Prenez une photo des écritaux des plans d'évacuation (un par étage en général) de votre bâtiment. Créez le(s) fichier(s) GeoJSON correspondant à ces photos. Convertissez les en fichiers KML pour les visualiser. Importez les dans l'outil QGIS. 
+Prenez une photo des panneaux des plans d'évacuation de votre bâtiment (un par étage en général). Créez le(s) fichier(s) GeoJSON correspondant à partir de ces photos. Convertissez les en fichiers KML pour les visualiser. Importez les dans l'outil QGIS. 
 
 ### Codage des coordonnées
 

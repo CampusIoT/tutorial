@@ -10,6 +10,7 @@
 
 ## Features
 
+* Dimension : 77 x 52 x 7 mm. Weight : 19 grams
 * EMW3166 (ST STM32F412(RG?) + Broadcom BCM43362) Wi-Fi module with 256K SRAM，1M+2M Byte SPI Flash
 * DAP Link emulator
 * Micro USB

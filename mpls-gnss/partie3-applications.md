@@ -10,19 +10,13 @@ Auteur: Didier DONSEZ, GINP-UGA.
 
 En construction
 
-### Système d'information géographique (SIG ou GIS)
+### Applications
 
-Un [Système d'information géographique](https://fr.wikipedia.org/wiki/Syst%C3%A8me_d%27information_g%C3%A9ographique) est un système d'information conçu pour recueillir, stocker, traiter, analyser, gérer et présenter tous les types de données spatiales et géographiques. Les applications sont par exemple, les cadastres, les réseaux d'eau, de gaz, d'électricité, les systèmes de gestion des batiments (BMS) ...
+#### Navigation (terre, mer, air ...)
 
-OpenStreetMap (aka OSM) est une base de données géographique contributive et gratuite. À la suite du temblement de terre en Haiti, le projet Humanitarian OpenStreetMap Team se forme pour répondre aux besoins des humanitaires et aider à la cartographie des pays en voie de développement. La base a aussi été la cible de vandales (notamment avec la guerre en Urkaine) pour passer des messages de haine et de propagande.
+Planification et replanification d'un trajet (navire marchand, avion de ligne, camion ...), d'une tournée (livreur, ordures et déchets, DAB ...) ... en fonction d'information géographique statiques et plus ou dynamiques (état des routes, fermeture de cols, traffic, bouchons, ZFE, courants maritimes, courants atmosphériques ...).
 
-> Exercice: recherchez le Mutel dans [www.openstreetmap.org](https://www.openstreetmap.org/relation/109753). [Correction](https://www.openstreetmap.org/search?lat=44.906582&lon=5.782365&zoom=19#map=19/44.906583/5.782365).
-
-[QGIS](https://fr.wikipedia.org/wiki/QGIS) est un logiciel SIG (système d'information géographique) libre.Vous povuez l'installer pour l'essayer.
-
-[Leaflet](https://leafletjs.com/index.html) est une bibliothèque Javascript libre pour construire des applications web incluant des cartes interactives. Il existe des [dérivés](https://github.com/mapbox/leaflet-omnivore).
-
-### [Géolocalisation](https://fr.wikipedia.org/wiki/G%C3%A9olocalisation)
+#### [Géolocalisation](https://fr.wikipedia.org/wiki/G%C3%A9olocalisation)
 
 La géolocalisation (geotracking en anglais) est un procédé permettant de positionner un objet (valise ...), un véhicule (volé, livreur ...), ou une personne (enfant, malade d'Alzheimer, [détenu à docimile](https://fr.wikipedia.org/wiki/D%C3%A9tention_%C3%A0_domicile), sportif, skieur/randonneur, travailleur isolé, animal de compagnie, chien de chasse ...) sur un plan ou une carte à l'aide de ses coordonnées géographiques. Certains systèmes permettent également de connaître l'altitude (avion, drone, ballons stratosphériques, bouet, satellite LEO ...)
 
@@ -30,7 +24,23 @@ La géolocalisation (geotracking en anglais) est un procédé permettant de posi
 
 Le géorepérage ou gardiennage virtuel (en anglais, geofence ou geofencing) est une fonction d'un logiciel de géolocalisation qui permet de surveiller à distance la position et le déplacement d'un objet et de prendre des mesures si la position ou le déplacement s'écarte de certaines valeurs fixées d'avance.
 
-### Formats de fichiers
+### Systèmes d'information géographique (SIG ou GIS)
+
+Un [Système d'information géographique](https://fr.wikipedia.org/wiki/Syst%C3%A8me_d%27information_g%C3%A9ographique) est un système d'information conçu pour recueillir, stocker, traiter, analyser, gérer et présenter tous les types de données spatiales et géographiques. Les applications sont par exemple, les cadastres, les réseaux d'eau, de gaz, d'électricité, les systèmes de gestion des batiments (BMS) ...
+
+OpenStreetMap (aka OSM) est une base de données géographique contributive et gratuite (open data). À la suite du temblement de terre en Haiti, le projet Humanitarian OpenStreetMap Team se forme pour répondre aux besoins des humanitaires et aider à la cartographie des pays en voie de développement. La base a aussi été la cible de vandales (notamment avec la guerre en Urkaine) pour passer des messages de haine et de propagande.
+
+> Exercice: recherchez le Mutel dans [www.openstreetmap.org](https://www.openstreetmap.org/relation/109753). [Correction](https://www.openstreetmap.org/search?lat=44.906582&lon=5.782365&zoom=19#map=19/44.906583/5.782365).
+
+[QGIS](https://fr.wikipedia.org/wiki/QGIS) est un logiciel SIG (système d'information géographique) libre. Vous pouvez l'installer pour l'essayer.
+
+[Leaflet](https://leafletjs.com/index.html) est une bibliothèque Javascript libre pour construire des applications web incluant des cartes interactives. Il existe des [dérivés](https://github.com/mapbox/leaflet-omnivore).
+
+### Formats de fichiers d'échange
+
+De [nombreux formats de fichier](https://fr.wikipedia.org/wiki/Formats_de_fichier_SIG) sont manipulés par les SIG. Ils permettent l'echange de données de type raster, vectorielle ou modèles numériques de terrain.
+
+Voici quelques modèles (vectoriels) utilisés dans des applications grand public
 
 #### [GPX](https://fr.wikipedia.org/wiki/GPX_(format_de_fichier))
 
@@ -205,9 +215,19 @@ Des utilitaires convertissent les différents formats entre eux. [Par exemple](h
 
 Les résultats de la conversion [meharieauparadis.geojson](meharieauparadis.geojson) et [tour_du_mont_aiguille.geojson](tour_du_mont_aiguille.geojson) peuvent être ouverts et visualisés avec [geojson.io](https://geojson.io)
 
+#### Devoir à la maison: Edition du plan de masse de votre bâtiment
+
+Prenez une photo des panneaux des plans d'évacuation de votre bâtiment (un par étage en général). Créez le(s) fichier(s) GeoJSON correspondant à partir de ces photos. Convertissez les en fichiers KML pour les visualiser. Importez les dans l'outil QGIS. 
+
 ### Codage des coordonnées
 
 #### [GeoCode](https://fr.wikipedia.org/wiki/Code_g%C3%A9ographique)
+
+Code permettant de définir (ou d'identifier) un point, une zone, ou une entité à la surface. Exemple: code postal, [code INSEE](https://fr.wikipedia.org/wiki/Code_Insee) ...
+
+Le [géocodage inversé](https://fr.wikipedia.org/wiki/G%C3%A9ocodage_invers%C3%A9) (*reverse geocoding* en anglais) consiste à effectuer l'opération inverse du géocodage, c'est-à-dire d'attribuer une adresse à des coordonnées géographiques.
+
+Exercice: Testez le service de géocodage inversé [nominatim d'OpenstreetMap](https://nominatim.openstreetmap.org/ui/search.html?street=Bd+Frejus+Michon&city=La+Mure&county=France).
 
 #### [GeoHash](https://fr.wikipedia.org/wiki/Geohash)
 
@@ -243,25 +263,27 @@ Les étiquettes NFC peuvent encoder des coordonnées géographiques dans des cha
 
 ## Mise en application du GNSS au collège et au lycée : le suivi 📡📡📡📡📡 de ballons strastosphériques scientifiques 🎈🎈🎈🎈🎈🎈🎈🎈🎈🎈🎈🎈
 
-Objectif : Embarquer des expériences de sciences physique (température, humidité, pression atmosphérique, mesure UV, qualité de l'air, compteur Geiger) à 30 kms d'altitude.
+Objectif : Embarquer des expériences de sciences physique (température 🌡️, humidité ☁️, pression atmosphérique, mesure UV 🕶️, qualité de l'air 🏭, compteur Geiger ☢️, ultrasons (vitesse de propagation) 🔉, ...) à 30 kms d'altitude.
 
 Matériel:
 * cutter et pistocolle (attention les doigts)
 * les caisses PU de poissonerie 🐟
 * du dusk tape
-* un traceur FSK/LoRa (LoRaWAN, Meshtastic, ...) 📡
-* un module GNSS 🛰️📍 mode ballon 🎈
-* un caméra sport 📷
+* un traceur FSK/LoRa (LoRaWAN, Meshtastic, ...) 📡 avec un module GNSS 🛰️📍 mode ballon 🎈
+* un à trois caméras sport 📷
 * un pack batterie 🔋 dans un isolant thermique (-60°C) 🥶
-* votre expérience scientifique 🔬 ⚛️ 🧪
+* votre expérience scientifique 🔬 ⚛️ 🧪🧬
 
 Rapprochez-vous de [Planète Sciences](https://www.planete-sciences.org/occitanie/web/un-vol-de-ballon-tres-connecte/) pour embarquer des expériences de sciences physique ... !
 
-Contactez les radio-amateurs locaux.
+Contactez les radio-amateurs 📡 locaux.
 
 Rapprochez-vous de nous ([CSUG activités ballons](https://www.csug.fr/projets/ballons-stratospheriques/)) si vous êtes intéressés par des [cartes support pour nanosats et pour ballons](https://gricad-gitlab.univ-grenoble-alpes.fr/thingsat/seed#usage)
 
+![](https://gricad-gitlab.univ-grenoble-alpes.fr/thingsat/seed/-/raw/main/seed_lora-e5-mini/Pictures/SEED_LoRa-E5+xa1110+lambda80-01.jpg)
+
 ![SEED_LoRa-E5-mini-3D_Front](https://gricad-gitlab.univ-grenoble-alpes.fr/thingsat/seed/-/raw/main/seed_lora-e5-mini/Pictures/SEED_LoRa-E5-mini-3D_Front.png)
+
 
 ![](https://www.csug.fr/medias/photo/ballons-strato-1_1730899844859-jpg)
 

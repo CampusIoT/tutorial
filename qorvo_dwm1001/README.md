@@ -130,7 +130,7 @@ Press Enter to repeat the last command
 
 The DWM1001 DEV kit is supported by [RIOT OS](https://github.com/RIOT-OS/RIOT/blob/master/boards/dwm1001/doc.txt).
 
-Follow the [DWM1001 Ranging Tutorial](https://github.com/RIOT-OS/RIOT/blob/master/examples/twr_aloha/README.md)
+Follow the [DWM1001 Ranging Tutorial](https://github.com/RIOT-OS/RIOT/blob/master/examples/advanced/twr_aloha/README.md)
 
 ```bash
 cd ~/github/RIOT-OS/RIOT

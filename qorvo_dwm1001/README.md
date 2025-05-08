@@ -1,4 +1,4 @@
-# Qorvo DWM1001
+# Qorvo DWM1001 DEV
 
 Ultra WideBand (UWB) is one of the technologies for indoor [Real-time locating systems (RTLS)](https://en.wikipedia.org/wiki/Real-time_locating_system) with centimeter accuracy. Ultra WideBand (UWB) measures how long it takes for a radio wave to get from the asset to the anchor or reference point. This is called time of flight (TOF). [more](https://www.pozyx.io/pozyx-academy/how-does-ultra-wideband-work).
 
@@ -25,17 +25,53 @@ https://www.mouser.fr/datasheet/2/412/DWM1001_DEV_Data_Sheet-1950462.pdf
 
 * [DW1000 Metrics for Estimation of NLOS Operating Conditions (Application Note APS006 Part 3) Rev 1.1 – 2016](https://www.qorvo.com/products/d/da008442)
 
+
+## Dev board
+
+![](dwm1001-dev-components.png)
+
+## Power supply
+
+| Power Source |  Voltage level |  Current level (Recommended) |  Notes |
+| - | - | - | - |
+| USB Connection | +5V | 500mA | The board requires a connection to a high power USB connection. Check that it can supply at least 500mA. |
+| Battery | 3.6V - 5.5V | 500mA | Any battery that meets the 3.6V to 5.5V voltage supply will suffice. |
+| Raspberry Pi Power | +5V | 500mA | |
+
+> NB : Dev boards before Nowember 2021 includes a LiPo battery charger.
+
+## Headers
+
+### RPI header
+
+![](dwm1001-dev-pinout-rpi.png)
+
+### GPIO header
+
+See [schematic](DWM1001-DEV%20Schematic.pdf)
+
+
+
+## LEDs
+
+![](dwm1001-dev-leds-01.png)
+![](dwm1001-dev-leds-02.png)
+
 ### UART Shell
 
 See Chapter 6 of [DWM1001 Firmware API Guide](https://www.qorvo.com/products/d/da007975):
 
-Shell mode shares UART interface with Generic mode. DWM1001 starts by default in UART Generic
-mode after reset. The Shell mode can be switched to by pressing ENTER twice within 1 second. The
-Generic mode can be switched to by executing command “quit” when in Shell mode. Shell mode and
-Generic mode can be switched back and forth.
+Shell mode shares UART interface with Generic mode (baudrate is 115200). DWM1001 starts by default in UART Generic
+mode after reset. The Shell mode can be switched to by pressing ENTER twice within 1 second.
+
+The Generic mode can be switched to by executing command “quit” when in Shell mode.
+
+Shell mode and Generic mode can be switched back and forth.
+
 Enter the Shell command and press “Enter” to execute the command. Press “Enter” without any
-command in Shell mode to repeat the last command. The following sub-sections provides overview
-of the Shell commands.
+command in Shell mode to repeat the last command.
+
+The following sub-sections provides overview of the Shell commands.
 
 ```
 dwm> ?
@@ -97,7 +133,8 @@ The DWM1001 DEV kit is supported by [RIOT OS](https://github.com/RIOT-OS/RIOT/bl
 Follow the [DWM1001 Ranging Tutorial](https://github.com/RIOT-OS/RIOT/blob/master/examples/twr_aloha/README.md)
 
 ```bash
-cd examples/twr_aloha
+cd ~/github/RIOT-OS/RIOT
+cd examples/advanced/twr_aloha
 PROGRAMMER=openocd make BOARD=dwm1001 flash
 ```
 
@@ -125,7 +162,7 @@ Iface  3	HWaddr: 4F:AA  Channel: 5  NID: DE:CA
 
 For node #2 (`92:1E`) on terminal 2
 ```bash
-tio -b 115200 -m INLCRNL /dev/tty.usbmodem0007601826991
+tio -b 115200 -m INLCRNL /dev/tty.usbmodem0007601827941
 ```
 
 Send a ranging request:
@@ -169,7 +206,8 @@ TODO:
 
 ## Getting started with Zephyr
 
-TODO
+TODO https://docs.nordicsemi.com/bundle/ncs-latest/page/zephyr/boards/qorvo/decawave_dwm1001_dev/doc/index.html
+
 
 ### References
 * https://github.com/RT-LOC/zephyr-dwm1001
@@ -178,9 +216,13 @@ TODO
 ## Getting started with Apache MyNewT
 
 TODO
-
-### References
 * https://github.com/Decawave/uwb-core
+* https://github.com/Decawave/uwb-apps
+* https://github.com/Decawave/mynewt-dw1000-core
+* https://github.com/Decawave/mynewt-dw1000-apps
+
+## Getting started with Eclipse ThreadX
+
 
 ## Getting started with Arduino
 
@@ -193,7 +235,9 @@ TODO
 
 
 ### References
-https://github.com/thotro/arduino-dw1000
+
+* https://github.com/thotro/arduino-dw1000
+* https://github.com/Decawave/uwb-core
 
 ## Getting started with ROS
 

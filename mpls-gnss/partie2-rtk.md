@@ -118,7 +118,7 @@ Quand le fix GPS est obtenue, la LED orange s'allume
 
 Dans notre cas, c'est `caster.centipede.fr` sur le port `2101` et le point de montage (le plus proche) est `CHA2` ([Chamrousse](http://gnssfr.unice.fr/#/metadata/marker=CHA2)).
 
-> Note: plusieurs casters et [points de montage](https://map.centipede-rtk.org/index.php/view/map/?repository=cent&project=centipede#5.357680,44.716345,6.035399,45.048156|basesrtk,notdeclared|d%C3%A9faut,d%C3%A9faut|1,1) peuvent être ajoutés comme `AVR2`, `ALPE` ou bien `SMH` (à 31 Kms).
+> Note: plusieurs casters et [points de montage](https://map.centipede-rtk.org/index.php/view/map/?repository=cent&project=centipede#5.357680,44.716345,6.035399,45.048156|basesrtk,notdeclared|d%C3%A9faut,d%C3%A9faut|1,1) peuvent être ajoutés comme `AVR2`, `ALPE` ou bien `SMH` (à l'IGE, Saint Martin d'Hères (31 Kms)) ou `TMAC` (au Tarmac, Meylan).
 
 ![](SWMaps-NTRIPClient-centipede.jpg)
 
@@ -169,9 +169,9 @@ Son adresse NTRIP est `crtk.net` et le port est `2101`. Vous pouvez choisir un a
 
 **10) Inspectez quelques unes de stations de référence utilisées**
 
-* `CHA2` ([Chamrousse](http://gnssfr.unice.fr/#/metadata/marker=CHA2)
-* `AVR2` ([Avignonet](http://gnssfr.unice.fr/#/metadata/marker=AVR2)
-* `ALPE` ([Alpe d'Huez](http://gnssfr.unice.fr/#/metadata/marker=ALPE)
+* `CHA2` ([Chamrousse](http://gnssfr.unice.fr/#/metadata/marker=CHA2))
+* `AVR2` ([Avignonet](http://gnssfr.unice.fr/#/metadata/marker=AVR2))
+* `ALPE` ([Alpe d'Huez](http://gnssfr.unice.fr/#/metadata/marker=ALPE))
 
 ![CHA2](bs-cha2.jpg) ![AVR2](bs-avr2.jpg) ![ALPE](bs-alpe.jpg)
 

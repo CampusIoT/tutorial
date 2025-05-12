@@ -228,11 +228,14 @@ void loop() {
     uint8_t buf[RH_RF95_MAX_MESSAGE_LEN];
     uint8_t len = sizeof(buf);
 
-    Serial.println("Receiving ...");
+    Serial.print("Receiving .");
 
-    while (!rf95.available()) {
+    while (!rf95.waitAvailableTimeout(1000)) {
       // Should be a message for us now
+      Serial.print(".");
     }
+
+    Serial.println();
 
     if (rf95.recv(buf, &len)) {
       digitalWrite(LED_BUILTIN, HIGH);

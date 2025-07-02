@@ -45,6 +45,14 @@ https://wiki.seeedstudio.com/xiao_nrf52840&_wio_SX1262_kit_for_meshtastic/
 
 https://wiki.seeedstudio.com/xiao_esp32s3_&_wio_SX1262_kit_for_meshtastic/
 
+
+## Getting started with TinyML and Edge Impulse
+
+https://mjrovai.github.io/XIAO_Big_Power_Small_Board-ebook/chapter_4.html
+
+https://docs.edgeimpulse.com/docs/edge-ai-hardware/mcu/seeed-xiao-nrf52840-sense
+
+
 ## Ressources
 
 https://wiki.seeedstudio.com/Seeeduino-XIAO/#resourses

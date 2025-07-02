@@ -6,9 +6,10 @@
 * XIAO RP2040, [XIAO RP2340](https://wiki.seeedstudio.com/getting-started-xiao-rp2350/)
 * XIAO ESP32C3, XIAO ESP32S3
 
-## Extension
+## Extensions
 
-* LoRa SX1262
+* [XIAO LoRa SX1262 board](https://wiki.seeedstudio.com/wio_sx1262/)
+* XIAO [LoRa LR2021](https://www.semtech.fr/products/wireless-rf/lora-plus/lr2021) board
 
 
 ## Pinout

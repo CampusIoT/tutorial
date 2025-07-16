@@ -82,7 +82,17 @@ https://meshtastic.org/docs/hardware/devices/
 * https://www.passion-radio.fr/materiel-wifi/sx-1262-433-2825.html
 * https://www.passion-radio.fr/materiel-wifi/tbeam-sx1262-2823.html
 * [Seeedstudio Wio-WM1110](https://wiki.seeedstudio.com/Wio-WM/Introduction/) https://meshtastic.org/docs/hardware/devices/seeed-studio/wm1110/
+* https://www.seeedstudio.com/SenseCAP-Solar-Node-P1-Pro-for-Meshtastic-LoRa-p-6412.html
 
+## Produits distribués en France
+
+* https://www.gotronic.fr/art-carte-seeed-xiao-rp2350-39742.htm
+* https://www.gotronic.fr/art-shield-xiao-wio-sx1262-47632.htm
+* https://www.gotronic.fr/art-carte-xiao-esp32s3-36954.htm
+* https://www.gotronic.fr/art-carte-xiao-ble-sense-soud--47617.htm
+* https://www.gotronic.fr/art-sensecap-tracker-t1000-e-40059.htm
+* https://www.gotronic.fr/art-xiao-esp32s3-mash-lora-40055.htm
+* https://www.passion-radio.fr/module/twatch-868-3044.html (la Classe à Dallas)
 
 ## Firmware
 

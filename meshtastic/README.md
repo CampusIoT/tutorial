@@ -35,9 +35,13 @@ Meshtastic adopts CSMA/CA, similar as to what is used in WiFi. This means that a
 
 Message payloads are serialized using Protobuf. `.proto` definitions are listed [here](https://github.com/meshtastic/protobufs/tree/master/meshtastic) and documented [here](https://buf.build/meshtastic/protobufs/docs/main:meshtastic#) 
 
+[Online proto decoder](https://map.gaulix.fr/proto-decoder)
+
 ## Payload encryption
 
 https://meshtastic.org/docs/overview/encryption
+
+`None`, `8 bits`, `128 bits`, `256 bits`
 
 Message payloads can be encrypted using [AES256-CTR](https://meshtastic.org/docs/overview/encryption/).
 
@@ -63,6 +67,10 @@ There is one frequency slot defined with the standard radio preset LongFast. Aft
 
 It is worth noting that 868 MHz is generally the most popular frequency band for Meshtastic in Europe.
 
+Datarates is community-dependent
+
+For instance: Gaulix in France (Long Moderate, Long Fast)
+
 ### 2400-2483 MHz
 
 TODO
@@ -86,12 +94,11 @@ https://meshtastic.org/docs/hardware/devices/
 
 ## Produits distribués en France
 
-* https://www.gotronic.fr/art-carte-seeed-xiao-rp2350-39742.htm
-* https://www.gotronic.fr/art-shield-xiao-wio-sx1262-47632.htm
-* https://www.gotronic.fr/art-carte-xiao-esp32s3-36954.htm
-* https://www.gotronic.fr/art-carte-xiao-ble-sense-soud--47617.htm
-* https://www.gotronic.fr/art-sensecap-tracker-t1000-e-40059.htm
 * https://www.gotronic.fr/art-xiao-esp32s3-mash-lora-40055.htm
+* https://www.gotronic.fr/art-carte-seeed-xiao-rp2350-39742.htm + [Xiao SX1262](https://www.gotronic.fr/art-shield-xiao-wio-sx1262-47632.htm)
+* https://www.gotronic.fr/art-carte-xiao-esp32s3-36954.htm + [Xiao SX1262](https://www.gotronic.fr/art-shield-xiao-wio-sx1262-47632.htm)
+* https://www.gotronic.fr/art-carte-xiao-ble-sense-soud--47617.htm + [Xiao SX1262](https://www.gotronic.fr/art-shield-xiao-wio-sx1262-47632.htm)
+* https://www.gotronic.fr/art-sensecap-tracker-t1000-e-40059.htm
 * https://www.passion-radio.fr/module/twatch-868-3044.html (la Classe à Dallas)
 
 ## Firmware

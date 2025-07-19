@@ -77,16 +77,21 @@ https://meshtastic.org/docs/hardware/devices/
 
 ### @Fablab FabMaSTIC
 
-* WisBlock with RAK11300 RP2040 SX1262 https://store.rakwireless.com/products/wisduo-lpwan-module-rak11300
-* https://lilygo.cc/products/t-beam-supreme-meshtastic
-* https://www.passion-radio.fr/materiel-wifi/sx-1262-433-2825.html
-* https://www.passion-radio.fr/materiel-wifi/tbeam-sx1262-2823.html
+* [WisBlock with RAK11300 RP2040 SX1262](../wisblock-rak11300-lpwan) + [RAK1910 GPS MAX-7Q](https://store.rakwireless.com/collections/wisblock-sensor/products/rak1910-max-7q-gnss-location-sensor?variant=35614325964958)
+* [LILYGO T-Beam SUPREME 868 MHz](https://lilygo.cc/products/t-beam-supreme-meshtastic)
+* [LILYGO T-Beam SUPREME 433 MHz](https://lilygo.cc/products/t-beam-supreme-meshtastic)
 * [Seeedstudio Wio-WM1110](https://wiki.seeedstudio.com/Wio-WM/Introduction/) https://meshtastic.org/docs/hardware/devices/seeed-studio/wm1110/
 
 
 ## Firmware
 
 * https://github.com/meshtastic/firmware
+
+## Flasher
+
+* https://flasher.meshtastic.org/
+
+Requires a compatible browser, such as Chrome or Edge for serial flashing
 
 ## Python CLI
 
@@ -128,6 +133,17 @@ https://meshtastic.org/docs/software/integrations/mqtt/nodered/
 
 
 ## Misc
+
+WebClient
+
+https://client.meshtastic.org/
+
+Self hosting https://github.com/meshtastic/web
+
+```bash
+docker run -d -p 8080:8080 --restart always --name Meshtastic-Web ghcr.io/meshtastic/web
+```
+
 
 ### Meshtastic site planner
 

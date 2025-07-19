@@ -67,6 +67,19 @@ static uint32_t count_fail = 0;
 
 bool send_now = false;
 
+inline void print_ba(uint8_t *buf, size_t len) {
+  for (int i = 0; i < len; i++) Serial.print(buf[i], HEX);
+}
+
+void print_deveui(uint8_t *deveui) {
+  print_ba(deveui, 8);
+}
+
+void print_aes128key(uint8_t *key) {
+  print_ba(key, 16);
+}
+
+
 void setup()
 {
   pinMode(LED_BUILTIN, OUTPUT);
@@ -95,6 +108,7 @@ void setup()
   if (doOTAA)
   {
     Serial.println("Type: OTAA");
+
   }
   else
   {
@@ -148,6 +162,10 @@ void setup()
   // Setup the EUIs and Keys
   if (doOTAA)
   {
+    Serial.print("DevEUI: "); print_deveui(nodeDeviceEUI); Serial.println();
+    Serial.print("AppEUI: "); print_deveui(nodeAppEUI); Serial.println();
+    Serial.print("AppKey: "); print_aes128key(nodeAppKey); Serial.println();
+
     lmh_setDevEui(nodeDeviceEUI);
     lmh_setAppEui(nodeAppEUI);
     lmh_setAppKey(nodeAppKey);
@@ -192,10 +210,6 @@ void loop()
 #endif
 }
 
-
-void print_aes128key(uint8_t *key) {
-  for (int i = 0; i < 16; i++) Serial.print(key[i], HEX);
-}
 
 /**@brief LoRa function for handling HasJoined event.
 */

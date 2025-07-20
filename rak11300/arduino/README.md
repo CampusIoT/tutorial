@@ -23,7 +23,7 @@ Open the Serial console (Baudrate `115200`).
 
 ## Battery level
 
-Open, Build and Upload the skeich `File > Examples > Examples for Wisblock RAK11300 > RAK11300 Read Battery Level`
+Open, Build and Upload the sketch `File > Examples > Examples for Wisblock RAK11300 > RAK11300 Read Battery Level`
 
 ```
 =====================================

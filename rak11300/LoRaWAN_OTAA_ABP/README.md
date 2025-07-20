@@ -29,6 +29,24 @@ Region: EU868
 DevEUI: AC1F9FFFE6B96A
 AppEUI: 00000000
 AppKey: 3C2A813B72E53FD0662C5BB480E87B41
+OTAA join failed!
+Check your EUI's and Keys's!
+Check if a Gateway is in range!
+```
+
+Register the device onto your favorite LNS with `DevEUI`, `AppEUI` and `AppKey`. The payload decoder is [here](./decoder.js)
+
+Reset the board for rebooting.
+
+```
+=====================================
+Welcome to RAK11300 LoRaWan!!!
+Type: OTAA
+Region: EU868
+=====================================
+DevEUI: AC1F9FFFE6B96A
+AppEUI: 00000000
+AppKey: 3C2A813B72E53FD0662C5BB480E87B41
 OTAA Mode, Network Joined with devAddr FC00ACD1
 NwkSkey: 76CD80F6914730D6CC97A339A95AEC1
 AppSkey: 69D8FEBC60D3B05D8128F7A910EAD4C
@@ -46,3 +64,9 @@ LoRa Packet received on port 10, size:6, rssi:-53, snr:14, data:HELLO
 
 
 ```
+
+## ToDoList
+
+* [ ] add last Downlink RSSI and SNR into the Uplink text payload
+* [ ] add LinkCheck
+* [ ] print configured DR and TxPower

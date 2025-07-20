@@ -61,4 +61,6 @@ LoRa Packet received on port 10, size:6, rssi:-53, snr:14, data:HELLO
 * [ ] retry progressively Join procedure with slower DRs and higher Tx Power.
 * [ ] blink `LED_GREEN` and `LED_BLUE` when join, tx, rx ...
 * [ ] add [GPS position](https://github.com/RAKWireless/WisBlock/blob/master/examples/RAK4630/solutions/GPS_Tracker/GPS_Tracker.ino) into the text message if GPS fixed
+* [ ] add battery level. See sketches `File > Examples > Examples for Wisblock RAK11300 > RAK11300 Read Battery Level` and `File > Examples > Examples for Wisblock RAK11300 >  IO > RAK19006_WirelessCharger`
 * [ ] format message according [AX25/APRS](https://github.com/thingsat/riot_modules/blob/main/apps/basic_mission/aprs.c)
+* [ ] format message according Cayenne LPP

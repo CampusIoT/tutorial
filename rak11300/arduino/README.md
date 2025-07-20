@@ -20,3 +20,27 @@ Build and upload a sketch from `File > Examples > Examples for Wisblock RAK11300
 
 Open the Serial console (Baudrate `115200`).
 
+
+## Battery level
+
+Open, Build and Upload the skeich `File > Examples > Examples for Wisblock RAK11300 > RAK11300 Read Battery Level`
+
+```
+=====================================
+RAK11300 Battery test
+=====================================
+The ADC value is:2772
+The battery voltage is: 4124.39 V
+The ADC value is:2795
+The battery voltage is: 4158.61 V
+LIPO = 4158.61 mV (93%)  Battery 239
+The ADC value is:2894
+The battery voltage is: 4305.91 V
+LIPO = 4305.91 mV (115%)  Battery 39
+The ADC value is:2759
+The battery voltage is: 4105.05 V
+LIPO = 4105.05 mV (85%)  Battery 218
+...
+```
+
+

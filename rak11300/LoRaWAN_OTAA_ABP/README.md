@@ -12,13 +12,13 @@ Select `RAK11300` into `Tools > Board > RAKwireless RP Boards`
 
 Select the serial port;
 
-## Select board
+## Build, Upload and Run
 
-Turn Pico in UF2 mode : leave Boot button pressed while plug the USB connector.
+Turn Pico in UF2 mode : leave Boot button pressed while plug the USB connector (Note: remove the battery connector if it is plugged).
 
-Build and upload the shetck
+Build and upload the sketch.
 
-Open the Serial console (Baudrate 115200): 
+Open the Serial console (Baudrate `115200`).
 
 ```
 =====================================
@@ -70,3 +70,4 @@ LoRa Packet received on port 10, size:6, rssi:-53, snr:14, data:HELLO
 * [ ] add last Downlink RSSI and SNR into the Uplink text payload
 * [ ] add LinkCheck
 * [ ] print configured DR and TxPower
+* [ ] retry progressively Join procedure with slower DRs and higher Tx Power.

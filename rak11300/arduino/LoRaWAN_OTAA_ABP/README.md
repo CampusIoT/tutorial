@@ -71,3 +71,6 @@ LoRa Packet received on port 10, size:6, rssi:-53, snr:14, data:HELLO
 * [ ] add LinkCheck
 * [ ] print configured DR and TxPower
 * [ ] retry progressively Join procedure with slower DRs and higher Tx Power.
+* [ ] blink `LED_GREEN` and `LED_BLUE` when join, tx, rx ...
+* [ ] add [GPS position](https://github.com/RAKWireless/WisBlock/blob/master/examples/RAK4630/solutions/GPS_Tracker/GPS_Tracker.ino) into the text message if GPS fixed
+* [ ] format message according [AX25/APRS](https://github.com/thingsat/riot_modules/blob/main/apps/basic_mission/aprs.c)

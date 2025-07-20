@@ -4,7 +4,7 @@ The [RAK11300 WisDuo LPWAN module](https://docs.rakwireless.com/product-categori
 
 * [AT commands](https://docs.rakwireless.com/product-categories/wisduo/rak11300-module/at-command-manual/)
 * [Development with Arduino](arduino)
-* [Development with PlatformIO]([arduino](https://learn.rakwireless.com/hc/en-us/articles/26687276346775-How-To-Perform-Installation-of-Board-Support-Package-in-PlatformIO?_gl=1*1pebxns*_gcl_au*MTI3NzM5Mzc5My4xNzUyOTk0MDMx))
+* [Development with PlatformIO](platformio)
 * [Development with RUI](rui)
 * [Development with Meshtastic](meshtastic)
 

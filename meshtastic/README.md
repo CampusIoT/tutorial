@@ -110,15 +110,336 @@ https://meshtastic.org/docs/hardware/devices/
 
 Requires a compatible browser, such as Chrome or Edge for serial flashing
 
-## Python CLI
+## Meshtastic Python CLI
 
 * https://meshtastic.org/docs/software/python/cli/
 
-```
+### Install
+
+```bash
 pip3 install --upgrade pytap2
 pip3 install --upgrade meshtastic
 meshtastic --help
 ```
+
+> if error `AttributeError: module 'serial' has no attribute 'Serial'` occurs :
+```bash
+pip uninstall serial
+pip uninstall pyserial
+pip3 uninstall serial
+pip3 uninstall pyserial
+pip3 install pyserial
+```
+
+```bash
+meshtastic --help
+usage: meshtastic [-h | --version | --support] [--port [PORT] | --host [HOST]
+                  | --ble [BLE]] [--ble-scan] [--dest !xxxxxxxx]
+                  [--ch-index INDEX] [--configure CONFIGURE]
+                  [--export-config [FILE]] [--get FIELD] [--set FIELD VALUE]
+                  [--begin-edit] [--commit-edit] [--get-canned-message]
+                  [--set-canned-message SET_CANNED_MESSAGE] [--get-ringtone]
+                  [--set-ringtone RINGTONE] [--ch-vlongslow] [--ch-longslow]
+                  [--ch-longfast] [--ch-medslow] [--ch-medfast]
+                  [--ch-shortslow] [--ch-shortfast] [--set-owner SET_OWNER]
+                  [--set-owner-short SET_OWNER_SHORT] [--set-ham SET_HAM]
+                  [--set-is-unmessageable SET_IS_UNMESSAGEABLE]
+                  [--ch-set-url URL] [--ch-add-url URL] [--setalt SETALT]
+                  [--setlat SETLAT] [--setlon SETLON] [--remove-position]
+                  [--pos-fields [POS_FIELDS ...]] [--ch-add CH_ADD] [--ch-del]
+                  [--ch-set FIELD VALUE] [--channel-fetch-attempts ATTEMPTS]
+                  [--qr] [--qr-all] [--ch-enable] [--ch-disable] [--info]
+                  [--nodes] [--show-fields SHOW_FIELDS] [--sendtext TEXT]
+                  [--private] [--traceroute !xxxxxxxx]
+                  [--request-telemetry [TYPE]] [--request-position] [--reply]
+                  [--reboot | --reboot-ota | --enter-dfu | --shutdown | --device-metadata | --factory-reset | --factory-reset-device | --remove-node !xxxxxxxx | --set-favorite-node !xxxxxxxx | --remove-favorite-node !xxxxxxxx | --set-ignored-node !xxxxxxxx | --remove-ignored-node !xxxxxxxx | --reset-nodedb | --set-time [TIMESTAMP]]
+                  [--seriallog [LOG_DESTINATION]] [--ack] [--timeout SECONDS]
+                  [--no-nodes] [--debug] [--test]
+                  [--wait-to-disconnect [SECONDS]] [--noproto] [--listen]
+                  [--no-time]
+                  [--power-riden POWER_RIDEN | --power-ppk2-meter | --power-ppk2-supply | --power-sim]
+                  [--power-voltage POWER_VOLTAGE] [--power-stress]
+                  [--power-wait] [--slog [SLOG]]
+                  [--gpio-wrb GPIO_WRB GPIO_WRB] [--gpio-rd GPIO_RD]
+                  [--gpio-watch GPIO_WATCH]
+
+Help:
+  -h, --help            show this help message and exit
+  --version             show program's version number and exit
+  --support             Show support info (useful when troubleshooting an
+                        issue)
+
+Connection:
+  Optional arguments that specify how to connect to a Meshtastic device.
+
+  --port [PORT], --serial [PORT], -s [PORT]
+                        The port of the device to connect to using serial,
+                        e.g. /dev/ttyUSB0. (defaults to trying to detect a
+                        port)
+  --host [HOST], --tcp [HOST], -t [HOST]
+                        Connect to a device using TCP, optionally passing
+                        hostname or IP address to use. (defaults to
+                        'localhost')
+  --ble [BLE], -b [BLE]
+                        Connect to a BLE device, optionally specifying a
+                        device name (defaults to 'any')
+  --ble-scan            Scan for Meshtastic BLE devices that may be available
+                        to connect to
+
+Selection:
+  Arguments that select channels to use, destination nodes, etc.
+
+  --dest !xxxxxxxx      The destination node id for any sent commands. If not
+                        set '^all' or '^local' is assumed.Use the node ID with
+                        a '!' or '0x' prefix or the node number.
+  --ch-index INDEX      Set the specified channel index for channel-specific
+                        commands. Channels start at 0 (0 is the PRIMARY
+                        channel).
+
+Import/Export:
+  Arguments that concern importing and exporting configuration of Meshtastic
+  devices
+
+  --configure CONFIGURE
+                        Specify a path to a yaml(.yml) file containing the
+                        desired settings for the connected device.
+  --export-config [FILE]
+                        Export device config as YAML (to stdout if no file
+                        given)
+
+Configuration:
+  Arguments that concern general configuration of Meshtastic devices
+
+  --get FIELD           Get a preferences field. Use an invalid field such as
+                        '0' to get a list of all fields. Can use either
+                        snake_case or camelCase format. (ex: 'power.ls_secs'
+                        or 'power.lsSecs')
+  --set FIELD VALUE     Set a preferences field. Can use either snake_case or
+                        camelCase format. (ex: 'power.ls_secs' or
+                        'power.lsSecs'). May be less reliable when setting
+                        properties from more than one configuration section.
+  --begin-edit          Tell the node to open a transaction to edit settings
+  --commit-edit         Tell the node to commit open settings transaction
+  --get-canned-message  Show the canned message plugin message
+  --set-canned-message SET_CANNED_MESSAGE
+                        Set the canned messages plugin message (up to 200
+                        characters).
+  --get-ringtone        Show the stored ringtone
+  --set-ringtone RINGTONE
+                        Set the Notification Ringtone (up to 230 characters).
+  --ch-vlongslow        Change to the very long-range and slow modem preset
+  --ch-longslow         Change to the long-range and slow modem preset
+  --ch-longfast         Change to the long-range and fast modem preset
+  --ch-medslow          Change to the med-range and slow modem preset
+  --ch-medfast          Change to the med-range and fast modem preset
+  --ch-shortslow        Change to the short-range and slow modem preset
+  --ch-shortfast        Change to the short-range and fast modem preset
+  --set-owner SET_OWNER
+                        Set device owner name
+  --set-owner-short SET_OWNER_SHORT
+                        Set device owner short name
+  --set-ham SET_HAM     Set licensed Ham ID and turn off encryption
+  --set-is-unmessageable SET_IS_UNMESSAGEABLE, --set-is-unmessagable SET_IS_UNMESSAGEABLE
+                        Set if a node is messageable or not
+  --ch-set-url URL, --seturl URL
+                        Set all channels and set LoRa config from a supplied
+                        URL
+  --ch-add-url URL      Add secondary channels and set LoRa config from a
+                        supplied URL
+
+Position Configuration:
+  Arguments that modify fixed position and other position-related
+  configuration.
+
+  --setalt SETALT       Set device altitude in meters (allows use without
+                        GPS), and enable fixed position. When providing
+                        positions with `--setlat`, `--setlon`, and `--setalt`,
+                        missing values will be set to 0.
+  --setlat SETLAT       Set device latitude (allows use without GPS), and
+                        enable fixed position. Accepts a decimal value or an
+                        integer premultiplied by 1e7. When providing positions
+                        with `--setlat`, `--setlon`, and `--setalt`, missing
+                        values will be set to 0.
+  --setlon SETLON       Set device longitude (allows use without GPS), and
+                        enable fixed position. Accepts a decimal value or an
+                        integer premultiplied by 1e7. When providing positions
+                        with `--setlat`, `--setlon`, and `--setalt`, missing
+                        values will be set to 0.
+  --remove-position     Clear any existing fixed position and disable fixed
+                        position.
+  --pos-fields [POS_FIELDS ...]
+                        Specify fields to send when sending a position. Use no
+                        argument for a list of valid values. Can pass multiple
+                        values as a space separated list like this: '--pos-
+                        fields ALTITUDE HEADING SPEED'
+
+Channel Configuration:
+  Arguments that concern configuration of channels
+
+  --ch-add CH_ADD       Add a secondary channel, you must specify a channel
+                        name
+  --ch-del              Delete the ch-index channel
+  --ch-set FIELD VALUE  Set a channel parameter. To see channel settings
+                        available:'--ch-set all all --ch-index 0'. Can set the
+                        'psk' using this command. To disable encryption on
+                        primary channel:'--ch-set psk none --ch-index 0'. To
+                        set encryption with a new random key on second
+                        channel:'--ch-set psk random --ch-index 1'. To set
+                        encryption back to the default:'--ch-set psk default
+                        --ch-index 0'. To set encryption with your own key: '
+                        --ch-set psk 0x1a1a1a1a2b2b2b2b1a1a1a1a2b2b2b2b1a1a1a1
+                        a2b2b2b2b1a1a1a1a2b2b2b2b --ch-index 0'.
+  --channel-fetch-attempts ATTEMPTS
+                        Attempt to retrieve channel settings for --ch-set this
+                        many times before giving up. Default 3.
+  --qr                  Display a QR code for the node's primary channel (or
+                        all channels with --qr-all). Also shows the shareable
+                        channel URL.
+  --qr-all              Display a QR code and URL for all of the node's
+                        channels.
+  --ch-enable           Enable the specified channel. Use --ch-add instead
+                        whenever possible.
+  --ch-disable          Disable the specified channel Use --ch-del instead
+                        whenever possible.
+
+Local Actions:
+  Arguments that take actions or request information from the local node
+  only.
+
+  --info                Read and display the radio config information
+  --nodes               Print Node List in a pretty formatted table
+  --show-fields SHOW_FIELDS
+                        Specify fields to show (comma-separated) when using
+                        --nodes
+
+Remote Actions:
+  Arguments that take actions or request information from either the local
+  node or remote nodes via the mesh.
+
+  --sendtext TEXT       Send a text message. Can specify a destination '--
+                        dest', use of PRIVATE_APP port '--private', and/or
+                        channel index '--ch-index'.
+  --private             Optional argument for sending text messages to the
+                        PRIVATE_APP port. Use in combination with --sendtext.
+  --traceroute !xxxxxxxx
+                        Traceroute from connected node to a destination. You
+                        need pass the destination ID as argument, like this: '
+                        --traceroute !ba4bf9d0' | '--traceroute
+                        0xba4bf9d0'Only nodes with a shared channel can be
+                        traced.
+  --request-telemetry [TYPE]
+                        Request telemetry from a node. With an argument,
+                        requests that specific type of telemetry. You need to
+                        pass the destination ID as argument with '--dest'. For
+                        repeaters, the nodeNum is required.
+  --request-position    Request the position from a node. You need to pass the
+                        destination ID as an argument with '--dest'. For
+                        repeaters, the nodeNum is required.
+  --reply               Reply to received messages
+
+Remote Admin Actions:
+  Arguments that interact with local node or remote nodes via the mesh,
+  requiring admin access.
+
+  --reboot              Tell the destination node to reboot
+  --reboot-ota          Tell the destination node to reboot into factory
+                        firmware (ESP32)
+  --enter-dfu           Tell the destination node to enter DFU mode (NRF52)
+  --shutdown            Tell the destination node to shutdown
+  --device-metadata     Get the device metadata from the node
+  --factory-reset, --factory-reset-config
+                        Tell the destination node to install the default
+                        config, preserving BLE bonds & PKI keys
+  --factory-reset-device
+                        Tell the destination node to install the default
+                        config and clear BLE bonds & PKI keys
+  --remove-node !xxxxxxxx
+                        Tell the destination node to remove a specific node
+                        from its NodeDB. Use the node ID with a '!' or '0x'
+                        prefix or the node number.
+  --set-favorite-node !xxxxxxxx
+                        Tell the destination node to set the specified node to
+                        be favorited on the NodeDB. Use the node ID with a '!'
+                        or '0x' prefix or the node number.
+  --remove-favorite-node !xxxxxxxx
+                        Tell the destination node to set the specified node to
+                        be un-favorited on the NodeDB. Use the node ID with a
+                        '!' or '0x' prefix or the node number.
+  --set-ignored-node !xxxxxxxx
+                        Tell the destination node to set the specified node to
+                        be ignored on the NodeDB. Use the node ID with a '!'
+                        or '0x' prefix or the node number.
+  --remove-ignored-node !xxxxxxxx
+                        Tell the destination node to set the specified node to
+                        be un-ignored on the NodeDB. Use the node ID with a
+                        '!' or '0x' prefix or the node number.
+  --reset-nodedb        Tell the destination node to clear its list of nodes
+  --set-time [TIMESTAMP]
+                        Set the time to the provided unix epoch timestamp, or
+                        the system's current time if omitted or 0.
+
+Miscellaneous arguments:
+  --seriallog [LOG_DESTINATION]
+                        Log device serial output to either 'none' or a
+                        filename to append to. Defaults to 'stdout' if no
+                        filename specified.
+  --ack                 Use in combination with compatible actions (e.g.
+                        --sendtext) to wait for an acknowledgment.
+  --timeout SECONDS     How long to wait for replies. Default 300s.
+  --no-nodes            Request that the node not send node info to the
+                        client. Will break things that depend on the nodedb,
+                        but will speed up startup. Requires 2.3.11+ firmware.
+  --debug               Show API library debug log messages
+  --test                Run stress test against all connected Meshtastic
+                        devices
+  --wait-to-disconnect [SECONDS]
+                        How many seconds to wait before disconnecting from the
+                        device.
+  --noproto             Don't start the API, just function as a dumb serial
+                        terminal.
+  --listen              Just stay open and listen to the protobuf stream.
+                        Enables debug logging.
+  --no-time             Deprecated. Retained for backwards compatibility in
+                        scripts, but is a no-op.
+
+Power Testing:
+  Options for power testing/logging.
+
+  --power-riden POWER_RIDEN
+                        Talk to a Riden power-supply. You must specify the
+                        device path, i.e. /dev/ttyUSBxxx
+  --power-ppk2-meter    Talk to a Nordic Power Profiler Kit 2 (in meter mode)
+  --power-ppk2-supply   Talk to a Nordic Power Profiler Kit 2 (in supply mode)
+  --power-sim           Use a simulated power meter (for development)
+  --power-voltage POWER_VOLTAGE
+                        Set the specified voltage on the power-supply. Be VERY
+                        careful, you can burn things up.
+  --power-stress        Perform power monitor stress testing, to capture a
+                        power consumption profile for the device (also
+                        requires --power-mon)
+  --power-wait          Prompt the user to wait for device reset before
+                        looking for device serial ports (some boards kill
+                        power to USB serial port)
+  --slog [SLOG]         Store structured-logs (slogs) for this run, optionally
+                        you can specify a destination directory
+
+Remote Hardware:
+  Arguments related to the Remote Hardware module
+
+  --gpio-wrb GPIO_WRB GPIO_WRB
+                        Set a particular GPIO # to 1 or 0
+  --gpio-rd GPIO_RD     Read from a GPIO mask (ex: '0x10')
+  --gpio-watch GPIO_WATCH
+                        Start watching a GPIO mask for changes (ex: '0x10')
+
+If no connection arguments are specified, we search for a compatible serial
+device, and if none is found, then attempt a TCP connection to localhost.
+```
+
+
+
+
+### Serial
 
 ```bash
 ls -al /dev/tty.*
@@ -131,11 +452,58 @@ meshtastic --export-config --port $PORT > example_config.yaml
 meshtastic --port /dev/ttyUSB0 --seriallog
 
 meshtastic -t meshtastic.local --seriallog log.txt
+```
 
+
+### [CLI thru BLE](https://meshtastic.org/docs/software/python/cli/usage/#utilizing-ble-via-the-python-cli)
+
+```bash
+meshtastic --ble-scan
+```
+
+```
+INFO file:ble_interface.py scan line:127 Scanning for BLE devices (takes 10 seconds)...
+Found: name='LIG1_230f' address='XXXX-7BC9-4A3F-D452-XXXX'
+BLE scan finished
+```
+
+```bash
+BLENAME=LIG1_230f
+BLEADDRESS=XXXX-7BC9-4A3F-D452-XXXX
+meshtastic --ble $BLENAME --info
+meshtastic --ble $BLENAME --info > $BLENAME.config.txt
+cat $BLENAME.config.txt
+meshtastic --ble $BLENAME --export-config > $BLENAME.config.yml
+cat $BLENAME.config.yml
+meshtastic --ble $BLEADDRESS --nodes
+```
+
+### Remote Admin
+
+https://meshtastic.org/docs/configuration/remote-admin/
+
+```bash
+meshtastic --set security.admin_key "base64:PASTEPUBLICKEYHERE"
+```
+
+
+### Configuration
+
+set a node at a fixed position and never power up the GPS.
+```bash
+meshtastic --setlat 45.19025 --setlon 5.7674068 --setalt 240
+```
+
+set a ringtone
+```bash
 meshtastic --set-ringtone "LeisureSuit:d=16,o=6,b=56:f.5,f#.5,g.5,g#5,32a#5,f5,g#.5,a#.5,32f5,g#5,32a#5,g#5,8c#.,a#5,32c#,a5,a#.5,c#.,32a5,a#5,32c#,d#,8e,c#.,f.,f.,f.,f.,f,32e,d#,8d,a#.5,e,32f,e,32f,c#,d#.,c#"
 ```
 
-Meshtastic Web is a Meshtastic client that runs directly in your browser. There are three ways of accessing the app: Served directly from an ESP32 based node via meshtastic.local or the device's IP Address.1
+
+
+## Meshtastic Web
+
+[Meshtastic Web](https://client.meshtastic.org/) is a Meshtastic client that runs directly in your browser (Chrome). There are three ways of accessing the app: Served directly from an ESP32 based node via meshtastic.local or the device's IP Address.
 
 https://github.com/lyusupov/SoftRF/wiki/Prime-Edition-MkIII#quick-start
 

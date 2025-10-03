@@ -77,6 +77,41 @@ Time from pool.ntp.org, now is (UTC): Mon Jan  6 21:28:00 2025
 >>> Failed to send telemetry data: Http fault.
 ```
 
+
+> press Button A and reset
+```
+************************************************
+** MXChip - Microsoft IoT Developer Kit **
+************************************************
+Configuration console:
+ - help: Help document.
+ - version: System version.
+ - exit: Exit and reboot.
+ - scan: Scan Wi-Fi AP.
+ - set_wifissid: Set Wi-Fi SSID.
+ - set_wifipwd: Set Wi-Fi password.
+ - set_az_iothub: Set the connection string of Microsoft Azure IoT Hub.
+ - set_dps_uds: Set DPS Unique Device Secret (DPS).
+ - enable_secure: Enable secure channel between AZ3166 and secure chip.
+
+# scan
+Available networks:
+  eduroam
+  wifi-campus
+  eduroam
+  FreeWifi_secure
+  Freebox-xxxxxx
+
+# version
+DevKitSDK version: 1.3.2
+Mico version: 31620002.049
+mbed-os version: 5.2.1
+mbed TLS version: 2.4.2
+WIFI version: wl0: Sep 10 2014 11:28:46 version 5.90.230.10 
+
+```
+
+
 ## Notes for Arduino
 
 * https://jeremylindsayni.wordpress.com/category/arduino/

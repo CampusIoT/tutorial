@@ -110,6 +110,14 @@ https://meshtastic.org/docs/hardware/devices/
 
 Requires a compatible browser, such as Chrome or Edge for serial flashing
 
+## Serial console
+
+```bash
+brew install tio
+tio -L
+tio -b 115200 -m INLCRNL /dev/tty.usbXXXXX
+```
+
 ## Meshtastic Python CLI
 
 * https://meshtastic.org/docs/software/python/cli/
@@ -441,6 +449,8 @@ device, and if none is found, then attempt a TCP connection to localhost.
 
 ### Serial
 
+> `--seriallog` into the command line enables to trace the program during the execution of the console
+
 ```bash
 ls -al /dev/tty.*
 PORT=/dev/ttyUSB0
@@ -493,6 +503,15 @@ set a node at a fixed position and never power up the GPS.
 ```bash
 meshtastic --setlat 45.19025 --setlon 5.7674068 --setalt 240
 ```
+```console
+Connected to radio
+Fixing altitude at 240 meters
+Fixing latitude at 45.19025 degrees
+Fixing longitude at 5.7674068 degrees
+Setting device position and enabling fixed position setting
+```
+
+
 
 set a ringtone
 ```bash
@@ -519,7 +538,7 @@ https://meshtastic.org/docs/software/integrations/mqtt/nodered/
 
 ## Misc
 
-WebClient
+### WebClient
 
 https://client.meshtastic.org/
 
@@ -529,6 +548,7 @@ Self hosting https://github.com/meshtastic/web
 docker run -d -p 8080:8080 --restart always --name Meshtastic-Web ghcr.io/meshtastic/web
 ```
 
+> Remark: Refresh the console after rebooting the node
 
 ### Meshtastic site planner
 
@@ -559,6 +579,20 @@ mqtt subscribe --insecure -v -h $MQTT_BROKER -p $MQTT_PORT -u $MQTT_USERNAME -P 
 
 mqtt subscribe -v -h $MQTT_BROKER -p $MQTT_PORT -u $MQTT_USERNAME -P $MQTT_PASSWORD  $TOPIC
 ```
+
+## Communities
+
+### Gaulix (France)
+
+#### Map
+
+https://map.gaulix.fr/
+
+#### MQTT
+
+https://map.gaulix.fr/channel/6/messages
+
+https://gaulix.fr/1100-mqtt-config-v25x/
 
 ## Glossary
 

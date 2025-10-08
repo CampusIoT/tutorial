@@ -562,6 +562,10 @@ https://github.com/cordelster/mesh-metrics
 
 https://github.com/meshtastic/Meshtasticator
 
+### Meshtastic network visualization
+
+https://github.com/filipsPL/meshtastic-network-visualization/
+
 ### meshtastic-map
 
 https://github.com/liamcottle/meshtastic-map

@@ -518,6 +518,103 @@ set a ringtone
 meshtastic --set-ringtone "LeisureSuit:d=16,o=6,b=56:f.5,f#.5,g.5,g#5,32a#5,f5,g#.5,a#.5,32f5,g#5,32a#5,g#5,8c#.,a#5,32c#,a5,a#.5,c#.,32a5,a#5,32c#,d#,8e,c#.,f.,f.,f.,f.,f,32e,d#,8d,a#.5,e,32f,e,32f,c#,d#.,c#"
 ```
 
+### Config a batch of boards
+
+* https://meshtastic.org/docs/software/python/cli/
+* meshtastic.org/docs/configuration/radio/channels/
+* https://meshtastic.org/docs/configuration/radio/lora/
+
+```bash
+# https://meshtastic.org/docs/software/python/cli/
+# meshtastic.org/docs/configuration/radio/channels/
+# https://meshtastic.org/docs/configuration/radio/lora/
+
+meshtastic_config_owner(){
+OWNER=$1
+meshtastic \
+--set-owner 38GRENLM8ClN_CS$OWNER \
+--set-owner-short CS$OWNER \
+--seriallog
+meshtastic --info  --seriallog | grep CS$OWNER
+}
+
+meshtastic_config_location(){
+meshtastic \
+--setlat 45.19373 --setlon 5.76514 --setalt 220 \
+--seriallog
+meshtastic --info  --seriallog | grep 45.19373
+}
+
+meshtastic_config_radio(){
+meshtastic \
+--set lora.region EU_868 \
+--set lora.modem_preset LONG_MODERATE \
+--seriallog
+meshtastic --info  --seriallog | grep LONG_MODERATE
+# meshtastic --set lora.override_duty_cycle true
+# meshtastic --set lora.hop_limit 2
+}
+
+meshtastic_config_channels(){
+meshtastic --ch-set name "Fr_Balise" --ch-set psk default --ch-set uplink_enabled true --ch-index 0  --seriallog
+meshtastic --ch-set name "Fr_EMCOM" --ch-set psk default --ch-set uplink_enabled true --ch-index 1  --seriallog
+meshtastic --ch-set name "Fr_BlaBla" --ch-set psk default --ch-set uplink_enabled true --ch-index 2  --seriallog
+meshtastic --ch-set name "Fr_Tech" --ch-set psk default --ch-set uplink_enabled true --ch-index 3  --seriallog
+meshtastic --ch-set name "JNR2025" --ch-set psk default --ch-set uplink_enabled true --ch-index 4  --seriallog
+}
+
+meshtastic_info(){
+meshtastic --info  --seriallog
+}
+
+meshtastic_config() {
+OWNER=$1
+meshtastic_config_owner $OWNER
+meshtastic_config_location
+sleep 2
+meshtastic_config_radio
+sleep 2
+meshtastic_config_channels
+sleep 2
+meshtastic_info
+}
+
+meshtastic_config 31
+...
+meshtastic_config 44
+
+```
+
+### Stress test
+
+```bash
+meshtastic --test  --seriallog
+```
+```console
+INFO file:test.py openDebugLog line:152 Writing serial debugging to log_dev_cu.usbserial-110
+INFO file:test.py openDebugLog line:152 Writing serial debugging to log_dev_cu.usbserial-140
+Connection changed: meshtastic.connection.established
+INFO file:test.py testAll line:181 Ports opened, starting test
+INFO file:test.py testThread line:135 Found devices, starting tests...
+INFO file:test.py runTests line:102 Running 5 tests with wantAck=True
+Connection changed: meshtastic.connection.established
+INFO file:test.py runTests line:121 Test 1 succeeded 1 successes 0 failures so far
+INFO file:test.py runTests line:121 Test 2 succeeded 2 successes 0 failures so far
+INFO file:test.py runTests line:121 Test 3 succeeded 3 successes 0 failures so far
+INFO file:test.py runTests line:121 Test 4 succeeded 4 successes 0 failures so far
+INFO file:test.py runTests line:121 Test 5 succeeded 5 successes 0 failures so far
+INFO file:test.py runTests line:102 Running 5 tests with wantAck=False
+INFO file:test.py runTests line:121 Test 6 succeeded 1 successes 0 failures so far
+INFO file:test.py runTests line:121 Test 7 succeeded 2 successes 0 failures so far
+INFO file:test.py runTests line:121 Test 8 succeeded 3 successes 0 failures so far
+INFO file:test.py runTests line:121 Test 9 succeeded 4 successes 0 failures so far
+INFO file:test.py runTests line:121 Test 10 succeeded 5 successes 0 failures so far
+Connection changed: meshtastic.connection.lost
+Connection changed: meshtastic.connection.lost
+Test was a success.
+```
+
+
 
 
 ## Meshtastic Web

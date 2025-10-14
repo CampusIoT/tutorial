@@ -547,12 +547,14 @@ meshtastic --info  --seriallog | grep 45.19373
 
 meshtastic_config_radio(){
 meshtastic \
+--set lora.use_preset true \
 --set lora.region EU_868 \
 --set lora.modem_preset LONG_MODERATE \
+--set lora.tx_power 22 \
+--set lora.override_duty_cycle false \
+--set lora.hop_limit 3 \
 --seriallog
 meshtastic --info  --seriallog | grep LONG_MODERATE
-# meshtastic --set lora.override_duty_cycle true
-# meshtastic --set lora.hop_limit 2
 }
 
 meshtastic_config_channels(){

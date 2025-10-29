@@ -110,6 +110,14 @@ https://meshtastic.org/docs/hardware/devices/
 
 Requires a compatible browser, such as Chrome or Edge for serial flashing
 
+## Serial console
+
+```bash
+brew install tio
+tio -L
+tio -b 115200 -m INLCRNL /dev/tty.usbXXXXX
+```
+
 ## Meshtastic Python CLI
 
 * https://meshtastic.org/docs/software/python/cli/
@@ -441,6 +449,8 @@ device, and if none is found, then attempt a TCP connection to localhost.
 
 ### Serial
 
+> `--seriallog` into the command line enables to trace the program during the execution of the console
+
 ```bash
 ls -al /dev/tty.*
 PORT=/dev/ttyUSB0
@@ -493,11 +503,119 @@ set a node at a fixed position and never power up the GPS.
 ```bash
 meshtastic --setlat 45.19025 --setlon 5.7674068 --setalt 240
 ```
+```console
+Connected to radio
+Fixing altitude at 240 meters
+Fixing latitude at 45.19025 degrees
+Fixing longitude at 5.7674068 degrees
+Setting device position and enabling fixed position setting
+```
+
+
 
 set a ringtone
 ```bash
 meshtastic --set-ringtone "LeisureSuit:d=16,o=6,b=56:f.5,f#.5,g.5,g#5,32a#5,f5,g#.5,a#.5,32f5,g#5,32a#5,g#5,8c#.,a#5,32c#,a5,a#.5,c#.,32a5,a#5,32c#,d#,8e,c#.,f.,f.,f.,f.,f,32e,d#,8d,a#.5,e,32f,e,32f,c#,d#.,c#"
 ```
+
+### Config a batch of boards
+
+* https://meshtastic.org/docs/software/python/cli/
+* meshtastic.org/docs/configuration/radio/channels/
+* https://meshtastic.org/docs/configuration/radio/lora/
+
+```bash
+# https://meshtastic.org/docs/software/python/cli/
+# meshtastic.org/docs/configuration/radio/channels/
+# https://meshtastic.org/docs/configuration/radio/lora/
+
+meshtastic_config_owner(){
+OWNER=$1
+meshtastic \
+--set-owner 38GRENLM8ClN_CS$OWNER \
+--set-owner-short CS$OWNER \
+--seriallog
+meshtastic --info  --seriallog | grep CS$OWNER
+}
+
+meshtastic_config_location(){
+meshtastic \
+--setlat 45.19373 --setlon 5.76514 --setalt 220 \
+--seriallog
+meshtastic --info  --seriallog | grep 45.19373
+}
+
+meshtastic_config_radio(){
+meshtastic \
+--set lora.use_preset true \
+--set lora.region EU_868 \
+--set lora.modem_preset LONG_MODERATE \
+--set lora.tx_power 22 \
+--set lora.override_duty_cycle false \
+--set lora.hop_limit 3 \
+--seriallog
+meshtastic --info  --seriallog | grep LONG_MODERATE
+}
+
+meshtastic_config_channels(){
+meshtastic --ch-set name "Fr_Balise" --ch-set psk default --ch-set uplink_enabled true --ch-index 0  --seriallog
+meshtastic --ch-set name "Fr_EMCOM" --ch-set psk default --ch-set uplink_enabled true --ch-index 1  --seriallog
+meshtastic --ch-set name "Fr_BlaBla" --ch-set psk default --ch-set uplink_enabled true --ch-index 2  --seriallog
+meshtastic --ch-set name "Fr_Tech" --ch-set psk default --ch-set uplink_enabled true --ch-index 3  --seriallog
+meshtastic --ch-set name "JNR2025" --ch-set psk default --ch-set uplink_enabled true --ch-index 4  --seriallog
+}
+
+meshtastic_info(){
+meshtastic --info  --seriallog
+}
+
+meshtastic_config() {
+OWNER=$1
+meshtastic_config_owner $OWNER
+meshtastic_config_location
+sleep 2
+meshtastic_config_radio
+sleep 2
+meshtastic_config_channels
+sleep 2
+meshtastic_info
+}
+
+meshtastic_config 31
+...
+meshtastic_config 44
+
+```
+
+### Stress test
+
+```bash
+meshtastic --test  --seriallog
+```
+```console
+INFO file:test.py openDebugLog line:152 Writing serial debugging to log_dev_cu.usbserial-110
+INFO file:test.py openDebugLog line:152 Writing serial debugging to log_dev_cu.usbserial-140
+Connection changed: meshtastic.connection.established
+INFO file:test.py testAll line:181 Ports opened, starting test
+INFO file:test.py testThread line:135 Found devices, starting tests...
+INFO file:test.py runTests line:102 Running 5 tests with wantAck=True
+Connection changed: meshtastic.connection.established
+INFO file:test.py runTests line:121 Test 1 succeeded 1 successes 0 failures so far
+INFO file:test.py runTests line:121 Test 2 succeeded 2 successes 0 failures so far
+INFO file:test.py runTests line:121 Test 3 succeeded 3 successes 0 failures so far
+INFO file:test.py runTests line:121 Test 4 succeeded 4 successes 0 failures so far
+INFO file:test.py runTests line:121 Test 5 succeeded 5 successes 0 failures so far
+INFO file:test.py runTests line:102 Running 5 tests with wantAck=False
+INFO file:test.py runTests line:121 Test 6 succeeded 1 successes 0 failures so far
+INFO file:test.py runTests line:121 Test 7 succeeded 2 successes 0 failures so far
+INFO file:test.py runTests line:121 Test 8 succeeded 3 successes 0 failures so far
+INFO file:test.py runTests line:121 Test 9 succeeded 4 successes 0 failures so far
+INFO file:test.py runTests line:121 Test 10 succeeded 5 successes 0 failures so far
+Connection changed: meshtastic.connection.lost
+Connection changed: meshtastic.connection.lost
+Test was a success.
+```
+
 
 
 
@@ -519,7 +637,7 @@ https://meshtastic.org/docs/software/integrations/mqtt/nodered/
 
 ## Misc
 
-WebClient
+### WebClient
 
 https://client.meshtastic.org/
 
@@ -529,6 +647,7 @@ Self hosting https://github.com/meshtastic/web
 docker run -d -p 8080:8080 --restart always --name Meshtastic-Web ghcr.io/meshtastic/web
 ```
 
+> Remark: Refresh the console after rebooting the node
 
 ### Meshtastic site planner
 
@@ -541,6 +660,10 @@ https://github.com/cordelster/mesh-metrics
 ### Meshtastic routing simulator (Discrete Event)
 
 https://github.com/meshtastic/Meshtasticator
+
+### Meshtastic network visualization
+
+https://github.com/filipsPL/meshtastic-network-visualization/
 
 ### meshtastic-map
 
@@ -559,6 +682,20 @@ mqtt subscribe --insecure -v -h $MQTT_BROKER -p $MQTT_PORT -u $MQTT_USERNAME -P 
 
 mqtt subscribe -v -h $MQTT_BROKER -p $MQTT_PORT -u $MQTT_USERNAME -P $MQTT_PASSWORD  $TOPIC
 ```
+
+## Communities
+
+### Gaulix (France)
+
+#### Map
+
+https://map.gaulix.fr/
+
+#### MQTT
+
+https://map.gaulix.fr/channel/6/messages
+
+https://gaulix.fr/1100-mqtt-config-v25x/
 
 ## Glossary
 

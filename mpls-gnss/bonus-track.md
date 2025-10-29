@@ -20,10 +20,14 @@ Auteur: Didier DONSEZ, GINP-UGA.
 * [Autres applications pour Smartphone Android](https://docs.sparkfun.com/SparkFun_RTK_Firmware/gis_software_android/)
 * [Autres applications pour Smartphone iOS](https://docs.sparkfun.com/SparkFun_RTK_Firmware/gis_software_ios/)
 * [Autres applications pour Windows](https://docs.sparkfun.com/SparkFun_RTK_Firmware/gis_software_windows/#qgis)
+* [Pierre BEYSSAC, La cinématique temps réel (RTK) : principes, applications et enjeux](https://annales-des-mines.org/wp-content/uploads/2025/09/EN-31_2025-09-web.pdf#page=32)
 
 ### SDR
 
 Jean-Michel Friedt, Herve Boeglen, [Communication Systems Engineering with GNU Radio: A Hands-on Approach](https://www.wiley.com/en-us/Communication+Systems+Engineering+with+GNU+Radio%3A+A+Hands-on+Approach-p-9781394218899), ISBN: 978-1-394-21889-9, October 2024, 352 pages
 
+### Données géolocalisées
+
+* [Données géolocalisées, souveraineté et indépendance stratégique, Annales de Mines, Enjeux numériques, N° 31 - Septembre 2025](https://annales-des-mines.org/wp-content/uploads/2025/09/EN-31_2025-09-web.pdf)
 
 **Chapitre suivant: [Glossaire](glossaire.md)**

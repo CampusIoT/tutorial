@@ -6,7 +6,7 @@
 
 https://www.st.com/en/evaluation-tools/i-nucleo-lrwan1.html
 
-[Schematic](USI LoRa Arduino shield_SCH_20161115-1.pdf)
+[Schematic](USI_LoRa_Arduino_shield_SCH_20161115-1.pdf)
 
 ### On-board sensors
 

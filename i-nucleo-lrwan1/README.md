@@ -51,7 +51,58 @@ Connect 3V3, GND, RX and TX to FTDI.
 ```bash
 cd ~/github/RIOT-OS/RIOT/tests/drivers/sx127x
 gmake BOARD=i-nucleo-lrwan1 DRIVER=sx1272 flash
-TBC
+```
+
+```
+> main(): This is RIOT! (Version: 2025.10-devel-512-g167b5)
+Unexpected netdev event received: 8
+Initialization successful - starting the shell now
+> help
+Command              Description
+---------------------------------------
+setup                Initialize LoRa modulation settings
+implicit             Enable implicit header
+crc                  Enable CRC
+payload              Set payload length (implicit header)
+random               Get random number from sx127x
+syncword             Get/Set the syncword
+rx_timeout           Set the RX timeout
+channel              Get/Set channel frequency (in Hz)
+register             Get/Set value(s) of registers of sx127x
+send                 Send raw payload string
+listen               Start raw payload listener
+reset                Reset the sx127x device
+pm                   interact with layered PM subsystem
+ps                   Prints information about running threads.
+version              Prints current RIOT_VERSION
+reboot               Reboot the node
+> random
+random: number from sx127x: 2241016186
+> random
+random: number from sx127x: 2100780727
+> syncword get
+Syncword: 0x12
+> syncword set 34
+Syncword set to 34
+> syncword get
+Syncword: 0x34
+> channel get
+Channel: 868299987
+> implicit set 0
+Successfully disabled implicit header
+> crc set 1
+Successfully enabled CRC check
+> setup
+usage: setup <bandwidth (125, 250, 500)> <spreading factor (7..12)> <code rate (5..8)>
+> setup 125 7 5
+setup: setting 125KHz bandwidth
+[Info] setup: configuration set with success
+> send HELLO_WORLD
+sending "HELLO_WORLD" payload (12 bytes)
+> Transmission completed
+> listen
+Listen mode set
+
 ```
 
 ### Test Semtech LoRaMac

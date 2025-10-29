@@ -8,12 +8,6 @@ https://www.st.com/en/evaluation-tools/i-nucleo-lrwan1.html
 
 [Schematic](USI_LoRa_Arduino_shield_SCH_20161115-1.pdf)
 
-### On-board sensors
-
-* ST accelerometer and magnetometer sensor (LSM303AGR)
-* ST relative humidity and temperature sensor (HTS221)
-* ST pressure sensor (LPS22HB)
-
 ### Connectors
 
 | Connector | Function |
@@ -165,3 +159,57 @@ Uplink Counter: 2
 TX power index: 5
 ```
 
+### 🚧🚧🚧🚧 On-board sensors 🚧🚧🚧🚧
+
+#### 🚧 ST accelerometer and magnetometer sensor (LSM303AGR)
+`I2C ADDw = 3Ch(Mag)`
+`I2C ADDw = 32h(Acc)`
+
+
+
+#### 🚧 ST relative humidity and temperature sensor (HTS221)
+`I2C ADDw = BEh`
+
+```makefile
+CFLAGS += -DHTS221_PARAM_ADDR=0xBE
+```
+
+```bash
+cd ~/github/RIOT-OS/RIOT/tests/drivers/hts221
+gmake BOARD=i-nucleo-lrwan1 flash
+```
+
+```
+main(): This is RIOT! (Version: 2025.10-devel-512-g167b5)
+Init HTS221 on I2C_DEV(0)
+[FAILED]
+```
+
+
+#### 🚧 ST pressure sensor (LPS22HB)
+`I2C ADDw = BAh`
+
+
+```bash
+cd ~/github/RIOT-OS/RIOT/tests/drivers/lpsxxx
+gmake BOARD=i-nucleo-lrwan1 DRIVER=lps22hb flash
+```
+
+```
+main(): This is RIOT! (Version: 2025.10-devel-512-g167b5)
+Test application for lps22hb pressure sensor
+
+Initializing lps22hb sensor
+Initialization failed
+```
+
+```makefile
+CFLAGS += -DLPSXXX_PARAM_ADDR=0xBA
+```
+
+#### 🚧 THP sensor (BME680) on Grove connector
+
+```bash
+cd ~/github/RIOT-OS/RIOT/tests/drivers/bme680
+gmake BOARD=i-nucleo-lrwan1 flash
+```

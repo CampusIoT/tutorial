@@ -45,7 +45,11 @@ https://doc.riot-os.org/group__boards__i-nucleo-lrwan1.html
 
 Connect JP6 to SWD
 
-Connect 3V3, GND, RX and TX to FTDI.
+Connect
+* 3V3@CN6 to FTDI 3V3
+* GND@CN6 to FTDI GND
+* Pin1@CN9 to FTDI RXD
+* Pin2@CN9 to FTDI TXD
 
 ### Test driver SX127x
 ```bash

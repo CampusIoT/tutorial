@@ -437,6 +437,8 @@ loramac tx This\ is\ RIOT! cnf 2
 
 ## Annexes
 
+[Firmware open-source RN2xx3](https://github.com/MicrochipTech/RN2xx3_LORAWAN_FIRMWARE)
+
 [Documentation du fabricant : schématiques, documentations techniques ...](./docs)
 
 ![SODAQ ExpLoRer Pinout](images/sodaq_explorer_pinout.png)

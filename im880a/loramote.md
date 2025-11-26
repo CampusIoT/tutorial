@@ -14,6 +14,8 @@ Il comporte :
 
 La schématique de la carte est disponible à la page 5 du [manuel utilisateur](docs/User_Guide_LoRaMote_STD.pdf).
 
+> NB: une [deuxième version de la LoRaMote (WiMOD Mote II)](https://lora-alliance.org/wp-content/uploads/2019/07/Mote_II_Datasheet_V1_1.pdf) a été produite.
+
 ## Micrologiciel (firmware)
 
 Le dernier micrologiciel supporté par Semtech pour la LoRaMote est le [tag v4.4.1](https://github.com/Lora-net/LoRaMac-node/tree/v4.4.1/src/apps/LoRaMac/classA/LoRaMote).

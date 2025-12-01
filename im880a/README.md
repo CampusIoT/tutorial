@@ -42,6 +42,11 @@ Nous disposons au fablab de plusieurs cartes de démonstration et de prototypage
 * [SK-iM880a](./sk-im880a.md) : kit d'évaluation et de prototypage du module iM880a
 * [IMST-iM880a-DS75LX](./im880a-ds75lx.md) : carte simple muni d'un capteur de temperature DS75LX
 
+
+## Deboggeurs
+
+[STLink debuggers](https://stm32-base.org/guides/connecting-your-debugger.html)
+
 ## Les codes sources disponibles
 
 L'implémentation officielle (Semtech) des drivers des composants SX126x/SX127x et de l'interface réseau LoRaWAN coté endpoint est dans le dépôt [LoRaMac-node](https://github.com/Lora-net/LoRaMac-node).

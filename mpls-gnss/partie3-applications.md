@@ -32,6 +32,9 @@ Le géorepérage ou gardiennage virtuel (en anglais, geofence ou geofencing) est
 
 Calcul en temps réel et in vivo de l'aérodynamisme d'un coureur ([WastedWatts](https://www.wastedwatts.com/))
 
-Photos ici
+Combine la puissance mesurée au niveau des pédales, l'inclinaison (ie. la pente), la position centrimêtrique (RTK), la traction des pneus (20%) pour mesurer la puissance perdue en aérodynamisme.
+
+![](images/wastedwatts-01.jpg) ![](images/wastedwatts-02.jpg)
+
 
 **Chapitre suivant : [Partie 4: Systèmes d'information géographique](partie4-sig.md)**

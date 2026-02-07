@@ -35,7 +35,10 @@ Installez l'[application SW Maps](https://play.google.com/store/apps/details?id=
 * [Partie 1: GNSS](partie1-gnss.md)
 * [Partie 2: GNSS RTK](partie2-rtk.md)
 * [Partie 3: GNSS et Applications](partie3-applications.md)
-* [Partie 4: GNSS et risques cyber](partie4-cyberrisk.md)
+* [Partie 4: Systèmes d'information géographique](partie4-sig.md)
+* [Partie 5: Codage des coordonnées](partie5-codage.md)
+* [Partie 6: Mise en oeuvre avec des ballons stratosphériques](partie6-hab.md)
+* [Partie 6: GNSS et risques cyber](partie7-cyberrisk.md)
 * [Bonus Track](bonus-track.md)
 * [Glossaire](glossaire.md)
 

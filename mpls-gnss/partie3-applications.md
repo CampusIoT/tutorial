@@ -24,6 +24,16 @@ La géolocalisation (geotracking en anglais) est un procédé permettant de posi
 
 Le géorepérage ou gardiennage virtuel (en anglais, geofence ou geofencing) est une fonction d'un logiciel de géolocalisation qui permet de surveiller à distance la position et le déplacement d'un objet et de prendre des mesures si la position ou le déplacement s'écarte de certaines valeurs fixées d'avance.
 
+#### Autres
+
+##### Sports de précision
+
+###### Cyclisme
+
+Calcul en temps réel et in vivo de l'aérodynamisme d'un coureur ([WastedWatts](https://www.wastedwatts.com/))
+
+Photos ici
+
 ### Systèmes d'information géographique (SIG ou GIS)
 
 Un [Système d'information géographique](https://fr.wikipedia.org/wiki/Syst%C3%A8me_d%27information_g%C3%A9ographique) est un système d'information conçu pour recueillir, stocker, traiter, analyser, gérer et présenter tous les types de données spatiales et géographiques. Les applications sont par exemple, les cadastres, les réseaux d'eau, de gaz, d'électricité, les systèmes de gestion des batiments (BMS) ...

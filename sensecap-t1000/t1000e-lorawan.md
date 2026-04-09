@@ -4,6 +4,16 @@
 * https://wiki.seeedstudio.com/get_started_with_lorawan_tracker/
 
 
+## Default Firmware (LoRaWAN Class A Tracker)
+
+Use `SenseCap` app (iOS or Android) for configuring an getting `DevEUI` and `AppKey`.
+
+> DevEUI and AppKey are provided also on the shipping box
+
+### Codec 
+For TTN : https://github.com/Seeed-Solution/SenseCAP-Decoder/blob/main/T1000/TTN/SenseCAP_T1000E_TTN_Decoder.js
+
+[Optimized decoder](codec/decoder-rewritten.js)
 
 ## Serial console
 

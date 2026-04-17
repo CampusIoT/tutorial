@@ -7,7 +7,7 @@
 ## [Centipede](https://docs.centipede.fr/)
 On Grenoble, Centipede reference stations are `CRO2` and `CHA2`.
 
-## Bluetooth GNSS app (for Android)
+## Bluetooth GNSS app (for Android)x
 
 Install the [application Bluetooth GNSS on your Android smartphone](https://play.google.com/store/apps/details?id=com.clearevo.bluetooth_gnss)
 
@@ -25,4 +25,16 @@ Install the [application Bluetooth GNSS on your Android smartphone](https://play
 ![Surveyor Belledone](surveyor-01.jpg)
 
 
+## Misc
 
+### Updating RTK Firmware 
+
+https://github.com/sparkfun/SparkFun_RTK_Firmware/releases
+
+https://docs.sparkfun.com/SparkFun_RTK_Firmware/firmware_update/#windows
+
+![](updater-01.png)
+
+### Updating u-blox Firmware
+
+https://docs.sparkfun.com/SparkFun_RTK_Firmware/firmware_update/#updating-u-blox-firmware

@@ -8,9 +8,12 @@ This example requires the importation of two libraries into the Arduino IDE
 
 ## Wiring
 
+The GNSS module is configured into [`config.h`](config.h).
+
 Warning: The default baudrate for [Grove-GPS](https://wiki.seeedstudio.com/Grove-GPS/) SIM28 is 9600. Check baudrates for [other common GNSS modules](https://github.com/CampusIoT/orbimote/blob/master/gnss_modules.md).
 
 ### Wiring for Grove GPS
+
 The example has been tested with the [Grove-GPS](https://wiki.seeedstudio.com/Grove-GPS/) plugged into the UART Grove connector of the TinyGS 2G4 station.
 
 This module is connected to the UART2 with the following wiring:
@@ -27,21 +30,26 @@ The example has been tested with the [SparkFun GPS Breakout - XA1110](https://le
 
 This module is connected to the UART2 with the following wiring:
 
+## POI (Point of Interest)
+
+The POI is configured into [`poi.h`](poi.h).
+
 ## Build
 
-Set the baudrate of the module
+Set the baudrate of the module into the [`config.h`](config.h)
 
 ```c
 ...
-static const uint32_t GPSBaud = 9600;
+static const uint32_t GPSBaud = GNSS_BAUDRATE;
 ...
 ```
 
-Set the coordinates of your POI (Point of Interest)
+Set the coordinates of your POI (Point of Interest) into [`poi.h`](poi.h)
 
 ```c
 ...
-static const double POI_LAT = 45.19262400425433, POI_LON = 5.759966075632675;
+#define POI_LAT		45.19262400425433
+#define POI_LON		5.759966075632675
 ...
 ```
 

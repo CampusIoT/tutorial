@@ -6,9 +6,18 @@
    4800-baud serial GPS device hooked up on pins 4(rx) and 3(tx).
 */
 
+// #include "poi.h"
+#ifndef POI_LAT
 // POI (Point of Interest) : CSUG
-static const double POI_LAT = 45.19262400425433;
-static const double POI_LON = 5.759966075632675;
+#define POI_LAT     45.19262400425433
+#define POI_LON     5.759966075632675
+#endif
+
+#define GNSS_XA1110 1
+//#define GNSS_ZED_F9P 1
+//#define GROVE_GNSS_SIM28 1
+#include "config.h"
+static const uint32_t GPSBaud = GNSS_BAUDRATE;
 
 // RXTX for the UART Grove connector on TinyGS 2G4 ESP32 board
 // * White on RX pin of the GNSS module
@@ -18,11 +27,6 @@ static const int RXPin = 16, TXPin = 17;
 
 // INT of Mikrobus #1 is IO13
 static const int PPSPin = 13;
-
-#include "config.h"
-
-static const uint32_t GPSBaud = GNSS_BAUDRATE;
-
 
 // set DISPLAY_NMEA0183_SENTENCES to 1 for displaying the NMEA0183 sentences
 #define DISPLAY_NMEA0183_SENTENCES    1

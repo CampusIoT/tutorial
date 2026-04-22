@@ -1,6 +1,8 @@
 #ifndef GNSS_CONFIG_H_
 #define GNSS_CONFIG_H_
 
+#ifndef GNSS_BAUDRATE
+
 // Some GNSS module configurations https://github.com/CampusIoT/orbimote/blob/master/gnss_modules.md
 #ifndef GNSS_XA1110
 #define GNSS_XA1110      1
@@ -24,8 +26,7 @@
 
 #endif
 
-
-
+#endif // GNSS_BAUDRATE
 
 
 

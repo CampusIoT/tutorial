@@ -1,4 +1,4 @@
-# Ecole [MPLS](https://alpes-dauphine.maisons-pour-la-science.org/) 2025 :: Atelier GNSS (La Mure)
+# Ecole [MPLS](https://alpes-dauphine.maisons-pour-la-science.org/) 2026 :: Atelier GNSS (La Mure)
 
 Auteur: Didier DONSEZ, GINP-UGA.
 

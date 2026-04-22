@@ -172,6 +172,19 @@ Compilez et chargez le programme sur la carte.
 
 Ouvrez la console série (baudrate 9600).
 
+Au démarrage à froid, le module ne connait ni la date, ni les éphémérides des satellites des constellations suivies. Les messages NMEA0183 suivants sont donnés en exemple:   
+
+```
+$PGACK,EPE,H=9999000.000000,V=100000000.000000*3D
+$GNGGA,000230.868,,,,,0,0,,,M,,M,,*51
+$GPGSA,A,1,,,,,,,,,,,,,,,*1E
+$GLGSA,A,1,,,,,,,,,,,,,,,*02
+$GNRMC,000230.868,V,,,,,0.00,0.00,060180,,,N*5B
+$GNVTG,0.00,T,,M,0.00,N,0.00,K,N*2C
+```
+
+Dès que les messages d'éphémérides des satellites sont recus, le module GNSS peut commencer la résolution de la position. Dès que la position est résolue, les trames nécessaires contiennent les données de positionnement:
+
 ```
 $GPRMC,045103.000,A,3014.1984,N,09749.2872,W,0.67,161.46,030913,,,A*7C
 $GPGGA,045104.000,3014.1985,N,09749.2873,W,1,09,1.2,211.6,M,-22.5,M,,0000*62

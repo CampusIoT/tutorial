@@ -29,6 +29,7 @@ Rapprochez-vous de nous ([CSUG activités ballons](https://www.csug.fr/projets/b
 
 ![SEED_LoRa-E5-mini-3D_Front](https://gricad-gitlab.univ-grenoble-alpes.fr/thingsat/seed/-/raw/main/seed_lora-e5-mini/Pictures/SEED_LoRa-E5-mini-3D_Front.png)
 
+![Microbit](https://gricad-gitlab.univ-grenoble-alpes.fr/thingsat/seed/-/raw/main/seed_microbit/Pictures/seed_microbit-02.jpg)
 
 ![](https://www.csug.fr/medias/photo/ballons-strato-1_1730899844859-jpg)
 

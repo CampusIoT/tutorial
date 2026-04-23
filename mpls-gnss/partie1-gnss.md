@@ -469,6 +469,16 @@ Lat: 451921762 Long: 57355962 (degrees * 10^-7) Alt: 281067 (mm) 3D Positional A
 ...
 ```
 
+La version légèrement modifiée pour l'affichage des valeurs est dans [Z9P_I2C_GetPositionAccuracy.ino](Z9P_I2C_GetPositionAccuracy/Z9P_I2C_GetPositionAccuracy.ino)
+
+```
+Lat: 44.9065234° Long: 5.7819327° Alt: 943.047 (m) Ground speed: 0.023 (m/s) Heading: 194.19528° 3D Positional Accuracy: 1506 (mm)
+Lat: 44.9065234° Long: 5.7819331° Alt: 943.035 (m) Ground speed: 0.027 (m/s) Heading: 194.19528° 3D Positional Accuracy: 1504 (mm)
+Lat: 44.9065234° Long: 5.7819336° Alt: 943.016 (m) Ground speed: 0.017 (m/s) Heading: 194.19528° 3D Positional Accuracy: 1506 (mm)
+Lat: 44.9065236° Long: 5.7819342° Alt: 942.987 (m) Ground speed: 0.027 (m/s) Heading: 194.19528° 3D Positional Accuracy: 1510 (mm)
+Lat: 44.9065238° Long: 5.7819349° Alt: 942.974 (m) Ground speed: 0.021 (m/s) Heading: 194.19528° 3D Positional Accuracy: 1511 (mm)
+```
+
 ##### Example10_GetHighPrecisionPositionAndAccuracy
 
 Ouvrez le croquis `Example10_GetHighPrecisionPositionAndAccuracy` dans le menu `File > Examples > `SparkFun u-Blox GNSS Arduino Library > ZED-F9P`.

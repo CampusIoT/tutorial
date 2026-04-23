@@ -19,7 +19,7 @@
 #include "config.h"
 static const uint32_t GPSBaud = GNSS_BAUDRATE;
 
-// RXTX for the UART Grove connector on TinyGS 2G4 ESP32 board
+// RXTX for the UART Grove connector on TinyGS 2G4 ESP32 board 
 // * White on RX pin of the GNSS module
 // * Yellow on TX pin of the GNSS module
 // RXTX for Mikrobus 1 on TinyGS 2G4 ESP32 board
@@ -29,7 +29,7 @@ static const int RXPin = 16, TXPin = 17;
 static const int PPSPin = 13;
 
 // set DISPLAY_NMEA0183_SENTENCES to 1 for displaying the NMEA0183 sentences
-#define DISPLAY_NMEA0183_SENTENCES    1
+#define DISPLAY_NMEA0183_SENTENCES    0
 
 // set DISPLAY_GNSS_LINES to 1 for displaying the GNSS data
 #define DISPLAY_GNSS_LINES            1

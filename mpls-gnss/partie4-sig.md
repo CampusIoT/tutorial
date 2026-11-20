@@ -44,7 +44,7 @@ Le format Exchangeable image file format (EXIF) est une spécification de format
 
 [ExifTool](https://exiftool.org/) est un outil en ligne de commande permettant la manipulation des données EXIF dans les fichiers image.
 
-> Exercice: Consultez les informations EXIF présentes dans les photos prises lors de la randonnée RTK (avec SW Maps) en utilisant soit l'inspecteur d'images de votre PC/Mac, soit l'application https://exif.tools/ basée sur Exiftool.
+> Exercice: Consultez les informations EXIF présentes dans les photos prises lors de la randonnée RTK (avec SW Maps) en utilisant soit l'inspecteur d'images de votre PC/Mac, soit l'application https://exif.tools/ basée sur ExifTool, soit [Metadata Remover Viewer](https://metadataremover.ai/metadata-viewer) pour une inspection locale dans le navigateur sans téléverser les photos. Les métadonnées peuvent être absentes, supprimées, modifiées ou falsifiées ; corroborez-les avec des éléments de contexte.
 
 #### GeoJSON
 

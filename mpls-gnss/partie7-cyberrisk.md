@@ -38,7 +38,9 @@ Source : Bank of Russia (cbr.ru)
 
 ### Leurrage GNSS
 
-Le leurrage GNSS (GNSS spoofing en anglais) est une technique consistant à émettre de signaux GPS synthétiques pour fausser le calcul de temps et de la position par des récepteurs GPS. C'est un des risques cyber pour les entreprises et gouvernements.
+Le leurrage GNSS (GNSS spoofing en anglais) est une technique consistant à émettre de signaux GNSS synthétiques pour fausser le calcul de temps et de la position par des récepteurs GPS. C'est un des risques cyber pour les entreprises et gouvernements.
+
+Les navires, les avions, les drones, les voitures autonomes, les centres de données peuvent être affectés par cette tromperie sur le temps et la position (3D).
 
 > Des tricheurs au jeu Pokermon Go ont leurré le propre téléphone pour se téléporter et chasser des Pokermon sans bouger de leur fauteuil.
 
@@ -46,6 +48,9 @@ Le leurrage GNSS (GNSS spoofing en anglais) est une technique consistant à éme
 
 ![](eclipseiot-days-jmfriedt-leurrage.png)
 
+[Exemple de leurrage GNSS du système ADS-B du traffic aérien](https://www.linkedin.com/pulse/jamming-spoofing-one-week-gnss-interference-over-arjan-van-der-oest-l3zbe/ )
+
+![](1795363625258.png) ![](1795364755044.png)
 
 ### Dispositif anti-leurrage
 
